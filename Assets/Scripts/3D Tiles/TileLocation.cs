@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileLocation : MonoBehaviour
 {
-    public TileInfo tileInfo;
+    public TileInfo tileInfo = new TileInfo();
     public List<TileLocation> listNeighbors;
 
     public void SetLocation(int x, int z, TileType type) {
