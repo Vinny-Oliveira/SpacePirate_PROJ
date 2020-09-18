@@ -90,7 +90,7 @@ public class GridManager : MonoBehaviour {
     /// <param name="z"></param>
     public void SpawnTile(int x, int z) {
 
-        GameObject singleTile = Instantiate(listPrefabTiles[ grid[x, z] ]); // Spawn the tile
+        GameObject singleTile = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform); // Spawn the tile
         singleTile.transform.position = new Vector3(x, 0, z); // Reposition the tile
         singleTile.GetComponent<TileLocation>().SetLocation(x, z, (TileType)(grid[x, z])); // Set the location variables of the tile
         listTempTiles.Add(singleTile);

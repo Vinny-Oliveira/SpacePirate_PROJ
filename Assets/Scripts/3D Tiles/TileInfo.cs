@@ -10,6 +10,7 @@ public enum TileType {
     ODD = 1
 }
 
+[System.Serializable]
 public class TileInfo {
 
     public Vector3 coordinates;
