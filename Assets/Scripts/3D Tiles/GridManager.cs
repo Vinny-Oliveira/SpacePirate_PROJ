@@ -92,52 +92,20 @@ public class GridManager : MonoBehaviour {
     /// <param name="z"></param>
     public void SpawnTile(int x, int z) {
 
-        GameObject singleTile = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform); // Spawn the tile
-        singleTile.transform.position = new Vector3(x, 0, z); // Reposition the tile
+        // Spawn and reposition the tile
+        GameObject singleTile = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform);
+        singleTile.transform.position = new Vector3(x, 0, z);
 
+        // Set the location variables of the tile
         TileLocation singleTileLocation = singleTile.GetComponent<TileLocation>();
-        singleTileLocation.SetLocation(x, z, (TileType)(grid[x, z])); // Set the location variables of the tile
+        singleTileLocation.SetLocation(x, z, (TileType)(grid[x, z]));
         singleTileLocation.gridManager = this;
+        singleTile.name = "Tile (" + x + "," + z + ")";
 
+        // Add tile to lists
         listTempTiles.Add(singleTile);
-
-        //TileInfo newSpawnedTile = new TileInfo();
-        //newSpawnedTile.coordinates = new Vector3(x, 0, z);
-        //newSpawnedTile.tileType = ConvertToType(grid[x, z]);
-        //savedGridMap.listTilesInfo.Add(newSpawnedTile);
-
         AddTileToMap(singleTile.GetComponent<TileLocation>(), x, z);
     }
-
-    ///// <summary>
-    ///// Load a saved map of tiles
-    ///// </summary>
-    //[ContextMenu("Load Tiles")]
-    //public void LoadTiles() 
-    //{
-    //    ClearMapOfTiles();
-
-    //    // Load info only if info exists in the SO
-    //    if (savedGridMap.listTilesInfo.Count > 0)
-    //    {
-    //        Debug.Log("Loading Map...");
-
-    //        currentMapSizeX = savedGridMap.intMapSizeX;
-    //        currentMapSizeZ = savedGridMap.intMapSizeZ;
-    //        tileLocationMap = new TileLocation[currentMapSizeX, currentMapSizeZ];
-
-    //        foreach (TileInfo singleTile in savedGridMap.listTilesInfo)
-    //        {
-    //            GameObject tile = Instantiate(listPrefabTiles[ConvertToInt(singleTile.tileType)]);
-    //            tile.transform.position = singleTile.coordinates;
-    //            tile.GetComponent<TileLocation>().tileInfo = singleTile;
-
-    //            listTempTiles.Add(tile);
-
-    //            AddTileToMap(tile.GetComponent<TileLocation>(), (int) singleTile.coordinates.x, (int) singleTile.coordinates.z);
-    //        }
-    //    }
-    //}
 
     /// <summary>
     /// Add tile location to the map of tile locations
