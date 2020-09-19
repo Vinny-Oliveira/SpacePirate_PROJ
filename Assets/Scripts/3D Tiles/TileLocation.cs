@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileLocation : MonoBehaviour
-{
+public class TileLocation : MonoBehaviour {
+
+    public GridManager gridManager;
     public TileInfo tileInfo = new TileInfo();
     public List<TileLocation> listNeighbors;
 
@@ -12,7 +13,14 @@ public class TileLocation : MonoBehaviour
         tileInfo.tileType = type;
     }
 
-    public void GetLocation() {
-        print("LocationInfo is: " + tileInfo.coordinates);
+    public Vector3 GetLocation() {
+        //print("LocationInfo is: " + tileInfo.coordinates);
+        return tileInfo.coordinates;
+    }
+
+    private void OnMouseDown() {
+        if (gridManager != null && gridManager.player != null) {
+            gridManager.player.MoveToTile(this);
+        }
     }
 }

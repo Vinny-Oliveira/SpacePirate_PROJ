@@ -8,6 +8,8 @@ public class GridManager : MonoBehaviour {
 
     public int[,] grid = new int[0,0]; // Grid with positions
 
+    public PlayerController player;
+
     public List<GameObject> listPrefabTiles; // List with all the tile prefabs
     public List<GameObject> listTempTiles; // List of tiles spawned in the scene
 
@@ -92,7 +94,11 @@ public class GridManager : MonoBehaviour {
 
         GameObject singleTile = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform); // Spawn the tile
         singleTile.transform.position = new Vector3(x, 0, z); // Reposition the tile
-        singleTile.GetComponent<TileLocation>().SetLocation(x, z, (TileType)(grid[x, z])); // Set the location variables of the tile
+
+        TileLocation singleTileLocation = singleTile.GetComponent<TileLocation>();
+        singleTileLocation.SetLocation(x, z, (TileType)(grid[x, z])); // Set the location variables of the tile
+        singleTileLocation.gridManager = this;
+
         listTempTiles.Add(singleTile);
 
         //TileInfo newSpawnedTile = new TileInfo();
@@ -150,7 +156,7 @@ public class GridManager : MonoBehaviour {
     public void LinkMyNeighbors() { 
         if (tileLocationMap != null) {
             int total = 0;
-            print(tileLocationMap[0,0]);
+            //print(tileLocationMap[0,0]);
 
             for (int x = 0; x < tileLocationMap.GetLength(0); x++)  {
                 for (int z = 0; z < tileLocationMap.GetLength(1); z++) {
