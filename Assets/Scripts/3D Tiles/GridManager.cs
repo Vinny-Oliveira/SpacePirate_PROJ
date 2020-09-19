@@ -155,32 +155,44 @@ public class GridManager : MonoBehaviour {
     [ContextMenu("Link My Neighbors")]
     public void LinkMyNeighbors() { 
         if (tileLocationMap != null) {
-            int total = 0;
-            //print(tileLocationMap[0,0]);
 
             for (int x = 0; x < tileLocationMap.GetLength(0); x++)  {
                 for (int z = 0; z < tileLocationMap.GetLength(1); z++) {
 
-                    if (x > 0) { // Not on the edge
+                    if (x > 0) { // Left neighbor
                         tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z]);
                     } 
 
-                    if (x < currentMapSizeX - 1) { // Not on the edge
+                    if (x < currentMapSizeX - 1) { // Right neighbor
                         tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z]);
                     }
 
-                    if (z > 0) { // Not on the edge
+                    if (z > 0) { // Bottom neighbor
                         tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z - 1]);
                     }
 
-                    if (z < currentMapSizeZ - 1) { // Not on the edge
+                    if (z < currentMapSizeZ - 1) { // Top neighbor
                         tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z + 1]);
                     }
 
-                    total++;
+                    if ( (z < currentMapSizeZ - 1) && (x > 0) ) { // Top Left
+                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z + 1]);
+                    }
+                    
+                    if ( (z < currentMapSizeZ - 1) && (x < currentMapSizeX - 1) ) {  // Top Right
+                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z + 1]);
+                    }
+                    
+                    if ( (z > 0) && (x > 0) ) { // Bottom Left
+                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z - 1]);
+                    }
+                    
+                    if ( (z > 0) && (x < currentMapSizeX - 1) ) { // Bottom Right
+                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z - 1]);
+                    }
+
                 }
             }
-            Debug.Log("Total: " + total);
         }
     }
 
