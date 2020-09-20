@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float fltSpeed = 5;
     public int intRange = 2;
 
-    public TileLocation currentTile;
+    public Tile currentTile;
     public GridManager currentGrid;
 
     private void Start() {
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
                 return;
             }
 
-            currentTile = currentGrid.listTempTiles[0].GetComponent<TileLocation>();
+            currentTile = currentGrid.listTempTiles[0].GetComponent<Tile>();
         }
 
         MoveToTile(currentTile);
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
     /// Move the player to given tile
     /// </summary>
     /// <param name="tile"></param>
-    public void MoveToTile(TileLocation tile) {
+    public void MoveToTile(Tile tile) {
         currentTile = tile;
         MoveToTile(tile.GetLocation());
     }

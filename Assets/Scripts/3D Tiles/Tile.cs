@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileLocation : MonoBehaviour {
+public enum TileType {
+    EVEN = 0,
+    ODD = 1
+}
+public class Tile : MonoBehaviour {
 
     public GridManager gridManager;
-    public TileInfo tileInfo = new TileInfo();
-    public List<TileLocation> listNeighbors;
+    public Vector3 coordinates;
+    public TileType tileType;
+    public List<Tile> listNeighbors;
 
     public void SetLocation(int x, int z, TileType type) {
-        tileInfo.coordinates = new Vector3(x, 0, z);
-        tileInfo.tileType = type;
+        coordinates = new Vector3(x, 0, z);
+        tileType = type;
     }
 
     public Vector3 GetLocation() {
-        //print("LocationInfo is: " + tileInfo.coordinates);
-        return tileInfo.coordinates;
+        return coordinates;
     }
 
     private void OnMouseDown() {

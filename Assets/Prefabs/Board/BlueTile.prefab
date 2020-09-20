@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1700968509848413091}
   - component: {fileID: 1700968509848413088}
   - component: {fileID: 1700968509848413089}
-  - component: {fileID: 1469428830036987221}
+  - component: {fileID: 8114355177232889722}
   m_Layer: 0
   m_Name: BlueTile
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1469428830036987221
+--- !u!114 &8114355177232889722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,11 +103,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1700968509848413278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f9b49bf1a74ba64b840821d63178071, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f272e51dd02b9d4ab5c54d37d651df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 0}
-  tileInfo:
-    coordinates: {x: 0, y: 0, z: 0}
-    tileType: 0
+  coordinates: {x: 0, y: 0, z: 0}
+  tileType: 0
   listNeighbors: []

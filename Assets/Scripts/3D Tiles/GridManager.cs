@@ -13,21 +13,13 @@ public class GridManager : MonoBehaviour {
     public List<GameObject> listPrefabTiles; // List with all the tile prefabs
     public List<GameObject> listTempTiles; // List of tiles spawned in the scene
 
-    public TileLocation[,] tileLocationMap;
+    public Tile[,] tileLocationMap;
     private int currentMapSizeX;
     private int currentMapSizeZ;
 
     // Grid size
     public int intMapSizeX = 10;
     public int intMapSizeZ = 10;
-
-    //[Space(10)]
-    //[Header("Saved Content")]
-    //public SavedGridSO savedGridMap;
-
-    //private void Awake() {
-    //    instance = this;
-    //}
 
     /// <summary>
     /// Clear the current tiles of the scene and clear the list of spawned tiles
@@ -50,16 +42,12 @@ public class GridManager : MonoBehaviour {
     public void CreateTiles() {
         ClearMapOfTiles();
 
-        //savedGridMap.listTilesInfo.Clear();
-        //savedGridMap.intMapSizeX = intMapSizeX;
-        //savedGridMap.intMapSizeZ = intMapSizeZ;
-
         grid = new int[intMapSizeX, intMapSizeZ];
 
         currentMapSizeX = intMapSizeX;
         currentMapSizeZ = intMapSizeZ;
 
-        tileLocationMap = new TileLocation[intMapSizeX, intMapSizeZ];
+        tileLocationMap = new Tile[intMapSizeX, intMapSizeZ];
 
         // Tiles location maps initialization of the 2d Array
         // The information will be added inside when creating the tile object
@@ -97,14 +85,14 @@ public class GridManager : MonoBehaviour {
         singleTile.transform.position = new Vector3(x, 0, z);
 
         // Set the location variables of the tile
-        TileLocation singleTileLocation = singleTile.GetComponent<TileLocation>();
+        Tile singleTileLocation = singleTile.GetComponent<Tile>();
         singleTileLocation.SetLocation(x, z, (TileType)(grid[x, z]));
         singleTileLocation.gridManager = this;
         singleTile.name = "Tile (" + x + "," + z + ")";
 
         // Add tile to lists
         listTempTiles.Add(singleTile);
-        AddTileToMap(singleTile.GetComponent<TileLocation>(), x, z);
+        AddTileToMap(singleTile.GetComponent<Tile>(), x, z);
     }
 
     /// <summary>
@@ -113,7 +101,7 @@ public class GridManager : MonoBehaviour {
     /// <param name="singleTile"></param>
     /// <param name="x"></param>
     /// <param name="z"></param>
-    public void AddTileToMap(TileLocation singleTile, int x, int z) {
+    public void AddTileToMap(Tile singleTile, int x, int z) {
         tileLocationMap[x, z] = singleTile;
     }
 
@@ -179,61 +167,4 @@ public class GridManager : MonoBehaviour {
     //    return false;
     //}
 
-    ///// <summary>
-    ///// Print the location of a Vector3
-    ///// </summary>
-    ///// <param name="tileLocation"></param>
-    //public void TellMyLocation(Vector3 tileLocation) {
-    //    print(tileLocation);
-    //}
-
-    ///// <summary>
-    ///// Utility to convert an int to an enum
-    ///// </summary>
-    ///// <param name="value"></param>
-    ///// <returns></returns>
-    //public TileType ConvertToType(int value) {
-    //    TileType returnThisTile = new TileType();
-    //    switch (value) {
-
-    //        case 0:
-    //            returnThisTile = TileType.Edge;
-    //            break;
-    //        case 1:
-    //            returnThisTile = TileType.Walkable;
-    //            break;
-    //        case 2:
-    //            returnThisTile = TileType.Obstacle;
-    //            break;
-    //        default:
-    //            break;
-    //    }
-
-    //    return returnThisTile;
-    //}
-
-    ///// <summary>
-    ///// Utility to convert an enum to an int
-    ///// </summary>
-    ///// <param name="type"></param>
-    ///// <returns></returns>
-    //public int ConvertToInt(TileType type) {
-    //    int returnThisTile = 0;
-    //    switch (type) {
-
-    //        case TileType.Edge:
-    //            returnThisTile = 0;
-    //            break;
-    //        case TileType.Walkable:
-    //            returnThisTile = 1;
-    //            break;
-    //        case TileType.Obstacle:
-    //            returnThisTile = 2;
-    //            break;
-    //        default:
-    //            break;
-    //    }
-
-    //    return returnThisTile;
-    //}
 }
