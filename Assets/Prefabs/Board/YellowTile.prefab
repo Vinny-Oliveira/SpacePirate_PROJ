@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1700968509848413091}
   - component: {fileID: 1700968509848413088}
   - component: {fileID: 1700968509848413089}
-  - component: {fileID: 8114355177232889722}
+  - component: {fileID: 3808896346486664341}
   m_Layer: 0
-  m_Name: BlueTile
+  m_Name: YellowTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3319e4ab85bf85f4385652612d16ab19, type: 2}
+  - {fileID: 2100000, guid: 296460df11534794c937fc8e3c4505ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8114355177232889722
+--- !u!114 &3808896346486664341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,5 +108,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 0}
   coordinates: {x: 0, y: 0, z: 0}
-  tileType: 1
+  tileType: 0
   listNeighbors: []

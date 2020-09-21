@@ -7,27 +7,14 @@ public class PlayerController : MonoBehaviour {
     public float fltSpeed = 5;
     public int intRange = 2;
 
+    bool isSelected;
+
     public Tile currentTile;
     public GridManager currentGrid;
 
     private void Start() {
-        if (currentGrid == null) {
-            Debug.Log("ERROR: Assign a Grid!");
-            UnityEditor.EditorApplication.isPlaying = false;
-            return;
-        }
-
-        if (currentTile == null) { 
-            if (currentGrid.listTempTiles.Count < 1) {
-                Debug.Log("ERROR: Create a Tile Map!");
-                UnityEditor.EditorApplication.isPlaying = false;
-                return;
-            }
-
-            currentTile = currentGrid.listTempTiles[0].GetComponent<Tile>();
-        }
-
-        MoveToTile(currentTile);
+        isSelected = false;
+        SetStartingTile();
     }
 
     /// <summary>
@@ -57,6 +44,31 @@ public class PlayerController : MonoBehaviour {
         MoveToTile(tile.GetLocation());
     }
 
+    /// <summary>
+    /// Set the value of the tile the player starts on and move them there
+    /// </summary>
+    void SetStartingTile() { 
+        if (currentGrid == null) {
+            Debug.Log("ERROR: Assign a Grid!");
+            UnityEditor.EditorApplication.isPlaying = false;
+            return;
+        }
 
+        if (currentTile == null) { 
+            if (currentGrid.GetTileList().Count < 1) {
+                Debug.Log("ERROR: Create a Tile Map!");
+                UnityEditor.EditorApplication.isPlaying = false;
+                return;
+            }
+
+            currentTile = currentGrid.GetTileList()[0].GetComponent<Tile>();
+        }
+
+        MoveToTile(currentTile);
+    }
+
+    private void OnMouseDown() {
+        isSelected = !isSelected;
+    }
 
 }

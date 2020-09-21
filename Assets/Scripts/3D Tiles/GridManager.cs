@@ -11,7 +11,8 @@ public class GridManager : MonoBehaviour {
     public PlayerController player;
 
     public List<GameObject> listPrefabTiles; // List with all the tile prefabs
-    public List<GameObject> listTempTiles; // List of tiles spawned in the scene
+    private List<GameObject> listTempTiles; // List of tiles spawned in the scene
+    public Material highlightMat;
 
     public Tile[,] tileLocationMap;
     private int currentMapSizeX;
@@ -20,6 +21,14 @@ public class GridManager : MonoBehaviour {
     // Grid size
     public int intMapSizeX = 10;
     public int intMapSizeZ = 10;
+
+    /// <summary>
+    /// Getter of listTempTiles
+    /// </summary>
+    /// <returns></returns>
+    public List<GameObject> GetTileList() {
+        return listTempTiles;
+    }
 
     /// <summary>
     /// Clear the current tiles of the scene and clear the list of spawned tiles
@@ -83,12 +92,13 @@ public class GridManager : MonoBehaviour {
         // Spawn and reposition the tile
         GameObject singleTile = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform);
         singleTile.transform.position = new Vector3(x, 0, z);
+        singleTile.name = "Tile (" + x + "," + z + ")";
 
         // Set the location variables of the tile
         Tile singleTileLocation = singleTile.GetComponent<Tile>();
         singleTileLocation.SetLocation(x, z, (TileType)(grid[x, z]));
         singleTileLocation.gridManager = this;
-        singleTile.name = "Tile (" + x + "," + z + ")";
+        singleTileLocation.SetDefaultMaterial();
 
         // Add tile to lists
         listTempTiles.Add(singleTile);
