@@ -74,7 +74,7 @@ public class GridManager : MonoBehaviour {
             }
         }
 
-        LinkMyNeighbors();
+        LinkTileNeighbors();
     }
 
     /// <summary>
@@ -113,47 +113,61 @@ public class GridManager : MonoBehaviour {
     /// <summary>
     /// Link neighbor tiles to each tile of the map
     /// </summary>
-    public void LinkMyNeighbors() { 
+    public void LinkTileNeighbors() { 
         if (tileLocationMap != null) {
 
             for (int x = 0; x < tileLocationMap.GetLength(0); x++)  {
                 for (int z = 0; z < tileLocationMap.GetLength(1); z++) {
-
-                    if (x > 0) { // Left neighbor
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z]);
-                    } 
-
-                    if (x < currentMapSizeX - 1) { // Right neighbor
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z]);
-                    }
-
-                    if (z > 0) { // Bottom neighbor
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z - 1]);
-                    }
-
-                    if (z < currentMapSizeZ - 1) { // Top neighbor
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z + 1]);
-                    }
-
-                    if ( (z < currentMapSizeZ - 1) && (x > 0) ) { // Top Left
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z + 1]);
-                    }
-                    
-                    if ( (z < currentMapSizeZ - 1) && (x < currentMapSizeX - 1) ) {  // Top Right
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z + 1]);
-                    }
-                    
-                    if ( (z > 0) && (x > 0) ) { // Bottom Left
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z - 1]);
-                    }
-                    
-                    if ( (z > 0) && (x < currentMapSizeX - 1) ) { // Bottom Right
-                        tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z - 1]);
-                    }
-
+                    LinkVerAndHorNeighbors(x, z);
+                    LinkDiagonalNeighbors(x, z);
                 }
             }
         }
     }
 
+    /// <summary>
+    /// Link vertical and horizontal neighbors
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="z"></param>
+    void LinkVerAndHorNeighbors(int x, int z) {
+        if (x > 0) { // Left neighbor
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z]);
+        }
+
+        if (x < currentMapSizeX - 1) { // Right neighbor
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z]);
+        }
+
+        if (z > 0) { // Bottom neighbor
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z - 1]);
+        }
+
+        if (z < currentMapSizeZ - 1) { // Top neighbor
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z + 1]);
+        }
+    }
+
+    /// <summary>
+    /// Link diagonalNeighbors
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="z"></param>
+    void LinkDiagonalNeighbors(int x, int z) { 
+        if ( (z < currentMapSizeZ - 1) && (x > 0) ) { // Top Left
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z + 1]);
+        }
+                    
+        if ( (z < currentMapSizeZ - 1) && (x < currentMapSizeX - 1) ) {  // Top Right
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z + 1]);
+        }
+                    
+        if ( (z > 0) && (x > 0) ) { // Bottom Left
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z - 1]);
+        }
+                    
+        if ( (z > 0) && (x < currentMapSizeX - 1) ) { // Bottom Right
+            tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z - 1]);
+        }
+    }
 }

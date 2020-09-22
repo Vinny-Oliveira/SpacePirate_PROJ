@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
     public int intRange = 2;
 
     bool isSelected;
-    public List<Tile> listTargetTiles = new List<Tile>();
+    List<Tile> listTargetTiles = new List<Tile>();
 
     public Tile currentTile;
     public GridManager currentGrid;
@@ -109,6 +109,8 @@ public class PlayerController : MonoBehaviour {
         foreach (var tile in listTargetTiles) {
             tile.ResetMaterial();
         }
+
+        listTargetTiles.Clear();
     }
 
 }

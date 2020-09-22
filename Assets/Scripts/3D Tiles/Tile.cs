@@ -7,6 +7,7 @@ public enum TileType {
     EVEN = 0,
     ODD = 1
 }
+
 public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     public GridManager gridManager;
