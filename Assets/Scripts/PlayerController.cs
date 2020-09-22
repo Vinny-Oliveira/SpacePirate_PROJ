@@ -74,26 +74,40 @@ public class PlayerController : MonoBehaviour {
 
         // Highlight the tiles within the range
         if (isSelected) {
-            listTargetTiles = currentTile.listNeighbors;
-            List<Tile> listTempNeighbors = listTargetTiles;
+            HighlightTargetTiles();
+        } else {
+            TurnTargetTilesOff();
+        }
+    }
 
-            for (int i = 1; i < intRange; i++) {
-                List<Tile> newNeighbors = new List<Tile>();
-                
-                foreach (var tile in listTempNeighbors) {
-                    List<Tile> tempNeighbors = tile.listNeighbors;
-                    newNeighbors.Concat(tempNeighbors).Distinct();
-                }
+    void HighlightTargetTiles() { 
+        listTargetTiles = currentTile.listNeighbors;
+        List<Tile> listTempNeighbors = listTargetTiles;
 
-                newNeighbors.Remove(currentTile);
-                listTargetTiles.Union(newNeighbors);
-                listTempNeighbors = newNeighbors;
+        // Check tiles in range
+        for (int i = 1; i < intRange; i++) {
+            List<Tile> newNeighbors = new List<Tile>();
+            
+            // Add outer layer of neighbors
+            foreach (var tile in listTempNeighbors) {
+                List<Tile> tempNeighbors = tile.listNeighbors;
+                newNeighbors = newNeighbors.Union(tempNeighbors).ToList();
             }
 
-            foreach (var tile in listTargetTiles) {
-                tile.HighlightTile();
-            }
+            newNeighbors.Remove(currentTile);
+            listTargetTiles = listTargetTiles.Union(newNeighbors).ToList();
+            listTempNeighbors = newNeighbors;
+        }
 
+        // Highlight each tile
+        foreach (var tile in listTargetTiles) {
+            tile.HighlightTile();
+        }
+    }
+
+    void TurnTargetTilesOff() { 
+        foreach (var tile in listTargetTiles) {
+            tile.ResetMaterial();
         }
     }
 

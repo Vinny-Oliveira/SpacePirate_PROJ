@@ -7,7 +7,7 @@ public enum TileType {
     EVEN = 0,
     ODD = 1
 }
-public class Tile : MonoBehaviour {//, IEquatable<Tile> {
+public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     public GridManager gridManager;
     public Vector3 coordinates;
@@ -17,14 +17,23 @@ public class Tile : MonoBehaviour {//, IEquatable<Tile> {
     bool canMoveHere = false;
     public Material defaultMaterial;
 
+    /// <summary>
+    /// Store the tile's default material
+    /// </summary>
     public void SetDefaultMaterial() {
         defaultMaterial = GetComponent<MeshRenderer>().sharedMaterial;
     }
 
+    /// <summary>
+    /// Turn the tile's material back to the default one
+    /// </summary>
     public void ResetMaterial() {
         GetComponent<MeshRenderer>().sharedMaterial = defaultMaterial;
     }
 
+    /// <summary>
+    /// Place the highlight material on the tile
+    /// </summary>
     public void HighlightTile() {
         GetComponent<MeshRenderer>().sharedMaterial = gridManager.highlightMat;
     }
@@ -52,11 +61,19 @@ public class Tile : MonoBehaviour {//, IEquatable<Tile> {
     /// Event for when the tile is clicked
     /// </summary>
     private void OnMouseDown() {
+        MovePlayerHere();
+    }
+
+    /// <summary>
+    /// Move the player to this tile
+    /// </summary>
+    void MovePlayerHere() { 
         if (gridManager != null && gridManager.player != null && canMoveHere) {
             gridManager.player.MoveToTile(this);
         }
     }
 
+#region EQUALITY_OVERLOAD
     public override bool Equals(object other) {
         return this.Equals(other as Tile);
     }
@@ -71,16 +88,6 @@ public class Tile : MonoBehaviour {//, IEquatable<Tile> {
         return base.GetHashCode();
     }
 
-    //public static bool operator ==(Tile tile1, Tile tile2) {
-    //    if (Tile.ReferenceEquals(tile1, null) || Tile.ReferenceEquals(tile2, null)) {
-    //        return false;
-    //    }
-
-    //    return tile1.Equals(tile2);
-    //}
-    
-    //public static bool operator !=(Tile tile1, Tile tile2) {
-    //    return !(tile1 == tile2);
-    //}
+#endregion
 
 }

@@ -22,14 +22,6 @@ public class GridManager : MonoBehaviour {
     public int intMapSizeX = 10;
     public int intMapSizeZ = 10;
 
-    public Tile tile1;
-    public Tile tile2;
-
-    [ContextMenu("Equality")]
-    public void EqualityTest() {
-        Debug.Log(tile1.Equals(tile2));
-    }
-
 
     /// <summary>
     /// Getter of listTempTiles
@@ -163,20 +155,5 @@ public class GridManager : MonoBehaviour {
             }
         }
     }
-
-
-    ///// <summary>
-    ///// Check if the position where the tile is spawned is an edge
-    ///// </summary>
-    ///// <param name="x"></param>
-    ///// <param name="z"></param>
-    ///// <returns></returns>
-    //public bool IsEdge(int x, int z) { 
-    //    if ((x == 0) || (x == intMapSizeX - 1) || (z == 0) || (z == intMapSizeZ - 1)) {
-    //        return true;
-    //    }
-
-    //    return false;
-    //}
 
 }
