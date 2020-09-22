@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public int intRange = 2;
 
     bool isSelected;
+    public List<Tile> listTargetTiles = new List<Tile>();
 
     public Tile currentTile;
     public GridManager currentGrid;
@@ -69,6 +71,30 @@ public class PlayerController : MonoBehaviour {
 
     private void OnMouseDown() {
         isSelected = !isSelected;
+
+        // Highlight the tiles within the range
+        if (isSelected) {
+            listTargetTiles = currentTile.listNeighbors;
+            List<Tile> listTempNeighbors = listTargetTiles;
+
+            for (int i = 1; i < intRange; i++) {
+                List<Tile> newNeighbors = new List<Tile>();
+                
+                foreach (var tile in listTempNeighbors) {
+                    List<Tile> tempNeighbors = tile.listNeighbors;
+                    newNeighbors.Concat(tempNeighbors).Distinct();
+                }
+
+                newNeighbors.Remove(currentTile);
+                listTargetTiles.Union(newNeighbors);
+                listTempNeighbors = newNeighbors;
+            }
+
+            foreach (var tile in listTargetTiles) {
+                tile.HighlightTile();
+            }
+
+        }
     }
 
 }

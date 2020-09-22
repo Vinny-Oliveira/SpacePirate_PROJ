@@ -11,7 +11,7 @@ public class GridManager : MonoBehaviour {
     public PlayerController player;
 
     public List<GameObject> listPrefabTiles; // List with all the tile prefabs
-    private List<GameObject> listTempTiles; // List of tiles spawned in the scene
+    public List<Tile> listTempTiles = new List<Tile>(); // List of tiles spawned in the scene
     public Material highlightMat;
 
     public Tile[,] tileLocationMap;
@@ -22,11 +22,20 @@ public class GridManager : MonoBehaviour {
     public int intMapSizeX = 10;
     public int intMapSizeZ = 10;
 
+    public Tile tile1;
+    public Tile tile2;
+
+    [ContextMenu("Equality")]
+    public void EqualityTest() {
+        Debug.Log(tile1.Equals(tile2));
+    }
+
+
     /// <summary>
     /// Getter of listTempTiles
     /// </summary>
     /// <returns></returns>
-    public List<GameObject> GetTileList() {
+    public List<Tile> GetTileList() {
         return listTempTiles;
     }
 
@@ -37,7 +46,7 @@ public class GridManager : MonoBehaviour {
     public void ClearMapOfTiles() {
         if (listTempTiles != null) { 
             for (int i = listTempTiles.Count - 1; i > -1; i--) {
-                DestroyImmediate(listTempTiles[i]); // Destroy function used in Editor mode
+                DestroyImmediate(listTempTiles[i].gameObject); // Destroy function used in Editor mode
             }
 
             listTempTiles.Clear();
@@ -62,12 +71,6 @@ public class GridManager : MonoBehaviour {
         // The information will be added inside when creating the tile object
         for (int x = 0; x < intMapSizeX; x++) { 
             for (int z = 0; z < intMapSizeZ; z++) {
-                
-                //if (IsEdge(x, z)) {
-                //    grid[x, z] = 0;
-                //} else {
-                //    grid[x, z] = Random.Range(1, listPrefabTiles.Count);
-                //}
 
                 if ( (x + z) % 2 == 0 ) {
                     grid[x, z] = 0;
@@ -90,19 +93,19 @@ public class GridManager : MonoBehaviour {
     public void SpawnTile(int x, int z) {
 
         // Spawn and reposition the tile
-        GameObject singleTile = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform);
-        singleTile.transform.position = new Vector3(x, 0, z);
-        singleTile.name = "Tile (" + x + "," + z + ")";
+        GameObject tileGO = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform);
+        tileGO.transform.position = new Vector3(x, 0, z);
+        tileGO.name = "Tile (" + x + "," + z + ")";
 
         // Set the location variables of the tile
-        Tile singleTileLocation = singleTile.GetComponent<Tile>();
-        singleTileLocation.SetLocation(x, z, (TileType)(grid[x, z]));
-        singleTileLocation.gridManager = this;
-        singleTileLocation.SetDefaultMaterial();
+        Tile singleTile = tileGO.GetComponent<Tile>();
+        singleTile.SetLocation(x, z, (TileType)(grid[x, z]));
+        singleTile.gridManager = this;
+        singleTile.SetDefaultMaterial();
 
         // Add tile to lists
         listTempTiles.Add(singleTile);
-        AddTileToMap(singleTile.GetComponent<Tile>(), x, z);
+        AddTileToMap(singleTile, x, z);
     }
 
     /// <summary>
@@ -118,7 +121,6 @@ public class GridManager : MonoBehaviour {
     /// <summary>
     /// Link neighbor tiles to each tile of the map
     /// </summary>
-    [ContextMenu("Link My Neighbors")]
     public void LinkMyNeighbors() { 
         if (tileLocationMap != null) {
 

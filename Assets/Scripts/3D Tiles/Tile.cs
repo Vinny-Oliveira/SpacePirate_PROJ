@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public enum TileType {
     EVEN = 0,
     ODD = 1
 }
-public class Tile : MonoBehaviour {
+public class Tile : MonoBehaviour {//, IEquatable<Tile> {
 
     public GridManager gridManager;
     public Vector3 coordinates;
@@ -24,8 +25,8 @@ public class Tile : MonoBehaviour {
         GetComponent<MeshRenderer>().sharedMaterial = defaultMaterial;
     }
 
-    public void SetTileMaterial(Material newMaterial) {
-        GetComponent<MeshRenderer>().sharedMaterial = newMaterial;
+    public void HighlightTile() {
+        GetComponent<MeshRenderer>().sharedMaterial = gridManager.highlightMat;
     }
 
     /// <summary>
@@ -55,4 +56,31 @@ public class Tile : MonoBehaviour {
             gridManager.player.MoveToTile(this);
         }
     }
+
+    public override bool Equals(object other) {
+        return this.Equals(other as Tile);
+    }
+
+    public bool Equals(Tile tile) {
+        if (tile == null) return false;
+
+        return this.coordinates == tile.coordinates;
+    }
+
+    public override int GetHashCode() {
+        return base.GetHashCode();
+    }
+
+    //public static bool operator ==(Tile tile1, Tile tile2) {
+    //    if (Tile.ReferenceEquals(tile1, null) || Tile.ReferenceEquals(tile2, null)) {
+    //        return false;
+    //    }
+
+    //    return tile1.Equals(tile2);
+    //}
+    
+    //public static bool operator !=(Tile tile1, Tile tile2) {
+    //    return !(tile1 == tile2);
+    //}
+
 }
