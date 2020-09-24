@@ -15,10 +15,9 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     public TileType tileType;
     public List<Tile> listNeighbors;
 
-    bool canMoveHere = false;
     public Material defaultMaterial;
 
-    #region LOCATION
+    #region LOCATION_AND_NEIGHBORS
 
     /// <summary>
     /// Setter of coordinates and tileType
@@ -37,6 +36,15 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// <returns></returns>
     public Vector3 GetLocation() {
         return coordinates;
+    }
+
+    /// <summary>
+    /// Returns whether or not the tile has the input in its list of neighbors
+    /// </summary>
+    /// <param name="neighbor"></param>
+    /// <returns></returns>
+    public bool HasNeighbor(Tile neighbor) {
+        return listNeighbors.Contains(neighbor);
     }
 
     #endregion
@@ -69,26 +77,6 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     public void PathMatTile() {
         GetComponent<MeshRenderer>().sharedMaterial = gridManager.pathMat;
-    }
-
-    #endregion
-
-    #region MOVE_TO_THIS_TILE
-
-    /// <summary>
-    /// Event for when the tile is clicked
-    /// </summary>
-    private void OnMouseDown() {
-        MovePlayerHere();
-    }
-
-    /// <summary>
-    /// Move the player to this tile
-    /// </summary>
-    void MovePlayerHere() { 
-        if (gridManager != null && gridManager.player != null && canMoveHere) {
-            gridManager.player.MoveToTile(this);
-        }
     }
 
     #endregion
