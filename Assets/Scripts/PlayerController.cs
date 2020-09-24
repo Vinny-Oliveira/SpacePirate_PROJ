@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour {
     public int intRange = 2;
 
     bool isSelected;
-    //bool isDraggingMouse;
     List<Tile> listTargetTiles = new List<Tile>();
     Stack<Tile> stkPathTiles = new Stack<Tile>();
 
@@ -24,10 +23,6 @@ public class PlayerController : MonoBehaviour {
 
     private void Update() {
         MakeTilePath();
-    }
-
-    public bool IsSelected() {
-        return isSelected;
     }
 
     /// <summary>
