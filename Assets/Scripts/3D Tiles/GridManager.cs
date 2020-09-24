@@ -13,6 +13,7 @@ public class GridManager : MonoBehaviour {
     public List<GameObject> listPrefabTiles; // List with all the tile prefabs
     public List<Tile> listTempTiles = new List<Tile>(); // List of tiles spawned in the scene
     public Material highlightMat;
+    public Material pathMat;
 
     public Tile[,] tileLocationMap;
     private int currentMapSizeX;

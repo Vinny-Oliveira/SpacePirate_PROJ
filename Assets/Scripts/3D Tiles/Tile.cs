@@ -18,6 +18,31 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     bool canMoveHere = false;
     public Material defaultMaterial;
 
+    #region LOCATION
+
+    /// <summary>
+    /// Setter of coordinates and tileType
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="z"></param>
+    /// <param name="type"></param>
+    public void SetLocation(int x, int z, TileType type) {
+        coordinates = new Vector3(x, 0, z);
+        tileType = type;
+    }
+
+    /// <summary>
+    /// Getter of coordinates
+    /// </summary>
+    /// <returns></returns>
+    public Vector3 GetLocation() {
+        return coordinates;
+    }
+
+    #endregion
+
+    #region MATERIAL_MANAGEMENT
+
     /// <summary>
     /// Store the tile's default material
     /// </summary>
@@ -40,23 +65,15 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     }
 
     /// <summary>
-    /// Setter of coordinates and tileType
+    /// Place the path material on the tile
     /// </summary>
-    /// <param name="x"></param>
-    /// <param name="z"></param>
-    /// <param name="type"></param>
-    public void SetLocation(int x, int z, TileType type) {
-        coordinates = new Vector3(x, 0, z);
-        tileType = type;
+    public void PathMatTile() {
+        GetComponent<MeshRenderer>().sharedMaterial = gridManager.pathMat;
     }
 
-    /// <summary>
-    /// Getter of coordinates
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 GetLocation() {
-        return coordinates;
-    }
+    #endregion
+
+    #region MOVE_TO_THIS_TILE
 
     /// <summary>
     /// Event for when the tile is clicked
@@ -74,7 +91,9 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         }
     }
 
-#region EQUALITY_OVERLOAD
+    #endregion
+
+    #region EQUALITY_OVERLOAD
     public override bool Equals(object other) {
         return this.Equals(other as Tile);
     }
