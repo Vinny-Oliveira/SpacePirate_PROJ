@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour {
         ControlMouseOverTiles();
     }
 
+    #region MOVE_PLAYER
+
     /// <summary>
     /// Move the player to given tile
     /// </summary>
@@ -39,6 +41,20 @@ public class PlayerController : MonoBehaviour {
         currentTile = tile;
         Vector3 target = new Vector3(tile.GetLocation().x, transform.position.y, tile.GetLocation().z);
         transform.DOMove(target, 1f).OnComplete(MoveOnPath);
+    }
+
+    /// <summary>
+    /// Move the player through the path of tiles and destroy the list of path tiles as they go
+    /// </summary>
+    void MoveOnPath() {
+        if (listPathTiles.Count < 1) {
+            isMoving = false;
+            return;
+        }
+
+        isMoving = true;
+        MoveToTile(listPathTiles[0]);
+        listPathTiles.RemoveAt(0);
     }
 
     /// <summary>
@@ -64,6 +80,9 @@ public class PlayerController : MonoBehaviour {
         MoveToTile(currentTile);
     }
 
+    #endregion
+
+    #region PLAYER_MOUSE_INPUT
 
     /// <summary>
     /// Event to highlight the tiles in range of the player if they are not moving
@@ -74,6 +93,34 @@ public class PlayerController : MonoBehaviour {
             HighlightTargetTiles();
         }
     }
+
+    /// <summary>
+    /// Build a list of tiles with the path the player will follow
+    /// </summary>
+    void ControlMouseOverTiles() {
+        // The player needs to have been selected
+        if (isSelected) {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100.0f)) {
+                AddTilesToPathList(ref hit);
+            }
+
+            // When the mouse is let go, refresh all tiles
+            if (Input.GetMouseButtonUp(0)) {
+                isSelected = false;
+                TurnTargetTilesOff();
+                MoveOnPath();
+                return;
+            }
+
+        }
+    }
+
+    #endregion
+
+    #region PATH_OF_TILES
 
     /// <summary>
     /// Highlight the tiles in range of the player's movement
@@ -114,30 +161,6 @@ public class PlayerController : MonoBehaviour {
         listTargetTiles.Clear();
     }
 
-    /// <summary>
-    /// Build a list of tiles with the path the player will follow
-    /// </summary>
-    void ControlMouseOverTiles() {
-        // The player needs to have been selected
-        if (isSelected) {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 100.0f)) {
-                AddTilesToPathList(ref hit);
-            }
-
-            // When the mouse is let go, refresh all tiles
-            if (Input.GetMouseButtonUp(0)) {
-                isSelected = false;
-                TurnTargetTilesOff();
-                MoveOnPath();
-                return;
-            }
-
-        }
-    }
-
     void AddTilesToPathList(ref RaycastHit hit) {
         Tile pathTile = hit.transform.GetComponent<Tile>();
 
@@ -164,17 +187,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    /// <summary>
-    /// Move the player through the path of tiles and destroy the list of path tiles as they go
-    /// </summary>
-    void MoveOnPath() {
-        if (listPathTiles.Count < 1) {
-            isMoving = false;
-            return;
-        }
+    #endregion
 
-        isMoving = true;
-        MoveToTile(listPathTiles[0]);
-        listPathTiles.RemoveAt(0);
-    }
 }
