@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour {
         Tile pathTile = hit.transform.GetComponent<Tile>();
 
         // Tile needs to be within the target list
-        if (pathTile && listTargetTiles.Contains(pathTile)) {
+        if (pathTile) {
                     
             // Remove tiles from the path if you hover back
             if (listPathTiles.Contains(pathTile)) {
@@ -175,13 +175,19 @@ public class PlayerController : MonoBehaviour {
                 }
                     
             // Add tile to the path if it is still within range making sure it is a neighbor tile
-            } else if (listPathTiles.Count < intRange) { 
+            } else if (listTargetTiles.Contains(pathTile) && listPathTiles.Count < intRange) { 
                 
                 if ( (listPathTiles.Count < 1 && currentTile.HasNeighbor(pathTile)) || (listPathTiles.Count > 0 && listPathTiles.Last().HasNeighbor(pathTile)) ) { 
                     listPathTiles.Add(pathTile);
                     pathTile.PathMatTile();
                 }
-                
+            
+            // Remove all tiles from the path if the player hovers back to the start
+            } else if (pathTile.Equals(currentTile)) { 
+                foreach (var tile in listPathTiles) {
+                    tile.HighlightTile();
+                }
+                listPathTiles.Clear();
             }
                     
         }
