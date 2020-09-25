@@ -40,7 +40,10 @@ public class PlayerController : MonoBehaviour {
     public void MoveToTile(Tile tile) {
         currentTile = tile;
         Vector3 target = new Vector3(tile.GetLocation().x, transform.position.y, tile.GetLocation().z);
+        Vector3 lookRotation = target - transform.position;
+        
         transform.DOMove(target, 1f).OnComplete(MoveOnPath);
+        transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
     }
 
     /// <summary>
