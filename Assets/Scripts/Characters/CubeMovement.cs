@@ -21,7 +21,7 @@ public class CubeMovement : Character {
     public GameObject southWest;
 
     public int step = 9;
-    public float speed = 0.01f;
+    public float waitTime = 0.05f;
 
     Dictionary<EDirection, Tuple<GameObject, Vector3>> dicDirections;
 
@@ -57,7 +57,7 @@ public class CubeMovement : Character {
             Vector3 axis = dicDirections[direction].Item2;
 
             transform.RotateAround(goDirection.transform.position, axis, step);
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(waitTime);
         }
 
         // Reset the center object
