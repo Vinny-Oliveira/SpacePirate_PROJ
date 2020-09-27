@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4391208583529927690}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4391208582821377465
 GameObject:
@@ -58,7 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4391208583529927690}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4391208583046723589
 GameObject:
@@ -118,7 +118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4391208583529927690}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4391208583529927691
 GameObject:
@@ -148,9 +148,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4391208583046723588}
-  - {fileID: 4391208583264069016}
   - {fileID: 4391208582821377464}
   - {fileID: 4391208582308502241}
+  - {fileID: 4391208583264069016}
   m_Father: {fileID: 4391208583779022774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,10 +261,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a78a4da47051d40a4d75801c8ed37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTile: {fileID: 0}
+  currentGrid: {fileID: 0}
+  listPath: 
   center: {fileID: 4391208583529927691}
-  NorthEast: {fileID: 4391208583046723589}
-  SouthWest: {fileID: 4391208583264069017}
-  NorthWest: {fileID: 4391208582821377465}
-  SouthEast: {fileID: 4391208582308502254}
+  northEast: {fileID: 4391208583046723589}
+  northWest: {fileID: 4391208582821377465}
+  southEast: {fileID: 4391208582308502254}
+  southWest: {fileID: 4391208583264069017}
   step: 9
   speed: 0.01

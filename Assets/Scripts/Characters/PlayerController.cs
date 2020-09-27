@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Character {
 
     /* Movement */
     public float fltSpeed = 5;
@@ -16,9 +16,7 @@ public class PlayerController : MonoBehaviour {
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
 
-    /* Game Objects */
-    public Tile currentTile;
-    public GridManager currentGrid;
+    /* Camera */
     public Camera mainCamera;
 
     private void Start() {
@@ -37,7 +35,7 @@ public class PlayerController : MonoBehaviour {
     /// Move the player to given tile
     /// </summary>
     /// <param name="tile"></param>
-    public void MoveToTile(Tile tile) {
+    protected override void MoveToTile(Tile tile) {
         currentTile = tile;
         Vector3 target = new Vector3(tile.GetLocation().x, transform.position.y, tile.GetLocation().z);
         Vector3 lookRotation = target - transform.position;
@@ -49,7 +47,7 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     /// Move the player through the path of tiles and destroy the list of path tiles as they go
     /// </summary>
-    void MoveOnPath() {
+    public override void MoveOnPath() {
         if (listPathTiles.Count < 1) {
             isMoving = false;
             return;
@@ -58,29 +56,6 @@ public class PlayerController : MonoBehaviour {
         isMoving = true;
         MoveToTile(listPathTiles[0]);
         listPathTiles.RemoveAt(0);
-    }
-
-    /// <summary>
-    /// Set the value of the tile the player starts on and move them there
-    /// </summary>
-    void SetStartingTile() { 
-        if (currentGrid == null) {
-            Debug.Log("ERROR: Assign a Grid!");
-            UnityEditor.EditorApplication.isPlaying = false;
-            return;
-        }
-
-        if (currentTile == null) { 
-            if (currentGrid.GetTileList().Count < 1) {
-                Debug.Log("ERROR: Create a Tile Map!");
-                UnityEditor.EditorApplication.isPlaying = false;
-                return;
-            }
-
-            currentTile = currentGrid.GetTileList()[0].GetComponent<Tile>();
-        }
-
-        MoveToTile(currentTile);
     }
 
     #endregion
