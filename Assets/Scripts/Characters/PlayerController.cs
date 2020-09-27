@@ -16,12 +16,16 @@ public class PlayerController : Character {
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
 
+    /* Item Control */
+    bool hasTreasure = false;
+
     /* Camera */
     public Camera mainCamera;
 
     private void Start() {
         isSelected = false;
         isMoving = false;
+        hasTreasure = false;
         SetStartingTile();
     }
 
