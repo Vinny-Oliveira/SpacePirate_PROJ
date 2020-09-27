@@ -2251,7 +2251,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentTile
       value: 
-      objectReference: {fileID: 723772154}
+      objectReference: {fileID: 1988273694}
     - target: {fileID: 4391208583779022760, guid: 429d880c40b764e42a63f5a6611c5f3e,
         type: 3}
       propertyPath: listPath.Array.data[1]

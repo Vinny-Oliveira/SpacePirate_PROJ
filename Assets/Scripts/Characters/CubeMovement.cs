@@ -12,18 +12,22 @@ public enum EDirection {
 
 public class CubeMovement : Character {
 
+    /* Path where the Cube rolls */
     public List<EDirection> listPath= new List<EDirection>();
 
+    /* Direction GameObjects */
     public GameObject center;
     public GameObject northEast;
     public GameObject northWest;
     public GameObject southEast;
     public GameObject southWest;
 
+    /* Rotation parameters */
     public int step = 9;
     public float waitTime = 0.05f;
 
-    Dictionary<EDirection, Tuple<GameObject, Vector3>> dicDirections;
+    /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
+    Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
     private void Start() {
         SetStartingTile();
@@ -31,14 +35,14 @@ public class CubeMovement : Character {
     }
 
     /// <summary>
-    /// Add all directions to a dictionary
+    /// Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates
     /// </summary>
     void BuildDirectionDictionary() {
-        dicDirections = new Dictionary<EDirection, Tuple<GameObject, Vector3>> {
-            { EDirection.NORTHEAST, new Tuple<GameObject, Vector3>(northEast, Vector3.right) },
-            { EDirection.NORTHWEST, new Tuple<GameObject, Vector3>(northWest, Vector3.forward) },
-            { EDirection.SOUTHEAST, new Tuple<GameObject, Vector3>(southEast, Vector3.back) },
-            { EDirection.SOUTHWEST, new Tuple<GameObject, Vector3>(southWest, Vector3.left) }
+        dicDirections = new Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> {
+            { EDirection.NORTHEAST, new Tuple<GameObject, Vector3, Vector3>(northEast, Vector3.right, Vector3.forward) },
+            { EDirection.NORTHWEST, new Tuple<GameObject, Vector3, Vector3>(northWest, Vector3.forward, Vector3.left) },
+            { EDirection.SOUTHEAST, new Tuple<GameObject, Vector3, Vector3>(southEast, Vector3.back, Vector3.right) },
+            { EDirection.SOUTHWEST, new Tuple<GameObject, Vector3, Vector3>(southWest, Vector3.left, Vector3.back) }
         };
 
     }
@@ -79,7 +83,15 @@ public class CubeMovement : Character {
     /// <returns></returns>
     IEnumerator MoveOnEachDirection() { 
         foreach (var direction in listPath) {
-            yield return StartCoroutine(Roll_Cube(direction));
+            Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
+            Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
+
+            // Only roll to a tile that is within the grid
+            if (nextTile != null) { 
+                yield return StartCoroutine(Roll_Cube(direction));
+                currentTile = nextTile;
+            }
+
         }
     }
 }
