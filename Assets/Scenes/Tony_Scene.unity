@@ -455,11 +455,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileMaterial: {fileID: 2100000, guid: 7d399108123d54b43b8b7f1d0e228737, type: 2}
   materialColourTag: _HighlightColour
-  newColour: {r: 2.5254903, g: 0.15686275, b: 0.15686275, a: 0.70980394}
+  newColour: {r: 2.5254903, g: 0.15686275, b: 0.15686275, a: 0.45490196}
   materialAlphaTag: _HighlightAlpha
   materialSineSpeedTag: _HighlightSineSpeed
-  sineSpeed: 2
-  alpha: 0.5
+  sineSpeed: 0.5
+  alpha: 0.1
 --- !u!64 &1306840144
 MeshCollider:
   m_ObjectHideFlags: 0

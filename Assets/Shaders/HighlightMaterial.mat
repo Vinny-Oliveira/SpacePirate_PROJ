@@ -54,7 +54,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_B8BC75DE: 0.28
-    - Vector1_D6CC04A8: 0.45
+    - Vector1_D6CC04A8: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -65,8 +65,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HighlightAlpha: 0.5
-    - _HighlightSineSpeed: 1
+    - _HighlightAlpha: 0.1
+    - _HighlightSineSpeed: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -83,7 +83,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HighlightColour: {r: 2.5254903, g: 0.15686275, b: 0.15686275, a: 0.70980394}
+    - _HighlightColour: {r: 5.0509806, g: 0.3173391, b: 0.3173391, a: 0.3529412}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &4810516936165081935
 MonoBehaviour:
