@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Treasure : MonoBehaviour {
 
-    public Tile guardTile;
+    public Tile placeTile;
 
 }

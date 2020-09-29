@@ -9,6 +9,7 @@ public class PlayerController : Character {
     /* Movement */
     public float fltSpeed = 5;
     public int intRange = 2;
+    public float stepTime = 0.5f;
 
     /* Path Control */
     bool isSelected;
@@ -17,7 +18,7 @@ public class PlayerController : Character {
     List<Tile> listPathTiles = new List<Tile>();
 
     /* Item Control */
-    bool hasTreasure = false;
+    public bool hasTreasure = false;
 
     /* Camera */
     public Camera mainCamera;
@@ -44,7 +45,7 @@ public class PlayerController : Character {
         Vector3 target = new Vector3(tile.GetLocation().x, transform.position.y, tile.GetLocation().z);
         Vector3 lookRotation = target - transform.position;
         
-        transform.DOMove(target, 1f).OnComplete(MoveOnPath);
+        transform.DOMove(target, stepTime).OnComplete(MoveOnPath);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
     }
 
