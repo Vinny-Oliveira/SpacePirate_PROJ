@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
 
-    public PlayerController thief;
+    public ThiefController thief;
     public CubeMovement cube;
     public Treasure treasure;
 
@@ -45,6 +45,6 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public bool HasThiefEscaped() {
-        return (thief.hasTreasure && AreTilesTheSame(ref exitTile, ref thief.currentTile));
+        return (thief.GetHasTreasure() && AreTilesTheSame(ref exitTile, ref thief.currentTile));
     }
 }

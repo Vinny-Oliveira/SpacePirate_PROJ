@@ -8,8 +8,6 @@ public class GridManager : MonoBehaviour {
 
     public int[,] grid = new int[0,0]; // Grid with positions
 
-    public PlayerController player;
-
     public List<GameObject> listPrefabTiles; // List with all the tile prefabs
     public List<Tile> listTempTiles = new List<Tile>(); // List of tiles spawned in the scene
     public Material highlightMat;

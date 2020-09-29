@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening;
 
-public class PlayerController : Character {
+public class ThiefController : Character {
 
     /* Movement */
     public float fltSpeed = 5;
@@ -18,7 +18,7 @@ public class PlayerController : Character {
     List<Tile> listPathTiles = new List<Tile>();
 
     /* Item Control */
-    public bool hasTreasure = false;
+    bool hasTreasure = false;
 
     /* Camera */
     public Camera mainCamera;
@@ -32,6 +32,10 @@ public class PlayerController : Character {
 
     private void Update() {
         ControlMouseOverTiles();
+    }
+
+    public bool GetHasTreasure() {
+        return hasTreasure;
     }
 
     #region MOVE_PLAYER
