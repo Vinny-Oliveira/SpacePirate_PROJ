@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Directions the cube can roll to
+/// </summary>
 public enum EDirection { 
     NORTHEAST = 0,
     NORTHWEST = 1,
@@ -90,6 +93,13 @@ public class CubeMovement : Character {
             if (nextTile != null) { 
                 yield return StartCoroutine(Roll_Cube(direction));
                 currentTile = nextTile;
+            }
+
+            // Check if the thief was caught
+            TurnManager turnManager = TurnManager.instance;
+            if (turnManager.IsCubeTouchingThief(ref currentTile)) {
+                turnManager.thief.ClearPath();
+                Debug.Log("THIEF CAUGHT!");
             }
 
         }

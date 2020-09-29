@@ -5,10 +5,15 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour {
 
     public ThiefController thief;
-    public CubeMovement cube;
     public Treasure treasure;
 
     public Tile exitTile;
+
+    public static TurnManager instance;
+
+    private void Awake() {
+        instance = this;
+    }
 
     /// <summary>
     /// Check if two tiles are the same
@@ -28,8 +33,8 @@ public class TurnManager : MonoBehaviour {
     /// Check if the cube and the thief are on the same tile
     /// </summary>
     /// <returns></returns>
-    public bool IsCubeTouchingThief() {
-        return AreTilesTheSame(ref cube.currentTile, ref thief.currentTile);
+    public bool IsCubeTouchingThief(ref Tile cubeTile) {
+        return AreTilesTheSame(ref cubeTile, ref thief.currentTile);
     }
 
     /// <summary>
@@ -46,5 +51,14 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool HasThiefEscaped() {
         return (thief.GetHasTreasure() && AreTilesTheSame(ref exitTile, ref thief.currentTile));
+    }
+
+    /// <summary>
+    /// Make the player grab the treasure
+    /// </summary>
+    public void MakeThiefGrabTreasure() {
+        treasure.transform.position = thief.transform.position;
+        treasure.transform.parent = thief.treasureHolder.transform;
+        Debug.Log("Treasure Caught!");
     }
 }

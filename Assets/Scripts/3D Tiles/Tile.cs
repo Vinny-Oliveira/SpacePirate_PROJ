@@ -89,7 +89,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     public bool Equals(Tile tile) {
         if (tile == null) return false;
 
-        return this.coordinates == tile.coordinates;
+        return coordinates == tile.coordinates;
     }
 
     public override int GetHashCode() {

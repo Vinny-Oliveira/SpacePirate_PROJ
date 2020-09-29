@@ -19,6 +19,7 @@ public class ThiefController : Character {
 
     /* Item Control */
     bool hasTreasure = false;
+    public GameObject treasureHolder;
 
     /* Camera */
     public Camera mainCamera;
@@ -46,7 +47,7 @@ public class ThiefController : Character {
     /// <param name="tile"></param>
     protected override void MoveToTile(Tile tile) {
         currentTile = tile;
-        Vector3 target = new Vector3(tile.GetLocation().x, transform.position.y, tile.GetLocation().z);
+        Vector3 target = new Vector3(tile.transform.position.x, transform.position.y, tile.transform.position.z);
         Vector3 lookRotation = target - transform.position;
         
         transform.DOMove(target, stepTime).OnComplete(MoveOnPath);
@@ -57,6 +58,15 @@ public class ThiefController : Character {
     /// Move the player through the path of tiles and destroy the list of path tiles as they go
     /// </summary>
     public override void MoveOnPath() {
+        TurnManager turnManager = TurnManager.instance;
+
+        // Treasure caught
+        if (turnManager.IsThiefTouchingTreasure()) {
+            hasTreasure = true;
+            turnManager.MakeThiefGrabTreasure();
+        }
+
+        // Path is over
         if (listPathTiles.Count < 1) {
             isMoving = false;
             return;
@@ -178,6 +188,13 @@ public class ThiefController : Character {
             }
                     
         }
+    }
+
+    /// <summary>
+    /// Clear the path of tiles
+    /// </summary>
+    public void ClearPath() {
+        listPathTiles.Clear();
     }
 
     #endregion

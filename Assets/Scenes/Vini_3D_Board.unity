@@ -681,7 +681,7 @@ RectTransform:
   m_Children:
   - {fileID: 1593746052}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2421,6 +2421,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 4391208583779022773, guid: 429d880c40b764e42a63f5a6611c5f3e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4391208583779022774, guid: 429d880c40b764e42a63f5a6611c5f3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2459,7 +2464,7 @@ PrefabInstance:
     - target: {fileID: 4391208583779022774, guid: 429d880c40b764e42a63f5a6611c5f3e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4391208583779022774, guid: 429d880c40b764e42a63f5a6611c5f3e,
         type: 3}
@@ -4389,6 +4394,53 @@ MonoBehaviour:
   - {fileID: 1071119100}
   - {fileID: 238468147}
   defaultMaterial: {fileID: 2100000, guid: cabb97ed28ca065459c72dc11e449f98, type: 2}
+--- !u!1 &1007163569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007163571}
+  - component: {fileID: 1007163570}
+  m_Layer: 0
+  m_Name: TurnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1007163570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007163569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fbb035d22854b4faeb658256c5ba19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thief: {fileID: 1442284008}
+  cube: {fileID: 1130712908}
+  treasure: {fileID: 1997957941}
+  exitTile: {fileID: 1071119100}
+--- !u!4 &1007163571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007163569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 433.75, y: 200.625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1032041219
 GameObject:
   m_ObjectHideFlags: 0
@@ -4667,7 +4719,7 @@ Transform:
   - {fileID: 500218545}
   - {fileID: 202478070}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1071119095
 GameObject:
@@ -5137,6 +5189,18 @@ MonoBehaviour:
   - {fileID: 1521757021}
   - {fileID: 245548370}
   defaultMaterial: {fileID: 2100000, guid: cabb97ed28ca065459c72dc11e449f98, type: 2}
+--- !u!114 &1130712908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4391208583779022760, guid: 429d880c40b764e42a63f5a6611c5f3e,
+    type: 3}
+  m_PrefabInstance: {fileID: 477001187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a78a4da47051d40a4d75801c8ed37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1162498872
 GameObject:
   m_ObjectHideFlags: 0
@@ -5147,7 +5211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162498873}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TreasureHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5231,7 +5295,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382428813
 GameObject:
@@ -5485,7 +5549,7 @@ GameObject:
   - component: {fileID: 1442284009}
   - component: {fileID: 1442284008}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5506,7 +5570,7 @@ MonoBehaviour:
   currentTile: {fileID: 1071119100}
   currentGrid: {fileID: 1058557817}
   fltSpeed: 5
-  intRange: 2
+  intRange: 5
   stepTime: 0.5
   mainCamera: {fileID: 963194227}
 --- !u!136 &1442284009
@@ -5584,7 +5648,7 @@ Transform:
   - {fileID: 776868747}
   - {fileID: 1162498873}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1521757016
 GameObject:
@@ -7530,7 +7594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063194916
 GameObject:
