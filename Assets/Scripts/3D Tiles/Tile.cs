@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TileType {
+public enum ETileType {
     EVEN = 0,
     ODD = 1
 }
@@ -12,7 +12,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     public GridManager gridManager;
     public Vector3 coordinates;
-    public TileType tileType;
+    public ETileType tileType;
     public List<Tile> listNeighbors;
 
     public Material defaultMaterial;
@@ -25,7 +25,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// <param name="x"></param>
     /// <param name="z"></param>
     /// <param name="type"></param>
-    public void SetLocation(int x, int z, TileType type) {
+    public void SetLocation(int x, int z, ETileType type) {
         coordinates = new Vector3(x, 0, z);
         tileType = type;
     }

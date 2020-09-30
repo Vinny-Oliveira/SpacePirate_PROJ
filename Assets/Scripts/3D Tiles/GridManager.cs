@@ -90,7 +90,7 @@ public class GridManager : MonoBehaviour {
 
         // Set the location variables of the tile
         Tile singleTile = tileGO.GetComponent<Tile>();
-        singleTile.SetLocation(x, z, (TileType)(grid[x, z]));
+        singleTile.SetLocation(x, z, (ETileType)(grid[x, z]));
         singleTile.gridManager = this;
         singleTile.SetDefaultMaterial();
 

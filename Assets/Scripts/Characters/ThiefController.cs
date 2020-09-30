@@ -18,7 +18,7 @@ public class ThiefController : Character {
     List<Tile> listPathTiles = new List<Tile>();
 
     /* Item Control */
-    bool hasTreasure = false;
+    public bool HasTreasure { get; set; } = false;
     public GameObject treasureHolder;
 
     /* Camera */
@@ -27,16 +27,12 @@ public class ThiefController : Character {
     private void Start() {
         isSelected = false;
         isMoving = false;
-        hasTreasure = false;
+        HasTreasure = false;
         SetStartingTile();
     }
 
     private void Update() {
         ControlMouseOverTiles();
-    }
-
-    public bool GetHasTreasure() {
-        return hasTreasure;
     }
 
     #region MOVE_PLAYER
@@ -58,12 +54,8 @@ public class ThiefController : Character {
     /// Move the player through the path of tiles and destroy the list of path tiles as they go
     /// </summary>
     public override void MoveOnPath() {
-        TurnManager turnManager = TurnManager.instance;
-
-        // Treasure caught
-        if (turnManager.IsThiefTouchingTreasure()) {
-            hasTreasure = true;
-            turnManager.MakeThiefGrabTreasure();
+        if (TurnManager.instance.HandleNewTile()) {
+            return;
         }
 
         // Path is over
@@ -87,6 +79,7 @@ public class ThiefController : Character {
     private void OnMouseDown() {
         if (!isMoving) { 
             isSelected = true;
+            ClearPath();
             HighlightTargetTiles();
         }
     }
@@ -107,8 +100,8 @@ public class ThiefController : Character {
             // When the mouse is let go, refresh all tiles
             if (Input.GetMouseButtonUp(0)) {
                 isSelected = false;
-                TurnTargetTilesOff();
-                MoveOnPath();
+                //TurnTargetTilesOff();
+                //MoveOnPath();
                 return;
             }
 
@@ -150,7 +143,7 @@ public class ThiefController : Character {
     /// <summary>
     /// Turn the highlighted tiles back to their original colors
     /// </summary>
-    void TurnTargetTilesOff() { 
+    public void TurnTargetTilesOff() { 
         foreach (var tile in listTargetTiles) {
             tile.ResetMaterial();
         }

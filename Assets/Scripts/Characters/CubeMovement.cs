@@ -75,7 +75,6 @@ public class CubeMovement : Character {
     /// <summary>
     /// Move on the path set to the Cube
     /// </summary>
-    [ContextMenu("ROLL")]
     public override void MoveOnPath() {
         StartCoroutine(MoveOnEachDirection());
     }
@@ -96,10 +95,8 @@ public class CubeMovement : Character {
             }
 
             // Check if the thief was caught
-            TurnManager turnManager = TurnManager.instance;
-            if (turnManager.IsCubeTouchingThief(ref currentTile)) {
-                turnManager.thief.ClearPath();
-                Debug.Log("THIEF CAUGHT!");
+            if (TurnManager.instance.HandleNewTile(ref currentTile)) {
+                break;
             }
 
         }
