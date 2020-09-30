@@ -9,11 +9,16 @@ public class TurnManager : MonoBehaviour {
     public List<CubeMovement> listCubes;
 
     public Tile exitTile;
+    public UnityEngine.UI.Button btnEndTurn;
+
+    public bool CanMove { get; set; } = true;
+    int intMoveCount;
 
     public static TurnManager instance;
 
     private void Awake() {
         instance = this;
+        CanMove = true;
     }
 
     #region CHECKERS_FOR_OBJECTS_ON_SAME_TILES
@@ -70,14 +75,38 @@ public class TurnManager : MonoBehaviour {
 
     #region TURN_CONTROL
 
+    /// <summary>
+    /// Event for when the End Turn button is pressed
+    /// </summary>
     public void OnEndTurnButtonPress() {
         PlayEveryAction();
     }
 
-    void PlayEveryAction() { 
+    /// <summary>
+    /// Play all the actions of the thief and the cubes
+    /// </summary>
+    void PlayEveryAction() {
+        // Disable movement
+        CanMove = false;
+        intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
+        btnEndTurn.interactable = false;
+
+        // Play actions
         thief.MoveOnPath();
+        thief.TurnTargetTilesOff();
         foreach (var cube in listCubes) {
             cube.MoveOnPath();
+        }
+    }
+
+    /// <summary>
+    /// Decrese the count of moving objects and enable move when the count is zero
+    /// </summary>
+    public void DecreaseMovementCount() {
+        intMoveCount--;
+        if (intMoveCount < 1) {
+            CanMove = true;
+            btnEndTurn.interactable = true;
         }
     }
 

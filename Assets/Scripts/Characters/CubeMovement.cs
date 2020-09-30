@@ -27,12 +27,12 @@ public class CubeMovement : Character {
 
     /* Rotation parameters */
     public int step = 9;
-    public float waitTime = 0.05f;
 
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
     private void Start() {
+        IsMoving = false;
         SetStartingTile();
         BuildDirectionDictionary();
     }
@@ -64,7 +64,7 @@ public class CubeMovement : Character {
             Vector3 axis = dicDirections[direction].Item2;
 
             transform.RotateAround(goDirection.transform.position, axis, step);
-            yield return new WaitForSeconds(waitTime);
+            yield return new WaitForSeconds(stepTime/(step + 1f));
         }
 
         // Reset the center object
@@ -83,7 +83,10 @@ public class CubeMovement : Character {
     /// Go through the list of directions in the path and perform the movement
     /// </summary>
     /// <returns></returns>
-    IEnumerator MoveOnEachDirection() { 
+    IEnumerator MoveOnEachDirection() {
+        IsMoving = true;
+        TurnManager turnManager = TurnManager.instance;
+
         foreach (var direction in listPath) {
             Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
             Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
@@ -95,10 +98,13 @@ public class CubeMovement : Character {
             }
 
             // Check if the thief was caught
-            if (TurnManager.instance.HandleNewTile(ref currentTile)) {
-                break;
+            if (turnManager.HandleNewTile(ref currentTile)) {
+                yield break;
             }
 
         }
+
+        IsMoving = false;
+        turnManager.DecreaseMovementCount();
     }
 }

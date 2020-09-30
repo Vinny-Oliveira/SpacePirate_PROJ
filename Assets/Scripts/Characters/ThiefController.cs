@@ -7,13 +7,10 @@ using DG.Tweening;
 public class ThiefController : Character {
 
     /* Movement */
-    public float fltSpeed = 5;
     public int intRange = 2;
-    public float stepTime = 0.5f;
 
     /* Path Control */
     bool isSelected;
-    bool isMoving;
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
 
@@ -26,7 +23,7 @@ public class ThiefController : Character {
 
     private void Start() {
         isSelected = false;
-        isMoving = false;
+        IsMoving = false;
         HasTreasure = false;
         SetStartingTile();
     }
@@ -54,17 +51,22 @@ public class ThiefController : Character {
     /// Move the player through the path of tiles and destroy the list of path tiles as they go
     /// </summary>
     public override void MoveOnPath() {
-        if (TurnManager.instance.HandleNewTile()) {
+        TurnManager turnManager = TurnManager.instance;
+
+        // Touched a cube or ended the level
+        if (turnManager.HandleNewTile()) {
+            IsMoving = false;
             return;
         }
 
         // Path is over
         if (listPathTiles.Count < 1) {
-            isMoving = false;
+            IsMoving = false;
+            turnManager.DecreaseMovementCount();
             return;
         }
 
-        isMoving = true;
+        IsMoving = true;
         MoveToTile(listPathTiles[0]);
         listPathTiles.RemoveAt(0);
     }
@@ -77,7 +79,7 @@ public class ThiefController : Character {
     /// Event to highlight the tiles in range of the player if they are not moving
     /// </summary>
     private void OnMouseDown() {
-        if (!isMoving) { 
+        if (!IsMoving && TurnManager.instance.CanMove) { 
             isSelected = true;
             ClearPath();
             HighlightTargetTiles();
@@ -89,7 +91,7 @@ public class ThiefController : Character {
     /// </summary>
     void ControlMouseOverTiles() {
         // The player needs to have been selected
-        if (isSelected) {
+        if (isSelected && TurnManager.instance.CanMove) {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -100,8 +102,9 @@ public class ThiefController : Character {
             // When the mouse is let go, refresh all tiles
             if (Input.GetMouseButtonUp(0)) {
                 isSelected = false;
-                //TurnTargetTilesOff();
-                //MoveOnPath();
+                if (listPathTiles.Count < 1) {
+                    TurnTargetTilesOff();
+                }
                 return;
             }
 
