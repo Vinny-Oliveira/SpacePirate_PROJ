@@ -59,12 +59,12 @@ public class CubeMovement : Character {
         center.transform.parent = null;
 
         // Rotate the cube around the given direction object
-        for (int i = 0; i < (90/step); i++) {
+        for (int i = 0; i < (90 / step); i++) {
             GameObject goDirection = dicDirections[direction].Item1;
             Vector3 axis = dicDirections[direction].Item2;
 
             transform.RotateAround(goDirection.transform.position, axis, step);
-            yield return new WaitForSeconds(stepTime/(step + 1f));
+            yield return new WaitForSeconds(stepTime / (step + 1f));
         }
 
         // Reset the center object

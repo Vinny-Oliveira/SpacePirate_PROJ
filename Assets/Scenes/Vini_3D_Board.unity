@@ -2339,7 +2339,7 @@ PrefabInstance:
     - target: {fileID: 4391208583779022760, guid: 429d880c40b764e42a63f5a6611c5f3e,
         type: 3}
       propertyPath: listPath.Array.size
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4391208583779022760, guid: 429d880c40b764e42a63f5a6611c5f3e,
         type: 3}
@@ -5571,8 +5571,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 1071119100}
   currentGrid: {fileID: 1058557817}
-  stepTime: 0.5
-  fltSpeed: 5
   intRange: 12
   treasureHolder: {fileID: 1162498872}
   mainCamera: {fileID: 963194227}

@@ -8,7 +8,7 @@ public class Character : MonoBehaviour {
     public Tile currentTile;
     public GridManager currentGrid;
     protected bool IsMoving { get; set; }
-    public float stepTime = 0.5f;
+    public static float stepTime = 0.5f;
 
     /// <summary>
     /// Move the player to given tile
