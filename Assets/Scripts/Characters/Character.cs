@@ -13,11 +13,11 @@ public class Character : MonoBehaviour {
     /// <summary>
     /// Move the player to given tile
     /// </summary>
-    /// <param name="tile"></param>
-    protected virtual void MoveToTile(Tile tile) {
-        currentTile = tile;
-        Vector3 target = new Vector3(tile.GetLocation().x, transform.position.y, tile.GetLocation().z);
-        transform.position = target;
+    /// <param name="nextTile"></param>
+    protected virtual void MoveToTile(ref Tile nextTile) {
+        currentTile = nextTile;
+        //Vector3 target = new Vector3(nextTile.GetLocation().x, transform.position.y, nextTile.GetLocation().z);
+        //transform.position = target;
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ public class Character : MonoBehaviour {
             currentTile = currentGrid.GetTileList()[0].GetComponent<Tile>();
         }
 
-        MoveToTile(currentTile);
+        MoveToTile(ref currentTile);
     }
 
     public virtual void MoveOnPath() { 

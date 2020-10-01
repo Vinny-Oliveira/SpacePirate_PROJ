@@ -12,6 +12,7 @@ public class ThiefController : Character {
     /* Path Control */
     bool isSelected;
     List<Tile> listTargetTiles = new List<Tile>();
+    [SerializeField]
     List<Tile> listPathTiles = new List<Tile>();
 
     /* Item Control */
@@ -37,14 +38,25 @@ public class ThiefController : Character {
     /// <summary>
     /// Move the player to given tile
     /// </summary>
-    /// <param name="tile"></param>
-    protected override void MoveToTile(Tile tile) {
-        currentTile = tile;
-        Vector3 target = new Vector3(tile.transform.position.x, transform.position.y, tile.transform.position.z);
+    /// <param name="nextTile"></param>
+    protected override void MoveToTile(ref Tile nextTile) {
+        // Calculate position
+        Vector3 target = new Vector3(nextTile.transform.position.x, transform.position.y, nextTile.transform.position.z);
         Vector3 lookRotation = target - transform.position;
-        
-        transform.DOMove(target, stepTime).OnComplete(MoveOnPath);
+
+        // Move to tile
+        transform.DOMove(target, stepTime).OnComplete(UpdateTile(ref nextTile)).OnComplete(MoveOnPath);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
+    }
+
+    /// <summary>
+    /// Callback for a DoTween function to update the current Tile of the thief
+    /// </summary>
+    /// <param name="nextTile"></param>
+    /// <returns></returns>
+    TweenCallback UpdateTile(ref Tile nextTile) {
+        base.MoveToTile(ref nextTile);
+        return null;
     }
 
     /// <summary>
@@ -67,7 +79,8 @@ public class ThiefController : Character {
         }
 
         IsMoving = true;
-        MoveToTile(listPathTiles[0]);
+        Tile nextTile = listPathTiles[0];
+        MoveToTile(ref nextTile);
         listPathTiles.RemoveAt(0);
     }
 

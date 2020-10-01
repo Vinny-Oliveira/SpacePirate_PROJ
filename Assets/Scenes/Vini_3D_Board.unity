@@ -5564,7 +5564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 1071119100}
   currentGrid: {fileID: 1058557817}
-  intRange: 12
+  intRange: 5
+  listPathTiles: []
   treasureHolder: {fileID: 1162498872}
   mainCamera: {fileID: 963194227}
 --- !u!136 &1442284009
