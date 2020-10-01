@@ -57,6 +57,7 @@ public class CubeMovement : Character {
     /// <returns></returns>
     IEnumerator Roll_Cube(EDirection direction) {
         center.transform.parent = null;
+        float waitTime = stepTime / (step + stepTime * (step + 1f));
 
         // Rotate the cube around the given direction object
         for (int i = 0; i < (90 / step); i++) {
@@ -64,7 +65,7 @@ public class CubeMovement : Character {
             Vector3 axis = dicDirections[direction].Item2;
 
             transform.RotateAround(goDirection.transform.position, axis, step);
-            yield return new WaitForSeconds(stepTime / (step + 1f));
+            yield return new WaitForSeconds(waitTime);
         }
 
         // Reset the center object
