@@ -68,9 +68,9 @@ Material:
     - _HighlightAlpha: 0.1
     - _HighlightColourBool: 0
     - _HighlightIsPulsing: 0
-    - _HighlightIsVisible: 1
+    - _HighlightIsVisible: 0
     - _HighlightIsVision: 0
-    - _HighlightSineSpeed: 5
+    - _HighlightSineSpeed: 4
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -92,8 +92,11 @@ Material:
     - _HighlightColourBlue: {r: 0.272662, g: 0.4848672, b: 1.301961, a: 0}
     - _HighlightColourGreen: {r: 0.2666667, g: 1.301961, b: 0.3137255, a: 0}
     - _HighlightColourMove: {r: 0.03137255, g: 1.5843138, b: 0.047058824, a: 0.45490196}
+    - _HighlightColourOrange: {r: 1.417677, g: 0.3385022, b: 0.1205404, a: 0}
+    - _HighlightColourPurple: {r: 0.5119323, g: 0.272662, b: 1.301961, a: 0}
     - _HighlightColourRed: {r: 1.301961, g: 0.282353, b: 0.2666667, a: 0}
     - _HighlightColourVision: {r: 1.4980392, g: 0.32941177, b: 0.3137255, a: 0}
+    - _HighlightColourYellow: {r: 1.190215, g: 1.301961, b: 0.272662, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &4810516936165081935
 MonoBehaviour:

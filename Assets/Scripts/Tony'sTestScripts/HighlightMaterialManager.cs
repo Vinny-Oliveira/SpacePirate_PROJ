@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class HighlightMaterialManager : MonoBehaviour
 {
+    //public enum EColour {Red, Orange, Yellow, Green, Blue, Purple};
     public GameObject highlightQuad;
     public Material highlightMaterial;
-    [ColorUsage(true,true)]
-    Color newColour;
+    //[ColorUsage(true,true)]
+    //Color newColour;
     public string materialColourTag;
+    //public string materialColourRedTag;
+    //public string materialColourOrangeTag;
+    //public string materialColourYellowTag;
+    //public string materialColourGreenTag;
+    //public string materialColourBlueTag;
+    //public string materialColourPurpleTag;
     public string materialSineSpeedTag;
     public string materialIsVisibleTag;
     //public string materialIsVisionTag;
@@ -26,7 +33,7 @@ public class HighlightMaterialManager : MonoBehaviour
         // an instance of the shader so that it affects only itself
         // If you put this code on a parent to control a child, this will need to be
         // changed to look for the child instead of this game object
-        highlightQuad = this.gameObject;
+        //highlightQuad = this.gameObject;
         highlightMaterial = highlightQuad.GetComponent<MeshRenderer>().material;
     }
 
@@ -39,8 +46,11 @@ public class HighlightMaterialManager : MonoBehaviour
     /// 
     /// Current list of colours:
     /// 0 = Red
-    /// 1 = Blue
-    /// 2 = Green
+    /// 1 = Orange
+    /// 2 = Yellow
+    /// 3 = Green
+    /// 4 = Blue
+    /// 5 = Purple
     /// 
     /// ***********************************
     /// *Please update if anything changes*
@@ -51,9 +61,11 @@ public class HighlightMaterialManager : MonoBehaviour
     {
         // Change the HighlightColour to the colour attached to listOfMaterialColours[x]
         highlightMaterial.SetColor(materialColourTag, highlightMaterial.GetColor(listOfMaterialColours[x]));
+        //highlightMaterial.SetColor(materialColourTag, highlightMaterial.GetColor("_HighlightColour"+colour));
+
     }
 
-
+    
     // For testing the ColourChanger function
     [ContextMenu("ChangeColour")]
     public void ChangeColour()
