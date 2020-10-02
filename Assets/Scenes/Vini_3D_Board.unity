@@ -235,6 +235,97 @@ MonoBehaviour:
   - {fileID: 598436450}
   - {fileID: 351288134}
   defaultMaterial: {fileID: 2100000, guid: cabb97ed28ca065459c72dc11e449f98, type: 2}
+--- !u!1001 &133283835
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573550946706576517, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_Name
+      value: CubeBot_Black (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: currentTile
+      value: 
+      objectReference: {fileID: 1749932302}
+    - target: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: currentGrid
+      value: 
+      objectReference: {fileID: 1058557817}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b6b42aa471354248b714ac6066f241c, type: 3}
+--- !u!114 &133283836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
+    type: 3}
+  m_PrefabInstance: {fileID: 133283835}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a78a4da47051d40a4d75801c8ed37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &144502267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4273,6 +4364,7 @@ MonoBehaviour:
   treasure: {fileID: 1997957941}
   listCubes:
   - {fileID: 543830487837489779}
+  - {fileID: 133283836}
   exitTile: {fileID: 1071119100}
   btnEndTurn: {fileID: 1593746053}
 --- !u!4 &1007163571
@@ -7710,7 +7802,7 @@ PrefabInstance:
     - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
