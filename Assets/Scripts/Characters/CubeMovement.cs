@@ -31,6 +31,10 @@ public class CubeMovement : Character {
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
+    /* Field of view */
+    [SerializeField]
+    List<Tile> listFieldOfView = new List<Tile>();
+
     private void Start() {
         IsMoving = false;
         SetStartingTile();
@@ -110,9 +114,19 @@ public class CubeMovement : Character {
         turnManager.DecreaseMovementCount();
     }
 
+    [ContextMenu("Check Field of view")]
+    public void CheckFieldOfView() {
+        listFieldOfView.Clear();
+
+        Vector3 newTileCoord = currentTile.coordinates + transform.right;
+        Tile viewedTile = currentGrid.listTempTiles.Find(x => x.coordinates == newTileCoord);
+
+        listFieldOfView.Add(viewedTile);
+    }
+
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position - 2 * transform.right, transform.localPosition + 2*transform.right);
+        Gizmos.DrawLine(transform.position - 2 * transform.right, transform.position + 2*transform.right);
     }
 
 }
