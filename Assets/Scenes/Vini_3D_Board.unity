@@ -280,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5049357216495996479, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
@@ -306,7 +306,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentTile
       value: 
-      objectReference: {fileID: 1749932302}
+      objectReference: {fileID: 765668009}
     - target: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
       propertyPath: currentGrid
@@ -797,7 +797,7 @@ RectTransform:
   m_Children:
   - {fileID: 1593746052}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5248,7 +5248,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382428813
 GameObject:
@@ -5522,7 +5522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 1071119100}
   currentGrid: {fileID: 1058557817}
-  intRange: 5
+  intRange: 12
   listPathTiles: []
   treasureHolder: {fileID: 1162498872}
   mainCamera: {fileID: 963194227}
@@ -7558,7 +7558,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063194916
 GameObject:
@@ -7878,7 +7878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentTile
       value: 
-      objectReference: {fileID: 1749932302}
+      objectReference: {fileID: 150671987}
     - target: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
       propertyPath: currentGrid
