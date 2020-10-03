@@ -108,4 +108,10 @@ public class CubeMovement : Character {
         IsMoving = false;
         turnManager.DecreaseMovementCount();
     }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position - 2 * transform.right, transform.localPosition + 2*transform.right);
+    }
+
 }

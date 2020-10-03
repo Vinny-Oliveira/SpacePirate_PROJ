@@ -9,6 +9,7 @@ public class Character : MonoBehaviour {
     public GridManager currentGrid;
     protected bool IsMoving { get; set; }
     public static float stepTime = 0.5f;
+    public static float waitOnTileTime = 0.2f;
 
     /// <summary>
     /// Move the player to given tile
@@ -16,8 +17,8 @@ public class Character : MonoBehaviour {
     /// <param name="nextTile"></param>
     protected virtual void MoveToTile(ref Tile nextTile) {
         currentTile = nextTile;
-        //Vector3 target = new Vector3(nextTile.GetLocation().x, transform.position.y, nextTile.GetLocation().z);
-        //transform.position = target;
+        Vector3 target = new Vector3(nextTile.GetLocation().x, transform.position.y, nextTile.GetLocation().z);
+        transform.position = target;
     }
 
     /// <summary>
@@ -43,7 +44,15 @@ public class Character : MonoBehaviour {
         MoveToTile(ref currentTile);
     }
 
+    /// <summary>
+    /// Move on its path
+    /// </summary>
     public virtual void MoveOnPath() { 
     
+    }
+
+    protected virtual IEnumerator WaitOnTile() {
+        yield return new WaitForSeconds(waitOnTileTime);
+        Debug.Log("WAIT");
     }
 }

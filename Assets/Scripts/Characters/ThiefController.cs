@@ -55,7 +55,7 @@ public class ThiefController : Character {
     /// <param name="nextTile"></param>
     /// <returns></returns>
     TweenCallback UpdateTile(ref Tile nextTile) {
-        base.MoveToTile(ref nextTile);
+        currentTile = nextTile;
         return null;
     }
 
