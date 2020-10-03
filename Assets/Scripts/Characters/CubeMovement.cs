@@ -96,6 +96,7 @@ public class CubeMovement : Character {
             if (nextTile != null) { 
                 yield return StartCoroutine(Roll_Cube(direction));
                 currentTile = nextTile;
+                yield return StartCoroutine(WaitOnTile());
             }
 
             // Check if the thief was caught

@@ -45,7 +45,7 @@ public class ThiefController : Character {
         Vector3 lookRotation = target - transform.position;
 
         // Move to tile
-        transform.DOMove(target, stepTime).OnComplete(UpdateTile(ref nextTile)).OnComplete(MoveOnPath);
+        transform.DOMove(target, stepTime).SetEase(Ease.OutCubic).OnComplete(UpdateTile(ref nextTile)).OnComplete(StartWaitOnTile);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
     }
 
@@ -57,6 +57,22 @@ public class ThiefController : Character {
     TweenCallback UpdateTile(ref Tile nextTile) {
         currentTile = nextTile;
         return null;
+    }
+
+    /// <summary>
+    /// Have the Thief wait on the tile for a with before continuing the path
+    /// </summary>
+    /// <returns></returns>
+    protected override IEnumerator WaitOnTile() {
+        yield return StartCoroutine(base.WaitOnTile());
+        MoveOnPath();
+    }
+
+    /// <summary>
+    /// Start the WaitOnTile coroutine
+    /// </summary>
+    void StartWaitOnTile() {
+        StartCoroutine(WaitOnTile());
     }
 
     /// <summary>

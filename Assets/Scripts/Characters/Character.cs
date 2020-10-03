@@ -51,8 +51,11 @@ public class Character : MonoBehaviour {
     
     }
 
+    /// <summary>
+    /// Have the character wait on a tile for a while after they land on it
+    /// </summary>
+    /// <returns></returns>
     protected virtual IEnumerator WaitOnTile() {
         yield return new WaitForSeconds(waitOnTileTime);
-        Debug.Log("WAIT");
     }
 }

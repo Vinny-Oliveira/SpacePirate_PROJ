@@ -83,7 +83,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     #region EQUALITY_OVERLOAD
     public override bool Equals(object other) {
-        return this.Equals(other as Tile);
+        return Equals(other as Tile);
     }
 
     public bool Equals(Tile tile) {
@@ -94,6 +94,14 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     public override int GetHashCode() {
         return base.GetHashCode();
+    }
+
+    public static bool operator ==(Tile lhs, Tile rhs) {
+        return lhs.Equals(rhs);
+    }
+    
+    public static bool operator !=(Tile lhs, Tile rhs) {
+        return !lhs.Equals(rhs);
     }
 
 #endregion
