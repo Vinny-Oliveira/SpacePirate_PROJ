@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class TileHighlighter : MonoBehaviour {
 
-    public GameObject highlightQuad;
-    public Material highlightMaterial;
+    public GameObject highlightQuad; // Game Object highlighted
+    Material highlightMaterial;
 
-    public string materialIsVisibleTag;
+    const string matIsVisibleTag = "_HighlightIsVisible";
     bool canHighlight;
-    
+
+    /* Colors of Highlighters */
+    static readonly string materialColorTag = "_HighlightColour";
+    static readonly string colorThiefRangeTag = "_HighlightColourGreen";
+    static readonly string colorThiefPathTag = "_HighlightColourBlue";
+    static readonly string colorCubeViewTag = "_HighlightColourRed";
+
     private void Start() {
+        canHighlight = false;
+
         // Get material of the quad's MeshRenderer
         if (highlightQuad != null) { 
             highlightMaterial = highlightQuad.GetComponent<MeshRenderer>().material;
+            highlightMaterial.SetFloat(matIsVisibleTag, 0f);
         }
     }
 
@@ -22,45 +31,55 @@ public class TileHighlighter : MonoBehaviour {
     /// </summary>
     /// <param name="colorTag"></param>
     void ChangeColor(string colorTag) {
-        highlightMaterial.SetColor(ColorHighlightManager.instance.materialColourTag, highlightMaterial.GetColor(colorTag));
+        highlightMaterial.SetColor(materialColorTag, highlightMaterial.GetColor(colorTag));
     }
 
     /// <summary>
     /// Change the color of the shader to match the Thief range color
     /// </summary>
-    public void ChanceColorToThiefRange() {
-        ChangeColor(ColorHighlightManager.instance.colorThiefRangeTag);
+    public void ChangeColorToThiefRange() {
+        ChangeColor(colorThiefRangeTag);
     }
 
     /// <summary>
     /// Change the color of the shader to match the Thief path color
     /// </summary>
-    public void ChanceColorToThiefPath() {
-        ChangeColor(ColorHighlightManager.instance.colorThiefPathTag);
+    public void ChangeColorToThiefPath() {
+        ChangeColor(colorThiefPathTag);
     }
 
     /// <summary>
     /// Change the color of the shader to match the Cube's field of view color
     /// </summary>
-    public void ChanceColorToCubeView() {
-        ChangeColor(ColorHighlightManager.instance.colorCubeViewTag);
+    public void ChangeColorToCubeView() {
+        ChangeColor(colorCubeViewTag);
     }
 
     /// <summary>
     /// Toggle the shader on or off so that the object is highlighted or goes back to normal
     /// </summary>
-    [ContextMenu("VisibilityToggle")]
     public void ToggleHighlight() {
-
         // If the shader isn't visible, make it visible
         if (!canHighlight) {
-            highlightMaterial.SetFloat(materialIsVisibleTag, 1f);
-            canHighlight = true;
-        
+            TurnHighlightOn();
         } else { // Make the shader invisible
-            highlightMaterial.SetFloat(materialIsVisibleTag, 0f);
-            canHighlight = false;
+            TurnHighlightOff();
         }
     }
 
+    /// <summary>
+    /// Make the hilight shader visible
+    /// </summary>
+    public void TurnHighlightOn() {
+        highlightMaterial.SetFloat(matIsVisibleTag, 1f);
+        canHighlight = true;
+    }
+
+    /// <summary>
+    /// Make the highlight shader invisible
+    /// </summary>
+    public void TurnHighlightOff() {
+        highlightMaterial.SetFloat(matIsVisibleTag, 0f);
+        canHighlight = false;
+    }
 }

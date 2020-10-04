@@ -168,7 +168,8 @@ public class ThiefController : Character {
 
         // Highlight each tile
         foreach (var tile in listTargetTiles) {
-            tile.HighlightTile();
+            tile.tileHighlighter.ChangeColorToThiefRange();
+            tile.tileHighlighter.TurnHighlightOn();
         }
     }
 
@@ -177,12 +178,16 @@ public class ThiefController : Character {
     /// </summary>
     public void TurnTargetTilesOff() { 
         foreach (var tile in listTargetTiles) {
-            tile.ResetMaterial();
+            tile.tileHighlighter.TurnHighlightOff();
         }
 
         listTargetTiles.Clear();
     }
 
+    /// <summary>
+    /// As the user drags the mouse over the target tiles, ass them to the path
+    /// </summary>
+    /// <param name="hit"></param>
     void AddTilesToPathList(ref RaycastHit hit) {
         Tile pathTile = hit.transform.GetComponent<Tile>();
 
@@ -192,7 +197,7 @@ public class ThiefController : Character {
             // Remove tiles from the path if you hover back
             if (listPathTiles.Contains(pathTile)) {
                 while (!pathTile.Equals(listPathTiles[listPathTiles.Count - 1])) {
-                    listPathTiles.Last().HighlightTile();
+                    listPathTiles.Last().tileHighlighter.ChangeColorToThiefRange();
                     listPathTiles.RemoveAt(listPathTiles.Count - 1);
                 }
                     
@@ -201,13 +206,13 @@ public class ThiefController : Character {
                 
                 if ( (listPathTiles.Count < 1 && currentTile.HasNeighbor(pathTile)) || (listPathTiles.Count > 0 && listPathTiles.Last().HasNeighbor(pathTile)) ) { 
                     listPathTiles.Add(pathTile);
-                    pathTile.PathMatTile();
+                    pathTile.tileHighlighter.ChangeColorToThiefPath();
                 }
             
             // Remove all tiles from the path if the player hovers back to the start
             } else if (pathTile.Equals(currentTile)) { 
                 foreach (var tile in listPathTiles) {
-                    tile.HighlightTile();
+                    tile.tileHighlighter.ChangeColorToThiefRange();
                 }
                 listPathTiles.Clear();
             }

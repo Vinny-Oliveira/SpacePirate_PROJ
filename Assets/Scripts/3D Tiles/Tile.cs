@@ -15,7 +15,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     public ETileType tileType;
     public List<Tile> listNeighbors;
 
-    public Material defaultMaterial;
+    public TileHighlighter tileHighlighter;
 
     #region LOCATION_AND_NEIGHBORS
 
@@ -49,45 +49,13 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     #endregion
 
-    #region MATERIAL_MANAGEMENT
-
-    /// <summary>
-    /// Store the tile's default material
-    /// </summary>
-    public void SetDefaultMaterial() {
-        defaultMaterial = GetComponent<MeshRenderer>().sharedMaterial;
-    }
-
-    /// <summary>
-    /// Turn the tile's material back to the default one
-    /// </summary>
-    public void ResetMaterial() {
-        GetComponent<MeshRenderer>().sharedMaterial = defaultMaterial;
-    }
-
-    /// <summary>
-    /// Place the highlight material on the tile
-    /// </summary>
-    public void HighlightTile() {
-        GetComponent<MeshRenderer>().sharedMaterial = gridManager.highlightMat;
-    }
-
-    /// <summary>
-    /// Place the path material on the tile
-    /// </summary>
-    public void PathMatTile() {
-        GetComponent<MeshRenderer>().sharedMaterial = gridManager.pathMat;
-    }
-
-    #endregion
-
     #region EQUALITY_OVERLOAD
     public override bool Equals(object other) {
         return Equals(other as Tile);
     }
 
     public bool Equals(Tile tile) {
-        if (tile == null) return false;
+        if (tile == null) { return false; }
 
         return coordinates == tile.coordinates;
     }
@@ -96,13 +64,6 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         return base.GetHashCode();
     }
 
-    public static bool operator ==(Tile lhs, Tile rhs) {
-        return lhs.Equals(rhs);
-    }
-    
-    public static bool operator !=(Tile lhs, Tile rhs) {
-        return !lhs.Equals(rhs);
-    }
 
 #endregion
 

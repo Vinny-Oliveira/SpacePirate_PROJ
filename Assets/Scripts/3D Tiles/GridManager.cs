@@ -92,7 +92,6 @@ public class GridManager : MonoBehaviour {
         Tile singleTile = tileGO.GetComponent<Tile>();
         singleTile.SetLocation(x, z, (ETileType)(grid[x, z]));
         singleTile.gridManager = this;
-        singleTile.SetDefaultMaterial();
 
         // Add tile to lists
         listTempTiles.Add(singleTile);
