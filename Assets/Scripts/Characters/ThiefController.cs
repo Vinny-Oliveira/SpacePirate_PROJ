@@ -169,7 +169,7 @@ public class ThiefController : Character {
         // Highlight each tile
         foreach (var tile in listTargetTiles) {
             tile.tileHighlighter.ChangeColorToThiefRange();
-            tile.tileHighlighter.TurnHighlightOn();
+            tile.tileHighlighter.TurnHighlighterOn();
         }
     }
 
@@ -178,7 +178,7 @@ public class ThiefController : Character {
     /// </summary>
     public void TurnTargetTilesOff() { 
         foreach (var tile in listTargetTiles) {
-            tile.tileHighlighter.TurnHighlightOff();
+            tile.tileHighlighter.TurnHighlighterOff();
         }
 
         listTargetTiles.Clear();

@@ -9,7 +9,7 @@ public class Character : MonoBehaviour {
     public GridManager currentGrid;
     protected bool IsMoving { get; set; }
     public static float stepTime = 0.5f;
-    public static float waitOnTileTime = 0.2f;
+    public static float waitOnTileTime = 1f;
 
     /// <summary>
     /// Move the player to given tile

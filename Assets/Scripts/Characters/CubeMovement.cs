@@ -15,30 +15,29 @@ public enum EDirection {
 
 public class CubeMovement : Character {
 
-    /* Path where the Cube rolls */
+    [Header("Path where the Cube rolls")]
     public List<EDirection> listPath= new List<EDirection>();
 
-    /* Direction GameObjects */
+    [Header("Direction GameObjects")]
     public GameObject center;
     public GameObject northEast;
     public GameObject northWest;
     public GameObject southEast;
     public GameObject southWest;
 
-    /* Rotation parameters */
+    [Header("Rotation and Field of View")]
     public int step = 9;
+    public List<Vector2> listViewCoords = new List<Vector2>();
+    List<Tile> listFieldOfView = new List<Tile>(); // Field of view
 
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
-
-    /* Field of view */
-    [SerializeField]
-    List<Tile> listFieldOfView = new List<Tile>();
 
     private void Start() {
         IsMoving = false;
         SetStartingTile();
         BuildDirectionDictionary();
+        //SetFieldOfView();
     }
 
     /// <summary>
@@ -97,9 +96,12 @@ public class CubeMovement : Character {
             Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
 
             // Only roll to a tile that is within the grid
-            if (nextTile != null) { 
+            if (nextTile != null) {
+                DisableFieldOfView();
                 yield return StartCoroutine(Roll_Cube(direction));
                 currentTile = nextTile;
+                MoveToTile(ref currentTile);
+                SetFieldOfView();
                 yield return StartCoroutine(WaitOnTile());
             }
 
@@ -114,14 +116,41 @@ public class CubeMovement : Character {
         turnManager.DecreaseMovementCount();
     }
 
-    [ContextMenu("Check Field of view")]
-    public void CheckFieldOfView() {
+    /// <summary>
+    /// Check which tiles are in the Cube's field of view
+    /// </summary>
+    public void SetFieldOfView() {
+        DisableFieldOfView();
+        
+        foreach (var newCoord in listViewCoords) {
+            Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * transform.forward;
+            Tile viewedTile = currentGrid.listTempTiles.Find(x => x.coordinates == newTileCoord);
+            if (viewedTile) { 
+                listFieldOfView.Add(viewedTile);
+            }
+        }
+        
+        HighlightFieldOfView();
+    }
+
+    /// <summary>
+    /// Highlight the tiles in the Cube's field of view
+    /// </summary>
+    public void HighlightFieldOfView() { 
+        foreach (var tile in listFieldOfView) {
+            tile.tileHighlighter.ChangeColorToCubeView();
+            tile.tileHighlighter.TurnHighlighterOn();
+        }
+    }
+
+    /// <summary>
+    /// Clear the filed of view tile list and turn their highlighters off
+    /// </summary>
+    public void DisableFieldOfView() { 
+        foreach (var tile in listFieldOfView) {
+            tile.tileHighlighter.TurnHighlighterOff();
+        }
         listFieldOfView.Clear();
-
-        Vector3 newTileCoord = currentTile.coordinates + transform.right;
-        Tile viewedTile = currentGrid.listTempTiles.Find(x => x.coordinates == newTileCoord);
-
-        listFieldOfView.Add(viewedTile);
     }
 
     private void OnDrawGizmos() {

@@ -61,16 +61,16 @@ public class TileHighlighter : MonoBehaviour {
     public void ToggleHighlight() {
         // If the shader isn't visible, make it visible
         if (!canHighlight) {
-            TurnHighlightOn();
+            TurnHighlighterOn();
         } else { // Make the shader invisible
-            TurnHighlightOff();
+            TurnHighlighterOff();
         }
     }
 
     /// <summary>
     /// Make the hilight shader visible
     /// </summary>
-    public void TurnHighlightOn() {
+    public void TurnHighlighterOn() {
         highlightMaterial.SetFloat(matIsVisibleTag, 1f);
         canHighlight = true;
     }
@@ -78,7 +78,7 @@ public class TileHighlighter : MonoBehaviour {
     /// <summary>
     /// Make the highlight shader invisible
     /// </summary>
-    public void TurnHighlightOff() {
+    public void TurnHighlighterOff() {
         highlightMaterial.SetFloat(matIsVisibleTag, 0f);
         canHighlight = false;
     }

@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 5049357216495996479}
   - component: {fileID: 5902793053950362819}
   m_Layer: 0
-  m_Name: CubeBot_Untextured
+  m_Name: CubeBot_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,6 +321,16 @@ MonoBehaviour:
   southEast: {fileID: 5657015817809749245}
   southWest: {fileID: 8042315629256600950}
   step: 9
+  listViewCoords:
+  - {x: 1, y: 0}
+  - {x: 2, y: 0}
+  - {x: 2, y: 1}
+  - {x: 2, y: -1}
+  - {x: -1, y: 0}
+  - {x: -2, y: 0}
+  - {x: -2, y: 1}
+  - {x: -2, y: -1}
+  listFieldOfView: []
 --- !u!1 &5657015817809749245
 GameObject:
   m_ObjectHideFlags: 0
