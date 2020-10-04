@@ -1188,6 +1188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeBot_Black (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5573550946706576517, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
       propertyPath: currentTile
@@ -1225,18 +1230,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b6b42aa471354248b714ac6066f241c, type: 3}
---- !u!114 &133283836 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
-    type: 3}
-  m_PrefabInstance: {fileID: 133283835}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a78a4da47051d40a4d75801c8ed37b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &141038689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5183,7 +5176,6 @@ MonoBehaviour:
   treasure: {fileID: 1997957941}
   listCubes:
   - {fileID: 543830487837489779}
-  - {fileID: 133283836}
   exitTile: {fileID: 0}
   btnEndTurn: {fileID: 1593746053}
 --- !u!4 &1007163571

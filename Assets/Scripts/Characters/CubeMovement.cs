@@ -28,7 +28,7 @@ public class CubeMovement : Character {
     [Header("Rotation and Field of View")]
     public int step = 9;
     public List<Vector2> listViewCoords = new List<Vector2>();
-    List<Tile> listFieldOfView = new List<Tile>(); // Field of view
+    public List<Tile> listFieldOfView = new List<Tile>(); // Field of view
 
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
@@ -79,6 +79,7 @@ public class CubeMovement : Character {
     /// <summary>
     /// Move on the path set to the Cube
     /// </summary>
+    [ContextMenu("ROLL")]
     public override void MoveOnPath() {
         StartCoroutine(MoveOnEachDirection());
     }
@@ -124,6 +125,8 @@ public class CubeMovement : Character {
         
         foreach (var newCoord in listViewCoords) {
             Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * transform.forward;
+            //newTileCoord.x = (int)newTileCoord.x;
+            //newTileCoord.z = (int)newTileCoord.z;
             Tile viewedTile = currentGrid.listTempTiles.Find(x => x.coordinates == newTileCoord);
             if (viewedTile) { 
                 listFieldOfView.Add(viewedTile);
