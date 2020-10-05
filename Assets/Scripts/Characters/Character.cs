@@ -9,7 +9,7 @@ public class Character : MonoBehaviour {
     public GridManager currentGrid;
     protected bool IsMoving { get; set; }
     public static float stepTime = 0.5f;
-    public static float waitOnTileTime = 1f;
+    public static float waitOnTileTime = 0.2f;
 
     /// <summary>
     /// Move the player to given tile
@@ -25,6 +25,7 @@ public class Character : MonoBehaviour {
     /// Set the value of the tile the player starts on and move them there
     /// </summary>
     protected void SetStartingTile() { 
+#if UNITY_EDITOR
         if (currentGrid == null) {
             Debug.Log("ERROR: Assign a Grid!");
             UnityEditor.EditorApplication.isPlaying = false;
@@ -40,7 +41,7 @@ public class Character : MonoBehaviour {
 
             currentTile = currentGrid.GetTileList()[0].GetComponent<Tile>();
         }
-
+#endif
         MoveToTile(ref currentTile);
     }
 
