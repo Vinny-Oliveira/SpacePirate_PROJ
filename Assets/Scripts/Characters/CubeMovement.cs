@@ -37,7 +37,7 @@ public class CubeMovement : Character {
         IsMoving = false;
         SetStartingTile();
         BuildDirectionDictionary();
-        //SetFieldOfView();
+        SetFieldOfView();
     }
 
     /// <summary>

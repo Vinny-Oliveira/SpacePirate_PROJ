@@ -8,7 +8,7 @@ public class TileHighlighter : MonoBehaviour {
     Material highlightMaterial;
 
     const string matIsVisibleTag = "_HighlightIsVisible";
-    bool canHighlight;
+    bool canHighlight = false;
 
     /* Colors of Highlighters */
     static readonly string materialColorTag = "_HighlightColour";
@@ -16,11 +16,11 @@ public class TileHighlighter : MonoBehaviour {
     static readonly string colorThiefPathTag = "_HighlightColourBlue";
     static readonly string colorCubeViewTag = "_HighlightColourRed";
 
-    private void Start() {
-        canHighlight = false;
-
-        // Get material of the quad's MeshRenderer
-        if (highlightQuad != null) { 
+    /// <summary>
+    /// Get the material from the Quad's MeshRenderer and assign it to the highlightMaterial
+    /// </summary>
+    void SetHighlightMaterial() { 
+        if (highlightQuad != null && highlightMaterial == null) {
             highlightMaterial = highlightQuad.GetComponent<MeshRenderer>().material;
             highlightMaterial.SetFloat(matIsVisibleTag, 0f);
         }
@@ -31,6 +31,7 @@ public class TileHighlighter : MonoBehaviour {
     /// </summary>
     /// <param name="colorTag"></param>
     void ChangeColor(string colorTag) {
+        SetHighlightMaterial();
         highlightMaterial.SetColor(materialColorTag, highlightMaterial.GetColor(colorTag));
     }
 

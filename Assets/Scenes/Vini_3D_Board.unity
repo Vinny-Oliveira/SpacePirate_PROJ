@@ -2017,6 +2017,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeBot_Black
       objectReference: {fileID: 0}
+    - target: {fileID: 5573550946706576517, guid: 6b6b42aa471354248b714ac6066f241c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5902793053950362819, guid: 6b6b42aa471354248b714ac6066f241c,
         type: 3}
       propertyPath: currentTile
