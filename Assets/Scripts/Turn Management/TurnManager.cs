@@ -167,4 +167,13 @@ public class TurnManager : MonoBehaviour {
     }
 
     #endregion
+
+    /// <summary>
+    /// Highlight the tiles within all the cubes' fields of view
+    /// </summary>
+    public void HighlightCubesFieldsOfView() { 
+        foreach (var cube in listCubes) {
+            cube.HighlightFieldOfView();
+        }
+    }
 }

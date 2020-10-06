@@ -141,14 +141,7 @@ public class CubeMovement : Character {
         // Calculate coordinate of the new tile and check if it exists
         foreach (var newCoord in listViewCoords) {
             Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * newForward;
-
-            Tile viewedTile = null;// currentGrid.listTempTiles.Find(tile => tile.coordinates == newTileCoord);
-            foreach (var tile in currentGrid.listTempTiles) { 
-                if (tile.coordinates == newTileCoord) {
-                    viewedTile = tile;
-                    break;
-                }
-            }
+            Tile viewedTile = currentGrid.listTempTiles.Find(tile => tile.coordinates == newTileCoord);
 
             if (viewedTile != null) { 
                 listFieldOfView.Add(viewedTile);

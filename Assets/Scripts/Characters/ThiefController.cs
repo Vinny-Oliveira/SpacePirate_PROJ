@@ -134,6 +134,8 @@ public class ThiefController : Character {
                 if (listPathTiles.Count < 1) {
                     TurnTargetTilesOff();
                 }
+
+                TurnManager.instance.HighlightCubesFieldsOfView();
                 return;
             }
 
