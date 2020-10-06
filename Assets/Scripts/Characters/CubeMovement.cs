@@ -101,7 +101,7 @@ public class CubeMovement : Character {
                 DisableFieldOfView();
                 yield return StartCoroutine(Roll_Cube(direction));
                 currentTile = nextTile;
-                MoveToTile(ref currentTile);
+                //MoveToTile(ref currentTile);
                 SetFieldOfView();
                 yield return StartCoroutine(WaitOnTile());
             }
@@ -123,12 +123,34 @@ public class CubeMovement : Character {
     public void SetFieldOfView() {
         DisableFieldOfView();
         
+        Vector3 newForward = Vector3.zero;
+
+        // Eyes on the global x-axis
+        if (transform.right.normalized == Vector3.right || transform.right.normalized == -Vector3.right) {
+            newForward = Vector3.forward;
+        
+        // Eyes on the global z-axis
+        } else if (transform.right.normalized == Vector3.forward || transform.right.normalized == -Vector3.forward) {
+            newForward = Vector3.right;
+        
+        // Eyes on the global y-axis
+        } else {
+            return;
+        }
+        
+        // Calculate coordinate of the new tile and check if it exists
         foreach (var newCoord in listViewCoords) {
-            Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * transform.forward;
-            //newTileCoord.x = (int)newTileCoord.x;
-            //newTileCoord.z = (int)newTileCoord.z;
-            Tile viewedTile = currentGrid.listTempTiles.Find(x => x.coordinates == newTileCoord);
-            if (viewedTile) { 
+            Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * newForward;
+
+            Tile viewedTile = null;// currentGrid.listTempTiles.Find(tile => tile.coordinates == newTileCoord);
+            foreach (var tile in currentGrid.listTempTiles) { 
+                if (tile.coordinates == newTileCoord) {
+                    viewedTile = tile;
+                    break;
+                }
+            }
+
+            if (viewedTile != null) { 
                 listFieldOfView.Add(viewedTile);
             }
         }
