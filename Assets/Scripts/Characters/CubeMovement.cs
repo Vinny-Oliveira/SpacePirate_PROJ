@@ -31,19 +31,19 @@ public class CubeMovement : Character {
     public List<Tile> listFieldOfView = new List<Tile>(); // Field of view
 
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
-    Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
+    static Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
-    private void Start() {
+    public void SetupCubeStart() {
         IsMoving = false;
         SetStartingTile();
-        BuildDirectionDictionary();
+        //BuildDirectionDictionary();
         SetFieldOfView();
     }
 
     /// <summary>
     /// Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates
     /// </summary>
-    void BuildDirectionDictionary() {
+    public void BuildDirectionDictionary() {
         dicDirections = new Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> {
             { EDirection.NORTHEAST, new Tuple<GameObject, Vector3, Vector3>(northEast, Vector3.right, Vector3.forward) },
             { EDirection.NORTHWEST, new Tuple<GameObject, Vector3, Vector3>(northWest, Vector3.forward, Vector3.left) },
@@ -72,6 +72,7 @@ public class CubeMovement : Character {
         }
 
         // Reset the center object
+        center.transform.localScale = Vector3.one;
         center.transform.parent = transform;
         center.transform.position = transform.position;
     }
@@ -100,8 +101,8 @@ public class CubeMovement : Character {
             if (nextTile != null) {
                 DisableFieldOfView();
                 yield return StartCoroutine(Roll_Cube(direction));
-                currentTile = nextTile;
-                //MoveToTile(ref currentTile);
+                //currentTile = nextTile;
+                MoveToTile(ref nextTile);
                 SetFieldOfView();
                 yield return StartCoroutine(WaitOnTile());
             }
@@ -123,7 +124,15 @@ public class CubeMovement : Character {
     public void SetFieldOfView() {
         DisableFieldOfView();
         
-        Vector3 newForward = Vector3.zero;
+        Vector3 newForward = transform.right.normalized;
+
+        //if (Mathf.Abs(Vector3.Dot(newForward, Vector3.right)) > 0.95f) {
+        //    newForward = Vector3.right;
+        //} else if (Mathf.Abs(Vector3.Dot(newForward, Vector3.forward)) > 0.95f) {
+        //    newForward = Vector3.forward;
+        //} else {
+        //    return;
+        //}
 
         // Eyes on the global x-axis
         if (transform.right.normalized == Vector3.right || transform.right.normalized == -Vector3.right) {
@@ -141,6 +150,7 @@ public class CubeMovement : Character {
         // Calculate coordinate of the new tile and check if it exists
         foreach (var newCoord in listViewCoords) {
             Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * newForward;
+            //if (newTileCoord.y < 0.01f) { newTileCoord.y = 0f; }
             Tile viewedTile = currentGrid.listTempTiles.Find(tile => tile.coordinates == newTileCoord);
 
             if (viewedTile != null) { 

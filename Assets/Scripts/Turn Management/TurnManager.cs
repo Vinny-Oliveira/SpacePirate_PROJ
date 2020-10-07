@@ -21,6 +21,14 @@ public class TurnManager : MonoBehaviour {
         CanMove = true;
     }
 
+    private void Start() {
+        listCubes[0].BuildDirectionDictionary();
+
+        foreach (var cube in listCubes) {
+            cube.SetupCubeStart();
+        }
+    }
+
     #region CHECKERS_FOR_OBJECTS_ON_SAME_TILES
 
     /// <summary>
