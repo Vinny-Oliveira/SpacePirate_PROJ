@@ -9,9 +9,7 @@ public class GridManager : MonoBehaviour {
     public int[,] grid = new int[0,0]; // Grid with positions
 
     public List<GameObject> listPrefabTiles; // List with all the tile prefabs
-    public List<Tile> listTempTiles = new List<Tile>(); // List of tiles spawned in the scene
-    public Material highlightMat;
-    public Material pathMat;
+    public List<Tile> listGridTiles = new List<Tile>(); // List of tiles spawned in the scene
 
     public Tile[,] tileLocationMap;
     private int currentMapSizeX;
@@ -27,7 +25,7 @@ public class GridManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public List<Tile> GetTileList() {
-        return listTempTiles;
+        return listGridTiles;
     }
 
     /// <summary>
@@ -35,12 +33,12 @@ public class GridManager : MonoBehaviour {
     /// </summary>
     [ContextMenu("Clear Map")]
     public void ClearMapOfTiles() {
-        if (listTempTiles != null) { 
-            for (int i = listTempTiles.Count - 1; i > -1; i--) {
-                DestroyImmediate(listTempTiles[i].gameObject); // Destroy function used in Editor mode
+        if (listGridTiles != null) { 
+            for (int i = listGridTiles.Count - 1; i > -1; i--) {
+                DestroyImmediate(listGridTiles[i].gameObject); // Destroy function used in Editor mode
             }
 
-            listTempTiles.Clear();
+            listGridTiles.Clear();
         }
     }
 
@@ -94,7 +92,7 @@ public class GridManager : MonoBehaviour {
         singleTile.gridManager = this;
 
         // Add tile to lists
-        listTempTiles.Add(singleTile);
+        listGridTiles.Add(singleTile);
         AddTileToMap(singleTile, x, z);
     }
 

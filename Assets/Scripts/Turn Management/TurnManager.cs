@@ -133,7 +133,7 @@ public class TurnManager : MonoBehaviour {
         }
 
         // Treasure caught
-        if (IsThiefTouchingTreasure()) {
+        if (!thief.HasTreasure && IsThiefTouchingTreasure()) {
             thief.HasTreasure = true;
             MakeThiefGrabTreasure();
         }
@@ -176,6 +176,10 @@ public class TurnManager : MonoBehaviour {
 
     #region THIEF_ON_CUBES_FIELD_OF_VIEW
 
+    /// <summary>
+    /// Check if the Thief seen by any of the cubes
+    /// </summary>
+    /// <returns></returns>
     public bool IsThiefSeenByCube() { 
         foreach (var cube in listCubes) {
             foreach (var viewedTile in cube.listFieldOfView) { 
@@ -188,6 +192,11 @@ public class TurnManager : MonoBehaviour {
         return false;
     }
 
+    /// <summary>
+    /// Check if a given Cube is seeing the Thief
+    /// </summary>
+    /// <param name="cubeFieldOfView"></param>
+    /// <returns></returns>
     public bool IsCubeSeeingThief(ref List<Tile> cubeFieldOfView) { 
         foreach (var seenTile in cubeFieldOfView) { 
             if (seenTile.Equals(thief.currentTile)) {

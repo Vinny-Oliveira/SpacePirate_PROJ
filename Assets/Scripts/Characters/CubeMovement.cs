@@ -152,7 +152,7 @@ public class CubeMovement : Character {
         foreach (var newCoord in listViewCoords) {
             Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * newForward;
             //if (newTileCoord.y < 0.01f) { newTileCoord.y = 0f; }
-            Tile viewedTile = currentGrid.listTempTiles.Find(tile => tile.coordinates == newTileCoord);
+            Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
 
             if (viewedTile != null) { 
                 listFieldOfView.Add(viewedTile);
