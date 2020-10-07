@@ -31,12 +31,12 @@ public class CubeMovement : Character {
     public List<Tile> listFieldOfView = new List<Tile>(); // Field of view
 
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
-    static Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
+    Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
     public void SetupCubeStart() {
         IsMoving = false;
         SetStartingTile();
-        //BuildDirectionDictionary();
+        BuildDirectionDictionary();
         SetFieldOfView();
     }
 
@@ -80,7 +80,6 @@ public class CubeMovement : Character {
     /// <summary>
     /// Move on the path set to the Cube
     /// </summary>
-    [ContextMenu("ROLL")]
     public override void MoveOnPath() {
         StartCoroutine(MoveOnEachDirection());
     }
@@ -108,7 +107,7 @@ public class CubeMovement : Character {
             }
 
             // Check if the thief was caught
-            if (turnManager.HandleNewTile(ref currentTile)) {
+            if (turnManager.HandleNewTile(ref currentTile, ref listFieldOfView)) {
                 yield break;
             }
 
@@ -117,6 +116,8 @@ public class CubeMovement : Character {
         IsMoving = false;
         turnManager.DecreaseMovementCount();
     }
+
+    #region FIELD_OF_VIEW
 
     /// <summary>
     /// Check which tiles are in the Cube's field of view
@@ -181,9 +182,11 @@ public class CubeMovement : Character {
         listFieldOfView.Clear();
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position - 2 * transform.right, transform.position + 2*transform.right);
-    }
+    #endregion
+
+    //private void OnDrawGizmos() {
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(transform.position - 2 * transform.right, transform.position + 2*transform.right);
+    //}
 
 }

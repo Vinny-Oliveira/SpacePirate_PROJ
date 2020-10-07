@@ -134,8 +134,9 @@ public class ThiefController : Character {
                 if (listPathTiles.Count < 1) {
                     TurnTargetTilesOff();
                 }
-
+                //TurnTargetTilesOff();
                 TurnManager.instance.HighlightCubesFieldsOfView();
+                //HighlightPathTiles();
                 return;
             }
 
@@ -171,6 +172,16 @@ public class ThiefController : Character {
         // Highlight each tile
         foreach (var tile in listTargetTiles) {
             tile.tileHighlighter.ChangeColorToThiefRange();
+            tile.tileHighlighter.TurnHighlighterOn();
+        }
+    }
+
+    /// <summary>
+    /// Highlight the tiles of the Thief's path
+    /// </summary>
+    void HighlightPathTiles() { 
+        foreach (var tile in listPathTiles) {
+            tile.tileHighlighter.ChangeColorToThiefPath();
             tile.tileHighlighter.TurnHighlighterOn();
         }
     }

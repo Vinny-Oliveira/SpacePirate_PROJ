@@ -22,8 +22,6 @@ public class TurnManager : MonoBehaviour {
     }
 
     private void Start() {
-        listCubes[0].BuildDirectionDictionary();
-
         foreach (var cube in listCubes) {
             cube.SetupCubeStart();
         }
@@ -100,8 +98,8 @@ public class TurnManager : MonoBehaviour {
         btnEndTurn.interactable = false;
 
         // Play actions
-        thief.MoveOnPath();
         thief.TurnTargetTilesOff();
+        thief.MoveOnPath();
         foreach (var cube in listCubes) {
             cube.MoveOnPath();
         }
@@ -128,7 +126,7 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool HandleNewTile() {
         // Thief touched a cube
-        if (IsThiefTouchingCube()) {
+        if (IsThiefTouchingCube() || IsThiefSeenByCube()) {
             thief.ClearPath();
             Debug.Log("THIEF CAUGHT!");
             return true;
@@ -155,8 +153,8 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <param name="newTile"></param>
     /// <returns></returns>
-    public bool HandleNewTile(ref Tile newTile) {
-        if (IsThiefTouchingCube(ref newTile)) {
+    public bool HandleNewTile(ref Tile newTile, ref List<Tile> cubeFieldOfView) {
+        if (IsThiefTouchingCube(ref newTile) || IsCubeSeeingThief(ref cubeFieldOfView)) {
             thief.ClearPath();
             Debug.Log("THIEF CAUGHT!");
             return true;
@@ -172,6 +170,32 @@ public class TurnManager : MonoBehaviour {
         treasure.gameObject.transform.parent = thief.treasureHolder.transform;
         treasure.gameObject.transform.position = thief.treasureHolder.transform.position;
         Debug.Log("Treasure Found!");
+    }
+
+    #endregion
+
+    #region THIEF_ON_CUBES_FIELD_OF_VIEW
+
+    public bool IsThiefSeenByCube() { 
+        foreach (var cube in listCubes) {
+            foreach (var viewedTile in cube.listFieldOfView) { 
+                if (viewedTile.Equals(thief.currentTile)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public bool IsCubeSeeingThief(ref List<Tile> cubeFieldOfView) { 
+        foreach (var seenTile in cubeFieldOfView) { 
+            if (seenTile.Equals(thief.currentTile)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     #endregion
