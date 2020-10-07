@@ -55,7 +55,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     }
 
     public bool Equals(Tile tile) {
-        if (tile == null) { return false; }
+        if (!tile) { return false; } // tile is null
 
         return coordinates == tile.coordinates;
     }
@@ -64,6 +64,13 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         return base.GetHashCode();
     }
 
+    public static bool operator ==(Tile lhs, Tile rhs) {
+        return lhs.Equals(rhs);
+    }
+    
+    public static bool operator !=(Tile lhs, Tile rhs) {
+        return !lhs.Equals(rhs);
+    }
 
 #endregion
 
