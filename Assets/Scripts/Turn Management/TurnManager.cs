@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
 
+    [Header("Characters and Treasure")]
     public ThiefController thief;
     public Treasure treasure;
     public List<CubeMovement> listCubes;
 
+    [Header("Turn Control")]
     public Tile exitTile;
     public UnityEngine.UI.Button btnEndTurn;
+
+    [Header("UI Panels")]
+    public GameObject thiefWinPanel;
+    public GameObject thiefLosePanel;
+    public GameObject securityWinPanel;
+    public GameObject securityLosePanel;
 
     public bool CanMove { get; set; } = true;
     int intMoveCount;
@@ -129,6 +137,7 @@ public class TurnManager : MonoBehaviour {
         if (IsThiefTouchingCube() || IsThiefSeenByCube()) {
             thief.ClearPath();
             Debug.Log("THIEF CAUGHT!");
+            thiefLosePanel.SetActive(true);
             return true;
         }
 
@@ -142,6 +151,7 @@ public class TurnManager : MonoBehaviour {
         if (HasThiefEscaped()) {
             thief.ClearPath();
             Debug.Log("THIEF ESCAPED");
+            thiefWinPanel.SetActive(true);
             return true;
         }
 
@@ -157,6 +167,7 @@ public class TurnManager : MonoBehaviour {
         if (IsThiefTouchingCube(ref newTile) || IsCubeSeeingThief(ref cubeFieldOfView)) {
             thief.ClearPath();
             Debug.Log("THIEF CAUGHT!");
+            thiefLosePanel.SetActive(true);
             return true;
         }
 

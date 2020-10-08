@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7336338343200973030}
   - component: {fileID: 7336338343200973031}
   m_Layer: 5
-  m_Name: ThiefPanel_bt
+  m_Name: ThiefPanel_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1593,7 +1593,7 @@ GameObject:
   - component: {fileID: 7336338343641064993}
   - component: {fileID: 7336338343641064998}
   m_Layer: 5
-  m_Name: S-EndTurn_bt
+  m_Name: S-EndTurn_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2202,7 +2202,7 @@ GameObject:
   - component: {fileID: 7336338343813262896}
   - component: {fileID: 7336338343813262897}
   m_Layer: 5
-  m_Name: No_bt
+  m_Name: No_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3152,7 +3152,7 @@ GameObject:
   - component: {fileID: 7336338344121172862}
   - component: {fileID: 7336338344121172863}
   m_Layer: 5
-  m_Name: SecSPanel_bt
+  m_Name: SecSPanel_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3512,7 +3512,7 @@ GameObject:
   - component: {fileID: 7336338344273905052}
   - component: {fileID: 7336338344273905053}
   m_Layer: 5
-  m_Name: No_bt
+  m_Name: No_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3531,11 +3531,11 @@ RectTransform:
   m_Children:
   - {fileID: 7336338343804581813}
   m_Father: {fileID: 7336338344283990835}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -324, y: -166}
+  m_AnchoredPosition: {x: 315, y: -166}
   m_SizeDelta: {x: 134.21655, y: 64.37795}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7336338344273905055
@@ -3792,8 +3792,8 @@ RectTransform:
   m_LocalScale: {x: 0.5343217, y: 0.5343217, z: 0.5343217}
   m_Children:
   - {fileID: 7336338344283621826}
-  - {fileID: 7336338344273905042}
   - {fileID: 7336338344951222033}
+  - {fileID: 7336338344273905042}
   m_Father: {fileID: 7336338344098312168}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5155,7 +5155,7 @@ GameObject:
   - component: {fileID: 7336338344951222035}
   - component: {fileID: 7336338344951222032}
   m_Layer: 5
-  m_Name: Yes_bt
+  m_Name: Yes_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5174,11 +5174,11 @@ RectTransform:
   m_Children:
   - {fileID: 7336338343299624053}
   m_Father: {fileID: 7336338344283990835}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315, y: -166}
+  m_AnchoredPosition: {x: -324, y: -166}
   m_SizeDelta: {x: 134.21655, y: 64.37795}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7336338344951222034
@@ -5261,7 +5261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7336338344098312169}
+      - m_Target: {fileID: 7336338344283990832}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -5717,7 +5717,7 @@ GameObject:
   - component: {fileID: 7336338345257658862}
   - component: {fileID: 7336338345257658863}
   m_Layer: 5
-  m_Name: Yes_bt
+  m_Name: Yes_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5858,7 +5858,7 @@ GameObject:
   - component: {fileID: 7336338345304179095}
   - component: {fileID: 7336338345304179092}
   m_Layer: 5
-  m_Name: T-EndTurn_bt
+  m_Name: T-EndTurn_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
