@@ -64,14 +64,6 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         return base.GetHashCode();
     }
 
-    //public static bool operator ==(Tile lhs, Tile rhs) {
-    //    return lhs.Equals(rhs);
-    //}
-    
-    //public static bool operator !=(Tile lhs, Tile rhs) {
-    //    return !lhs.Equals(rhs);
-    //}
-
 #endregion
 
 }

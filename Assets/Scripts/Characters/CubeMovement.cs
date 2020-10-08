@@ -33,11 +33,37 @@ public class CubeMovement : Character {
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
+    /* Initial setup */
+    float fltInitYPos;
+    Quaternion initRotation;
+
+    #region INITIAL_SETUP
+
+    /// <summary>
+    /// Setup all initial values for the cube
+    /// </summary>
     public void SetupCubeStart() {
         IsMoving = false;
         SetStartingTile();
+        StoreStartingPosition();
         BuildDirectionDictionary();
         SetFieldOfView();
+    }
+
+    /// <summary>
+    /// Store the initial values of height (position.y) and rotation
+    /// </summary>
+    void StoreStartingPosition() {
+        fltInitYPos = transform.position.y;
+        initRotation = transform.rotation;
+    }
+
+    /// <summary>
+    /// Reset the cube's rotation and Y position to the initial ones
+    /// </summary>
+    void ResetPositionToStart() {
+        transform.position = new Vector3(transform.position.x, fltInitYPos, transform.position.z);
+        transform.rotation = initRotation;
     }
 
     /// <summary>
@@ -52,6 +78,10 @@ public class CubeMovement : Character {
         };
 
     }
+
+    #endregion
+
+    #region MOVEMENT
 
     /// <summary>
     /// Roll the cube in the given cardinal direction (NE, NW, SE, or SW)
@@ -100,9 +130,12 @@ public class CubeMovement : Character {
             if (nextTile != null) {
                 DisableFieldOfView();
                 yield return StartCoroutine(Roll_Cube(direction));
-                //currentTile = nextTile;
+
+                // Position cube on the tile and turn field of view on
                 MoveToTile(ref nextTile);
                 SetFieldOfView();
+
+                // Wait
                 yield return StartCoroutine(WaitOnTile());
             }
 
@@ -114,10 +147,43 @@ public class CubeMovement : Character {
         }
 
         IsMoving = false;
+        ResetPositionToStart();
         turnManager.DecreaseMovementCount();
     }
 
+    #endregion
+
     #region FIELD_OF_VIEW
+
+    /// <summary>
+    /// Check the alignments of the local right and local forward directions
+    /// </summary>
+    /// <param name="newForward"></param>
+    /// <param name="newRight"></param>
+    /// <returns></returns>
+    bool RecalculateLocalDirections(ref Vector3 newForward, ref Vector3 newRight) {
+        float newX = Mathf.Abs((float)System.Math.Round(newForward.x, 3));
+        float newY = Mathf.Abs((float)System.Math.Round(newForward.y, 3));
+        float newZ = Mathf.Abs((float)System.Math.Round(newForward.z, 3));
+
+        // Eyes on the global x-axis
+        if (Mathf.Approximately(newX, Vector3.right.x) && Mathf.Approximately(newY, Vector3.right.y) 
+                && Mathf.Approximately(newZ, Vector3.right.z)) {
+            newForward = Vector3.forward;
+            newRight = Vector3.right;
+            return true;
+        
+        // Eyes on the global z-axis
+        } else if (Mathf.Approximately(newX, Vector3.forward.x) && Mathf.Approximately(newY, Vector3.forward.y) 
+                && Mathf.Approximately(newZ, Vector3.forward.z)) {
+            newForward = Vector3.right;
+            newRight = Vector3.forward;
+            return true;
+        }
+
+        // Eyes on the global y-axis
+        return false;
+    }
 
     /// <summary>
     /// Check which tiles are in the Cube's field of view
@@ -125,45 +191,16 @@ public class CubeMovement : Character {
     public void SetFieldOfView() {
         DisableFieldOfView();
         
-        Vector3 newForward = transform.right.normalized;
-        Vector3 newRight = transform.right.normalized;
+        Vector3 newForward = transform.right;
+        Vector3 newRight = transform.right;
 
-        //if (Mathf.Abs(Vector3.Dot(newForward, Vector3.right)) > 0.95f) {
-        //    newForward = Vector3.right;
-        //} else if (Mathf.Abs(Vector3.Dot(newForward, Vector3.forward)) > 0.95f) {
-        //    newForward = Vector3.forward;
-        //} else {
-        //    return;
-        //}
-
-        float newX = Mathf.Abs((float)System.Math.Round(newForward.x, 3));
-        float newY = Mathf.Abs((float)System.Math.Round(newForward.y, 3));
-        float newZ = Mathf.Abs((float)System.Math.Round(newForward.z, 3)); // Mathf.Abs(newForward.z);
-
-        // Eyes on the global x-axis
-        if (Mathf.Approximately(newX, Vector3.right.x) && Mathf.Approximately(newY, Vector3.right.y) 
-                && Mathf.Approximately(newZ, Vector3.right.z)) {
-            //if (transform.right.normalized == Vector3.right || transform.right.normalized == -Vector3.right) {
-            newForward = Vector3.forward;
-            newRight = Vector3.right;
-
-            // Eyes on the global z-axis
-        } else if (Mathf.Approximately(newX, Vector3.forward.x) && Mathf.Approximately(newY, Vector3.forward.y) 
-                && Mathf.Approximately(newZ, Vector3.forward.z)) {
-        //} else if (transform.right.normalized == Vector3.forward || transform.right.normalized == -Vector3.forward) {
-            newForward = Vector3.right;
-            newRight = Vector3.forward;
-        
-        // Eyes on the global y-axis
-        } else {
+        if (!RecalculateLocalDirections(ref newForward, ref newRight)) { 
             return;
         }
         
         // Calculate coordinate of the new tile and check if it exists
         foreach (var newCoord in listViewCoords) {
             Vector3 newTileCoord = currentTile.coordinates + newCoord.x * newRight + newCoord.y * newForward;
-            //Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * newForward;
-            //if (newTileCoord.y < 0.01f) { newTileCoord.y = 0f; }
             Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
 
             if (viewedTile != null) { 
