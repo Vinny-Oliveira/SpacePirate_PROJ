@@ -126,6 +126,7 @@ public class CubeMovement : Character {
         DisableFieldOfView();
         
         Vector3 newForward = transform.right.normalized;
+        Vector3 newRight = transform.right.normalized;
 
         //if (Mathf.Abs(Vector3.Dot(newForward, Vector3.right)) > 0.95f) {
         //    newForward = Vector3.right;
@@ -135,13 +136,23 @@ public class CubeMovement : Character {
         //    return;
         //}
 
+        float newX = Mathf.Abs((float)System.Math.Round(newForward.x, 3));
+        float newY = Mathf.Abs((float)System.Math.Round(newForward.y, 3));
+        float newZ = Mathf.Abs((float)System.Math.Round(newForward.z, 3)); // Mathf.Abs(newForward.z);
+
         // Eyes on the global x-axis
-        if (transform.right.normalized == Vector3.right || transform.right.normalized == -Vector3.right) {
+        if (Mathf.Approximately(newX, Vector3.right.x) && Mathf.Approximately(newY, Vector3.right.y) 
+                && Mathf.Approximately(newZ, Vector3.right.z)) {
+            //if (transform.right.normalized == Vector3.right || transform.right.normalized == -Vector3.right) {
             newForward = Vector3.forward;
-        
-        // Eyes on the global z-axis
-        } else if (transform.right.normalized == Vector3.forward || transform.right.normalized == -Vector3.forward) {
+            newRight = Vector3.right;
+
+            // Eyes on the global z-axis
+        } else if (Mathf.Approximately(newX, Vector3.forward.x) && Mathf.Approximately(newY, Vector3.forward.y) 
+                && Mathf.Approximately(newZ, Vector3.forward.z)) {
+        //} else if (transform.right.normalized == Vector3.forward || transform.right.normalized == -Vector3.forward) {
             newForward = Vector3.right;
+            newRight = Vector3.forward;
         
         // Eyes on the global y-axis
         } else {
@@ -150,7 +161,8 @@ public class CubeMovement : Character {
         
         // Calculate coordinate of the new tile and check if it exists
         foreach (var newCoord in listViewCoords) {
-            Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * newForward;
+            Vector3 newTileCoord = currentTile.coordinates + newCoord.x * newRight + newCoord.y * newForward;
+            //Vector3 newTileCoord = currentTile.coordinates + newCoord.x * transform.right + newCoord.y * newForward;
             //if (newTileCoord.y < 0.01f) { newTileCoord.y = 0f; }
             Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
 
