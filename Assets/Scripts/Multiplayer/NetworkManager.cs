@@ -10,15 +10,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 {
     private string _playerName;
     private string _roomName;
+    private string _gameMode; //saved via the 'SetGameMode()' function below.
 
     public string playerName
     {
         set { _playerName = value; }
         get { return _playerName; }
     }
+    public string roomName //Setup a dynamic property to pass the room name to a roomName dynamic property here
 
-    //Setup a dynamic property to pass the room name to a roomName dynamic property here
-    public string roomName
     {
         set { _roomName = value; }
         get { return _roomName; }
@@ -26,26 +26,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public TextMeshProUGUI playerNameError_tmp;
 
-    //saved via the 'SetGameMode()' function below.
-    private string _gameMode;
+    public GameObject loadingPanel; //this is the transition panel that shoes a 'creating room' message while the room is being created on the photon server. 
+    public GameObject namePanel; //where the player submits their name.
+    public GameObject gameSetupPanel; //where the player chooses to either join or create a game.
+    public GameObject createdRoomPanel; //where named players congregate and get ready to play.
 
-
-    //public GameObject gameSetupPanel;
-    //public GameObject gamelobbyOptionsPanel;
-    public GameObject joiningRoomPanel;
-
-
-    // The panel to create a room by entering room name and selecting a game mode
-    //drag and drop ref in inspector
-    public GameObject createRoomPanel;
-
-    //this is the transition panel that shoes a 'creating room' message while the room is being created on the photon server. 
-    //  Drag/Drop the panel reference
-    public GameObject creatingRoomPanel;
-
-
-    //drag and drop the room info text here
-    public UnityEngine.UI.Text roomInfoText;
+    //public GameObject joiningRoomPanel;
+    //// The panel to create a room by entering room name and selecting a game mode.
+    //public GameObject createRoomPanel;
+    ////drag and drop the room info text here
+    public TextMeshProUGUI roomInfoText;
 
     //grab playerList from Room User Panel
     public Transform playerListHolder;
@@ -87,19 +77,22 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// <summary>
     /// This will be called when the login button is pressed in the UI
     /// </summary>
-    public void OnLoginButtonPressed()
+    public void OnSubmitButtonPressed()
     {
         if (string.IsNullOrEmpty(playerName))
         {
-            playerNameError_tmp.text = "Please Enter a Nickname";
+            playerNameError_tmp.text = "Please Enter a Nickname to Connect";
+            playerNameError_tmp.gameObject.SetActive(true);
             Debug.Log("Player name not entered. Can't connect to server without it.");
             return;
         }
-        else
-        Connect();
-
-
-
+        else 
+        {
+            Connect();
+            loadingPanel.SetActive(true);
+            namePanel.SetActive(false);
+            playerNameError_tmp.gameObject.SetActive(false);
+        }
     }
 
     public override void OnConnected()
@@ -110,8 +103,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + " got connected");
-        //waitingToConnectPanel.SetActive(false);
-        //gamelobbyOptionsPanel.SetActive(true);
+        loadingPanel.SetActive(false);
+        gameSetupPanel.SetActive(true);
 
     }
     #endregion
@@ -131,21 +124,21 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     // Called when we click 'CreateRoom button under CreateRoomPanel in the UI
     public void OnCreateRoomButtonPressed()
     {
-        //if room name is not entered, then print debug log message and return. 
-        if (string.IsNullOrEmpty(roomName))
-        {
-            Debug.Log("<color=red> Please enter room name. Can't connect to server without it.</color>");
-            return;
-        }
+        ////if room name is not entered, then print debug log message and return. 
+        //if (string.IsNullOrEmpty(roomName))
+        //{
+        //    Debug.Log("<color=red> Please enter room name. Can't connect to server without it.</color>");
+        //    return;
+        //}
 
-        if (string.IsNullOrEmpty(_gameMode))
-        {
-            Debug.Log("<color=red> Please select a Game Mode. Can't connect to server without it.</color>");
-            return;
-        }
+        //if (string.IsNullOrEmpty(_gameMode))
+        //{
+        //    Debug.Log("<color=red> Please select a Game Mode. Can't connect to server without it.</color>");
+        //    return;
+        //}
 
-        createRoomPanel.SetActive(false);
-        creatingRoomPanel.SetActive(true);
+        gameSetupPanel.SetActive(false);
+        //loadingPanel.SetActive(true);
         // else
         CreateRoom();
 
@@ -153,42 +146,44 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void CreateRoom()
     {
+        //loadingPanel.SetActive(false);
+        createdRoomPanel.SetActive(true);
         Photon.Realtime.RoomOptions ro = new Photon.Realtime.RoomOptions();
-        ro.MaxPlayers = 5;
+        ro.MaxPlayers = 2;
+        PhotonNetwork.CreateRoom(playerName, ro);
 
         //we use 'm as a short hand property for denoting our gameMode
-        ro.CustomRoomPropertiesForLobby = new string[] { "m" };
+        //ro.CustomRoomPropertiesForLobby = new string[] { "m" };
 
-        ExitGames.Client.Photon.Hashtable gameRoomProperties = new ExitGames.Client.Photon.Hashtable()
-        {
-            {
-                 "m", _gameMode
-            }
-        };
+        //ExitGames.Client.Photon.Hashtable gameRoomProperties = new ExitGames.Client.Photon.Hashtable()
+        //{
+        //    {
+        //         "m", _gameMode
+        //    }
+        //};
 
-        ro.CustomRoomProperties = gameRoomProperties;
+        //ro.CustomRoomProperties = gameRoomProperties;
 
 
-        PhotonNetwork.CreateRoom(roomName + UnityEngine.Random.Range(100000, 999999), ro);
         //SetGameMode(_gameMode);
     }
 
     public override void OnCreatedRoom()
     {
-        Debug.Log("<color = green> Room created successfully </color>");
-        creatingRoomPanel.SetActive(false);
-        roomUserPanel.SetActive(true);
+        Debug.Log("Room created successfully");
+        loadingPanel.SetActive(false);
+        //roomUserPanel.SetActive(true);
     }
 
     public override void OnJoinedRoom()
     {
-        joiningRoomPanel.SetActive(false);
-        roomUserPanel.SetActive(true);
+        loadingPanel.SetActive(false);
+        createdRoomPanel.SetActive(true);
 
-        Debug.Log("<color = green> User: " + PhotonNetwork.LocalPlayer.NickName + "joined " + PhotonNetwork.CurrentRoom.Name + " </color>");
-        //we need to print the properties of the room, such as room name, game mode, and list of players currently in the room. 
+        Debug.Log("User: " + PhotonNetwork.LocalPlayer.NickName + "joined " + PhotonNetwork.CurrentRoom.Name);
+        //we need to print the list of players currently in the room. 
 
-        roomInfoText.text = PhotonNetwork.CurrentRoom.Name + " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount + "/" + PhotonNetwork.CurrentRoom.MaxPlayers;
+        roomInfoText.text = PhotonNetwork.CurrentRoom.Name + "'s room | Players: " + PhotonNetwork.CurrentRoom.PlayerCount + "/" + PhotonNetwork.CurrentRoom.MaxPlayers;
 
         // playerDictGOs is null, create the object for it
         if (playerDictGOs == null)
@@ -207,7 +202,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             object gameModeName = "";
             if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("m", out gameModeName))
             {
-                Debug.Log("<color=magenta> Game Mode: " + gameModeName + "</color>");
+                Debug.Log("Game Mode: " + gameModeName);
             }
         }
     }
@@ -263,22 +258,23 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     //call this on the two buttons: Racing GameMode and DeathGameMode under JoinRandomRoomPanel > Backgound > GameModes > 
     //Race mode = rm
     //Death Mode = dm
-    public void OnJoinRandomRoomGameModeTypeClicked(string gameModeCode)
+    public void OnJoinButtonPressed()
     {
-        Debug.Log("Trying to find a random room of " + gameModeCode + " game type");
+        //Debug.Log("Trying to find a random room of " + gameModeCode + " game type");
 
-        ExitGames.Client.Photon.Hashtable expectedProperties = new ExitGames.Client.Photon.Hashtable
-        {
-            {"m", gameModeCode}
-        };
-        PhotonNetwork.JoinRandomRoom(expectedProperties, 0);
+        //ExitGames.Client.Photon.Hashtable expectedProperties = new ExitGames.Client.Photon.Hashtable
+        //{
+        //    {"m", gameModeCode}
+        //};
+        loadingPanel.SetActive(true);
+        PhotonNetwork.JoinRandomRoom();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Join random room failed with message = " + message);
 
-        Transform failedPanelTrans = joiningRoomPanel.transform.Find("FailedPanel");
+        Transform failedPanelTrans = loadingPanel.transform.Find("FailedPanel");
 
 
         if (failedPanelTrans != null)
@@ -291,7 +287,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         //gamelobbyOptionsPanel.SetActive(true);
         //joiningRandomRoomPanel.SetActive(false);
 
-        //Lets create a room instrad with a gamemode that the user tried to join for.
+        //Lets create a room instead with a gamemode that the user tried to join for.
         //CreateRoom();
         //Debug.Log("new room created");
 
@@ -304,7 +300,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     void OnRandomRoomFailed()
     {
-        joiningRoomPanel.SetActive(false);
+        loadingPanel.SetActive(false);
         //gamelobbyOptionsPanel.SetActive(true);
     }
 
