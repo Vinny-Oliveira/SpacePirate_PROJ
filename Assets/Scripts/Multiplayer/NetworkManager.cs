@@ -30,8 +30,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private string _gameMode;
 
 
-    public GameObject waitingToConnectPanel;
-    public GameObject gamelobbyOptionsPanel;
+    //public GameObject gameSetupPanel;
+    //public GameObject gamelobbyOptionsPanel;
     public GameObject joiningRoomPanel;
 
 
@@ -87,7 +87,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// <summary>
     /// This will be called when the login button is pressed in the UI
     /// </summary>
-    public void CreateOrJoinRoom()
+    public void OnLoginButtonPressed()
     {
         if (string.IsNullOrEmpty(playerName))
         {
@@ -95,8 +95,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("Player name not entered. Can't connect to server without it.");
             return;
         }
-        // else
+        else
         Connect();
+
+
 
     }
 
@@ -108,8 +110,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + " got connected");
-        waitingToConnectPanel.SetActive(false);
-        gamelobbyOptionsPanel.SetActive(true);
+        //waitingToConnectPanel.SetActive(false);
+        //gamelobbyOptionsPanel.SetActive(true);
 
     }
     #endregion
@@ -303,7 +305,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void OnRandomRoomFailed()
     {
         joiningRoomPanel.SetActive(false);
-        gamelobbyOptionsPanel.SetActive(true);
+        //gamelobbyOptionsPanel.SetActive(true);
     }
 
     #endregion
