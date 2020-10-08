@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4748370245705851484}
   - component: {fileID: 4748370245705851485}
   - component: {fileID: 4748370245705851486}
+  - component: {fileID: 377584699017636416}
   m_Layer: 5
   m_Name: MainMenu_Btn
   m_TagString: Untagged
@@ -119,8 +120,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: GoToGameScene
+      - m_Target: {fileID: 377584699017636416}
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -130,6 +131,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &377584699017636416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748370245705851472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d61c449109af9f40823f739c8bdf004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene:
+    m_SceneAsset: {fileID: 102900000, guid: 572d2321951eb064ebe866bff171780f, type: 3}
+    m_SceneName: MainMenus
 --- !u!1 &4748370245760702104
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +369,7 @@ GameObject:
   - component: {fileID: 4748370246054892066}
   - component: {fileID: 4748370246054892067}
   - component: {fileID: 4748370246054892068}
+  - component: {fileID: 6439571364930797617}
   m_Layer: 5
   m_Name: BackToLobby_Btn
   m_TagString: Untagged
@@ -460,17 +477,32 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 6439571364930797617}
+        m_MethodName: RestartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6439571364930797617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748370246054892070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d61c449109af9f40823f739c8bdf004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene:
+    m_SceneAsset: {fileID: 0}
+    m_SceneName: 
 --- !u!1 &4748370246509839424
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back to Lobby
+  m_text: Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

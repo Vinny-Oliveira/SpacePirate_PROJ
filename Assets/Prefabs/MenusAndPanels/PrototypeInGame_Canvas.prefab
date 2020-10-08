@@ -6092,11 +6092,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThiefWin_Panel
       objectReference: {fileID: 0}
-    - target: {fileID: 7202338294086622970, guid: 9cd297d9ee924f04cb95ac1a5fbfa88f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd297d9ee924f04cb95ac1a5fbfa88f, type: 3}
 --- !u!224 &7336338345176276661 stripped
@@ -6112,11 +6107,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7336338344937654054}
     m_Modifications:
-    - target: {fileID: 4748370245705851486, guid: 4561bcd8e1bf4474b8e906aba0c8a383,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4748370245760702087, guid: 4561bcd8e1bf4474b8e906aba0c8a383,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6242,11 +6232,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7336338344937654054}
     m_Modifications:
-    - target: {fileID: 2867165277744517842, guid: a01b0b10e3c50754e88576c9754f8c35,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2867165278836634286, guid: a01b0b10e3c50754e88576c9754f8c35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6481,11 +6466,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3231242793655333663, guid: 0b7c5d529bb6a52418fe24b28425987e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7c5d529bb6a52418fe24b28425987e, type: 3}
