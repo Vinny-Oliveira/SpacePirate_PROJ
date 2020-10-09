@@ -36,6 +36,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     //public GameObject createRoomPanel;
     ////drag and drop the room info text here
     public TextMeshProUGUI roomInfoText;
+    public TextMeshProUGUI connectionErrorText;
 
     //grab playerList from Room User Panel
     public Transform playerListHolder;
@@ -177,10 +178,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        connectionErrorText.gameObject.SetActive(false);
+        gameSetupPanel.SetActive(false);
         loadingPanel.SetActive(false);
         createdRoomPanel.SetActive(true);
 
-        Debug.Log("User: " + PhotonNetwork.LocalPlayer.NickName + "joined " + PhotonNetwork.CurrentRoom.Name);
+        Debug.Log("User: " + PhotonNetwork.LocalPlayer.NickName + " joined " + PhotonNetwork.CurrentRoom.Name);
         //we need to print the list of players currently in the room. 
 
         roomInfoText.text = PhotonNetwork.CurrentRoom.Name + "'s room | Players: " + PhotonNetwork.CurrentRoom.PlayerCount + "/" + PhotonNetwork.CurrentRoom.MaxPlayers;
@@ -190,21 +193,21 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             playerDictGOs = new Dictionary<int, GameObject>();
 
         //Populate a list of players in the current room (populate player List UI)
-        foreach (Photon.Realtime.Player p in PhotonNetwork.PlayerList)
+        foreach(Photon.Realtime.Player p in PhotonNetwork.PlayerList)
         {
             CreatePlayerListItem(p);
         }
 
         //1...room game mode
         //OUT parameter
-        if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("m"))
-        {
-            object gameModeName = "";
-            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("m", out gameModeName))
-            {
-                Debug.Log("Game Mode: " + gameModeName);
-            }
-        }
+        //if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("m"))
+        //{
+        //    object gameModeName = "";
+        //    if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("m", out gameModeName))
+        //    {
+        //        Debug.Log("Game Mode: " + gameModeName);
+        //    }
+        //}
     }
 
     private void CreatePlayerListItem(Player newPlayer)
@@ -214,18 +217,19 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         playerDictGOs.Add(newPlayer.ActorNumber, item);
 
-        object _isRemotePlayerReady;
+        //object _isRemotePlayerReady;
 
-        if (newPlayer.CustomProperties.TryGetValue("pReady", out _isRemotePlayerReady))
-        {
-            item.GetComponent<PlayerItemUIInfo>().SetReadyState((bool)_isRemotePlayerReady);
-        }
+        //if (newPlayer.CustomProperties.TryGetValue("pReady", out _isRemotePlayerReady))
+        //{
+        //    item.GetComponent<PlayerItemUIInfo>().SetReadyState((bool)_isRemotePlayerReady);
+        //}
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         CreatePlayerListItem(newPlayer);
-        roomInfoText.text = PhotonNetwork.CurrentRoom.Name + " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount + "/" + PhotonNetwork.CurrentRoom.MaxPlayers;
+        roomInfoText.text = PhotonNetwork.CurrentRoom.Name + " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount 
+            + "/" + PhotonNetwork.CurrentRoom.MaxPlayers;
 
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
@@ -266,13 +270,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         //{
         //    {"m", gameModeCode}
         //};
-        loadingPanel.SetActive(true);
+        //loadingPanel.SetActive(true);
         PhotonNetwork.JoinRandomRoom();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Join random room failed with message = " + message);
+        connectionErrorText.gameObject.SetActive(true);
 
         Transform failedPanelTrans = loadingPanel.transform.Find("FailedPanel");
 

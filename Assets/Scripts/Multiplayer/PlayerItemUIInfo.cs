@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class PlayerItemUIInfo : MonoBehaviour
 {
-    public Text playerName;
+    public TextMeshProUGUI playerName;
     public Button readyBtn;
     public Image readyImg;
 
