@@ -9,7 +9,7 @@ using TMPro;
 public class PlayerItemUIInfo : MonoBehaviour
 {
     public TextMeshProUGUI playerName;
-    public Button readyBtn;
+    public Toggle readyBtn;
     public Image readyImg;
 
     public void Init(int playerNum, string pName)

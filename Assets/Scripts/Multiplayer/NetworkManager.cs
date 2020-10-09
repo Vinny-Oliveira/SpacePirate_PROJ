@@ -229,8 +229,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         CreatePlayerListItem(newPlayer);
-        roomInfoText.text = PhotonNetwork.CurrentRoom.Name + " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount 
+        roomInfoText.text = PhotonNetwork.CurrentRoom.Name + "'s room | Players: " + PhotonNetwork.CurrentRoom.PlayerCount 
             + "/" + PhotonNetwork.CurrentRoom.MaxPlayers;
+        Debug.Log("Current Player Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
 
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
