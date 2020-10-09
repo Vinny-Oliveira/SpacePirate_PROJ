@@ -196,6 +196,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         foreach(Photon.Realtime.Player p in PhotonNetwork.PlayerList)
         {
             CreatePlayerListItem(p);
+
         }
 
         //1...room game mode
