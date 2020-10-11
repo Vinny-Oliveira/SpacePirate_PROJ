@@ -11,6 +11,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private string _playerName;
     private string _roomName;
     private string _gameMode; //saved via the 'SetGameMode()' function below.
+    const string thiefMode = "tm";
+    const string securityMode = "sm";
 
     public string playerName
     {
@@ -26,6 +28,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public TextMeshProUGUI playerNameError_tmp;
 
+    [Header("Game Panels and UI")]
     public GameObject loadingPanel; //this is the transition panel that shoes a 'creating room' message while the room is being created on the photon server. 
     public GameObject namePanel; //where the player submits their name.
     public GameObject gameSetupPanel; //where the player chooses to either join or create a game.
@@ -38,6 +41,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI roomInfoText;
     public TextMeshProUGUI connectionErrorText;
 
+    //This is the panel that shows all users in the room and the option to select the car before we start the game. 
+    public GameObject roomUserPanel;
+
+
+    [Header("Player")]
     //grab playerList from Room User Panel
     public Transform playerListHolder;
 
@@ -45,8 +53,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public UnityEngine.UI.Button startGameBtn;
 
-    //This is the panel that shows all users in the room and the option to select the car before we start the game. 
-    public GameObject roomUserPanel;
+    [Header("Scenes")]
+    public SceneField thiefScene;
+    public SceneField securityScene;
 
     //keeps track of all playerList GOs instantiated so we can remove it from the display wen a player leaves the room.
     private Dictionary<int, GameObject> playerDictGOs;
@@ -111,15 +120,17 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     #endregion
 
     #region CREATE_ROOM
-    /// <summary>
-    /// This is called from the "CreateRoomPanel". A two letter 'game mode' code is passed depending on which chame mode check box is selected
-    /// Race Mode: rm
-    /// Death mode: dm
-    /// </summary>
 
+    /// <summary>
+    /// This is called from the "CreateRoomPanel". A two letter 'game mode' code is passed depending on which game mode check box is selected
+    /// Thief Mode: tm (the host is the thief)
+    /// Seciruty mode: sm (the host is the security system)
+    /// </summary>
     public void SetGameMode(string gameMode)
     {
         _gameMode = gameMode;
+
+        PhotonNetwork.CurrentRoom.CustomProperties["m"] = gameMode;
     }
 
     // Called when we click 'CreateRoom button under CreateRoomPanel in the UI
@@ -151,20 +162,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         createdRoomPanel.SetActive(true);
         Photon.Realtime.RoomOptions ro = new Photon.Realtime.RoomOptions();
         ro.MaxPlayers = 2;
-        PhotonNetwork.CreateRoom(playerName, ro);
 
         //we use 'm as a short hand property for denoting our gameMode
-        //ro.CustomRoomPropertiesForLobby = new string[] { "m" };
+        ro.CustomRoomPropertiesForLobby = new string[] { "m" };
 
-        //ExitGames.Client.Photon.Hashtable gameRoomProperties = new ExitGames.Client.Photon.Hashtable()
-        //{
-        //    {
-        //         "m", _gameMode
-        //    }
-        //};
+        ExitGames.Client.Photon.Hashtable gameRoomProperties = new ExitGames.Client.Photon.Hashtable() {
+            { "m", _gameMode }
+        };
 
-        //ro.CustomRoomProperties = gameRoomProperties;
-
+        ro.CustomRoomProperties = gameRoomProperties;
+        PhotonNetwork.CreateRoom(playerName, ro);
 
         //SetGameMode(_gameMode);
     }
@@ -287,7 +294,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         if (failedPanelTrans != null)
         {
             failedPanelTrans.gameObject.SetActive(true);
-            Debug.Log("Couldn't Joing the room");
+            Debug.Log("Couldn't Join the room");
             //failedPanelTrans.GetComponent<ErrorMessageDisplay>().DisplayMessage("Couldnt join a random room. Error message: " + message, CallOnRandomRoomFailedAfterDelay);
         }
 
@@ -350,34 +357,48 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     #region START_GAME
 
-    //Hook this up to the "start Game button" in room user panel
-    public void OnStartGameButtonClicked()
-    {
+    /// <summary>
+    /// Hook this up to the "start Game button" in room user panel
+    /// </summary>
+    public void OnStartGameButtonClicked() {
         object gameModeCode;
-        if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("m", out gameModeCode))
-        {
-            if ((string)gameModeCode == "rm")
-            {
-                PhotonNetwork.LoadLevel("RaceModeLevel");
-            }
-            else if ((string)gameModeCode == "dm")
-            {
-                PhotonNetwork.LoadLevel("DeathModeLevel");
-            }
-            else
-            {
-                Debug.Log("Didnt recognize game mode code: " + gameModeCode);
-                //for your project, you will show the errors/warnings in the UI, not in Debug
-            }
-        }
-        else
-        {
+        if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("m", out gameModeCode)) {
+            LoadAppropriateScene((string)gameModeCode, PhotonNetwork.IsMasterClient);
+
+        } else {
             Debug.Log("Can't find 'm' property in the room");
         }
 
+    }
 
+    /// <summary>
+    /// Load the game mode scene for the Master Client and the other mode scene for the Guest
+    /// </summary>
+    /// <param name="gameModeCode"></param>
+    /// <param name="isMasterClient"></param>
+    void LoadAppropriateScene(string gameModeCode, bool isMasterClient = true) {
+        string tempTM = thiefMode;
+        string tempSM = securityMode;
+
+        // Swap modes if not Master client
+        if (!isMasterClient) {
+            GameUtilities.SwapElements(ref tempSM, ref tempTM);
+        }
+
+        // Load scenes
+        if (gameModeCode == tempTM) {
+            PhotonNetwork.LoadLevel(thiefScene.SceneName);
+
+        } else if (gameModeCode == tempSM) {
+            PhotonNetwork.LoadLevel(securityScene.SceneName);
+
+        } else {
+            Debug.Log("Didnt recognize game mode code: " + gameModeCode);
+            //for your project, you will show the errors/warnings in the UI, not in Debug
+        }
     }
 
     #endregion
+
 
 }
