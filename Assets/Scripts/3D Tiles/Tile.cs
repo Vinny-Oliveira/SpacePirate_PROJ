@@ -6,7 +6,8 @@ using UnityEngine;
 public enum ETileType {
     DEFAULT = 0,
     WIRED = 1,
-    WALL = 2
+    WALL = 2,
+    DOOR = 3
 }
 
 public class Tile : MonoBehaviour, IEquatable<Tile> {

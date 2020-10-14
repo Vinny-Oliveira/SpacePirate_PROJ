@@ -114,6 +114,7 @@ public class GridManager : MonoBehaviour {
 
             for (int x = 0; x < tileLocationMap.GetLength(0); x++)  {
                 for (int z = 0; z < tileLocationMap.GetLength(1); z++) {
+                    tileLocationMap[x, z].listNeighbors.Clear();
                     LinkVerAndHorNeighbors(x, z);
                     LinkDiagonalNeighbors(x, z);
                 }

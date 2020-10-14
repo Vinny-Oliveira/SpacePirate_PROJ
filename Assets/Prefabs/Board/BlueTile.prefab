@@ -124,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 1700968509848413278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2986366580086439212}
   m_Father: {fileID: 0}
@@ -206,7 +206,6 @@ MonoBehaviour:
   coordinates: {x: 0, y: 0, z: 0}
   tileType: 1
   listNeighbors: []
-  defaultMaterial: {fileID: 0}
   tileHighlighter: {fileID: 4484904947712677256}
 --- !u!114 &4484904947712677256
 MonoBehaviour:
