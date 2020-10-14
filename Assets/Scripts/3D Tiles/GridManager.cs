@@ -82,13 +82,13 @@ public class GridManager : MonoBehaviour {
     public void SpawnTile(int x, int z) {
 
         // Spawn and reposition the tile
-        GameObject tileGO = Instantiate(listPrefabTiles[ grid[x, z] ], this.transform);
+        GameObject tileGO = Instantiate(listPrefabTiles[ grid[x, z] ], transform);
         tileGO.transform.position = new Vector3(x, 0, z);
         tileGO.name = "Tile (" + x + "," + z + ")";
 
         // Set the location variables of the tile
         Tile singleTile = tileGO.GetComponent<Tile>();
-        singleTile.SetLocation(x, z, (ETileType)(grid[x, z]));
+        singleTile.SetLocation(x, z);
         singleTile.gridManager = this;
 
         // Add tile to lists

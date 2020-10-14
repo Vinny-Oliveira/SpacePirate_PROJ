@@ -169,6 +169,9 @@ public class ThiefController : Character {
             listTempNeighbors = newNeighbors;
         }
 
+        // Remove tile that are not walkable
+        listTargetTiles.RemoveAll(x => !x.IsWalkable());
+
         // Highlight each tile
         foreach (var tile in listTargetTiles) {
             tile.tileHighlighter.ChangeColorToThiefRange();

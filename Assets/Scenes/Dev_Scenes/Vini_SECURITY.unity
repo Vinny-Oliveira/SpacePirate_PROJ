@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -12358,11 +12358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1007163570}
     - target: {fileID: 7336338345257658863, guid: 3ae64e4e537d511458cc03340f2c92ce,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
+      value: OnEndTurnButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7336338345257658863, guid: 3ae64e4e537d511458cc03340f2c92ce,
         type: 3}
@@ -12372,7 +12372,7 @@ PrefabInstance:
     - target: {fileID: 7336338345257658863, guid: 3ae64e4e537d511458cc03340f2c92ce,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7336338345304179093, guid: 3ae64e4e537d511458cc03340f2c92ce,
         type: 3}
@@ -27851,7 +27851,7 @@ PrefabInstance:
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}
       propertyPath: listPath.Array.size
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}
@@ -27866,12 +27866,12 @@ PrefabInstance:
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}
       propertyPath: listPath.Array.data[3]
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}
       propertyPath: listPath.Array.data[5]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}
@@ -27906,7 +27906,7 @@ PrefabInstance:
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}
       propertyPath: listPath.Array.data[4]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}

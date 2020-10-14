@@ -36,6 +36,7 @@ public class CubeMovement : Character {
     /* Initial setup */
     float fltInitYPos;
     Quaternion initRotation;
+    Quaternion initCenterRotation;
 
     #region INITIAL_SETUP
 
@@ -56,6 +57,7 @@ public class CubeMovement : Character {
     void StoreStartingPosition() {
         fltInitYPos = transform.position.y;
         initRotation = transform.rotation;
+        initCenterRotation = center.transform.rotation;
     }
 
     /// <summary>
@@ -64,6 +66,7 @@ public class CubeMovement : Character {
     void ResetPositionToStart() {
         transform.position = new Vector3(transform.position.x, fltInitYPos, transform.position.z);
         transform.rotation = initRotation;
+        center.transform.rotation = initCenterRotation;
     }
 
     /// <summary>

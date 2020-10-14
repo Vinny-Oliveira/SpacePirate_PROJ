@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ETileType {
-    EVEN = 0,
-    ODD = 1
+    DEFAULT = 0,
+    WIRED = 1,
+    WALL = 2
 }
 
 public class Tile : MonoBehaviour, IEquatable<Tile> {
@@ -25,9 +26,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// <param name="x"></param>
     /// <param name="z"></param>
     /// <param name="type"></param>
-    public void SetLocation(int x, int z, ETileType type) {
+    public void SetLocation(int x, int z) {
         coordinates = new Vector3(x, 0, z);
-        tileType = type;
     }
 
     /// <summary>
@@ -45,6 +45,14 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// <returns></returns>
     public bool HasNeighbor(Tile neighbor) {
         return listNeighbors.Contains(neighbor);
+    }
+
+    /// <summary>
+    /// Checks if the Thief can walk on this tile
+    /// </summary>
+    /// <returns></returns>
+    public bool IsWalkable() {
+        return (tileType != ETileType.WALL);
     }
 
     #endregion
