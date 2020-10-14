@@ -60,7 +60,7 @@ public class ThiefController : Character {
     }
 
     /// <summary>
-    /// Have the Thief wait on the tile for a with before continuing the path
+    /// Have the Thief wait on the tile for a while before continuing the path
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {

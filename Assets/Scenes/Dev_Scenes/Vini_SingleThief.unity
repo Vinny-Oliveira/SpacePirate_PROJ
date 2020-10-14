@@ -10796,7 +10796,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3319e4ab85bf85f4385652612d16ab19, type: 2}
+  - {fileID: -6138140437133636389, guid: 8199f1d4d7175a746acd4b812d773efa, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10824,7 +10824,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970126114}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4635790639215159872, guid: 8199f1d4d7175a746acd4b812d773efa, type: 3}
 --- !u!114 &970126120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11147,7 +11147,7 @@ MonoBehaviour:
   listCubes:
   - {fileID: 480947868}
   - {fileID: 2146380037}
-  exitTile: {fileID: 0}
+  exitTile: {fileID: 1528631213}
   btnEndTurn: {fileID: 106460849}
   thiefWinPanel: {fileID: 628844734}
   thiefLosePanel: {fileID: 1929085970}
@@ -11768,6 +11768,7 @@ MonoBehaviour:
   listPrefabTiles:
   - {fileID: 1700968509848413278, guid: 51f8cb4f83c312e428f9a6aad03ebf28, type: 3}
   - {fileID: 1700968509848413278, guid: e6cd1f791baf6ef4a987dadaf3e57195, type: 3}
+  - {fileID: 8067849056773385981, guid: 48968150075bbf54bbe0ea0d05999257, type: 3}
   listGridTiles:
   - {fileID: 309458545}
   - {fileID: 1605069572}
