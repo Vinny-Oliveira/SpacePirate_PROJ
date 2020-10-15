@@ -53,7 +53,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     /// <returns></returns>
     public bool IsWalkable() {
-        return (tileType != ETileType.WALL);
+        return (tileType != ETileType.WALL && tileType != ETileType.DOOR);
     }
 
     #endregion
