@@ -62,9 +62,16 @@ public class ThiefController : Character {
     /// <param name="nextTile"></param>
     /// <returns></returns>
     TweenCallback UpdateTile(ref Tile nextTile) {
+        if (currentGrid != nextTile.gridManager) {
+            currentGrid = nextTile.gridManager;
+            RepositionCamera();
+        }
+
         currentTile = nextTile;
         return null;
     }
+
+
 
     /// <summary>
     /// Have the Thief wait on the tile for a while before continuing the path
@@ -258,7 +265,7 @@ public class ThiefController : Character {
     /// Position the camera accordingly depending on the Thief's grid
     /// </summary>
     void RepositionCamera() {
-        mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.3f).SetEase(Ease.InElastic);
+        mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.9f).SetEase(Ease.InElastic);
     }
 
     #endregion

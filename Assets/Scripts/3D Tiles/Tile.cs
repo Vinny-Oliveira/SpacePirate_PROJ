@@ -73,7 +73,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         return base.GetHashCode();
     }
 
-#endregion
+    #endregion
 
 }
 

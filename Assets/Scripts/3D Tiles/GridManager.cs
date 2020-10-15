@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿//using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour {
+public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
 
     public Transform cameraHolder;
 
@@ -172,4 +173,22 @@ public class GridManager : MonoBehaviour {
             tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z - 1]);
         }
     }
+
+    #region EQUALITY_OVERLOAD
+    public override bool Equals(object other) {
+        return Equals(other as GridManager);
+    }
+
+    public bool Equals(GridManager grid) {
+        if (!grid) { return false; }
+
+        return cameraHolder.position == grid.cameraHolder.position;
+    }
+
+    public override int GetHashCode() {
+        return base.GetHashCode();
+    }
+
+    #endregion
+
 }
