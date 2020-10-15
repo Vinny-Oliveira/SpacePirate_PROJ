@@ -265,7 +265,7 @@ public class ThiefController : Character {
     /// Position the camera accordingly depending on the Thief's grid
     /// </summary>
     void RepositionCamera() {
-        mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.9f).SetEase(Ease.InElastic);
+        mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.9f);
     }
 
     #endregion

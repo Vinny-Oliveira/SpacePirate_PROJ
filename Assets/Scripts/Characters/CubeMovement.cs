@@ -16,7 +16,9 @@ public enum EDirection {
 public class CubeMovement : Character {
 
     [Header("Path where the Cube rolls")]
-    public List<EDirection> listPath= new List<EDirection>();
+    public int intRollsPerTurn;
+    public List<EDirection> listPath = new List<EDirection>();
+    Queue<EDirection> quePath = new Queue<EDirection>();
 
     [Header("Direction GameObjects")]
     public GameObject center;
@@ -48,7 +50,17 @@ public class CubeMovement : Character {
         SetStartingTile();
         StoreStartingPosition();
         BuildDirectionDictionary();
+        EnqueueThePath();
         SetFieldOfView();
+    }
+
+    /// <summary>
+    /// Turn the list of path to a Queue
+    /// </summary>
+    void EnqueueThePath() { 
+        foreach (var direction in listPath) {
+            quePath.Enqueue(direction);
+        }
     }
 
     /// <summary>
@@ -65,7 +77,7 @@ public class CubeMovement : Character {
     /// </summary>
     void ResetPositionToStart() {
         transform.position = new Vector3(transform.position.x, fltInitYPos, transform.position.z);
-        transform.rotation = initRotation;
+        //transform.rotation = initRotation;
         center.transform.rotation = initCenterRotation;
     }
 
@@ -125,7 +137,10 @@ public class CubeMovement : Character {
         IsMoving = true;
         TurnManager turnManager = TurnManager.instance;
 
-        foreach (var direction in listPath) {
+        for (int i = 0; i < intRollsPerTurn; i++) {
+            //foreach (var direction in listPath) {
+            EDirection direction = quePath.Dequeue();
+            quePath.Enqueue(direction);
             Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
             Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
 
