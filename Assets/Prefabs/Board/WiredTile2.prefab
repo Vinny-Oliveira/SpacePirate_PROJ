@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 2646917209192786611}
   - component: {fileID: 3284264613552180475}
   m_Layer: 0
-  m_Name: WiredTile
+  m_Name: WiredTile2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
