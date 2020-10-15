@@ -12,7 +12,6 @@ public class ThiefController : Character {
     /* Path Control */
     bool isSelected;
     List<Tile> listTargetTiles = new List<Tile>();
-    [SerializeField]
     List<Tile> listPathTiles = new List<Tile>();
 
     /* Item Control */
@@ -22,16 +21,24 @@ public class ThiefController : Character {
     /* Camera */
     public Camera mainCamera;
 
-    private void Start() {
+    private void Update() {
+        ControlMouseOverTiles();
+    }
+
+    #region STARTUP_FUNCTIONS
+
+    /// <summary>
+    /// Startup for the Thief
+    /// </summary>
+    public void SetupThief() { 
         isSelected = false;
         IsMoving = false;
         HasTreasure = false;
         SetStartingTile();
+        RepositionCamera();
     }
 
-    private void Update() {
-        ControlMouseOverTiles();
-    }
+    #endregion
 
     #region MOVE_PLAYER
 
@@ -241,6 +248,17 @@ public class ThiefController : Character {
     /// </summary>
     public void ClearPath() {
         listPathTiles.Clear();
+    }
+
+    #endregion
+
+    #region CAMERA_CONTROL
+
+    /// <summary>
+    /// Position the camera accordingly depending on the Thief's grid
+    /// </summary>
+    void RepositionCamera() {
+        mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.3f).SetEase(Ease.InElastic);
     }
 
     #endregion

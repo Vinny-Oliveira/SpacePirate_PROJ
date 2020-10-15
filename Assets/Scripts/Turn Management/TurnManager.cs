@@ -19,6 +19,9 @@ public class TurnManager : MonoBehaviour {
     public GameObject securityWinPanel;
     public GameObject securityLosePanel;
 
+    [Header("Camera Control")]
+    public Camera mainCamera;
+
     public bool CanMove { get; set; } = true;
     int intMoveCount;
 
@@ -30,10 +33,23 @@ public class TurnManager : MonoBehaviour {
     }
 
     private void Start() {
+        SetupCharacters();
+    }
+
+    #region STARTUP_FUNCTIONS
+
+    /// <summary>
+    /// Trigger the startup functions of all Cubes
+    /// </summary>
+    void SetupCharacters() { 
+        thief.SetupThief();
+
         foreach (var cube in listCubes) {
             cube.SetupCubeStart();
         }
     }
+
+    #endregion
 
     #region CHECKERS_FOR_OBJECTS_ON_SAME_TILES
 
@@ -220,6 +236,8 @@ public class TurnManager : MonoBehaviour {
 
     #endregion
 
+    #region CUBES_FIELD_OF_VIEW
+
     /// <summary>
     /// Highlight the tiles within all the cubes' fields of view
     /// </summary>
@@ -228,4 +246,6 @@ public class TurnManager : MonoBehaviour {
             cube.HighlightFieldOfView();
         }
     }
+
+    #endregion
 }

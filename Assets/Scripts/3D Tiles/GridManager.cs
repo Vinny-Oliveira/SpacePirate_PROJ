@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour {
 
-    //public static GridManager instance;
+    public Transform cameraHolder;
 
     public int[,] grid = new int[0,0]; // Grid with positions
 
@@ -109,14 +109,19 @@ public class GridManager : MonoBehaviour {
     /// <summary>
     /// Link neighbor tiles to each tile of the map
     /// </summary>
-    public void LinkTileNeighbors() { 
+    [ContextMenu("Link Neighbors")]
+    public void LinkTileNeighbors() {
+        listGridTiles.RemoveAll(x => x == null);
+
         if (tileLocationMap != null) {
 
             for (int x = 0; x < tileLocationMap.GetLength(0); x++)  {
                 for (int z = 0; z < tileLocationMap.GetLength(1); z++) {
-                    tileLocationMap[x, z].listNeighbors.Clear();
-                    LinkVerAndHorNeighbors(x, z);
-                    LinkDiagonalNeighbors(x, z);
+                    if (tileLocationMap[x, z]) { 
+                        tileLocationMap[x, z].listNeighbors.Clear();
+                        LinkVerAndHorNeighbors(x, z);
+                        LinkDiagonalNeighbors(x, z);
+                    }
                 }
             }
         }
@@ -128,19 +133,19 @@ public class GridManager : MonoBehaviour {
     /// <param name="x"></param>
     /// <param name="z"></param>
     void LinkVerAndHorNeighbors(int x, int z) {
-        if (x > 0) { // Left neighbor
+        if (x > 0 && tileLocationMap[x - 1, z]) { // Left neighbor
             tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x - 1, z]);
         }
 
-        if (x < currentMapSizeX - 1) { // Right neighbor
+        if (x < currentMapSizeX - 1 && tileLocationMap[x + 1, z]) { // Right neighbor
             tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z]);
         }
 
-        if (z > 0) { // Bottom neighbor
+        if (z > 0 && tileLocationMap[x, z - 1]) { // Bottom neighbor
             tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z - 1]);
         }
 
-        if (z < currentMapSizeZ - 1) { // Top neighbor
+        if (z < currentMapSizeZ - 1 && tileLocationMap[x, z + 1]) { // Top neighbor
             tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x, z + 1]);
         }
     }
