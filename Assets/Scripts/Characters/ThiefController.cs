@@ -17,6 +17,7 @@ public class ThiefController : Character {
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
     public GameObject treasureHolder;
+    List<Keycard> listKeycards = new List<Keycard>();
 
     /* Camera */
     public Camera mainCamera;
@@ -266,6 +267,18 @@ public class ThiefController : Character {
     /// </summary>
     void RepositionCamera() {
         mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.9f);
+    }
+
+    #endregion
+
+    #region KEYCARDS_AND_DOORS
+
+    /// <summary>
+    /// Add a keycard to the list of keycards
+    /// </summary>
+    /// <param name="keycard"></param>
+    public void AddKeycard(ref Keycard keycard) {
+        listKeycards.Add(keycard);
     }
 
     #endregion

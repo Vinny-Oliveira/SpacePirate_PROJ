@@ -77,7 +77,6 @@ public class CubeMovement : Character {
     /// </summary>
     void ResetPositionToStart() {
         transform.position = new Vector3(transform.position.x, fltInitYPos, transform.position.z);
-        //transform.rotation = initRotation;
         center.transform.rotation = initCenterRotation;
     }
 

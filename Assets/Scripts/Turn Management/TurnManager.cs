@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
 
-    [Header("Characters and Treasure")]
+    [Header("Characters and Items")]
     public ThiefController thief;
     public Treasure treasure;
     public List<CubeMovement> listCubes;
+    public List<Keycard> listKeycards = new List<Keycard>();
 
     [Header("Turn Control")]
     public Tile exitTile;
@@ -18,9 +19,6 @@ public class TurnManager : MonoBehaviour {
     public GameObject thiefLosePanel;
     public GameObject securityWinPanel;
     public GameObject securityLosePanel;
-
-    [Header("Camera Control")]
-    public Camera mainCamera;
 
     public bool CanMove { get; set; } = true;
     int intMoveCount;
@@ -83,6 +81,20 @@ public class TurnManager : MonoBehaviour {
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Check if the Thief is touching a keycard
+    /// </summary>
+    /// <returns></returns>
+    public Keycard IsThefTouchingKeycard() { 
+        foreach (var keycard in listKeycards) { 
+            if (AreTilesTheSame(ref thief.currentTile, ref keycard.placeTile)) {
+                return keycard;
+            }
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -155,6 +167,12 @@ public class TurnManager : MonoBehaviour {
             Debug.Log("THIEF CAUGHT!");
             thiefLosePanel.SetActive(true);
             return true;
+        }
+
+        // Keycard caught
+        Keycard keycard = IsThefTouchingKeycard();
+        if (keycard) {
+            thief.AddKeycard(ref keycard);
         }
 
         // Treasure caught
@@ -248,4 +266,5 @@ public class TurnManager : MonoBehaviour {
     }
 
     #endregion
+
 }

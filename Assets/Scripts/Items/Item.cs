@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Treasure : Item {
+public class Item : MonoBehaviour {
 
-    
+    public Tile placeTile;
 
 }
