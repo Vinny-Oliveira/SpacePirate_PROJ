@@ -12,12 +12,17 @@ public enum ETileType {
 
 public class Tile : MonoBehaviour, IEquatable<Tile> {
 
+    [Header("Manage Location")]
     public GridManager gridManager;
     public Vector3 coordinates;
+
+    [Header("Control Path")]
     public ETileType tileType;
     public List<Tile> listNeighbors;
-
     public TileHighlighter tileHighlighter;
+
+    [Header("If tile is a DOOR, add the Door")]
+    public Door door;
 
     #region LOCATION_AND_NEIGHBORS
 
