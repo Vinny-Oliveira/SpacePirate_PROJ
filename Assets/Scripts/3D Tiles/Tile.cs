@@ -63,6 +63,18 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     #endregion
 
+    #region DOOR_CONTROL
+
+    /// <summary>
+    /// Open the door and change the tileType to DEFAULT
+    /// </summary>
+    public void OpenDoor() {
+        door.OpenDoor();
+        tileType = ETileType.DEFAULT;
+    }
+
+    #endregion
+
     #region EQUALITY_OVERLOAD
     public override bool Equals(object other) {
         return Equals(other as Tile);

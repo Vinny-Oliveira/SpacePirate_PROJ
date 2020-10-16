@@ -225,7 +225,7 @@ MonoBehaviour:
   tileType: 3
   listNeighbors: []
   tileHighlighter: {fileID: 137431451276967058}
-  cardType: 0
+  door: {fileID: 4549435485225799814}
 --- !u!114 &137431451276967058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,3 +314,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1208271632841662069}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4549435485225799814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3451573560450322163, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1208271632841662069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6f7a14dfbf4794cbb34fc351639cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

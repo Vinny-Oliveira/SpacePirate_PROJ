@@ -7,6 +7,10 @@ public class Door : MonoBehaviour {
     public ECardType cardType;
     public Animator animator;
 
+    /// <summary>
+    /// Play the animation to open the door
+    /// </summary>
+    [ContextMenu("Open Door")]
     public void OpenDoor() { 
         if (!animator) {
             Debug.Log("Attach an Animator");

@@ -69,10 +69,9 @@ public class ThiefController : Character {
         }
 
         currentTile = nextTile;
+        OpenNeighborDoors();
         return null;
     }
-
-
 
     /// <summary>
     /// Have the Thief wait on the tile for a while before continuing the path
@@ -279,6 +278,22 @@ public class ThiefController : Character {
     /// <param name="keycard"></param>
     public void AddKeycard(ref Keycard keycard) {
         listKeycards.Add(keycard);
+        keycard.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    /// <summary>
+    /// CHeck if the Thief if close to doors that can be opened and open them
+    /// </summary>
+    void OpenNeighborDoors() {
+        List<Tile> doorTiles = currentTile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR);
+
+        foreach (var doorTile in doorTiles) {
+            ECardType doorType = doorTile.door.cardType;
+
+            if (listKeycards.Find(x => x.cardType == doorType)) {
+                doorTile.OpenDoor();
+            }
+        }
     }
 
     #endregion
