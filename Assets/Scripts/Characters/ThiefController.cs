@@ -283,7 +283,8 @@ public class ThiefController : Character {
     /// <param name="keycard"></param>
     public void AddKeycard(ref Keycard keycard) {
         listKeycards.Add(keycard);
-        keycard.GetComponent<MeshRenderer>().enabled = false;
+        //keycard.GetComponent<MeshRenderer>().enabled = false;
+        keycard.gameObject.SetActive(false);
     }
 
     /// <summary>

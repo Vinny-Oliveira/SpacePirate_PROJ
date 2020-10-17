@@ -408,18 +408,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7220968533698727383}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7220968534708578160}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7220968533718065455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,7 +4985,7 @@ GameObject:
   - component: {fileID: 7220968535582326020}
   - component: {fileID: 7220968535582326021}
   m_Layer: 5
-  m_Name: T-EndTurn_tx
+  m_Name: T-EndTurn_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
