@@ -157,7 +157,7 @@ public class TurnManager : MonoBehaviour {
     #region HANDLERS_FOR_OBJECTS_SHARING_SAME_TILE
 
     /// <summary>
-    /// Check if the thief if touching a special tile when they reach a new tile
+    /// Check if the thief is touching a special tile when they reach a new tile
     /// </summary>
     /// <returns></returns>
     public bool HandleNewTile() {
