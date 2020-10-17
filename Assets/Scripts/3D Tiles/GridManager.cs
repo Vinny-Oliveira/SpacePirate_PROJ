@@ -1,5 +1,4 @@
-﻿//using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +19,7 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
     public int intMapSizeX = 10;
     public int intMapSizeZ = 10;
 
+    #region TILE_MAP_CREATION
 
     /// <summary>
     /// Getter of listTempTiles
@@ -107,6 +107,10 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
         tileLocationMap[x, z] = singleTile;
     }
 
+    #endregion
+
+    #region LINK_NEIGHBORS
+
     /// <summary>
     /// Link neighbor tiles to each tile of the map
     /// </summary>
@@ -173,6 +177,8 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
             tileLocationMap[x, z].listNeighbors.Add(tileLocationMap[x + 1, z - 1]);
         }
     }
+
+    #endregion
 
     #region EQUALITY_OVERLOAD
     public override bool Equals(object other) {

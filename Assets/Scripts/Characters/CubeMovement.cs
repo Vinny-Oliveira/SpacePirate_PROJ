@@ -16,7 +16,8 @@ public enum EDirection {
 public class CubeMovement : Character {
 
     [Header("Path where the Cube rolls")]
-    public int intRollsPerTurn;
+    [SerializeField]
+    int intRollsPerTurn;
     public List<EDirection> listPath = new List<EDirection>();
     Queue<EDirection> quePath = new Queue<EDirection>();
 
@@ -28,7 +29,7 @@ public class CubeMovement : Character {
     public GameObject southWest;
 
     [Header("Rotation and Field of View")]
-    public int step = 9;
+    const int step = 9;
     public List<Vector2> listViewCoords = new List<Vector2>();
     public List<Tile> listFieldOfView = new List<Tile>(); // Field of view
 
@@ -36,8 +37,7 @@ public class CubeMovement : Character {
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
     /* Initial setup */
-    float fltInitYPos;
-    Quaternion initRotation;
+    float initPosY;
     Quaternion initCenterRotation;
 
     #region INITIAL_SETUP
@@ -67,8 +67,7 @@ public class CubeMovement : Character {
     /// Store the initial values of height (position.y) and rotation
     /// </summary>
     void StoreStartingPosition() {
-        fltInitYPos = transform.position.y;
-        initRotation = transform.rotation;
+        initPosY = transform.position.y;
         initCenterRotation = center.transform.rotation;
     }
 
@@ -76,7 +75,7 @@ public class CubeMovement : Character {
     /// Reset the cube's rotation and Y position to the initial ones
     /// </summary>
     void ResetPositionToStart() {
-        transform.position = new Vector3(transform.position.x, fltInitYPos, transform.position.z);
+        transform.position = new Vector3(transform.position.x, initPosY, transform.position.z);
         center.transform.rotation = initCenterRotation;
     }
 

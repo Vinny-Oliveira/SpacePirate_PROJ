@@ -7,7 +7,8 @@ using DG.Tweening;
 public class ThiefController : Character {
 
     /* Movement */
-    public int intRange = 2;
+    [SerializeField]
+    int intRange = 2;
 
     /* Path Control */
     bool isSelected;
