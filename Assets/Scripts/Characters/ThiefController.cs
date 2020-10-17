@@ -167,6 +167,7 @@ public class ThiefController : Character {
     void HighlightTargetTiles() { 
         listTargetTiles = currentTile.listNeighbors;
         List<Tile> listTempNeighbors = listTargetTiles;
+        listTempNeighbors.RemoveAll(x => !x.IsWalkable()); // Remove tiles that are not walkable
 
         // Check tiles in range
         for (int i = 1; i < intRange; i++) {
@@ -175,6 +176,7 @@ public class ThiefController : Character {
             // Add outer layer of neighbors
             foreach (var tile in listTempNeighbors) {
                 List<Tile> tempNeighbors = tile.listNeighbors;
+                tempNeighbors.RemoveAll(x => !x.IsWalkable());
                 newNeighbors = newNeighbors.Union(tempNeighbors).ToList();
             }
 

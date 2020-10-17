@@ -53,6 +53,10 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         return listNeighbors.Contains(neighbor);
     }
 
+    #endregion
+    
+    #region DOOR_AND_WALLS
+
     /// <summary>
     /// Checks if the Thief can walk on this tile
     /// </summary>
@@ -60,10 +64,6 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     public bool IsWalkable() {
         return (tileType != ETileType.WALL && tileType != ETileType.DOOR);
     }
-
-    #endregion
-
-    #region DOOR_CONTROL
 
     /// <summary>
     /// Open the door and change the tileType to DEFAULT
