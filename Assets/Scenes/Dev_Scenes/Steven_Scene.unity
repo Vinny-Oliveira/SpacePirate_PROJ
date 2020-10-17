@@ -241,6 +241,7 @@ MonoBehaviour:
   - {fileID: 2055809403}
   - {fileID: 485291677}
   tileHighlighter: {fileID: 7565439}
+  door: {fileID: 0}
 --- !u!114 &7565439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +514,7 @@ MonoBehaviour:
   - {fileID: 714110906}
   - {fileID: 563641969}
   tileHighlighter: {fileID: 17745449}
+  door: {fileID: 0}
 --- !u!114 &17745449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +833,7 @@ MonoBehaviour:
   - {fileID: 1317133438}
   - {fileID: 1748542341}
   tileHighlighter: {fileID: 29875908}
+  door: {fileID: 0}
 --- !u!114 &29875908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,6 +917,7 @@ MonoBehaviour:
   - {fileID: 692482183}
   - {fileID: 1934734196}
   tileHighlighter: {fileID: 30624460}
+  door: {fileID: 0}
 --- !u!114 &30624460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1079,6 +1083,7 @@ MonoBehaviour:
   - {fileID: 2141268205}
   - {fileID: 577420949}
   tileHighlighter: {fileID: 36667650}
+  door: {fileID: 0}
 --- !u!114 &36667650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,6 +1357,7 @@ MonoBehaviour:
   - {fileID: 303037431}
   - {fileID: 2118867836}
   tileHighlighter: {fileID: 49069851}
+  door: {fileID: 0}
 --- !u!114 &49069851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,6 +1444,7 @@ MonoBehaviour:
   - {fileID: 1870590791}
   - {fileID: 260527185}
   tileHighlighter: {fileID: 50930685}
+  door: {fileID: 0}
 --- !u!114 &50930685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,6 +1622,7 @@ MonoBehaviour:
   - {fileID: 2106357006}
   - {fileID: 991387786}
   tileHighlighter: {fileID: 62041930}
+  door: {fileID: 0}
 --- !u!114 &62041930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,6 +1709,7 @@ MonoBehaviour:
   - {fileID: 1327298948}
   - {fileID: 1888114101}
   tileHighlighter: {fileID: 64074135}
+  door: {fileID: 0}
 --- !u!114 &64074135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,6 +2015,7 @@ MonoBehaviour:
   - {fileID: 30624459}
   - {fileID: 1818078934}
   tileHighlighter: {fileID: 91439441}
+  door: {fileID: 0}
 --- !u!114 &91439441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,6 +2102,7 @@ MonoBehaviour:
   - {fileID: 781348824}
   - {fileID: 1022595798}
   tileHighlighter: {fileID: 99685854}
+  door: {fileID: 0}
 --- !u!114 &99685854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,6 +2280,7 @@ MonoBehaviour:
   - {fileID: 1916725124}
   - {fileID: 2146382457}
   tileHighlighter: {fileID: 103479139}
+  door: {fileID: 0}
 --- !u!114 &103479139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,7 +2525,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2522,10 +2534,10 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.235
     m_Bias: 0.05
     m_NormalBias: 0
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -2569,13 +2581,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115772685}
-  m_LocalRotation: {x: -0.5308818, y: -0.25856358, z: 0.27896896, w: -0.75728834}
+  m_LocalRotation: {x: 0.33037177, y: -0.8203062, z: 0.26362365, w: 0.38529843}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 108.5, y: 197.5, z: -207.8}
+  m_LocalEulerAnglesHint: {x: 136.6, y: 399.07, z: -207.8}
 --- !u!1 &121563235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,6 +2632,7 @@ MonoBehaviour:
   - {fileID: 1964175008}
   - {fileID: 650666369}
   tileHighlighter: {fileID: 121563237}
+  door: {fileID: 0}
 --- !u!114 &121563237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2797,6 +2810,7 @@ MonoBehaviour:
   - {fileID: 934646363}
   - {fileID: 1818078934}
   tileHighlighter: {fileID: 124411841}
+  door: {fileID: 0}
 --- !u!114 &124411841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2880,6 +2894,7 @@ MonoBehaviour:
   - {fileID: 1408414430}
   - {fileID: 1218843992}
   tileHighlighter: {fileID: 127763191}
+  door: {fileID: 0}
 --- !u!114 &127763191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,6 +3075,7 @@ MonoBehaviour:
   - {fileID: 692482183}
   - {fileID: 1870590791}
   tileHighlighter: {fileID: 137322721}
+  door: {fileID: 0}
 --- !u!114 &137322721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3504,6 +3520,7 @@ MonoBehaviour:
   - {fileID: 722591319}
   - {fileID: 1748542341}
   tileHighlighter: {fileID: 161861296}
+  door: {fileID: 0}
 --- !u!114 &161861296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3965,6 +3982,7 @@ MonoBehaviour:
   - {fileID: 1022597940}
   - {fileID: 1133032789}
   tileHighlighter: {fileID: 191153075}
+  door: {fileID: 0}
 --- !u!114 &191153075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4926,6 +4944,7 @@ MonoBehaviour:
   - {fileID: 545620733}
   - {fileID: 1317133438}
   tileHighlighter: {fileID: 260527186}
+  door: {fileID: 0}
 --- !u!114 &260527186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5493,6 +5512,7 @@ MonoBehaviour:
   - {fileID: 1553333514}
   - {fileID: 1277132350}
   tileHighlighter: {fileID: 291164689}
+  door: {fileID: 0}
 --- !u!114 &291164689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5579,6 +5599,7 @@ MonoBehaviour:
   - {fileID: 577420949}
   - {fileID: 873744871}
   tileHighlighter: {fileID: 294859856}
+  door: {fileID: 0}
 --- !u!114 &294859856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5916,6 +5937,7 @@ MonoBehaviour:
   - {fileID: 901796308}
   - {fileID: 137322720}
   tileHighlighter: {fileID: 303037432}
+  door: {fileID: 0}
 --- !u!114 &303037432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6239,6 +6261,7 @@ MonoBehaviour:
   - {fileID: 2118867836}
   - {fileID: 765887336}
   tileHighlighter: {fileID: 330459221}
+  door: {fileID: 0}
 --- !u!114 &330459221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6513,6 +6536,7 @@ MonoBehaviour:
   - {fileID: 1888114101}
   - {fileID: 1991985143}
   tileHighlighter: {fileID: 336357024}
+  door: {fileID: 0}
 --- !u!114 &336357024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7627,6 +7651,7 @@ MonoBehaviour:
   - {fileID: 697615494}
   - {fileID: 970887722}
   tileHighlighter: {fileID: 436722055}
+  door: {fileID: 0}
 --- !u!114 &436722055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7868,6 +7893,7 @@ MonoBehaviour:
   - {fileID: 1818078934}
   - {fileID: 1713519837}
   tileHighlighter: {fileID: 451231208}
+  door: {fileID: 0}
 --- !u!114 &451231208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8188,6 +8214,7 @@ MonoBehaviour:
   - {fileID: 485291677}
   - {fileID: 2033696613}
   tileHighlighter: {fileID: 472044811}
+  door: {fileID: 0}
 --- !u!114 &472044811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8274,6 +8301,7 @@ MonoBehaviour:
   - {fileID: 797420098}
   - {fileID: 1626917974}
   tileHighlighter: {fileID: 472093243}
+  door: {fileID: 0}
 --- !u!114 &472093243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8719,6 +8747,7 @@ MonoBehaviour:
   - {fileID: 1931712750}
   - {fileID: 17745448}
   tileHighlighter: {fileID: 485291678}
+  door: {fileID: 0}
 --- !u!114 &485291678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8935,6 +8964,7 @@ MonoBehaviour:
   - {fileID: 191153074}
   - {fileID: 1116300150}
   tileHighlighter: {fileID: 494432579}
+  door: {fileID: 0}
 --- !u!114 &494432579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9100,6 +9130,7 @@ MonoBehaviour:
   - {fileID: 64074134}
   - {fileID: 336357023}
   tileHighlighter: {fileID: 510608233}
+  door: {fileID: 0}
 --- !u!114 &510608233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9316,6 +9347,7 @@ MonoBehaviour:
   - {fileID: 1409458045}
   - {fileID: 2134334123}
   tileHighlighter: {fileID: 518826396}
+  door: {fileID: 0}
 --- !u!114 &518826396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9698,6 +9730,7 @@ MonoBehaviour:
   - {fileID: 1348470768}
   - {fileID: 1844734225}
   tileHighlighter: {fileID: 542924317}
+  door: {fileID: 0}
 --- !u!114 &542924317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9784,6 +9817,7 @@ MonoBehaviour:
   - {fileID: 1028593067}
   - {fileID: 1486808595}
   tileHighlighter: {fileID: 545620734}
+  door: {fileID: 0}
 --- !u!114 &545620734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10201,6 +10235,7 @@ MonoBehaviour:
   - {fileID: 1920574318}
   - {fileID: 472093242}
   tileHighlighter: {fileID: 563641970}
+  door: {fileID: 0}
 --- !u!114 &563641970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10769,6 +10804,7 @@ MonoBehaviour:
   - {fileID: 518826395}
   - {fileID: 1817071642}
   tileHighlighter: {fileID: 577420950}
+  door: {fileID: 0}
 --- !u!114 &577420950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10949,6 +10985,7 @@ MonoBehaviour:
   - {fileID: 494432578}
   - {fileID: 1672187126}
   tileHighlighter: {fileID: 581151537}
+  door: {fileID: 0}
 --- !u!114 &581151537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11681,6 +11718,7 @@ MonoBehaviour:
   - {fileID: 970887722}
   - {fileID: 191153074}
   tileHighlighter: {fileID: 617885877}
+  door: {fileID: 0}
 --- !u!114 &617885877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12203,6 +12241,7 @@ MonoBehaviour:
   - {fileID: 121563236}
   - {fileID: 731107496}
   tileHighlighter: {fileID: 650666370}
+  door: {fileID: 0}
 --- !u!114 &650666370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12388,6 +12427,7 @@ MonoBehaviour:
   - {fileID: 1672187126}
   - {fileID: 1703582418}
   tileHighlighter: {fileID: 658081801}
+  door: {fileID: 0}
 --- !u!114 &658081801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12474,6 +12514,7 @@ MonoBehaviour:
   - {fileID: 1934734196}
   - {fileID: 1028593067}
   tileHighlighter: {fileID: 673094169}
+  door: {fileID: 0}
 --- !u!114 &673094169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12651,6 +12692,7 @@ MonoBehaviour:
   - {fileID: 1596415717}
   - {fileID: 2106357006}
   tileHighlighter: {fileID: 689518508}
+  door: {fileID: 0}
 --- !u!114 &689518508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12737,6 +12779,7 @@ MonoBehaviour:
   - {fileID: 30624459}
   - {fileID: 673094168}
   tileHighlighter: {fileID: 692482184}
+  door: {fileID: 0}
 --- !u!114 &692482184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12917,6 +12960,7 @@ MonoBehaviour:
   - {fileID: 436722054}
   - {fileID: 802423546}
   tileHighlighter: {fileID: 697615495}
+  door: {fileID: 0}
 --- !u!114 &697615495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13455,6 +13499,7 @@ MonoBehaviour:
   - {fileID: 2145411667}
   - {fileID: 1920574318}
   tileHighlighter: {fileID: 714110907}
+  door: {fileID: 0}
 --- !u!114 &714110907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13620,6 +13665,7 @@ MonoBehaviour:
   - {fileID: 29875907}
   - {fileID: 161861295}
   tileHighlighter: {fileID: 722591320}
+  door: {fileID: 0}
 --- !u!114 &722591320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13918,6 +13964,7 @@ MonoBehaviour:
   - {fileID: 542924316}
   - {fileID: 1348959644}
   tileHighlighter: {fileID: 731107497}
+  door: {fileID: 0}
 --- !u!114 &731107497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14531,6 +14578,7 @@ MonoBehaviour:
   - {fileID: 1875327526}
   - {fileID: 1817438761}
   tileHighlighter: {fileID: 760662571}
+  door: {fileID: 0}
 --- !u!114 &760662571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14711,6 +14759,7 @@ MonoBehaviour:
   - {fileID: 50930684}
   - {fileID: 2140410217}
   tileHighlighter: {fileID: 765887337}
+  door: {fileID: 0}
 --- !u!114 &765887337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14939,6 +14988,7 @@ MonoBehaviour:
   - {fileID: 99685853}
   - {fileID: 697615494}
   tileHighlighter: {fileID: 781348825}
+  door: {fileID: 0}
 --- !u!114 &781348825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15313,6 +15363,7 @@ MonoBehaviour:
   - {fileID: 1703582418}
   - {fileID: 1596415717}
   tileHighlighter: {fileID: 797420099}
+  door: {fileID: 0}
 --- !u!114 &797420099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15475,6 +15526,7 @@ MonoBehaviour:
   - {fileID: 1172409018}
   - {fileID: 1810305880}
   tileHighlighter: {fileID: 801750737}
+  door: {fileID: 0}
 --- !u!114 &801750737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15655,6 +15707,7 @@ MonoBehaviour:
   - {fileID: 970887722}
   - {fileID: 581151536}
   tileHighlighter: {fileID: 802423547}
+  door: {fileID: 0}
 --- !u!114 &802423547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16240,6 +16293,7 @@ MonoBehaviour:
   - {fileID: 801750736}
   - {fileID: 99685853}
   tileHighlighter: {fileID: 832436015}
+  door: {fileID: 0}
 --- !u!114 &832436015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16924,6 +16978,7 @@ MonoBehaviour:
   - {fileID: 1817071642}
   - {fileID: 1318250739}
   tileHighlighter: {fileID: 873744872}
+  door: {fileID: 0}
 --- !u!114 &873744872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17336,6 +17391,7 @@ MonoBehaviour:
   - {fileID: 127763190}
   - {fileID: 1817438761}
   tileHighlighter: {fileID: 888575990}
+  door: {fileID: 0}
 --- !u!114 &888575990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17498,6 +17554,7 @@ MonoBehaviour:
   - {fileID: 303037431}
   - {fileID: 692482183}
   tileHighlighter: {fileID: 901796309}
+  door: {fileID: 0}
 --- !u!114 &901796309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17584,6 +17641,7 @@ MonoBehaviour:
   - {fileID: 1818078934}
   - {fileID: 1713519837}
   tileHighlighter: {fileID: 903305430}
+  door: {fileID: 0}
 --- !u!114 &903305430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17835,6 +17893,7 @@ MonoBehaviour:
   - {fileID: 1409458045}
   - {fileID: 303037431}
   tileHighlighter: {fileID: 917736425}
+  door: {fileID: 0}
 --- !u!114 &917736425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18015,6 +18074,7 @@ MonoBehaviour:
   - {fileID: 124411840}
   - {fileID: 903305429}
   tileHighlighter: {fileID: 934646364}
+  door: {fileID: 0}
 --- !u!114 &934646364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18553,6 +18613,7 @@ MonoBehaviour:
   - {fileID: 1844734225}
   - {fileID: 722591319}
   tileHighlighter: {fileID: 954657959}
+  door: {fileID: 0}
 --- !u!114 &954657959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18812,6 +18873,7 @@ MonoBehaviour:
   - {fileID: 617885876}
   - {fileID: 494432578}
   tileHighlighter: {fileID: 970887723}
+  door: {fileID: 0}
 --- !u!114 &970887723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19056,6 +19118,7 @@ MonoBehaviour:
   - {fileID: 336357023}
   - {fileID: 1180297978}
   tileHighlighter: {fileID: 991387787}
+  door: {fileID: 0}
 --- !u!114 &991387787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19912,6 +19975,7 @@ MonoBehaviour:
   - {fileID: 294859855}
   - {fileID: 1439694991}
   tileHighlighter: {fileID: 1014768199}
+  door: {fileID: 0}
 --- !u!114 &1014768199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20092,6 +20156,7 @@ MonoBehaviour:
   - {fileID: 697615494}
   - {fileID: 1807004357}
   tileHighlighter: {fileID: 1022595799}
+  door: {fileID: 0}
 --- !u!114 &1022595799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20175,6 +20240,7 @@ MonoBehaviour:
   - {fileID: 191153074}
   - {fileID: 934646363}
   tileHighlighter: {fileID: 1022597941}
+  door: {fileID: 0}
 --- !u!114 &1022597941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20261,6 +20327,7 @@ MonoBehaviour:
   - {fileID: 1439694991}
   - {fileID: 121563236}
   tileHighlighter: {fileID: 1025400584}
+  door: {fileID: 0}
 --- !u!114 &1025400584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20344,6 +20411,7 @@ MonoBehaviour:
   - {fileID: 673094168}
   - {fileID: 545620733}
   tileHighlighter: {fileID: 1028593068}
+  door: {fileID: 0}
 --- !u!114 &1028593068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21341,6 +21409,7 @@ MonoBehaviour:
   - {fileID: 1133032789}
   - {fileID: 1927040136}
   tileHighlighter: {fileID: 1116300151}
+  door: {fileID: 0}
 --- !u!114 &1116300151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21773,6 +21842,7 @@ MonoBehaviour:
   - {fileID: 934646363}
   - {fileID: 1523134296}
   tileHighlighter: {fileID: 1133032790}
+  door: {fileID: 0}
 --- !u!114 &1133032790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22355,6 +22425,7 @@ MonoBehaviour:
   - {fileID: 801750736}
   - {fileID: 1916725124}
   tileHighlighter: {fileID: 1172409019}
+  door: {fileID: 0}
 --- !u!114 &1172409019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22438,6 +22509,7 @@ MonoBehaviour:
   - {fileID: 991387786}
   - {fileID: 1991985143}
   tileHighlighter: {fileID: 1180297979}
+  door: {fileID: 0}
 --- !u!114 &1180297979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22524,6 +22596,7 @@ MonoBehaviour:
   - {fileID: 563641969}
   - {fileID: 1833223795}
   tileHighlighter: {fileID: 1218843993}
+  door: {fileID: 0}
 --- !u!114 &1218843993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23108,6 +23181,7 @@ MonoBehaviour:
   - {fileID: 510608232}
   - {fileID: 991387786}
   tileHighlighter: {fileID: 1277132351}
+  door: {fileID: 0}
 --- !u!114 &1277132351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23749,6 +23823,7 @@ MonoBehaviour:
   - {fileID: 36667649}
   - {fileID: 294859855}
   tileHighlighter: {fileID: 1305448419}
+  door: {fileID: 0}
 --- !u!114 &1305448419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23929,6 +24004,7 @@ MonoBehaviour:
   - {fileID: 1486808595}
   - {fileID: 1555969920}
   tileHighlighter: {fileID: 1317133439}
+  door: {fileID: 0}
 --- !u!114 &1317133439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24015,6 +24091,7 @@ MonoBehaviour:
   - {fileID: 1598147142}
   - {fileID: 542924316}
   tileHighlighter: {fileID: 1318250740}
+  door: {fileID: 0}
 --- !u!114 &1318250740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24098,6 +24175,7 @@ MonoBehaviour:
   - {fileID: 1713519837}
   - {fileID: 64074134}
   tileHighlighter: {fileID: 1327298949}
+  door: {fileID: 0}
 --- !u!114 &1327298949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24179,6 +24257,7 @@ MonoBehaviour:
   - {fileID: 1180297978}
   - {fileID: 1748542341}
   tileHighlighter: {fileID: 1334528704}
+  door: {fileID: 0}
 --- !u!114 &1334528704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24265,6 +24344,7 @@ MonoBehaviour:
   - {fileID: 765887336}
   - {fileID: 1760474891}
   tileHighlighter: {fileID: 1348470769}
+  door: {fileID: 0}
 --- !u!114 &1348470769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24348,6 +24428,7 @@ MonoBehaviour:
   - {fileID: 731107496}
   - {fileID: 1844734225}
   tileHighlighter: {fileID: 1348959645}
+  door: {fileID: 0}
 --- !u!114 &1348959645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25382,6 +25463,7 @@ MonoBehaviour:
   - {fileID: 2033696613}
   - {fileID: 127763190}
   tileHighlighter: {fileID: 1408414431}
+  door: {fileID: 0}
 --- !u!114 &1408414431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25468,6 +25550,7 @@ MonoBehaviour:
   - {fileID: 917736424}
   - {fileID: 49069850}
   tileHighlighter: {fileID: 1409458046}
+  door: {fileID: 0}
 --- !u!114 &1409458046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25727,6 +25810,7 @@ MonoBehaviour:
   - {fileID: 873744871}
   - {fileID: 1964175008}
   tileHighlighter: {fileID: 1439694992}
+  door: {fileID: 0}
 --- !u!114 &1439694992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26433,6 +26517,7 @@ MonoBehaviour:
   - {fileID: 545620733}
   - {fileID: 1317133438}
   tileHighlighter: {fileID: 1486808596}
+  door: {fileID: 0}
 --- !u!114 &1486808596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27038,6 +27123,7 @@ MonoBehaviour:
   - {fileID: 903305429}
   - {fileID: 1934627665}
   tileHighlighter: {fileID: 1523134297}
+  door: {fileID: 0}
 --- !u!114 &1523134297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27406,6 +27492,7 @@ MonoBehaviour:
   - {fileID: 1934627665}
   - {fileID: 510608232}
   tileHighlighter: {fileID: 1553333515}
+  door: {fileID: 0}
 --- !u!114 &1553333515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27568,6 +27655,7 @@ MonoBehaviour:
   - {fileID: 1317133438}
   - {fileID: 1748542341}
   tileHighlighter: {fileID: 1555969921}
+  door: {fileID: 0}
 --- !u!114 &1555969921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28168,6 +28256,7 @@ MonoBehaviour:
   - {fileID: 2104290648}
   - {fileID: 689518507}
   tileHighlighter: {fileID: 1596415718}
+  door: {fileID: 0}
 --- !u!114 &1596415718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28254,6 +28343,7 @@ MonoBehaviour:
   - {fileID: 330459220}
   - {fileID: 1348470768}
   tileHighlighter: {fileID: 1598147143}
+  door: {fileID: 0}
 --- !u!114 &1598147143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28589,6 +28679,7 @@ MonoBehaviour:
   - {fileID: 472093242}
   - {fileID: 1596415717}
   tileHighlighter: {fileID: 1626917975}
+  door: {fileID: 0}
 --- !u!114 &1626917975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28912,6 +29003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraHolder: {fileID: 0}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
@@ -29400,6 +29492,7 @@ MonoBehaviour:
   - {fileID: 1116300150}
   - {fileID: 1998067094}
   tileHighlighter: {fileID: 1672187127}
+  door: {fileID: 0}
 --- !u!114 &1672187127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29562,6 +29655,7 @@ MonoBehaviour:
   - {fileID: 2141268205}
   - {fileID: 1409458045}
   tileHighlighter: {fileID: 1676857200}
+  door: {fileID: 0}
 --- !u!114 &1676857200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30088,6 +30182,7 @@ MonoBehaviour:
   - {fileID: 1998067094}
   - {fileID: 2104290648}
   tileHighlighter: {fileID: 1703582419}
+  door: {fileID: 0}
 --- !u!114 &1703582419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30268,6 +30363,7 @@ MonoBehaviour:
   - {fileID: 451231207}
   - {fileID: 1327298948}
   tileHighlighter: {fileID: 1713519838}
+  door: {fileID: 0}
 --- !u!114 &1713519838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30644,6 +30740,7 @@ MonoBehaviour:
   - {fileID: 1555969920}
   - {fileID: 1334528703}
   tileHighlighter: {fileID: 1748542342}
+  door: {fileID: 0}
 --- !u!114 &1748542342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31036,6 +31133,7 @@ MonoBehaviour:
   - {fileID: 2140410217}
   - {fileID: 722591319}
   tileHighlighter: {fileID: 1760474892}
+  door: {fileID: 0}
 --- !u!114 &1760474892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31292,6 +31390,7 @@ MonoBehaviour:
   - {fileID: 1817438761}
   - {fileID: 121563236}
   tileHighlighter: {fileID: 1783169779}
+  door: {fileID: 0}
 --- !u!114 &1783169779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31615,6 +31714,7 @@ MonoBehaviour:
   - {fileID: 802423546}
   - {fileID: 2145411667}
   tileHighlighter: {fileID: 1807004358}
+  door: {fileID: 0}
 --- !u!114 &1807004358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31780,6 +31880,7 @@ MonoBehaviour:
   - {fileID: 1863072898}
   - {fileID: 36667649}
   tileHighlighter: {fileID: 1810305881}
+  door: {fileID: 0}
 --- !u!114 &1810305881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31945,6 +32046,7 @@ MonoBehaviour:
   - {fileID: 2134334123}
   - {fileID: 1598147142}
   tileHighlighter: {fileID: 1817071643}
+  door: {fileID: 0}
 --- !u!114 &1817071643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32031,6 +32133,7 @@ MonoBehaviour:
   - {fileID: 1025400583}
   - {fileID: 1783169778}
   tileHighlighter: {fileID: 1817438762}
+  door: {fileID: 0}
 --- !u!114 &1817438762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32117,6 +32220,7 @@ MonoBehaviour:
   - {fileID: 91439440}
   - {fileID: 451231207}
   tileHighlighter: {fileID: 1818078935}
+  door: {fileID: 0}
 --- !u!114 &1818078935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32294,6 +32398,7 @@ MonoBehaviour:
   - {fileID: 1218843992}
   - {fileID: 472093242}
   tileHighlighter: {fileID: 1833223796}
+  door: {fileID: 0}
 --- !u!114 &1833223796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32377,6 +32482,7 @@ MonoBehaviour:
   - {fileID: 2146382457}
   - {fileID: 1875327526}
   tileHighlighter: {fileID: 1841152511}
+  door: {fileID: 0}
 --- !u!114 &1841152511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32463,6 +32569,7 @@ MonoBehaviour:
   - {fileID: 1760474891}
   - {fileID: 954657958}
   tileHighlighter: {fileID: 1844734226}
+  door: {fileID: 0}
 --- !u!114 &1844734226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32919,6 +33026,7 @@ MonoBehaviour:
   - {fileID: 1810305880}
   - {fileID: 2141268205}
   tileHighlighter: {fileID: 1863072899}
+  door: {fileID: 0}
 --- !u!114 &1863072899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33005,6 +33113,7 @@ MonoBehaviour:
   - {fileID: 673094168}
   - {fileID: 545620733}
   tileHighlighter: {fileID: 1870590792}
+  door: {fileID: 0}
 --- !u!114 &1870590792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33170,6 +33279,7 @@ MonoBehaviour:
   - {fileID: 1014768198}
   - {fileID: 1025400583}
   tileHighlighter: {fileID: 1875327527}
+  door: {fileID: 0}
 --- !u!114 &1875327527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33426,6 +33536,7 @@ MonoBehaviour:
   - {fileID: 64074134}
   - {fileID: 336357023}
   tileHighlighter: {fileID: 1888114102}
+  door: {fileID: 0}
 --- !u!114 &1888114102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34333,6 +34444,7 @@ MonoBehaviour:
   - {fileID: 1810305880}
   - {fileID: 1305448418}
   tileHighlighter: {fileID: 1916725125}
+  door: {fileID: 0}
 --- !u!114 &1916725125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34419,6 +34531,7 @@ MonoBehaviour:
   - {fileID: 658081800}
   - {fileID: 797420098}
   tileHighlighter: {fileID: 1920574319}
+  door: {fileID: 0}
 --- !u!114 &1920574319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34624,6 +34737,7 @@ MonoBehaviour:
   - {fileID: 1523134296}
   - {fileID: 1553333514}
   tileHighlighter: {fileID: 1927040137}
+  door: {fileID: 0}
 --- !u!114 &1927040137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34710,6 +34824,7 @@ MonoBehaviour:
   - {fileID: 1807004357}
   - {fileID: 714110906}
   tileHighlighter: {fileID: 1931712751}
+  door: {fileID: 0}
 --- !u!114 &1931712751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34796,6 +34911,7 @@ MonoBehaviour:
   - {fileID: 1713519837}
   - {fileID: 64074134}
   tileHighlighter: {fileID: 1934627666}
+  door: {fileID: 0}
 --- !u!114 &1934627666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34879,6 +34995,7 @@ MonoBehaviour:
   - {fileID: 30624459}
   - {fileID: 673094168}
   tileHighlighter: {fileID: 1934734197}
+  door: {fileID: 0}
 --- !u!114 &1934734197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35224,6 +35341,7 @@ MonoBehaviour:
   - {fileID: 1318250739}
   - {fileID: 731107496}
   tileHighlighter: {fileID: 1964175009}
+  door: {fileID: 0}
 --- !u!114 &1964175009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35717,6 +35835,7 @@ MonoBehaviour:
   - {fileID: 336357023}
   - {fileID: 1180297978}
   tileHighlighter: {fileID: 1991985144}
+  door: {fileID: 0}
 --- !u!114 &1991985144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35897,6 +36016,7 @@ MonoBehaviour:
   - {fileID: 1927040136}
   - {fileID: 291164688}
   tileHighlighter: {fileID: 1998067095}
+  door: {fileID: 0}
 --- !u!114 &1998067095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36280,6 +36400,7 @@ MonoBehaviour:
   - {fileID: 17745448}
   - {fileID: 1218843992}
   tileHighlighter: {fileID: 2033696614}
+  door: {fileID: 0}
 --- !u!114 &2033696614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36552,6 +36673,7 @@ MonoBehaviour:
   - {fileID: 1022595798}
   - {fileID: 1931712750}
   tileHighlighter: {fileID: 2055809404}
+  door: {fileID: 0}
 --- !u!114 &2055809404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36803,6 +36925,7 @@ MonoBehaviour:
   - {fileID: 99685853}
   - {fileID: 2055809403}
   tileHighlighter: {fileID: 2065525227}
+  door: {fileID: 0}
 --- !u!114 &2065525227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37667,6 +37790,7 @@ MonoBehaviour:
   - {fileID: 291164688}
   - {fileID: 2106357006}
   tileHighlighter: {fileID: 2104290649}
+  door: {fileID: 0}
 --- !u!114 &2104290649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37847,6 +37971,7 @@ MonoBehaviour:
   - {fileID: 1277132350}
   - {fileID: 62041929}
   tileHighlighter: {fileID: 2106357007}
+  door: {fileID: 0}
 --- !u!114 &2106357007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38027,6 +38152,7 @@ MonoBehaviour:
   - {fileID: 137322720}
   - {fileID: 50930684}
   tileHighlighter: {fileID: 2118867837}
+  door: {fileID: 0}
 --- !u!114 &2118867837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38192,6 +38318,7 @@ MonoBehaviour:
   - {fileID: 49069850}
   - {fileID: 330459220}
   tileHighlighter: {fileID: 2134334124}
+  door: {fileID: 0}
 --- !u!114 &2134334124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38278,6 +38405,7 @@ MonoBehaviour:
   - {fileID: 260527185}
   - {fileID: 29875907}
   tileHighlighter: {fileID: 2140410218}
+  door: {fileID: 0}
 --- !u!114 &2140410218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38364,6 +38492,7 @@ MonoBehaviour:
   - {fileID: 1676857199}
   - {fileID: 518826395}
   tileHighlighter: {fileID: 2141268206}
+  door: {fileID: 0}
 --- !u!114 &2141268206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38638,6 +38767,7 @@ MonoBehaviour:
   - {fileID: 581151536}
   - {fileID: 658081800}
   tileHighlighter: {fileID: 2145411668}
+  door: {fileID: 0}
 --- !u!114 &2145411668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38724,6 +38854,7 @@ MonoBehaviour:
   - {fileID: 1305448418}
   - {fileID: 1014768198}
   tileHighlighter: {fileID: 2146382458}
+  door: {fileID: 0}
 --- !u!114 &2146382458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38766,6 +38897,75 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &2147216299
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3823131961395213696, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_Name
+      value: TreasureChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487184948533866298, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e65c4e235f6579448b90c09cb82de36, type: 3}
 --- !u!1001 &358978962938090736
 PrefabInstance:
   m_ObjectHideFlags: 0
