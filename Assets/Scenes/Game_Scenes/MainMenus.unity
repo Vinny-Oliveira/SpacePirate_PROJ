@@ -5400,5 +5400,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene:
-    m_SceneAsset: {fileID: 102900000, guid: 76b6eb34ad818164d84e35dcf94a91be, type: 3}
-    m_SceneName: Level_1
+    m_SceneAsset: {fileID: 102900000, guid: 62baeba7b28312a4ba9530df826ce6c6, type: 3}
+    m_SceneName: Vini_SingleThief

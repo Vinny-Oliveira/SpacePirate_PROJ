@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dev_Scenes/Vini_SECURITY.unity
     guid: de70ed3cde478704e9c79ed0f54b10b4
+  - enabled: 1
+    path: Assets/Scenes/Dev_Scenes/Vini_SingleThief.unity
+    guid: 62baeba7b28312a4ba9530df826ce6c6
   m_configObjects: {}
