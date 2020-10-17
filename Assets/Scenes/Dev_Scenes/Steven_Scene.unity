@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -32711,18 +32711,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1845535335 stripped
+--- !u!114 &1845535335
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 358978961092638359, guid: 3943cca1b8b7d224cb7e19e088428b67,
     type: 3}
   m_PrefabInstance: {fileID: 358978962938090736}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2134016918}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1447bdac6d787d644949245a1f9367ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNameError_tmp: {fileID: 576138988}
+  loadingPanel: {fileID: 704502681}
+  namePanel: {fileID: 9024588848270078285}
+  gameSetupPanel: {fileID: 1645215093}
+  createdRoomPanel: {fileID: 7139386156243280803}
+  roomInfoText: {fileID: 7139386156243280801}
+  connectionErrorText: {fileID: 773101936}
+  roomUserPanel: {fileID: 0}
+  playerListHolder: {fileID: 596992306}
+  playerListItemPrefab: {fileID: 7607153228671787933, guid: 9b35813332a55004eb0e67242cc6daed,
+    type: 3}
+  startGameBtn: {fileID: 0}
+  thiefScene:
+    m_SceneAsset: {fileID: 0}
+    m_SceneName: 
+  securityScene:
+    m_SceneAsset: {fileID: 0}
+    m_SceneName: 
 --- !u!1 &1851246424
 GameObject:
   m_ObjectHideFlags: 0
@@ -38373,6 +38392,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127911124}
   m_Mesh: {fileID: 4635790639215159872, guid: 8199f1d4d7175a746acd4b812d773efa, type: 3}
+--- !u!1 &2134016918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 358978961092638358, guid: 3943cca1b8b7d224cb7e19e088428b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 358978962938090736}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2134016919}
+  - component: {fileID: 1845535335}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2134016919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 358978961092638360, guid: 3943cca1b8b7d224cb7e19e088428b67,
+    type: 3}
+  m_PrefabInstance: {fileID: 358978962938090736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134016918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 705.3693, y: 462.60217, z: -400.9076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134334122
 GameObject:
   m_ObjectHideFlags: 0
@@ -39081,6 +39133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 358978961092638358, guid: 3943cca1b8b7d224cb7e19e088428b67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 358978961092638359, guid: 3943cca1b8b7d224cb7e19e088428b67,
         type: 3}
