@@ -19,6 +19,8 @@ public class TurnManager : MonoBehaviour {
     public GameObject treasure_Image;
     public GameObject thiefWinPanel;
     public GameObject thiefLosePanel;
+    public GameObject needKeycardPanel;
+    public GameObject needTreasurePanel;
 
     public bool CanMove { get; set; } = true;
     int intMoveCount;
@@ -110,7 +112,14 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public bool CanThiefEscape() {
-        return (thief.HasTreasure && AreTilesTheSame(ref exitTile, ref thief.currentTile));
+        if (AreTilesTheSame(ref exitTile, ref thief.currentTile)) { // Thief on Exit tile
+            if (thief.HasTreasure) {
+                return true;
+            }
+            ThiefNeedsTreasure();
+        }
+
+        return false;
     }
 
     #endregion
@@ -267,6 +276,36 @@ public class TurnManager : MonoBehaviour {
         foreach (var cube in listCubes) {
             cube.HighlightFieldOfView();
         }
+    }
+
+    #endregion
+
+    #region PLAYER_NEEDS_PANELS
+
+    /// <summary>
+    /// Turn a panel on for a period of time
+    /// </summary>
+    /// <param name="panel"></param>
+    /// <param name="time"></param>
+    /// <returns></returns>
+    IEnumerator TurnOnAndOffPanel(GameObject panel, float time = 1.5f) {
+        panel.SetActive(true);
+        yield return new WaitForSeconds(time);
+        panel.SetActive(false);
+    }
+
+    /// <summary>
+    /// Turn the need keycard panel on
+    /// </summary>
+    public void ThiefNeedsKeycard() {
+        StartCoroutine(TurnOnAndOffPanel(needKeycardPanel));
+    }
+    
+    /// <summary>
+    /// Turn the need treasure panel on
+    /// </summary>
+    public void ThiefNeedsTreasure() {
+        StartCoroutine(TurnOnAndOffPanel(needTreasurePanel));
     }
 
     #endregion

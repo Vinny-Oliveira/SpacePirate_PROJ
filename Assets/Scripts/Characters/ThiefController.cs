@@ -54,7 +54,7 @@ public class ThiefController : Character {
         Vector3 lookRotation = target - transform.position;
 
         // Move to tile
-        transform.DOMove(target, stepTime).SetEase(Ease.OutCubic).OnComplete(UpdateTile(ref nextTile)).OnComplete(StartWaitOnTile);
+        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnComplete(UpdateTile(ref nextTile)).OnComplete(StartWaitOnTile);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
     }
 
@@ -70,7 +70,20 @@ public class ThiefController : Character {
         }
 
         currentTile = nextTile;
+
+        TurnManager turnManager = TurnManager.instance;
+
+        // Caught by a cube or ended the level
+        if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
+            IsMoving = false;
+            return null;
+        }
+
+        // Check if touching treasure, keycard, or door
+        PickUpKeycard();
+        turnManager.CheckForTreasure();
         OpenNeighborDoors();
+
         return null;
     }
 
@@ -95,17 +108,7 @@ public class ThiefController : Character {
     /// </summary>
     public override void MoveOnPath() {
         TurnManager turnManager = TurnManager.instance;
-
-        // Caught by a cube or ended the level
-        if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
-            IsMoving = false;
-            return;
-        }
-
-        // Check if touching treasure or keycard
-        PickUpKeycard();
-        turnManager.CheckForTreasure();
-
+        
         // Path is over
         if (listPathTiles.Count < 1) {
             IsMoving = false;
@@ -308,6 +311,8 @@ public class ThiefController : Character {
 
             if (listKeycards.Find(x => x.cardType == doorType)) {
                 doorTile.OpenDoor();
+            } else {
+                TurnManager.instance.ThiefNeedsKeycard();
             }
         }
     }
