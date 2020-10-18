@@ -96,11 +96,15 @@ public class ThiefController : Character {
     public override void MoveOnPath() {
         TurnManager turnManager = TurnManager.instance;
 
-        // Touched a cube or ended the level
-        if (turnManager.HandleNewTile()) {
+        // Caught by a cube or ended the level
+        if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
             IsMoving = false;
             return;
         }
+
+        // Check if touching treasure or keycard
+        PickUpKeycard();
+        turnManager.CheckForTreasure();
 
         // Path is over
         if (listPathTiles.Count < 1) {
@@ -109,6 +113,7 @@ public class ThiefController : Character {
             return;
         }
 
+        // Continue the path
         IsMoving = true;
         Tile nextTile = listPathTiles[0];
         MoveToTile(ref nextTile);
@@ -281,9 +286,15 @@ public class ThiefController : Character {
     /// Add a keycard to the list of keycards
     /// </summary>
     /// <param name="keycard"></param>
-    public void PickUpKeycard(ref Keycard keycard) {
-        listKeycards.Add(keycard);
-        keycard.gameObject.SetActive(false);
+    public void PickUpKeycard() {
+        TurnManager turnManager = TurnManager.instance;
+        Keycard keycard = turnManager.IsThefTouchingKeycard();
+
+        if (keycard) { 
+            listKeycards.Add(keycard);
+            keycard.gameObject.SetActive(false);
+            turnManager.keycard_Image.SetActive(true);
+        }
     }
 
     /// <summary>

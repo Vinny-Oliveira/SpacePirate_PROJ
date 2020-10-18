@@ -14,11 +14,11 @@ public class TurnManager : MonoBehaviour {
     public Tile exitTile;
     public UnityEngine.UI.Button btnEndTurn;
 
-    [Header("UI Panels")]
+    [Header("UI Images and Panels")]
+    public GameObject keycard_Image;
+    public GameObject treasure_Image;
     public GameObject thiefWinPanel;
     public GameObject thiefLosePanel;
-    //public GameObject securityWinPanel;
-    //public GameObject securityLosePanel;
 
     public bool CanMove { get; set; } = true;
     int intMoveCount;
@@ -27,10 +27,10 @@ public class TurnManager : MonoBehaviour {
 
     private void Awake() {
         instance = this;
-        CanMove = true;
     }
 
     private void Start() {
+        CanMove = true;
         SetupCharacters();
     }
 
@@ -109,7 +109,7 @@ public class TurnManager : MonoBehaviour {
     /// Check if the thief has escaped with the treasure
     /// </summary>
     /// <returns></returns>
-    public bool HasThiefEscaped() {
+    public bool CanThiefEscape() {
         return (thief.HasTreasure && AreTilesTheSame(ref exitTile, ref thief.currentTile));
     }
 
@@ -157,38 +157,13 @@ public class TurnManager : MonoBehaviour {
     #region HANDLERS_FOR_OBJECTS_SHARING_SAME_TILE
 
     /// <summary>
-    /// Check if the thief is touching a special tile when they reach a new tile
+    /// Thief is caught by cubes
     /// </summary>
     /// <returns></returns>
-    public bool HandleNewTile() {
-        // Thief touched a cube
+    public bool IsThiefCaught() { 
         if (IsThiefTouchingCube() || IsThiefSeenByCube()) {
-            thief.ClearPath();
-            Debug.Log("THIEF CAUGHT!");
-            thiefLosePanel.SetActive(true);
-            return true;
+            return HandleThiefCaught();
         }
-
-        // Keycard caught
-        Keycard keycard = IsThefTouchingKeycard();
-        if (keycard) {
-            thief.PickUpKeycard(ref keycard);
-        }
-
-        // Treasure caught
-        if (!thief.HasTreasure && IsThiefTouchingTreasure()) {
-            thief.HasTreasure = true;
-            MakeThiefGrabTreasure();
-        }
-
-        // Escaped with treasure
-        if (HasThiefEscaped()) {
-            thief.ClearPath();
-            Debug.Log("THIEF ESCAPED");
-            thiefWinPanel.SetActive(true);
-            return true;
-        }
-
         return false;
     }
 
@@ -196,25 +171,59 @@ public class TurnManager : MonoBehaviour {
     /// Check if the cube is touching the thief when it rolls to a new tile
     /// </summary>
     /// <param name="newTile"></param>
+    /// <param name="cubeFieldOfView"></param>
     /// <returns></returns>
-    public bool HandleNewTile(ref Tile newTile, ref List<Tile> cubeFieldOfView) {
+    public bool IsThiefCaught(ref Tile newTile, ref List<Tile> cubeFieldOfView) {
         if (IsThiefTouchingCube(ref newTile) || IsCubeSeeingThief(ref cubeFieldOfView)) {
+            return HandleThiefCaught();
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Clear Thief's path and turn lose panel on
+    /// </summary>
+    /// <returns></returns>
+    bool HandleThiefCaught() {
+        thief.ClearPath();
+        Debug.Log("THIEF CAUGHT!");
+        thiefLosePanel.SetActive(true);
+        return true;
+    }
+
+    /// <summary>
+    /// Check if the Thief can grab the treasure
+    /// </summary>
+    public void CheckForTreasure() { 
+        if (!thief.HasTreasure && IsThiefTouchingTreasure()) {
+            thief.HasTreasure = true;
+            PickUpTreasure();
+        }
+    }
+
+    /// <summary>
+    /// Beat the level if Thief has escaped
+    /// </summary>
+    /// <returns></returns>
+    public bool HasThiefBeatenLevel() { 
+        if (CanThiefEscape()) {
             thief.ClearPath();
-            Debug.Log("THIEF CAUGHT!");
-            thiefLosePanel.SetActive(true);
+            Debug.Log("THIEF ESCAPED");
+            thiefWinPanel.SetActive(true);
             return true;
         }
-
         return false;
     }
 
     /// <summary>
     /// Make the player grab the treasure
     /// </summary>
-    public void MakeThiefGrabTreasure() {
-        treasure.gameObject.transform.parent = thief.treasureHolder.transform;
-        treasure.gameObject.transform.position = thief.treasureHolder.transform.position;
+    public void PickUpTreasure() {
+        //treasure.gameObject.transform.parent = thief.treasureHolder.transform;
+        //treasure.gameObject.transform.position = thief.treasureHolder.transform.position;
+        treasure.gameObject.SetActive(false);
         Debug.Log("Treasure Found!");
+        treasure_Image.SetActive(true);
     }
 
     #endregion
@@ -227,10 +236,8 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool IsThiefSeenByCube() { 
         foreach (var cube in listCubes) {
-            foreach (var viewedTile in cube.listFieldOfView) { 
-                if (viewedTile.Equals(thief.currentTile)) {
-                    return true;
-                }
+            if (IsCubeSeeingThief(ref cube.listFieldOfView)) {
+                return true;
             }
         }
 

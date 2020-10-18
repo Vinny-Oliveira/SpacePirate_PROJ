@@ -156,7 +156,7 @@ public class CubeMovement : Character {
             }
 
             // Check if the thief was caught
-            if (turnManager.HandleNewTile(ref currentTile, ref listFieldOfView)) {
+            if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
                 yield break;
             }
 
