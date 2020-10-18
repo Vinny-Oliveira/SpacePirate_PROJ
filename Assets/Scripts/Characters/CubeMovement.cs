@@ -17,7 +17,7 @@ public class CubeMovement : Character {
 
     [Header("Path where the Cube rolls")]
     [SerializeField]
-    int intRollsPerTurn;
+    int intRollsPerTurn = 1;
     public List<EDirection> listPath = new List<EDirection>();
     Queue<EDirection> quePath = new Queue<EDirection>();
 

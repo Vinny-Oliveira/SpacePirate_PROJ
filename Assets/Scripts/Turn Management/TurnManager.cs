@@ -17,8 +17,8 @@ public class TurnManager : MonoBehaviour {
     [Header("UI Panels")]
     public GameObject thiefWinPanel;
     public GameObject thiefLosePanel;
-    public GameObject securityWinPanel;
-    public GameObject securityLosePanel;
+    //public GameObject securityWinPanel;
+    //public GameObject securityLosePanel;
 
     public bool CanMove { get; set; } = true;
     int intMoveCount;
