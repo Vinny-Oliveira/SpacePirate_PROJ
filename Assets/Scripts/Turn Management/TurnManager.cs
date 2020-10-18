@@ -172,7 +172,7 @@ public class TurnManager : MonoBehaviour {
         // Keycard caught
         Keycard keycard = IsThefTouchingKeycard();
         if (keycard) {
-            thief.AddKeycard(ref keycard);
+            thief.PickUpKeycard(ref keycard);
         }
 
         // Treasure caught
