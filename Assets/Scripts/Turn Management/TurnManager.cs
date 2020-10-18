@@ -219,10 +219,7 @@ public class TurnManager : MonoBehaviour {
     /// Make the player grab the treasure
     /// </summary>
     public void PickUpTreasure() {
-        //treasure.gameObject.transform.parent = thief.treasureHolder.transform;
-        //treasure.gameObject.transform.position = thief.treasureHolder.transform.position;
-        treasure.gameObject.SetActive(false);
-        Debug.Log("Treasure Found!");
+        treasure.StealCoins();
         treasure_Image.SetActive(true);
     }
 
