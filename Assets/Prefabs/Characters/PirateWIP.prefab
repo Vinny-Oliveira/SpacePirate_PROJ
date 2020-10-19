@@ -88,6 +88,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8139848576060209964}
+  - component: {fileID: 6129811051066695544}
+  - component: {fileID: 1520732930358248636}
   m_Layer: 0
   m_Name: PirateWIP
   m_TagString: Untagged
@@ -111,6 +113,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6129811051066695544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916385691785093526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c807626d612b044a8bd45dc6aaeacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTile: {fileID: 0}
+  currentGrid: {fileID: 0}
+  intRange: 2
+  treasureHolder: {fileID: 0}
+  mainCamera: {fileID: 0}
+--- !u!136 &1520732930358248636
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916385691785093526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.0396347
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.51981735, z: 0}
 --- !u!1 &9135928281313355858
 GameObject:
   m_ObjectHideFlags: 0
