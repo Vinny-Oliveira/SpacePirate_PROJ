@@ -3058,10 +3058,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You are a thief looking for a treasure inside a misterious spaceship.
-
-    Avoid
-    robots and obstacles, grab the treasure, and get out as soon as you can!'
+  m_text: "You're the best thief this side of the Milky Way, and this spaceship is
+    rumored to have a lot of treasure on board. \nAvoid any robots and obstacles,
+    grab the treasure, and get out as soon as you can!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
