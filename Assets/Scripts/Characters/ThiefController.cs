@@ -18,7 +18,6 @@ public class ThiefController : Character {
 
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
-    public GameObject treasureHolder;
     List<Keycard> listKeycards = new List<Keycard>();
 
     /* Camera */
@@ -56,10 +55,13 @@ public class ThiefController : Character {
         targetTile = nextTile;
 
         // Move to tile
-        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnComplete(UpdateTile);//.OnComplete(StartWaitOnTile);
+        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnComplete(UpdateTile);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
     }
 
+    /// <summary>
+    /// Update the current tile of the Thief and check what is on that tile
+    /// </summary>
     void UpdateTile() { 
         if (currentGrid != targetTile.gridManager) {
             currentGrid = targetTile.gridManager;
@@ -85,48 +87,12 @@ public class ThiefController : Character {
     }
 
     /// <summary>
-    /// Callback for a DoTween function to update the current Tile of the thief
-    /// </summary>
-    /// <param name="nextTile"></param>
-    /// <returns></returns>
-    TweenCallback UpdateTile(ref Tile nextTile) {
-        if (currentGrid != nextTile.gridManager) {
-            currentGrid = nextTile.gridManager;
-            RepositionCamera();
-        }
-
-        currentTile = nextTile;
-
-        TurnManager turnManager = TurnManager.instance;
-
-        // Caught by a cube or ended the level
-        if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
-            IsMoving = false;
-            return null;
-        }
-
-        // Check if touching treasure, keycard, or door
-        PickUpKeycard();
-        turnManager.CheckForTreasure();
-        OpenNeighborDoors();
-
-        return null;
-    }
-
-    /// <summary>
     /// Have the Thief wait on the tile for a while before continuing the path
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {
         yield return StartCoroutine(base.WaitOnTile());
         MoveOnPath();
-    }
-
-    /// <summary>
-    /// Start the WaitOnTile coroutine
-    /// </summary>
-    void StartWaitOnTile() {
-        StartCoroutine(WaitOnTile());
     }
 
     /// <summary>
@@ -146,6 +112,7 @@ public class ThiefController : Character {
         IsMoving = true;
         Tile nextTile = listPathTiles[0];
         MoveToTile(ref nextTile);
+        listPathTiles[0].tileHighlighter.TurnHighlighterOff();
         listPathTiles.RemoveAt(0);
     }
 
@@ -160,7 +127,7 @@ public class ThiefController : Character {
         if (!IsMoving && TurnManager.instance.CanMove) { 
             isSelected = true;
             ClearPath();
-            HighlightTargetTiles();
+            HighlightTargetTiles(ref currentTile);
         }
     }
 
@@ -180,9 +147,9 @@ public class ThiefController : Character {
             // When the mouse is let go, refresh all tiles
             if (Input.GetMouseButtonUp(0)) {
                 isSelected = false;
-                if (listPathTiles.Count < 1) {
+                //if (listPathTiles.Count < 1) {
                     TurnTargetTilesOff();
-                }
+                //}
 
                 TurnManager.instance.HighlightCubesFieldsOfView();
                 HighlightPathTiles();
@@ -197,40 +164,60 @@ public class ThiefController : Character {
     #region PATH_OF_TILES
 
     /// <summary>
-    /// Highlight the tiles in range of the player's movement
+    /// Highlight the next possible targets for the path, as long as they are walkable, not the current tile, and not already on the path
     /// </summary>
-    void HighlightTargetTiles() { 
-        listTargetTiles = currentTile.listNeighbors;
-        List<Tile> listTempNeighbors = new List<Tile>();
-        listTempNeighbors.AddRange(listTargetTiles);
-        listTempNeighbors.RemoveAll(x => !x.IsWalkable()); // Remove tiles that are not walkable
+    /// <param name="lastPathTile"></param>
+    void HighlightTargetTiles(ref Tile lastPathTile) {
+        TurnTargetTilesOff();
 
-        // Check tiles in range
-        for (int i = 1; i < intRange; i++) {
-            List<Tile> newNeighbors = new List<Tile>();
-            
-            // Add outer layer of neighbors
-            foreach (var tile in listTempNeighbors) {
-                List<Tile> tempNeighbors = new List<Tile>();
-                tempNeighbors.AddRange(tile.listNeighbors);
-                tempNeighbors.RemoveAll(x => !x.IsWalkable());
-                newNeighbors = newNeighbors.Union(tempNeighbors).ToList();
+        if (listPathTiles.Count < intRange) { 
+            listTargetTiles.AddRange(lastPathTile.listNeighbors);
+            listTargetTiles.RemoveAll(x => !x.IsWalkable() || x == currentTile || listPathTiles.Contains(x));
+
+            // Highlight each tile
+            foreach (var tile in listTargetTiles) {
+                tile.tileHighlighter.ChangeColorToThiefRange();
+                tile.tileHighlighter.TurnHighlighterOn();
             }
-
-            newNeighbors.Remove(currentTile);
-            listTargetTiles = listTargetTiles.Union(newNeighbors).ToList();
-            listTempNeighbors = newNeighbors;
         }
 
-        // Remove tile that are not walkable
-        listTargetTiles.RemoveAll(x => !x.IsWalkable());
-
-        // Highlight each tile
-        foreach (var tile in listTargetTiles) {
-            tile.tileHighlighter.ChangeColorToThiefRange();
-            tile.tileHighlighter.TurnHighlighterOn();
-        }
     }
+
+    ///// <summary>
+    ///// Highlight the tiles in range of the player's movement
+    ///// </summary>
+    //void HighlightTargetTiles() {
+    //    listTargetTiles = currentTile.listNeighbors;
+    //    List<Tile> listTempNeighbors = new List<Tile>();
+    //    listTempNeighbors.AddRange(listTargetTiles);
+    //    listTempNeighbors.RemoveAll(x => !x.IsWalkable()); // Remove tiles that are not walkable
+
+    //    // Check tiles in range
+    //    for (int i = 1; i < intRange; i++) {
+    //        List<Tile> newNeighbors = new List<Tile>();
+            
+    //        // Add outer layer of neighbors
+    //        foreach (var tile in listTempNeighbors) {
+    //            List<Tile> tempNeighbors = new List<Tile>();
+    //            tempNeighbors.AddRange(tile.listNeighbors);
+    //            tempNeighbors.RemoveAll(x => !x.IsWalkable());
+    //            newNeighbors = newNeighbors.Union(tempNeighbors).ToList();
+    //        }
+
+    //        newNeighbors.Remove(currentTile);
+    //        listTargetTiles = listTargetTiles.Union(newNeighbors).ToList();
+    //        listTempNeighbors = newNeighbors;
+    //    }
+
+    //    // Remove tile that are not walkable
+    //    listTargetTiles.RemoveAll(x => !x.IsWalkable());
+
+    //    // Highlight each tile
+    //    foreach (var tile in listTargetTiles) {
+    //        tile.tileHighlighter.ChangeColorToThiefRange();
+    //        tile.tileHighlighter.TurnHighlighterOn();
+    //    }
+    //}
 
     /// <summary>
     /// Highlight the tiles of the Thief's path
@@ -254,7 +241,7 @@ public class ThiefController : Character {
     }
 
     /// <summary>
-    /// As the user drags the mouse over the target tiles, ass them to the path
+    /// As the user drags the mouse over the target tiles, add them to the path
     /// </summary>
     /// <param name="hit"></param>
     void AddTilesToPathList(ref RaycastHit hit) {
@@ -266,24 +253,28 @@ public class ThiefController : Character {
             // Remove tiles from the path if you hover back
             if (listPathTiles.Contains(pathTile)) {
                 while (!pathTile.Equals(listPathTiles[listPathTiles.Count - 1])) {
-                    listPathTiles.Last().tileHighlighter.ChangeColorToThiefRange();
+                    listPathTiles.Last().tileHighlighter.TurnHighlighterOff();//.ChangeColorToThiefRange();
                     listPathTiles.RemoveAt(listPathTiles.Count - 1);
                 }
-                    
-            // Add tile to the path if it is still within range making sure it is a neighbor tile
+                HighlightTargetTiles(ref pathTile);
+
+            // Add tile to the path if it is still within range making sure it is a neighbor tile, and highlight new targets
             } else if (listTargetTiles.Contains(pathTile) && listPathTiles.Count < intRange) { 
                 
                 if ( (listPathTiles.Count < 1 && currentTile.HasNeighbor(pathTile)) || (listPathTiles.Count > 0 && listPathTiles.Last().HasNeighbor(pathTile)) ) { 
                     listPathTiles.Add(pathTile);
+                    HighlightTargetTiles(ref pathTile); // Highlight new targets
                     pathTile.tileHighlighter.ChangeColorToThiefPath();
+                    pathTile.tileHighlighter.TurnHighlighterOn();
                 }
             
             // Remove all tiles from the path if the player hovers back to the start
             } else if (pathTile.Equals(currentTile)) { 
                 foreach (var tile in listPathTiles) {
-                    tile.tileHighlighter.ChangeColorToThiefRange();
+                    tile.tileHighlighter.TurnHighlighterOff();
                 }
-                listPathTiles.Clear();
+                ClearPath();
+                HighlightTargetTiles(ref pathTile);
             }
                     
         }
