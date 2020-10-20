@@ -12,6 +12,7 @@ public class ThiefController : Character {
 
     /* Path Control */
     bool isSelected;
+    Tile targetTile;
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
 
@@ -52,10 +53,35 @@ public class ThiefController : Character {
         // Calculate position
         Vector3 target = new Vector3(nextTile.transform.position.x, transform.position.y, nextTile.transform.position.z);
         Vector3 lookRotation = target - transform.position;
+        targetTile = nextTile;
 
         // Move to tile
-        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnComplete(UpdateTile(ref nextTile)).OnComplete(StartWaitOnTile);
+        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnComplete(UpdateTile);//.OnComplete(StartWaitOnTile);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
+    }
+
+    void UpdateTile() { 
+        if (currentGrid != targetTile.gridManager) {
+            currentGrid = targetTile.gridManager;
+            RepositionCamera();
+        }
+
+        currentTile = targetTile;
+
+        TurnManager turnManager = TurnManager.instance;
+
+        // Caught by a cube or ended the level
+        if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
+            IsMoving = false;
+            return;
+        }
+
+        // Check if touching treasure, keycard, or door
+        PickUpKeycard();
+        turnManager.CheckForTreasure();
+        OpenNeighborDoors();
+
+        StartCoroutine(WaitOnTile());
     }
 
     /// <summary>
