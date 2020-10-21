@@ -6,9 +6,10 @@ using DG.Tweening;
 
 public class ThiefController : Character {
 
-    /* Movement */
+    [Header("Movement Range")]
     [SerializeField]
     int intRange = 2;
+    public TMPro.TextMeshProUGUI tmpMoveCount;
 
     /* Path Control */
     bool isSelected;
@@ -20,7 +21,7 @@ public class ThiefController : Character {
     public bool HasTreasure { get; set; } = false;
     List<Keycard> listKeycards = new List<Keycard>();
 
-    /* Camera */
+    [Header("Camera & UI")]
     public Camera mainCamera;
 
     private void Update() {
@@ -39,6 +40,7 @@ public class ThiefController : Character {
         HasTreasure = false;
         SetStartingTile();
         RepositionCamera();
+        tmpMoveCount.text = intRange.ToString();
     }
 
     #endregion
@@ -108,6 +110,7 @@ public class ThiefController : Character {
         if (listPathTiles.Count < 1) {
             IsMoving = false;
             turnManager.DecreaseMovementCount();
+            tmpMoveCount.text = intRange.ToString();
             return;
         }
 
@@ -118,6 +121,7 @@ public class ThiefController : Character {
         MoveToTile(ref nextTile);
         listPathTiles[0].tileHighlighter.TurnHighlighterOff();
         listPathTiles.RemoveAt(0);
+        tmpMoveCount.text = listPathTiles.Count.ToString();
     }
 
     #endregion

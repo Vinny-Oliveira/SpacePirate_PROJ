@@ -4690,6 +4690,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f928a0af11c3e4eadc891e880a3294, type: 3}
+--- !u!114 &227420695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6680632400173333810, guid: 2107aa9a84051dd47878cc73d5eee266,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921035399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &243838140
 GameObject:
   m_ObjectHideFlags: 0
@@ -22730,6 +22742,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BackgroundSpace_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641576375029092217, guid: f016b3f9a33e1504a972e29d633e405d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5641576375029092221, guid: f016b3f9a33e1504a972e29d633e405d,
         type: 3}
@@ -44349,6 +44366,11 @@ PrefabInstance:
       propertyPath: testCube
       value: 
       objectReference: {fileID: 1684368014}
+    - target: {fileID: 6129811051066695544, guid: ee0c8a873837a984fbfa0465ef697094,
+        type: 3}
+      propertyPath: tmpMoveCount
+      value: 
+      objectReference: {fileID: 227420695}
     - target: {fileID: 8139848576060209964, guid: ee0c8a873837a984fbfa0465ef697094,
         type: 3}
       propertyPath: m_LocalPosition.x

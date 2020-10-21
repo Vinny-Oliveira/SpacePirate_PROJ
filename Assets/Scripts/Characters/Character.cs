@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-    /* Grid Control */
+    [Header("Grid Control")]
     public Tile currentTile;
     public GridManager currentGrid;
 
