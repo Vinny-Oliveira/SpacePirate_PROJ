@@ -8,12 +8,19 @@ public class Character : MonoBehaviour {
     public Tile currentTile;
     public GridManager currentGrid;
 
-    /* Movement Control */
+    /// <summary>
+    /// Is moving on the path
+    /// </summary>
     protected bool IsMoving { get; set; }
+
+    /// <summary>
+    /// Can take the next step on the path
+    /// </summary>
+    public bool CanStep { get; set; }
 
     /* Movement times */
     public static float stepTime = 0.5f;
-    public static float waitOnTileTime = 0.38f;
+    public static float waitOnTileTime = 0.2f;
 
     /// <summary>
     /// Move the player to given tile

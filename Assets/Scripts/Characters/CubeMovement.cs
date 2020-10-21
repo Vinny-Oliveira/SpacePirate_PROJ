@@ -47,6 +47,7 @@ public class CubeMovement : Character {
     /// </summary>
     public void SetupCubeStart() {
         IsMoving = false;
+        CanStep = true;
         SetStartingTile();
         StoreStartingPosition();
         BuildDirectionDictionary();
@@ -136,7 +137,7 @@ public class CubeMovement : Character {
         TurnManager turnManager = TurnManager.instance;
 
         for (int i = 0; i < intRollsPerTurn; i++) {
-            //foreach (var direction in listPath) {
+            CanStep = false;
             EDirection direction = quePath.Dequeue();
             quePath.Enqueue(direction);
             Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
@@ -155,13 +156,16 @@ public class CubeMovement : Character {
                 yield return StartCoroutine(WaitOnTile());
             }
 
+            CanStep = true;
+            yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+
             // Check if the thief was caught
             if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
                 yield break;
             }
 
         }
-
+        
         IsMoving = false;
         ResetPositionToStart();
         turnManager.DecreaseMovementCount();
@@ -178,9 +182,9 @@ public class CubeMovement : Character {
     /// <param name="newRight"></param>
     /// <returns></returns>
     bool RecalculateLocalDirections(ref Vector3 newForward, ref Vector3 newRight) {
-        float newX = Mathf.Abs((float)System.Math.Round(newForward.x, 3));
-        float newY = Mathf.Abs((float)System.Math.Round(newForward.y, 3));
-        float newZ = Mathf.Abs((float)System.Math.Round(newForward.z, 3));
+        float newX = Mathf.Abs((float)Math.Round(newForward.x, 3));
+        float newY = Mathf.Abs((float)Math.Round(newForward.y, 3));
+        float newZ = Mathf.Abs((float)Math.Round(newForward.z, 3));
 
         // Eyes on the global x-axis
         if (Mathf.Approximately(newX, Vector3.right.x) && Mathf.Approximately(newY, Vector3.right.y) 
@@ -210,6 +214,7 @@ public class CubeMovement : Character {
         Vector3 newForward = transform.right;
         Vector3 newRight = transform.right;
 
+        // Cube not looking up
         if (!RecalculateLocalDirections(ref newForward, ref newRight)) { 
             return;
         }

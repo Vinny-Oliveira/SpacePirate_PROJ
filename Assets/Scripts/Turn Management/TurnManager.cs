@@ -22,7 +22,7 @@ public class TurnManager : MonoBehaviour {
     public GameObject needKeycardPanel;
     public GameObject needTreasurePanel;
 
-    public bool CanMove { get; set; }
+    public bool CanClick { get; set; }
     int intMoveCount;
 
     public static TurnManager instance;
@@ -32,7 +32,7 @@ public class TurnManager : MonoBehaviour {
     }
 
     private void Start() {
-        CanMove = true;
+        CanClick = true;
         SetupCharacters();
     }
 
@@ -127,6 +127,19 @@ public class TurnManager : MonoBehaviour {
     #region TURN_CONTROL
 
     /// <summary>
+    /// Check if the characters can take their next steps
+    /// </summary>
+    /// <returns></returns>
+    public bool CanCharactersStep() {
+        bool canStep = thief.CanStep;
+        foreach (var cube in listCubes) {
+            canStep = canStep && cube.CanStep;
+        }
+
+        return canStep;
+    }
+
+    /// <summary>
     /// Event for when the End Turn button is pressed
     /// </summary>
     public void OnEndTurnButtonPress() {
@@ -138,7 +151,7 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     void PlayEveryAction() {
         // Disable movement
-        CanMove = false;
+        CanClick = false;
         intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
 
@@ -156,7 +169,7 @@ public class TurnManager : MonoBehaviour {
     public void DecreaseMovementCount() {
         intMoveCount--;
         if (intMoveCount < 1) {
-            CanMove = true;
+            CanClick = true;
             btnEndTurn.interactable = true;
         }
     }

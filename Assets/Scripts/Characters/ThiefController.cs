@@ -35,6 +35,7 @@ public class ThiefController : Character {
     public void SetupThief() { 
         isSelected = false;
         IsMoving = false;
+        CanStep = true;
         HasTreasure = false;
         SetStartingTile();
         RepositionCamera();
@@ -60,7 +61,7 @@ public class ThiefController : Character {
     }
 
     /// <summary>
-    /// Update the current tile of the Thief and check what is on that tile
+    /// Update the current tile of the Thief
     /// </summary>
     void UpdateTile() { 
         if (currentGrid != targetTile.gridManager) {
@@ -70,28 +71,30 @@ public class ThiefController : Character {
 
         currentTile = targetTile;
 
+        StartCoroutine(WaitOnTile());
+    }
+
+    /// <summary>
+    /// Have the Thief wait on the tile for a while before continuing the path, and check what is on the tile
+    /// </summary>
+    /// <returns></returns>
+    protected override IEnumerator WaitOnTile() {
+        yield return StartCoroutine(base.WaitOnTile());
+        CanStep = true;
+        yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+
         TurnManager turnManager = TurnManager.instance;
 
         // Caught by a cube or ended the level
         if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
             IsMoving = false;
-            return;
+            yield break;
         }
 
         // Check if touching treasure, keycard, or door
         PickUpKeycard();
         turnManager.CheckForTreasure();
         OpenNeighborDoors();
-
-        StartCoroutine(WaitOnTile());
-    }
-
-    /// <summary>
-    /// Have the Thief wait on the tile for a while before continuing the path
-    /// </summary>
-    /// <returns></returns>
-    protected override IEnumerator WaitOnTile() {
-        yield return StartCoroutine(base.WaitOnTile());
         MoveOnPath();
     }
 
@@ -110,6 +113,7 @@ public class ThiefController : Character {
 
         // Continue the path
         IsMoving = true;
+        CanStep = false;
         Tile nextTile = listPathTiles[0];
         MoveToTile(ref nextTile);
         listPathTiles[0].tileHighlighter.TurnHighlighterOff();
@@ -124,7 +128,7 @@ public class ThiefController : Character {
     /// Event to highlight the tiles in range of the player if they are not moving
     /// </summary>
     private void OnMouseDown() {
-        if (!IsMoving && TurnManager.instance.CanMove) { 
+        if (!IsMoving && TurnManager.instance.CanClick) { 
             isSelected = true;
             ClearPath();
             HighlightTargetTiles(ref currentTile);
@@ -136,7 +140,7 @@ public class ThiefController : Character {
     /// </summary>
     void ControlMouseOverTiles() {
         // The player needs to have been selected
-        if (isSelected && TurnManager.instance.CanMove) {
+        if (isSelected && TurnManager.instance.CanClick) {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
