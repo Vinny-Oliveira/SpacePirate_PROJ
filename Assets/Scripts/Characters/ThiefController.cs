@@ -310,6 +310,7 @@ public class ThiefController : Character {
             tile.tileHighlighter.TurnHighlighterOff();
         }
         listPathTiles.Clear();
+        DisplayMoveCounter();
     }
 
     #endregion
