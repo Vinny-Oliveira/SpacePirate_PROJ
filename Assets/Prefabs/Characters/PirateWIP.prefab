@@ -128,8 +128,9 @@ MonoBehaviour:
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
   intRange: 2
-  treasureHolder: {fileID: 0}
   mainCamera: {fileID: 0}
+  tmpMoveCount: {fileID: 0}
+  maxRangeColor: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
 --- !u!136 &1520732930358248636
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class ThiefController : Character {
     [Header("Movement Range")]
     [SerializeField]
     int intRange = 2;
-    public TMPro.TextMeshProUGUI tmpMoveCount;
 
     /* Path Control */
     bool isSelected;
@@ -23,6 +22,8 @@ public class ThiefController : Character {
 
     [Header("Camera & UI")]
     public Camera mainCamera;
+    public TMPro.TextMeshProUGUI tmpMoveCount;
+    public Color maxRangeColor;
 
     private void Update() {
         ControlMouseOverTiles();
@@ -128,6 +129,12 @@ public class ThiefController : Character {
     /// Display how many moves the Thief still has
     /// </summary>
     void DisplayMoveCounter() {
+        if (listPathTiles.Count < intRange) {
+            tmpMoveCount.color = Color.white;
+        } else {
+            tmpMoveCount.color = maxRangeColor;
+        }
+
         tmpMoveCount.text = listPathTiles.Count.ToString() + "/" + intRange;
     }
 
