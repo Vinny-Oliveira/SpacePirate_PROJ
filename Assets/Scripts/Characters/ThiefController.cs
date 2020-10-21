@@ -147,10 +147,8 @@ public class ThiefController : Character {
             // When the mouse is let go, refresh all tiles
             if (Input.GetMouseButtonUp(0)) {
                 isSelected = false;
-                //if (listPathTiles.Count < 1) {
-                    TurnTargetTilesOff();
-                //}
-
+                TurnTargetTilesOff();
+                
                 TurnManager.instance.HighlightCubesFieldsOfView();
                 HighlightPathTiles();
                 return;
@@ -284,6 +282,9 @@ public class ThiefController : Character {
     /// Clear the path of tiles
     /// </summary>
     public void ClearPath() {
+        foreach (var tile in listPathTiles) {
+            tile.tileHighlighter.TurnHighlighterOff();
+        }
         listPathTiles.Clear();
     }
 

@@ -22,7 +22,7 @@ public class TurnManager : MonoBehaviour {
     public GameObject needKeycardPanel;
     public GameObject needTreasurePanel;
 
-    public bool CanMove { get; set; } = true;
+    public bool CanMove { get; set; }
     int intMoveCount;
 
     public static TurnManager instance;

@@ -40602,7 +40602,7 @@ PrefabInstance:
     - target: {fileID: 7220968534021114778, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
       propertyPath: m_Name
-      value: NewPrototypeGame_Canvas
+      value: PrototypeGame_Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7220968534056116789, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
