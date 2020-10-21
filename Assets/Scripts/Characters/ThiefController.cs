@@ -40,7 +40,7 @@ public class ThiefController : Character {
         HasTreasure = false;
         SetStartingTile();
         RepositionCamera();
-        tmpMoveCount.text = intRange.ToString();
+        DisplayMoveCounter();
     }
 
     #endregion
@@ -110,7 +110,7 @@ public class ThiefController : Character {
         if (listPathTiles.Count < 1) {
             IsMoving = false;
             turnManager.DecreaseMovementCount();
-            tmpMoveCount.text = intRange.ToString();
+            DisplayMoveCounter();
             return;
         }
 
@@ -121,7 +121,14 @@ public class ThiefController : Character {
         MoveToTile(ref nextTile);
         listPathTiles[0].tileHighlighter.TurnHighlighterOff();
         listPathTiles.RemoveAt(0);
-        tmpMoveCount.text = listPathTiles.Count.ToString();
+        DisplayMoveCounter();
+    }
+
+    /// <summary>
+    /// Display how many moves the Thief still has
+    /// </summary>
+    void DisplayMoveCounter() {
+        tmpMoveCount.text = listPathTiles.Count.ToString() + "/" + intRange;
     }
 
     #endregion
@@ -282,7 +289,9 @@ public class ThiefController : Character {
                 ClearPath();
                 HighlightTargetTiles(ref pathTile);
             }
-                    
+
+            // Update move counter
+            DisplayMoveCounter();
         }
     }
 
