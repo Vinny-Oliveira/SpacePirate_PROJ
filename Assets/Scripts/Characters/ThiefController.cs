@@ -362,6 +362,15 @@ public class ThiefController : Character {
     }
 
     /// <summary>
+    /// Clear the cuurent path and start a new one from the current tile
+    /// </summary>
+    public void ResetPath() {
+        TurnTargetTilesOff();
+        ClearPath();
+        StartNewPath();
+    }
+
+    /// <summary>
     /// Display how many moves the Thief still has
     /// </summary>
     public void DisplayMoveCounter() {
