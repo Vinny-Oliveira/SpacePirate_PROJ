@@ -109,16 +109,16 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     public void DisplayPathAndTargets() {
         ThiefController thief = TurnManager.instance.thief;
-
+        
+        thief.TurnTargetTilesOff();
+        TurnManager.instance.HighlightCubesFieldsOfView();
         thief.HighlightPathTiles();
         thief.DisplayMoveCounter();
-        thief.TurnTargetTilesOff();
 
         if (thief.CanAddToPath()) {
             HighlightNeighbors();
         }
 
-        TurnManager.instance.HighlightCubesFieldsOfView();
     }
 
     /// <summary>
