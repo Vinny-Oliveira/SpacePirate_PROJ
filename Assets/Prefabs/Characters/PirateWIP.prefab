@@ -130,7 +130,7 @@ MonoBehaviour:
   intRange: 2
   mainCamera: {fileID: 0}
   tmpMoveCount: {fileID: 0}
-  maxRangeColor: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
+  maxRangeColor: {r: 1, g: 0.7756624, b: 0.15686274, a: 1}
 --- !u!136 &1520732930358248636
 CapsuleCollider:
   m_ObjectHideFlags: 0
