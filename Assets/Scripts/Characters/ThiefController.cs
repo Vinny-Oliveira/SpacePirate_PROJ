@@ -11,10 +11,19 @@ public class ThiefController : Character {
     int intRange = 2;
 
     /* Path Control */
-    bool isSelected;
     Tile targetTile;
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
+
+    public Tile LastPathTile { 
+        get {
+            if (listPathTiles.Count > 0) {
+                return listPathTiles.Last();
+            } else {
+                return null;
+            }
+        }
+    }
 
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
@@ -34,8 +43,7 @@ public class ThiefController : Character {
     /// <summary>
     /// Startup for the Thief
     /// </summary>
-    public void SetupThief() { 
-        isSelected = false;
+    public void SetupThief() {
         IsMoving = false;
         CanStep = true;
         HasTreasure = false;
@@ -175,7 +183,7 @@ public class ThiefController : Character {
     ////        if (Input.GetMouseButtonUp(0)) {
     ////            isSelected = false;
     ////            TurnTargetTilesOff();
-                
+
     ////            TurnManager.instance.HighlightCubesFieldsOfView();
     ////            HighlightPathTiles();
     ////            return;
@@ -185,6 +193,40 @@ public class ThiefController : Character {
     ////}
 
     //#endregion
+
+    #region TARGET_TILES
+
+    /// <summary>
+    /// Turn the highlighted tiles back to their original colors
+    /// </summary>
+    public void TurnTargetTilesOff() { 
+        foreach (var tile in listTargetTiles) {
+            if (!listPathTiles.Contains(tile)) { 
+                tile.tileHighlighter.TurnHighlighterOff();
+            }
+        }
+
+        listTargetTiles.Clear();
+    }
+
+    /// <summary>
+    /// Check if a tile is contained in the target list
+    /// </summary>
+    /// <param name="tile"></param>
+    /// <returns></returns>
+    public bool IsTargetTile(Tile tile) {
+        return listTargetTiles.Contains(tile);
+    }
+
+    /// <summary>
+    /// Add a tile to the list of targets
+    /// </summary>
+    /// <param name="tile"></param>
+    public void AddTileToTargets(Tile tile) {
+        listTargetTiles.Add(tile);
+    }
+
+    #endregion
 
     #region PATH_OF_TILES
 
@@ -242,49 +284,11 @@ public class ThiefController : Character {
     }
 
     /// <summary>
-    /// Turn the highlighted tiles back to their original colors
-    /// </summary>
-    public void TurnTargetTilesOff() { 
-        foreach (var tile in listTargetTiles) {
-            if (!listPathTiles.Contains(tile)) { 
-                tile.tileHighlighter.TurnHighlighterOff();
-            }
-        }
-
-        listTargetTiles.Clear();
-    }
-
-    /// <summary>
-    /// Check if a tile is contained in the target list
-    /// </summary>
-    /// <param name="tile"></param>
-    /// <returns></returns>
-    public bool IsTargetTile(Tile tile) {
-        return listTargetTiles.Contains(tile);
-    }
-
-    /// <summary>
-    /// Add a tile to the list of targets
-    /// </summary>
-    /// <param name="tile"></param>
-    public void AddTileToTargets(Tile tile) {
-        listTargetTiles.Add(tile);
-    }
-
-    /// <summary>
     /// Add a tile to the path
     /// </summary>
     /// <param name="tile"></param>
     public void AddTileToPath(Tile tile) {
         listPathTiles.Add(tile);
-    }
-    
-    /// <summary>
-    /// Remove a tile to the path
-    /// </summary>
-    /// <param name="tile"></param>
-    public void RemoveTileFromPath(Tile tile) {
-        listPathTiles.Remove(tile);
     }
 
     ///// <summary>
@@ -347,6 +351,23 @@ public class ThiefController : Character {
     /// <returns></returns>
     public bool IsTileOnPath(Tile tile) {
         return listPathTiles.Contains(tile);
+    }
+
+    /// <summary>
+    /// Check if a given tile is the last of the path
+    /// </summary>
+    /// <param name="tile"></param>
+    /// <returns></returns>
+    public bool IsTileLastOfPath(Tile tile) {
+        return listPathTiles.Last().Equals(tile);
+    }
+
+    /// <summary>
+    /// Remove the last tile of the path
+    /// </summary>
+    /// <param name="tile"></param>
+    public void RemoveLastTileFromPath() {
+        listPathTiles.RemoveAt(listPathTiles.Count - 1);
     }
 
     #endregion
