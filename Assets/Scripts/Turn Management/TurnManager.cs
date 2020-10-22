@@ -171,6 +171,7 @@ public class TurnManager : MonoBehaviour {
         if (intMoveCount < 1) {
             CanClick = true;
             btnEndTurn.interactable = true;
+            thief.StartNewPath();
         }
     }
 

@@ -54,7 +54,56 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     }
 
     #endregion
-    
+
+    #region PATH_OF_TILES
+
+    private void OnMouseDown() {
+        if (Input.GetMouseButtonDown(0)) {
+            AddToPath();
+        }
+    }
+
+    /// <summary>
+    /// Add a clicked tile that is a target tile to the Thief's path
+    /// </summary>
+    public void AddToPath() {
+        if (!TurnManager.instance.CanClick) { return; }
+
+        ThiefController thief = TurnManager.instance.thief;
+
+        if (thief.IsTargetTile(this)) {
+            thief.AddTileToPath(this);
+            thief.HighlightPathTiles();
+            thief.DisplayMoveCounter();
+            
+            if (thief.CanAddToPath()) { 
+                HighlightNeighbors();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Highlight neighbor tiles as targets to the thief
+    /// </summary>
+    public void HighlightNeighbors() { 
+        ThiefController thief = TurnManager.instance.thief;
+        thief.TurnTargetTilesOff();
+
+        foreach (var tile in listNeighbors) {
+            if (tile.IsWalkable()) { // Non-walkable tiles are not added
+                
+                if (!thief.IsTileOnPath(tile)) { // Do not highlight tiles that are already on the path
+                    tile.tileHighlighter.ChangeColorToThiefRange();
+                    tile.tileHighlighter.TurnHighlighterOn();
+                }
+
+                thief.AddTileToTargets(tile);
+            }
+        }
+    }
+
+    #endregion
+
     #region DOOR_AND_WALLS
 
     /// <summary>
