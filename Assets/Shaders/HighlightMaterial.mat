@@ -68,7 +68,7 @@ Material:
     - _HighlightAlpha: 0.165
     - _HighlightColourBool: 0
     - _HighlightIsPulsing: 0
-    - _HighlightIsVisible: 1
+    - _HighlightIsVisible: 0
     - _HighlightIsVision: 0
     - _HighlightSineSpeed: 4
     - _Metallic: 0
