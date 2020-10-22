@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_60F8021E:
-        m_Texture: {fileID: 2800000, guid: 5ea83513e6544ec4c8875f2ad80f2a41, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8758b8b366da6134594700f41e460ed9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -65,7 +65,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HighlightAlpha: 0.1
+    - _HighlightAlpha: 0.165
     - _HighlightColourBool: 0
     - _HighlightIsPulsing: 0
     - _HighlightIsVisible: 0

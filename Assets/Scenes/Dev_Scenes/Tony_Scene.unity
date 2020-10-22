@@ -1565,6 +1565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteTile
       objectReference: {fileID: 0}
+    - target: {fileID: 4524556354195956871, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f78cfe8b73a7f444ba0970c7700c58b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f8cb4f83c312e428f9a6aad03ebf28, type: 3}
 --- !u!4 &533451891 stripped
@@ -2167,6 +2172,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteTile (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4524556354195956871, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f78cfe8b73a7f444ba0970c7700c58b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f8cb4f83c312e428f9a6aad03ebf28, type: 3}
 --- !u!1001 &948870910
@@ -2395,6 +2405,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueTile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6636284595797170207, guid: e6cd1f791baf6ef4a987dadaf3e57195,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f78cfe8b73a7f444ba0970c7700c58b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6cd1f791baf6ef4a987dadaf3e57195, type: 3}
 --- !u!1001 &1017332081
@@ -4119,6 +4134,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueTile
       objectReference: {fileID: 0}
+    - target: {fileID: 6636284595797170207, guid: e6cd1f791baf6ef4a987dadaf3e57195,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f78cfe8b73a7f444ba0970c7700c58b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6cd1f791baf6ef4a987dadaf3e57195, type: 3}
 --- !u!4 &1539263408 stripped
@@ -4893,6 +4913,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueTile (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6636284595797170207, guid: e6cd1f791baf6ef4a987dadaf3e57195,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f78cfe8b73a7f444ba0970c7700c58b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6cd1f791baf6ef4a987dadaf3e57195, type: 3}
 --- !u!4 &1972565871 stripped
@@ -5535,6 +5560,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteTile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4524556354195956871, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f78cfe8b73a7f444ba0970c7700c58b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f8cb4f83c312e428f9a6aad03ebf28, type: 3}
 --- !u!1001 &2147242969
