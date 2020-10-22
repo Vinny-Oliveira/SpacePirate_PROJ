@@ -75,7 +75,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
             thief.AddTileToPath(this);
             thief.HighlightPathTiles();
             thief.DisplayMoveCounter();
-            
+            thief.TurnTargetTilesOff();
+
             if (thief.CanAddToPath()) { 
                 HighlightNeighbors();
             }
