@@ -31,6 +31,7 @@ public class ThiefController : Character {
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
     List<Keycard> listKeycards = new List<Keycard>();
+    EMP_Device emp;
 
     [Header("Camera & UI")]
     public Camera mainCamera;
@@ -108,6 +109,8 @@ public class ThiefController : Character {
 
         // Check if touching treasure, keycard, or door
         PickUpKeycard();
+        PickUpEMP();
+        if (emp) { emp.ChargeOneTurn(); }
         turnManager.CheckForTreasure();
         OpenNeighborDoors();
         MoveOnPath();
@@ -365,9 +368,11 @@ public class ThiefController : Character {
     /// Clear the cuurent path and start a new one from the current tile
     /// </summary>
     public void ResetPath() {
-        TurnTargetTilesOff();
-        ClearPath();
-        StartNewPath();
+        if (TurnManager.instance.CanClick) { 
+            TurnTargetTilesOff();
+            ClearPath();
+            StartNewPath();
+        }
     }
 
     /// <summary>
@@ -428,6 +433,26 @@ public class ThiefController : Character {
                 TurnManager.instance.ThiefNeedsKeycard();
             }
         }
+    }
+
+    #endregion
+
+    #region EMP_DEVICE
+
+    /// <summary>
+    /// Pick up the EMP device
+    /// </summary>
+    public void PickUpEMP() { 
+        if (TurnManager.instance.IsThiefTouchingEMP()) {
+            emp = TurnManager.instance.emp;
+        }
+    }
+
+    /// <summary>
+    /// Activate the EMP device to disable cubes
+    /// </summary>
+    public void Activate_EMP() {
+        emp.Activate_EMP();
     }
 
     #endregion

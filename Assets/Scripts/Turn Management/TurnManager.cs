@@ -10,6 +10,7 @@ public class TurnManager : MonoBehaviour {
     public Treasure treasure;
     public List<CubeMovement> listCubes;
     public List<Keycard> listKeycards = new List<Keycard>();
+    public EMP_Device emp;
 
     [Header("Turn Control")]
     public Tile exitTile;
@@ -107,6 +108,14 @@ public class TurnManager : MonoBehaviour {
     public bool IsThiefTouchingTreasure() {
         return AreTilesTheSame(ref treasure.placeTile, ref thief.currentTile);
     }
+    
+    /// <summary>
+    /// Check if the player is touching the EMP device
+    /// </summary>
+    /// <returns></returns>
+    public bool IsThiefTouchingEMP() {
+        return AreTilesTheSame(ref emp.placeTile, ref thief.currentTile);
+    }
 
     /// <summary>
     /// Check if the thief has escaped with the treasure
@@ -162,11 +171,6 @@ public class TurnManager : MonoBehaviour {
         foreach (var cube in listCubes) {
             cube.MoveOnPath();
         }
-
-        // Re-enable the disabled cubes
-        foreach (var cube in listCubes.Where(x => x.IsCubeDisabled && x.CanEnableCube())) {
-            cube.EnableCube();
-        }
     }
 
     /// <summary>
@@ -178,6 +182,11 @@ public class TurnManager : MonoBehaviour {
             CanClick = true;
             btnEndTurn.interactable = true;
             thief.StartNewPath();
+
+            // Re-enable the disabled cubes
+            foreach (var cube in listCubes.Where(x => x.IsCubeDisabled && x.CanEnableCube())) {
+                cube.EnableCube();
+            }
         }
     }
 
