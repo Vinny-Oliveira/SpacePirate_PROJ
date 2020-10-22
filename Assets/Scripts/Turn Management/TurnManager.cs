@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
@@ -161,6 +162,11 @@ public class TurnManager : MonoBehaviour {
         foreach (var cube in listCubes) {
             cube.MoveOnPath();
         }
+
+        // Re-enable the disabled cubes
+        foreach (var cube in listCubes.Where(x => x.IsCubeDisabled && x.CanEnableCube())) {
+            cube.EnableCube();
+        }
     }
 
     /// <summary>
@@ -284,10 +290,10 @@ public class TurnManager : MonoBehaviour {
     #region CUBES_FIELD_OF_VIEW
 
     /// <summary>
-    /// Highlight the tiles within all the cubes' fields of view
+    /// Highlight the tiles within all the enabled cubes' fields of view
     /// </summary>
     public void HighlightCubesFieldsOfView() { 
-        foreach (var cube in listCubes) {
+        foreach (var cube in listCubes.Where(x => !x.IsCubeDisabled)) {
             cube.HighlightFieldOfView();
         }
     }
