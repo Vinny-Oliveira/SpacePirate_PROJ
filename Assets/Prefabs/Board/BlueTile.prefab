@@ -188,8 +188,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3247509, z: 0.5}
-  m_Center: {x: 0, y: 0.33762455, z: 0}
+  m_Size: {x: 0.95, y: 0.024549603, z: 0.95}
+  m_Center: {x: 0, y: 0.4877252, z: 0}
 --- !u!114 &8114355177232889722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   tileType: 1
   listNeighbors: []
   tileHighlighter: {fileID: 4484904947712677256}
+  door: {fileID: 0}
 --- !u!114 &4484904947712677256
 MonoBehaviour:
   m_ObjectHideFlags: 0

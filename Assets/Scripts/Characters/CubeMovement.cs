@@ -40,6 +40,10 @@ public class CubeMovement : Character {
     float initPosY;
     Quaternion initCenterRotation;
 
+    /* Cube affected by the EMP */
+    public bool IsCubeDisabled { get; set; }
+    int intWaitTurns;
+
     #region INITIAL_SETUP
 
     /// <summary>
@@ -48,6 +52,7 @@ public class CubeMovement : Character {
     public void SetupCubeStart() {
         IsMoving = false;
         CanStep = true;
+        IsCubeDisabled = false;
         SetStartingTile();
         StoreStartingPosition();
         BuildDirectionDictionary();
@@ -125,7 +130,12 @@ public class CubeMovement : Character {
     /// Move on the path set to the Cube
     /// </summary>
     public override void MoveOnPath() {
-        StartCoroutine(MoveOnEachDirection());
+        // Check if the cube is not disabled
+        if (IsCubeDisabled) {
+            intWaitTurns--;
+        } else { 
+            StartCoroutine(MoveOnEachDirection());
+        }
     }
 
     /// <summary>
@@ -250,6 +260,36 @@ public class CubeMovement : Character {
             tile.tileHighlighter.TurnHighlighterOff();
         }
         listFieldOfView.Clear();
+    }
+
+    #endregion
+
+    #region EMP_EFFECTS
+
+    /// <summary>
+    /// Disable the cube and its field of view
+    /// </summary>
+    /// <param name="turns"></param>
+    public void DisableCube(int turns) {
+        IsCubeDisabled = true;
+        intWaitTurns = turns;
+        DisableFieldOfView();
+    }
+
+    /// <summary>
+    /// Enable the cube and turn the field of view on
+    /// </summary>
+    public void EnableCube() { 
+        IsCubeDisabled = false;
+        SetFieldOfView();
+    }
+
+    /// <summary>
+    /// Check if the cube can be re-enabled
+    /// </summary>
+    /// <returns></returns>
+    public bool CanEnableCube() {
+        return (intWaitTurns < 1);
     }
 
     #endregion

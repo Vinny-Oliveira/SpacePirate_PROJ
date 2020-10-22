@@ -15,6 +15,9 @@ public class ThiefController : Character {
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
 
+    /// <summary>
+    /// Last tile in the list of path tiles
+    /// </summary>
     public Tile LastPathTile { 
         get {
             if (listPathTiles.Count > 0) {
@@ -130,25 +133,13 @@ public class ThiefController : Character {
         Tile nextTile = listPathTiles[0];
         MoveToTile(ref nextTile);
 
-        // Deactivate chaders and update counter
+        // Deactivate shaders and update counter
         listPathTiles.RemoveAt(0);
         if (!listPathTiles.Contains(nextTile)) { 
             nextTile.tileHighlighter.TurnHighlighterOff();
         }
+        HighlightPathTiles();
         DisplayMoveCounter();
-    }
-
-    /// <summary>
-    /// Display how many moves the Thief still has
-    /// </summary>
-    public void DisplayMoveCounter() {
-        if (listPathTiles.Count < intRange) {
-            tmpMoveCount.color = Color.white;
-        } else {
-            tmpMoveCount.color = maxRangeColor;
-        }
-
-        tmpMoveCount.text = listPathTiles.Count.ToString() + "/" + intRange;
     }
 
     #endregion
@@ -359,7 +350,7 @@ public class ThiefController : Character {
     /// <param name="tile"></param>
     /// <returns></returns>
     public bool IsTileLastOfPath(Tile tile) {
-        return listPathTiles.Last().Equals(tile);
+        return tile.Equals(LastPathTile);
     }
 
     /// <summary>
@@ -368,6 +359,28 @@ public class ThiefController : Character {
     /// <param name="tile"></param>
     public void RemoveLastTileFromPath() {
         listPathTiles.RemoveAt(listPathTiles.Count - 1);
+    }
+
+    /// <summary>
+    /// Clear the cuurent path and start a new one from the current tile
+    /// </summary>
+    public void ResetPath() {
+        TurnTargetTilesOff();
+        ClearPath();
+        StartNewPath();
+    }
+
+    /// <summary>
+    /// Display how many moves the Thief still has
+    /// </summary>
+    public void DisplayMoveCounter() {
+        if (listPathTiles.Count < intRange) {
+            tmpMoveCount.color = Color.white;
+        } else {
+            tmpMoveCount.color = maxRangeColor;
+        }
+
+        tmpMoveCount.text = listPathTiles.Count.ToString() + "/" + intRange;
     }
 
     #endregion

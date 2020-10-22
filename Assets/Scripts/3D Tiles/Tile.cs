@@ -72,6 +72,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     private void OnMouseOver() {
         if (Input.GetMouseButtonDown(1) && TurnManager.instance.CanClick) { // Right click
             RemoveFromPath();
+        } else if (Input.GetMouseButtonDown(2) && TurnManager.instance.CanClick) { // Middle click
+            TurnManager.instance.thief.ResetPath();
         }
     }
 
@@ -109,16 +111,16 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     public void DisplayPathAndTargets() {
         ThiefController thief = TurnManager.instance.thief;
-
+        
+        thief.TurnTargetTilesOff();
+        TurnManager.instance.HighlightCubesFieldsOfView();
         thief.HighlightPathTiles();
         thief.DisplayMoveCounter();
-        thief.TurnTargetTilesOff();
 
         if (thief.CanAddToPath()) {
             HighlightNeighbors();
         }
 
-        TurnManager.instance.HighlightCubesFieldsOfView();
     }
 
     /// <summary>
