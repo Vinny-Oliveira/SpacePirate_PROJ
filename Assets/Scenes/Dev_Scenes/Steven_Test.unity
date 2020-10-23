@@ -20013,6 +20013,7 @@ MonoBehaviour:
   - {fileID: 1208758192}
   listKeycards:
   - {fileID: 518084302}
+  emp: {fileID: 0}
   exitTile: {fileID: 119123653}
   btnEndTurn: {fileID: 2129363437}
   keycard_Image: {fileID: 123729549}
@@ -45445,6 +45446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033904649627870191, guid: d3f928a0af11c3e4eadc891e880a3294,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5458899872448507245, guid: d3f928a0af11c3e4eadc891e880a3294,
         type: 3}
