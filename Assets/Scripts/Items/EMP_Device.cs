@@ -9,6 +9,7 @@ public class EMP_Device : Item {
     public int intTurnsAffected;
     public ParticleSystem particle;
     public UnityEngine.UI.Button btnActivate_EMP;
+    public MeshRenderer meshRenderer;
 
     public bool CanActivate { 
         get { return (intWaitTurns < 1); }
@@ -20,6 +21,14 @@ public class EMP_Device : Item {
     /// </summary>
     public void OnActivateBtnDown() {
         Activate_EMP();
+    }
+
+    /// <summary>
+    /// Called when the EMP is picked up. Setup all initial values
+    /// </summary>
+    public void OnDevicePickedUp() {
+        meshRenderer.enabled = false;
+        intWaitTurns = 0;
     }
 
     /// <summary>
