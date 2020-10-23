@@ -7259,6 +7259,7 @@ MonoBehaviour:
   intTurnsAffected: 2
   particle: {fileID: 1404514461}
   btnActivate_EMP: {fileID: 567156034}
+  meshRenderer: {fileID: 349214129}
 --- !u!23 &349214129
 MeshRenderer:
   m_ObjectHideFlags: 0
