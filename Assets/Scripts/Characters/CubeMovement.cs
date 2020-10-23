@@ -133,6 +133,7 @@ public class CubeMovement : Character {
         // Check if the cube is not disabled
         if (IsCubeDisabled) {
             intWaitTurns--;
+            TurnManager.instance.DecreaseMovementCount();
         } else { 
             StartCoroutine(MoveOnEachDirection());
         }
