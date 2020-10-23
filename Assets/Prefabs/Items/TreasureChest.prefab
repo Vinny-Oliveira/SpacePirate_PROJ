@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7582336168417658385}
   - component: {fileID: 7091433426913611608}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5684042850145844944}
   - component: {fileID: 4418561951511852164}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 3278346686482373387}
   - component: {fileID: 1577357445095714223}
   - component: {fileID: 6644830054826676357}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TreasureBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4487184948533866298}
   - component: {fileID: 6722152090652845857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TreasureChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 278760129619057170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TreasureCoins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 465962625018461597}
   - component: {fileID: 8281407145052776023}
   - component: {fileID: 6215878274464771949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TreasureBottom_CoinStacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5582324410709943494}
   - component: {fileID: 3706053518912120453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 8965493916051743908}
   - component: {fileID: 2311788318008463873}
   - component: {fileID: 8086875579022931125}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TreasureTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 9106360385876860592}
   - component: {fileID: 814214512571881789}
   - component: {fileID: 3945290321767087984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TreasureBottom_CoinBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7638068571096359361}
   - component: {fileID: 1456195252774125790}
   - component: {fileID: 3829169326985796110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8139848576060209964}
   - component: {fileID: 6129811051066695544}
   - component: {fileID: 1520732930358248636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PirateWIP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 6285517994512122842}
   - component: {fileID: 9140000198254780089}
   - component: {fileID: 7480621821886798404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
