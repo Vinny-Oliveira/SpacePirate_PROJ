@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4391208582308502241}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthEast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4391208582821377464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorthWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4391208583046723588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorthEast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4391208583264069016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4391208583529927690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 4391208583779022772}
   - component: {fileID: 4391208583779022773}
   - component: {fileID: 4391208583779022760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,11 +263,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
+  intRollsPerTurn: 1
   listPath: 
   center: {fileID: 4391208583529927691}
   northEast: {fileID: 4391208583046723589}
   northWest: {fileID: 4391208582821377465}
   southEast: {fileID: 4391208582308502254}
   southWest: {fileID: 4391208583264069017}
-  step: 9
-  speed: 0.01
+  listViewCoords: []
+  listFieldOfView: []

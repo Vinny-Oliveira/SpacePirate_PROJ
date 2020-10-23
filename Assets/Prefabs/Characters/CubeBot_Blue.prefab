@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2643663758383371182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8915197409856730468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3543124520001031034}
   - component: {fileID: 3543124520001031035}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3543124521130490805}
   - component: {fileID: 3543124521130490806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7999017884647880928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorthWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 7183274305967445662}
   - component: {fileID: 225908078041410184}
   - component: {fileID: 1938432483130435922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3936442426814826456}
   - component: {fileID: 6113884319540137844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CubeBot_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,13 +406,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
+  intRollsPerTurn: 1
   listPath: 000000000100000001000000030000000200000002000000
   center: {fileID: 3244929332658082936}
   northEast: {fileID: 6010419789986067893}
   northWest: {fileID: 3727440486405597632}
   southEast: {fileID: 5262757486662820229}
   southWest: {fileID: 2722392972818505800}
-  step: 9
   listViewCoords:
   - {x: 1, y: 0}
   - {x: 2, y: 0}
@@ -432,7 +432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9020508557990106624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthEast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7472945701474627586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorthEast
   m_TagString: Untagged
   m_Icon: {fileID: 0}

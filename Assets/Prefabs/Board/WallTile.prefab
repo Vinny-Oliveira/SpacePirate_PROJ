@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4874658965789486410}
   - component: {fileID: 726939890763273520}
   - component: {fileID: 4085203719832047065}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tile_Wires
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,6 +177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189371625374891994, guid: 7f073586736131e4497748cd23824f75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f073586736131e4497748cd23824f75, type: 3}

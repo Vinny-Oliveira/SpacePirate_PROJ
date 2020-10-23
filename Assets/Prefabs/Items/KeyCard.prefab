@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3312710832491235116}
   - component: {fileID: 1132167812804411447}
   - component: {fileID: 4368252889361704660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KeyCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4035541530135050979}
   - component: {fileID: 4578936920892267786}
   - component: {fileID: 6014218356110609703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KeyCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

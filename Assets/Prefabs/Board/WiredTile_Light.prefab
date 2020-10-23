@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2087391329799321838}
   - component: {fileID: 3616480927257520209}
   - component: {fileID: 3944833173059246456}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 1849436494366608476}
   - component: {fileID: 5772026801246319654}
   - component: {fileID: 7114929926987459791}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tile_Wires
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 3814615415496734184}
   - component: {fileID: 2646917209192786611}
   - component: {fileID: 3284264613552180475}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WiredTile_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

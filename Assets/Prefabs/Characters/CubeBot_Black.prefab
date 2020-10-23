@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2676507497726025315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorthEast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6059652395660058403}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2387242098484797515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorthWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4726618929988084458}
   - component: {fileID: 4726618929988084457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 1370215552412213113}
   - component: {fileID: 8327560425907626863}
   - component: {fileID: 7662122938561126581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5049357216495996479}
   - component: {fileID: 5902793053950362819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CubeBot_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,13 +314,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
+  intRollsPerTurn: 1
   listPath: 020000000000000000000000010000000300000003000000
   center: {fileID: 1193789436212298243}
   northEast: {fileID: 47557576673764113}
   northWest: {fileID: 3991331901379784417}
   southEast: {fileID: 5657015817809749245}
   southWest: {fileID: 8042315629256600950}
-  step: 9
   listViewCoords:
   - {x: 1, y: 0}
   - {x: 2, y: 0}
@@ -340,7 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3303712746378498549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthEast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7415013036976616298}
   - component: {fileID: 4064622260426477356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683805158611593288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
