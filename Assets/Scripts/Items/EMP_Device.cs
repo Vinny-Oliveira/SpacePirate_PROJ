@@ -8,15 +8,23 @@ public class EMP_Device : Item {
     public int intChargeTurns;
     public int intTurnsAffected;
     public ParticleSystem particle;
+    public UnityEngine.UI.Button btnActivate_EMP;
+
     public bool CanActivate { 
         get { return (intWaitTurns < 1); }
     }
     int intWaitTurns;
 
     /// <summary>
+    /// Push the button to activate the EMP
+    /// </summary>
+    public void OnActivateBtnDown() {
+        Activate_EMP();
+    }
+
+    /// <summary>
     /// Disable cubes within range of the EMP charge
     /// </summary>
-    [ContextMenu("EMP")]
     public void Activate_EMP() {
         // Play particles
         if (particle) { 
@@ -32,6 +40,7 @@ public class EMP_Device : Item {
 
         // Set turns to wait
         intWaitTurns = intChargeTurns;
+        btnActivate_EMP.interactable = false;
     }
 
     /// <summary>
@@ -40,6 +49,8 @@ public class EMP_Device : Item {
     public void ChargeOneTurn() {
         if (intWaitTurns > 0) { 
             intWaitTurns--;
+        } else {
+            btnActivate_EMP.interactable = true;
         }
     }
 

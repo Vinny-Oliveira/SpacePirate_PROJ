@@ -110,7 +110,6 @@ public class ThiefController : Character {
         // Check if touching treasure, keycard, or door
         PickUpKeycard();
         PickUpEMP();
-        if (emp) { emp.ChargeOneTurn(); }
         turnManager.CheckForTreasure();
         OpenNeighborDoors();
         MoveOnPath();
@@ -127,6 +126,9 @@ public class ThiefController : Character {
             IsMoving = false;
             turnManager.DecreaseMovementCount();
             DisplayMoveCounter();
+            if (emp) { 
+                emp.ChargeOneTurn(); 
+            }
             return;
         }
 
@@ -445,6 +447,9 @@ public class ThiefController : Character {
     public void PickUpEMP() { 
         if (TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
+            emp.btnActivate_EMP.gameObject.SetActive(true);
+            //emp.btnActivate_EMP.interactable = emp.CanActivate;
+            emp.gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
