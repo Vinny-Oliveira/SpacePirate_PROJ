@@ -448,8 +448,8 @@ public class ThiefController : Character {
         if (TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
             emp.btnActivate_EMP.gameObject.SetActive(true);
-            //emp.btnActivate_EMP.interactable = emp.CanActivate;
-            emp.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            emp.transform.parent = transform; // EMP becomes a child of the thief
+            emp.OnDevicePickedUp();
         }
     }
 
