@@ -460,6 +460,16 @@ public class ThiefController : Character {
         emp.Activate_EMP();
     }
 
+    /// <summary>
+    /// Change the interactability of the EMP activation button
+    /// </summary>
+    /// <param name="isOn"></param>
+    public void TurnEmpBtnOnOrOff() { 
+        if (emp) {
+            emp.btnActivate_EMP.interactable = emp.CanActivate;
+        }
+    }
+
     #endregion
 
 }

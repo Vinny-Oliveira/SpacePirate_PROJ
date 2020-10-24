@@ -160,10 +160,11 @@ public class TurnManager : MonoBehaviour {
     /// Play all the actions of the thief and the cubes
     /// </summary>
     void PlayEveryAction() {
-        // Disable movement
+        // Disable clicking while things move
         CanClick = false;
         intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
+        thief.TurnEmpBtnOnOrOff();
 
         // Play actions
         thief.TurnTargetTilesOff();
@@ -179,9 +180,11 @@ public class TurnManager : MonoBehaviour {
     public void DecreaseMovementCount() {
         intMoveCount--;
         if (intMoveCount < 1) {
+            // Enable clicking again
             CanClick = true;
             btnEndTurn.interactable = true;
             thief.StartNewPath();
+            thief.TurnEmpBtnOnOrOff();
 
             // Re-enable the disabled cubes
             foreach (var cube in listCubes.Where(x => x.IsCubeDisabled && x.CanEnableCube())) {
