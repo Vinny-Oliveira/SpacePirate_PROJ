@@ -6,9 +6,9 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour {
 
     [Header("Characters and Items")]
-    public ThiefController thief;
+    public Thief thief;
     public Treasure treasure;
-    public List<CubeMovement> listCubes;
+    public List<CubeBot> listCubes;
     public List<Keycard> listKeycards = new List<Keycard>();
     public EMP_Device emp;
 
@@ -187,7 +187,7 @@ public class TurnManager : MonoBehaviour {
             thief.TurnEmpBtnOnOrOff();
 
             // Re-enable the disabled cubes
-            foreach (var cube in listCubes.Where(x => x.IsCubeDisabled && x.CanEnableCube())) {
+            foreach (var cube in listCubes.Where(x => x.IsDisabled && x.CanEnableCube())) {
                 cube.EnableCube();
             }
         }
@@ -212,10 +212,10 @@ public class TurnManager : MonoBehaviour {
     /// Check if the cube is touching the thief when it rolls to a new tile
     /// </summary>
     /// <param name="newTile"></param>
-    /// <param name="cubeFieldOfView"></param>
+    /// <param name="fieldOfView"></param>
     /// <returns></returns>
-    public bool IsThiefCaught(ref Tile newTile, ref List<Tile> cubeFieldOfView) {
-        if (IsThiefTouchingCube(ref newTile) || IsCubeSeeingThief(ref cubeFieldOfView)) {
+    public bool IsThiefCaught(ref Tile newTile, ref List<Tile> fieldOfView) {
+        if (IsThiefTouchingCube(ref newTile) || IsCubeSeeingThief(fieldOfView)) {
             return HandleThiefCaught();
         }
         return false;
@@ -274,7 +274,7 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool IsThiefSeenByCube() { 
         foreach (var cube in listCubes) {
-            if (IsCubeSeeingThief(ref cube.listFieldOfView)) {
+            if (IsCubeSeeingThief(cube.GetFieldOfView())) {
                 return true;
             }
         }
@@ -285,10 +285,10 @@ public class TurnManager : MonoBehaviour {
     /// <summary>
     /// Check if a given Cube is seeing the Thief
     /// </summary>
-    /// <param name="cubeFieldOfView"></param>
+    /// <param name="fieldOfView"></param>
     /// <returns></returns>
-    public bool IsCubeSeeingThief(ref List<Tile> cubeFieldOfView) { 
-        foreach (var seenTile in cubeFieldOfView) { 
+    public bool IsCubeSeeingThief(List<Tile> fieldOfView) { 
+        foreach (var seenTile in fieldOfView) { 
             if (seenTile.Equals(thief.currentTile)) {
                 return true;
             }
@@ -305,7 +305,7 @@ public class TurnManager : MonoBehaviour {
     /// Highlight the tiles within all the enabled cubes' fields of view
     /// </summary>
     public void HighlightCubesFieldsOfView() { 
-        foreach (var cube in listCubes.Where(x => !x.IsCubeDisabled)) {
+        foreach (var cube in listCubes.Where(x => !x.IsDisabled)) {
             cube.HighlightFieldOfView();
         }
     }

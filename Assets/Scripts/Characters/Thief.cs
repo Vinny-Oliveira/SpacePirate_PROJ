@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening;
 
-public class ThiefController : Character {
+public class Thief : Character {
 
     [Header("Movement Range")]
     [SerializeField]

@@ -81,7 +81,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Add a clicked tile that is a target tile to the Thief's path
     /// </summary>
     public void AddToPath() {
-        ThiefController thief = TurnManager.instance.thief;
+        Thief thief = TurnManager.instance.thief;
 
         if (thief.IsTargetTile(this)) {
             thief.AddTileToPath(this);
@@ -93,7 +93,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Remove a tile from the end of the path
     /// </summary>
     void RemoveFromPath() {
-        ThiefController thief = TurnManager.instance.thief;
+        Thief thief = TurnManager.instance.thief;
 
         if (thief.IsTileLastOfPath(this)) {
             thief.RemoveLastTileFromPath();
@@ -110,7 +110,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Display the path of tiles and the next target tiles of the Thief
     /// </summary>
     public void DisplayPathAndTargets() {
-        ThiefController thief = TurnManager.instance.thief;
+        Thief thief = TurnManager.instance.thief;
         
         thief.TurnTargetTilesOff();
         TurnManager.instance.HighlightCubesFieldsOfView();
@@ -127,7 +127,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Highlight neighbor tiles as targets to the thief and add them to the target list
     /// </summary>
     public void HighlightNeighbors() { 
-        ThiefController thief = TurnManager.instance.thief;
+        Thief thief = TurnManager.instance.thief;
         thief.TurnTargetTilesOff();
 
         foreach (var tile in listNeighbors) {

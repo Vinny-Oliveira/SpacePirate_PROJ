@@ -13,7 +13,7 @@ public enum EDirection {
     SOUTHWEST = 3
 }
 
-public class CubeMovement : Character {
+public class CubeBot : Enemy {
 
     [Header("Path where the Cube rolls")]
     [SerializeField]
@@ -31,7 +31,6 @@ public class CubeMovement : Character {
     [Header("Rotation and Field of View")]
     const int step = 9;
     public List<Vector2> listViewCoords = new List<Vector2>();
-    public List<Tile> listFieldOfView = new List<Tile>(); // Field of view
 
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
@@ -39,10 +38,6 @@ public class CubeMovement : Character {
     /* Initial setup */
     float initPosY;
     Quaternion initCenterRotation;
-
-    /* Cube affected by the EMP */
-    public bool IsCubeDisabled { get; set; }
-    int intWaitTurns;
 
     #region INITIAL_SETUP
 
@@ -52,7 +47,7 @@ public class CubeMovement : Character {
     public void SetupCubeStart() {
         IsMoving = false;
         CanStep = true;
-        IsCubeDisabled = false;
+        IsDisabled = false;
         SetStartingTile();
         StoreStartingPosition();
         BuildDirectionDictionary();
@@ -131,7 +126,7 @@ public class CubeMovement : Character {
     /// </summary>
     public override void MoveOnPath() {
         // Check if the cube is not disabled
-        if (IsCubeDisabled) {
+        if (IsDisabled) {
             intWaitTurns--;
             TurnManager.instance.DecreaseMovementCount();
         } else { 
@@ -272,7 +267,7 @@ public class CubeMovement : Character {
     /// </summary>
     /// <param name="turns"></param>
     public void DisableCube(int turns) {
-        IsCubeDisabled = true;
+        IsDisabled = true;
         intWaitTurns = turns;
         DisableFieldOfView();
     }
@@ -281,7 +276,7 @@ public class CubeMovement : Character {
     /// Enable the cube and turn the field of view on
     /// </summary>
     public void EnableCube() { 
-        IsCubeDisabled = false;
+        IsDisabled = false;
         SetFieldOfView();
     }
 
