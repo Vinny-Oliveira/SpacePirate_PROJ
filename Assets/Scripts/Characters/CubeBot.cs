@@ -13,7 +13,7 @@ public enum EDirection {
     SOUTHWEST = 3
 }
 
-public class CubeMovement : Character {
+public class CubeBot : Character {
 
     [Header("Path where the Cube rolls")]
     [SerializeField]

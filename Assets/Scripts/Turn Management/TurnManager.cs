@@ -6,9 +6,9 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour {
 
     [Header("Characters and Items")]
-    public ThiefController thief;
+    public Thief thief;
     public Treasure treasure;
-    public List<CubeMovement> listCubes;
+    public List<CubeBot> listCubes;
     public List<Keycard> listKeycards = new List<Keycard>();
     public EMP_Device emp;
 
