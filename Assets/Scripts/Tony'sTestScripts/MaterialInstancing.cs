@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MaterialInstancing: MonoBehaviour
 {
-    public GameObject highlightQuad;
-    public Material highlightMaterial;
+    public GameObject thisobject;
+    public Material shader;
     void Start()
     {
-        highlightQuad = this.gameObject;
-        highlightMaterial = highlightQuad.GetComponent<MeshRenderer>().material;
+        thisobject = this.gameObject;
+        shader = thisobject.GetComponent<MeshRenderer>().material;
     }
 
 }
