@@ -366,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3936442426814826456}
-  - component: {fileID: 6113884319540137844}
+  - component: {fileID: 7578829115288844318}
   m_Layer: 8
   m_Name: CubeBot_Blue
   m_TagString: Untagged
@@ -392,7 +392,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6113884319540137844
+--- !u!114 &7578829115288844318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,13 +401,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4461621559423098210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a78a4da47051d40a4d75801c8ed37b, type: 3}
+  m_Script: {fileID: 11500000, guid: d6a5378e98d3ef44e8ddbc4a9e51b67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
-  intRollsPerTurn: 1
-  listPath: 000000000100000001000000030000000200000002000000
+  intRollsPerTurn: 6
+  listPath: 020000000200000002000000000000000000000000000000010000000100000001000000030000000300000003000000
   center: {fileID: 3244929332658082936}
   northEast: {fileID: 6010419789986067893}
   northWest: {fileID: 3727440486405597632}
