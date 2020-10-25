@@ -238,26 +238,6 @@ public class CubeBot : Enemy {
         HighlightFieldOfView();
     }
 
-    /// <summary>
-    /// Highlight the tiles in the Cube's field of view
-    /// </summary>
-    public void HighlightFieldOfView() { 
-        foreach (var tile in listFieldOfView) {
-            tile.tileHighlighter.ChangeColorToCubeView();
-            tile.tileHighlighter.TurnHighlighterOn();
-        }
-    }
-
-    /// <summary>
-    /// Clear the filed of view tile list and turn their highlighters off
-    /// </summary>
-    public void DisableFieldOfView() { 
-        foreach (var tile in listFieldOfView) {
-            tile.tileHighlighter.TurnHighlighterOff();
-        }
-        listFieldOfView.Clear();
-    }
-
     #endregion
 
     #region EMP_EFFECTS

@@ -12,6 +12,7 @@ public enum ECameraPosition {
 public class SecurityCamera : Enemy {
 
     public ECameraPosition camPosition;
+    public EDirection centerDirection;
     bool isForward;
 
     /* Coordinates of fields of view */
@@ -19,8 +20,55 @@ public class SecurityCamera : Enemy {
     public List<Vector2> centerCoords = new List<Vector2>();
     public List<Vector2> rightCoords = new List<Vector2>();
 
-    /* Map each position enum to a list of coordinates */
-    Dictionary<ECameraPosition, List<Vector2>> dicCoords;
+    ///* Map each position enum to a list of coordinates */
+    //Dictionary<ECameraPosition, List<Vector2>> dicCoords;
+
+    ///// <summary>
+    ///// Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates
+    ///// </summary>
+    //public void BuildCoordDictionary() {
+    //    dicCoords = new Dictionary<ECameraPosition, List<Vector2>> {
+    //        { ECameraPosition.LEFT,     leftCoords },
+    //        { ECameraPosition.CENTER,   centerCoords },
+    //        { ECameraPosition.RIGHT,    rightCoords }
+    //    };
+    //}
+
+    /// <summary>
+    /// Get the coordinates of the field of view depending on the camera's position
+    /// </summary>
+    /// <returns></returns>
+    List<Vector2> GetCoordsOfField() {
+        switch (camPosition) {
+            case ECameraPosition.LEFT:
+                return leftCoords;
+            case ECameraPosition.CENTER:
+                return centerCoords;
+            case ECameraPosition.RIGHT:
+                return rightCoords;
+            default:
+                return new List<Vector2> { Vector2.zero };
+        }
+    }
+
+    /// <summary>
+    /// Get the direction the camera faces if it starts on the center position
+    /// </summary>
+    /// <returns></returns>
+    Vector3 GetFrontDirection(Vector2 coord) {
+        switch (centerDirection) {
+            case EDirection.NORTHEAST:
+                return coord.x * Vector3.right + coord.y * Vector3.forward;
+            case EDirection.NORTHWEST:
+                return coord.x * Vector3.forward + coord.y * Vector3.left;
+            case EDirection.SOUTHEAST:
+                return coord.x * Vector3.back + coord.y * Vector3.right;
+            case EDirection.SOUTHWEST:
+                return coord.x * Vector3.left + coord.y * Vector3.back;
+            default:
+                return Vector3.zero;
+        }
+    }
 
     /// <summary>
     /// Calculate the next camera position
@@ -42,6 +90,24 @@ public class SecurityCamera : Enemy {
 
     }
 
+    /// <summary>
+    /// Set the camera's new field of view
+    /// </summary>
+    [ContextMenu("TEST CAM")]
+    public void SetFieldOfView() {
+        DisableFieldOfView();
 
+        // Add tiles to the field of view depending on where the camera faces
+        foreach (var coord in GetCoordsOfField()) {
+            Vector3 newTileCoord = currentTile.coordinates + GetFrontDirection(coord);
+            Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
+
+            if (viewedTile) { 
+                listFieldOfView.Add(viewedTile);
+            }
+        }
+
+        HighlightFieldOfView();
+    }
 
 }
