@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2091,7 +2091,7 @@ MonoBehaviour:
   currentTile: {fileID: 1043592875}
   currentGrid: {fileID: 1058557817}
   camPosition: 0
-  centerDirection: 0
+  centerDirection: 1
   leftCoords:
   - {x: -1, y: 0}
   - {x: -2, y: 0}
