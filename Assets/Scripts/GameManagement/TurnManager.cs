@@ -193,15 +193,21 @@ public class TurnManager : MonoBehaviour {
     /// Enable a new turn to be played
     /// </summary>
     void EnableNewTurn() { 
-        // Enable clicking again
-        CanClick = true;
-        btnEndTurn.interactable = true;
-        thief.StartNewPath();
-        thief.TurnEmpBtnOnOrOff();
+        if (EnableEnemies()) { return; }
+        EnableThief();
+    }
 
+    /// <summary>
+    /// Enable the enemies and check if they see the Thief.
+    /// </summary>
+    /// <returns></returns>
+    bool EnableEnemies() { 
         // Re-enable the disabled cubes
         foreach (var cube in listCubes.Where(x => x.IsDisabled && x.CanEnable())) {
             cube.EnableEnemy();
+            if (IsEnemySeeingThief(cube.GetFieldOfView())) {
+                return HandleThiefCaught();
+            }
         }
 
         // Move security cameras
@@ -219,8 +225,23 @@ public class TurnManager : MonoBehaviour {
             if (!secCam.IsDisabled) {
                 secCam.NextPosition();
                 secCam.SetFieldOfView();
+                if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
+                    return HandleThiefCaught();
+                }
             }
         }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Enable clicking and moving Thief again.
+    /// </summary>
+    void EnableThief() {
+        CanClick = true;
+        btnEndTurn.interactable = true;
+        thief.StartNewPath();
+        thief.TurnEmpBtnOnOrOff();
     }
 
     #endregion
@@ -232,7 +253,7 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public bool IsThiefCaught() { 
-        if (IsThiefTouchingCube() || IsThiefSeenByCube()) {
+        if (IsThiefTouchingCube() || IsThiefSeenByCube() || IsThiefSeenByCameras()) {
             return HandleThiefCaught();
         }
         return false;
@@ -245,7 +266,7 @@ public class TurnManager : MonoBehaviour {
     /// <param name="fieldOfView"></param>
     /// <returns></returns>
     public bool IsThiefCaught(ref Tile newTile, ref List<Tile> fieldOfView) {
-        if (IsThiefTouchingCube(ref newTile) || IsCubeSeeingThief(fieldOfView)) {
+        if (IsThiefTouchingCube(ref newTile) || IsEnemySeeingThief(fieldOfView)) {
             return HandleThiefCaught();
         }
         return false;
@@ -299,25 +320,11 @@ public class TurnManager : MonoBehaviour {
     #region THIEF_ON_ENEMIES_FIELD_OF_VIEW
 
     /// <summary>
-    /// Check if the Thief seen by any of the cubes
-    /// </summary>
-    /// <returns></returns>
-    public bool IsThiefSeenByCube() { 
-        foreach (var cube in listCubes) {
-            if (IsCubeSeeingThief(cube.GetFieldOfView())) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /// <summary>
-    /// Check if a given Cube is seeing the Thief
+    /// Check if a given Enemy's field of view is seeing the Thief
     /// </summary>
     /// <param name="fieldOfView"></param>
     /// <returns></returns>
-    public bool IsCubeSeeingThief(List<Tile> fieldOfView) { 
+    public bool IsEnemySeeingThief(List<Tile> fieldOfView) { 
         foreach (var seenTile in fieldOfView) { 
             if (seenTile.Equals(thief.currentTile)) {
                 return true;
@@ -328,19 +335,35 @@ public class TurnManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Check if the Thief is seen by any security cameras
+    /// Check if a list of enemies see the Thief
     /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="listEnemies"></param>
     /// <returns></returns>
-    public bool IsThiefSeenByCameras() { 
-        foreach (var secCam in listSecCams) { 
-            foreach (var seenTile in secCam.GetFieldOfView()) { 
-                if (thief.currentTile == seenTile) {
-                    return true;
-                }
+    bool IsThiefSeenByEnemies<T>(List<T> listEnemies) where T : Enemy { 
+        foreach (var secCam in listEnemies.Where(x => !x.IsDisabled)) { 
+            if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
+                return true;
             }
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Check if the Thief is seen by enabled the cubes
+    /// </summary>
+    /// <returns></returns>
+    public bool IsThiefSeenByCube() {
+        return IsThiefSeenByEnemies(listCubes);
+    }
+
+    /// <summary>
+    /// Check if the Thief is seen by enabled security cameras
+    /// </summary>
+    /// <returns></returns>
+    public bool IsThiefSeenByCameras() {
+        return IsThiefSeenByEnemies(listSecCams);
     }
 
     #endregion
