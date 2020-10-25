@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2092,6 +2092,7 @@ MonoBehaviour:
   currentGrid: {fileID: 1058557817}
   camPosition: 0
   centerDirection: 0
+  isForward: 0
   leftCoords:
   - {x: -1, y: 0}
   - {x: -2, y: 0}
@@ -13086,12 +13087,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 607159286}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &607960480 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7220968533788922602, guid: 2107aa9a84051dd47878cc73d5eee266,
-    type: 3}
-  m_PrefabInstance: {fileID: 1921035399}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &608792329
 GameObject:
   m_ObjectHideFlags: 0
@@ -20495,12 +20490,13 @@ MonoBehaviour:
   - {fileID: 648927134}
   listKeycards:
   - {fileID: 518084302}
+  listSecCams: []
   emp: {fileID: 2038497486}
   exitTile: {fileID: 119123653}
   btnEndTurn: {fileID: 2129363437}
   keycard_Image: {fileID: 123729549}
   treasure_Image: {fileID: 676490251}
-  thiefWinPanel: {fileID: 607960480}
+  thiefWinPanel: {fileID: 1921035403}
   thiefLosePanel: {fileID: 1543741492}
   needKeycardPanel: {fileID: 1921035401}
   needTreasurePanel: {fileID: 1921035400}
@@ -41540,6 +41536,12 @@ GameObject:
 --- !u!224 &1921035402 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7220968534021114726, guid: 2107aa9a84051dd47878cc73d5eee266,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921035399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1921035403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3608675055437516606, guid: 2107aa9a84051dd47878cc73d5eee266,
     type: 3}
   m_PrefabInstance: {fileID: 1921035399}
   m_PrefabAsset: {fileID: 0}
