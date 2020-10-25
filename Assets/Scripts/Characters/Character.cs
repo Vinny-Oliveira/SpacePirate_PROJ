@@ -28,7 +28,7 @@ public class Character : MonoBehaviour {
     /// <param name="nextTile"></param>
     protected virtual void MoveToTile(ref Tile nextTile) {
         currentTile = nextTile;
-        Vector3 target = new Vector3(nextTile.GetLocation().x, transform.position.y, nextTile.GetLocation().z);
+        Vector3 target = new Vector3(nextTile.gameObject.transform.position.x, transform.position.y, nextTile.gameObject.transform.position.z);
         transform.position = target;
     }
 
