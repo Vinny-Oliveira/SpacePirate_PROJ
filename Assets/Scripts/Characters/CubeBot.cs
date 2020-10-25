@@ -220,7 +220,7 @@ public class CubeBot : Enemy {
         Vector3 newForward = transform.right;
         Vector3 newRight = transform.right;
 
-        // Cube not looking up
+        // Cube looking up
         if (!RecalculateLocalDirections(ref newForward, ref newRight)) { 
             return;
         }
@@ -228,11 +228,7 @@ public class CubeBot : Enemy {
         // Calculate coordinate of the new tile and check if it exists
         foreach (var newCoord in listViewCoords) {
             Vector3 newTileCoord = currentTile.coordinates + newCoord.x * newRight + newCoord.y * newForward;
-            Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
-
-            if (viewedTile != null) { 
-                listFieldOfView.Add(viewedTile);
-            }
+            AddTileWithCoordinates(newTileCoord);
         }
         
         HighlightFieldOfView();

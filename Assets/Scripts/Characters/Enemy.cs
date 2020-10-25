@@ -38,4 +38,15 @@ public class Enemy : Character {
         listFieldOfView.Clear();
     }
 
+    /// <summary>
+    /// Look for a tile on the grid with the given coordinates and add it to the field of view
+    /// </summary>
+    /// <param name="newTileCoord"></param>
+    protected void AddTileWithCoordinates(Vector3 newTileCoord) { 
+        Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
+
+        if (viewedTile) { 
+            listFieldOfView.Add(viewedTile);
+        }
+    }
 }

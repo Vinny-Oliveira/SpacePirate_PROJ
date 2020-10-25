@@ -93,18 +93,13 @@ public class SecurityCamera : Enemy {
     /// <summary>
     /// Set the camera's new field of view
     /// </summary>
-    [ContextMenu("TEST CAM")]
     public void SetFieldOfView() {
         DisableFieldOfView();
 
         // Add tiles to the field of view depending on where the camera faces
         foreach (var coord in GetCoordsOfField()) {
             Vector3 newTileCoord = currentTile.coordinates + GetFrontDirection(coord);
-            Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
-
-            if (viewedTile) { 
-                listFieldOfView.Add(viewedTile);
-            }
+            AddTileWithCoordinates(newTileCoord);
         }
 
         HighlightFieldOfView();
