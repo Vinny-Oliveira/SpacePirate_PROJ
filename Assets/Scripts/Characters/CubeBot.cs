@@ -155,7 +155,7 @@ public class CubeBot : Enemy {
                 yield return StartCoroutine(Roll_Cube(direction));
 
                 // Position cube on the tile and turn field of view on
-                //MoveToTile(ref nextTile);
+                MoveToTile(ref nextTile);
                 SetFieldOfView();
 
                 // Wait
