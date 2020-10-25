@@ -20,20 +20,6 @@ public class SecurityCamera : Enemy {
     public List<Vector2> centerCoords = new List<Vector2>();
     public List<Vector2> rightCoords = new List<Vector2>();
 
-    ///* Map each position enum to a list of coordinates */
-    //Dictionary<ECameraPosition, List<Vector2>> dicCoords;
-
-    ///// <summary>
-    ///// Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates
-    ///// </summary>
-    //public void BuildCoordDictionary() {
-    //    dicCoords = new Dictionary<ECameraPosition, List<Vector2>> {
-    //        { ECameraPosition.LEFT,     leftCoords },
-    //        { ECameraPosition.CENTER,   centerCoords },
-    //        { ECameraPosition.RIGHT,    rightCoords }
-    //    };
-    //}
-
     /// <summary>
     /// Get the coordinates of the field of view depending on the camera's position
     /// </summary>

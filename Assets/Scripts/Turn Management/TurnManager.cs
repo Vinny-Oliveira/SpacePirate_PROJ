@@ -10,6 +10,7 @@ public class TurnManager : MonoBehaviour {
     public Treasure treasure;
     public List<CubeBot> listCubes;
     public List<Keycard> listKeycards = new List<Keycard>();
+    public List<SecurityCamera> listSecCams = new List<SecurityCamera>();
     public EMP_Device emp;
 
     [Header("Turn Control")]
@@ -266,7 +267,7 @@ public class TurnManager : MonoBehaviour {
 
     #endregion
 
-    #region THIEF_ON_CUBES_FIELD_OF_VIEW
+    #region THIEF_ON_ENEMIES_FIELD_OF_VIEW
 
     /// <summary>
     /// Check if the Thief seen by any of the cubes
@@ -297,16 +298,49 @@ public class TurnManager : MonoBehaviour {
         return false;
     }
 
+    /// <summary>
+    /// Check if the Thief is seen by any security cameras
+    /// </summary>
+    /// <returns></returns>
+    public bool IsThiefSeenByCameras() { 
+        foreach (var secCam in listSecCams) { 
+            foreach (var seenTile in secCam.GetFieldOfView()) { 
+                if (thief.currentTile == seenTile) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     #endregion
 
-    #region CUBES_FIELD_OF_VIEW
+    #region ENEMIES_FIELD_OF_VIEW
 
     /// <summary>
     /// Highlight the tiles within all the enabled cubes' fields of view
     /// </summary>
-    public void HighlightCubesFieldsOfView() { 
-        foreach (var cube in listCubes.Where(x => !x.IsDisabled)) {
-            cube.HighlightFieldOfView();
+    public void HighlightCubesFieldsOfView() {
+        HighlightFieldsOfView<CubeBot>(listCubes);
+    }
+
+    
+    /// <summary>
+    /// Highlight the tiles within all the enabled cubes' fields of view
+    /// </summary>
+    public void HighlightCamerasFieldsOfView() {
+        HighlightFieldsOfView<SecurityCamera>(listSecCams);
+    }
+
+    /// <summary>
+    /// Highlight the field of view of Enemy types
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="listEnemies"></param>
+    void HighlightFieldsOfView<T>(List<T> listEnemies) where T : Enemy { 
+        foreach (var enemy in listEnemies.Where(x => !x.IsDisabled)) {
+            enemy.HighlightFieldOfView();
         }
     }
 
