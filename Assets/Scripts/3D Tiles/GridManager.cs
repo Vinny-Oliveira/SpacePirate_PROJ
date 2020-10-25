@@ -133,6 +133,21 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
     }
 
     /// <summary>
+    /// Remove null entries from neighbor lists
+    /// </summary>
+    [ContextMenu("Remove Empty Neighbors")]
+    public void RemoveEmptyNeighbors() {
+        listGridTiles.RemoveAll(x => x == null);
+
+        foreach (var tile in listGridTiles) {
+            tile.listNeighbors.RemoveAll(x => x == null);
+        }
+    }
+
+
+
+
+    /// <summary>
     /// Link vertical and horizontal neighbors
     /// </summary>
     /// <param name="x"></param>
