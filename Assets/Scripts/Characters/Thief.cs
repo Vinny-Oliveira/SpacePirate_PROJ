@@ -126,9 +126,6 @@ public class Thief : Character {
             IsMoving = false;
             turnManager.DecreaseMovementCount();
             DisplayMoveCounter();
-            if (emp) { 
-                emp.ChargeOneTurn(); 
-            }
             return;
         }
 
@@ -337,26 +334,28 @@ public class Thief : Character {
     public void PickUpEMP() { 
         if (TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
-            emp.btnActivate_EMP.gameObject.SetActive(true);
+            emp.toggleEMP.gameObject.SetActive(true);
             emp.transform.parent = transform; // EMP becomes a child of the thief
             emp.OnDevicePickedUp();
         }
     }
 
     /// <summary>
-    /// Activate the EMP device to disable cubes
+    /// Activate the EMP if the toggle is on
     /// </summary>
-    public void Activate_EMP() {
-        emp.Activate_EMP();
+    /// <param name="isOn"></param>
+    public void TryToActivateEMP() { 
+        if (emp && emp.toggleEMP.isOn) {
+            emp.Activate_EMP();
+        }
     }
 
     /// <summary>
-    /// Change the interactability of the EMP activation button
+    /// Charge the EMP for 1 turn
     /// </summary>
-    /// <param name="isOn"></param>
-    public void TurnEmpBtnOnOrOff() { 
-        if (emp) {
-            emp.btnActivate_EMP.interactable = emp.CanActivate;
+    public void ChargeEMP() { 
+        if (emp) { 
+            emp.ChargeOneTurn(); 
         }
     }
 

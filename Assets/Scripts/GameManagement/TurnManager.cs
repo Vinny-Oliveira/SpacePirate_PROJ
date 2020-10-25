@@ -169,7 +169,7 @@ public class TurnManager : MonoBehaviour {
         CanClick = false;
         intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
-        thief.TurnEmpBtnOnOrOff();
+        thief.TryToActivateEMP();
 
         // Play actions
         thief.TurnTargetTilesOff();
@@ -240,8 +240,8 @@ public class TurnManager : MonoBehaviour {
     void EnableThief() {
         CanClick = true;
         btnEndTurn.interactable = true;
+        thief.ChargeEMP();
         thief.StartNewPath();
-        thief.TurnEmpBtnOnOrOff();
     }
 
     #endregion

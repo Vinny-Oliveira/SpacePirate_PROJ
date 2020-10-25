@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EMP_Device : Item {
 
@@ -8,19 +9,19 @@ public class EMP_Device : Item {
     public int intChargeTurns;
     public int intTurnsAffected;
     public ParticleSystem particle;
-    public UnityEngine.UI.Button btnActivate_EMP;
+    public Toggle toggleEMP;
+    public Color colorToggleOn;
     public GameObject empBody;
 
-    public bool CanActivate { 
-        get { return (intWaitTurns < 1); }
-    }
     int intWaitTurns;
 
     /// <summary>
-    /// Push the button to activate the EMP
+    /// Activate the EMP if the toggle is on
     /// </summary>
-    public void OnActivateBtnDown() {
-        Activate_EMP();
+    public void TryToActivateEMP() { 
+        if (toggleEMP.isOn) {
+            Activate_EMP();
+        }
     }
 
     /// <summary>
@@ -28,6 +29,7 @@ public class EMP_Device : Item {
     /// </summary>
     public void OnDevicePickedUp() {
         empBody.SetActive(false);
+        toggleEMP.interactable = true;
         intWaitTurns = 0;
     }
 
@@ -53,7 +55,9 @@ public class EMP_Device : Item {
 
         // Set turns to wait
         intWaitTurns = intChargeTurns;
-        btnActivate_EMP.interactable = false;
+        toggleEMP.interactable = false;
+        toggleEMP.isOn = false;
+        OnToggleValueChanged();
     }
 
     /// <summary>
@@ -63,8 +67,17 @@ public class EMP_Device : Item {
         if (intWaitTurns > 0) { 
             intWaitTurns--;
         } else {
-            btnActivate_EMP.interactable = true;
+            toggleEMP.interactable = true;
         }
+    }
+
+    /// <summary>
+    /// Change the color of the toggle if it is on
+    /// </summary>
+    public void OnToggleValueChanged() {
+        ColorBlock colorBlock = toggleEMP.colors;
+        colorBlock.normalColor = (toggleEMP.isOn) ? (colorToggleOn) : (Color.white);
+        toggleEMP.colors = colorBlock;
     }
 
 }
