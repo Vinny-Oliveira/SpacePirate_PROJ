@@ -53,7 +53,7 @@ public class Character : MonoBehaviour {
             currentTile = currentGrid.GetTileList()[0].GetComponent<Tile>();
         }
 #endif
-        MoveToTile(ref currentTile);
+        //MoveToTile(ref currentTile);
     }
 
     /// <summary>
