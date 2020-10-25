@@ -40,10 +40,14 @@ public class EMP_Device : Item {
             particle.Play();
         }
 
-        // Disable cubes
-        foreach (var cube in TurnManager.instance.listCubes) { 
-            if (Vector3.Magnitude(TurnManager.instance.thief.transform.position - cube.transform.position) < fltRange) {
-                cube.DisableCube(intTurnsAffected);
+        List<Enemy> listEnemies = new List<Enemy>();
+        listEnemies.AddRange(TurnManager.instance.listCubes);
+        listEnemies.AddRange(TurnManager.instance.listSecCams);
+
+        // Disable enemies
+        foreach (var enemy in listEnemies) { 
+            if (Vector3.Magnitude(TurnManager.instance.thief.transform.position - enemy.transform.position) < fltRange) {
+                enemy.DisableEnemy(intTurnsAffected);
             }
         }
 

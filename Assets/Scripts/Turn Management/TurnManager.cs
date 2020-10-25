@@ -42,13 +42,17 @@ public class TurnManager : MonoBehaviour {
     #region STARTUP_FUNCTIONS
 
     /// <summary>
-    /// Trigger the startup functions of all Cubes
+    /// Trigger the startup functions of all Characters
     /// </summary>
     void SetupCharacters() { 
         thief.SetupThief();
 
         foreach (var cube in listCubes) {
             cube.SetupCubeStart();
+        }
+
+        foreach (var secCam in listSecCams) {
+            secCam.SetFieldOfView();
         }
     }
 
@@ -181,15 +185,40 @@ public class TurnManager : MonoBehaviour {
     public void DecreaseMovementCount() {
         intMoveCount--;
         if (intMoveCount < 1) {
-            // Enable clicking again
-            CanClick = true;
-            btnEndTurn.interactable = true;
-            thief.StartNewPath();
-            thief.TurnEmpBtnOnOrOff();
+            EnableNewTurn();
+        }
+    }
 
-            // Re-enable the disabled cubes
-            foreach (var cube in listCubes.Where(x => x.IsDisabled && x.CanEnableCube())) {
-                cube.EnableCube();
+    /// <summary>
+    /// Enable a new turn to be played
+    /// </summary>
+    void EnableNewTurn() { 
+        // Enable clicking again
+        CanClick = true;
+        btnEndTurn.interactable = true;
+        thief.StartNewPath();
+        thief.TurnEmpBtnOnOrOff();
+
+        // Re-enable the disabled cubes
+        foreach (var cube in listCubes.Where(x => x.IsDisabled && x.CanEnable())) {
+            cube.EnableEnemy();
+        }
+
+        // Move security cameras
+        foreach (var secCam in listSecCams) { 
+            // Enable cameras that can be enables, or reduce their wait turns
+            if (secCam.IsDisabled) {
+                secCam.ReduceOneWaitTurn();
+
+                if (secCam.CanEnable()) { 
+                    secCam.EnableEnemy();
+                }
+            } 
+                
+            // Go to next camera position
+            if (!secCam.IsDisabled) {
+                secCam.NextPosition();
+                secCam.SetFieldOfView();
             }
         }
     }

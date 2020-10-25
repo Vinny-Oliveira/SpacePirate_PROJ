@@ -13,6 +13,7 @@ public class SecurityCamera : Enemy {
 
     public ECameraPosition camPosition;
     public EDirection centerDirection;
+    [SerializeField]
     bool isForward;
 
     /* Coordinates of fields of view */
@@ -89,6 +90,14 @@ public class SecurityCamera : Enemy {
         }
 
         HighlightFieldOfView();
+    }
+
+    /// <summary>
+    /// Enable the enemy and turn the field of view on
+    /// </summary>
+    public override void EnableEnemy() { 
+        base.EnableEnemy();
+        SetFieldOfView();
     }
 
 }

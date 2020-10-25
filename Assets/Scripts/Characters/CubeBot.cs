@@ -127,7 +127,7 @@ public class CubeBot : Enemy {
     public override void MoveOnPath() {
         // Check if the cube is not disabled
         if (IsDisabled) {
-            intWaitTurns--;
+            ReduceOneWaitTurn();
             TurnManager.instance.DecreaseMovementCount();
         } else { 
             StartCoroutine(MoveOnEachDirection());
@@ -234,34 +234,12 @@ public class CubeBot : Enemy {
         HighlightFieldOfView();
     }
 
-    #endregion
-
-    #region EMP_EFFECTS
-
     /// <summary>
-    /// Disable the cube and its field of view
+    /// Enable the enemy and turn the field of view on
     /// </summary>
-    /// <param name="turns"></param>
-    public void DisableCube(int turns) {
-        IsDisabled = true;
-        intWaitTurns = turns;
-        DisableFieldOfView();
-    }
-
-    /// <summary>
-    /// Enable the cube and turn the field of view on
-    /// </summary>
-    public void EnableCube() { 
-        IsDisabled = false;
+    public override void EnableEnemy() {
+        base.EnableEnemy();
         SetFieldOfView();
-    }
-
-    /// <summary>
-    /// Check if the cube can be re-enabled
-    /// </summary>
-    /// <returns></returns>
-    public bool CanEnableCube() {
-        return (intWaitTurns < 1);
     }
 
     #endregion

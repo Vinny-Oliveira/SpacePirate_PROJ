@@ -10,6 +10,8 @@ public class Enemy : Character {
     public bool IsDisabled { get; set; }
     protected int intWaitTurns;
 
+    #region FIELD_OF_VIEW
+
     /// <summary>
     /// Getter of the list of tiles on the field of view
     /// </summary>
@@ -49,4 +51,42 @@ public class Enemy : Character {
             listFieldOfView.Add(viewedTile);
         }
     }
+
+    #endregion
+
+    #region EMP_EFFECTS
+
+    /// <summary>
+    /// Disable the cube and its field of view
+    /// </summary>
+    /// <param name="turns"></param>
+    public void DisableEnemy(int turns) {
+        IsDisabled = true;
+        intWaitTurns = turns;
+        DisableFieldOfView();
+    }
+
+    /// <summary>
+    /// Enable the enemy and turn the field of view on
+    /// </summary>
+    public virtual void EnableEnemy() { 
+        IsDisabled = false;
+    }
+
+    /// <summary>
+    /// Check if the cube can be re-enabled
+    /// </summary>
+    /// <returns></returns>
+    public bool CanEnable() {
+        return (intWaitTurns < 1);
+    }
+
+    /// <summary>
+    /// Reduce the wait turns by 1
+    /// </summary>
+    public void ReduceOneWaitTurn() {
+        intWaitTurns--;
+    }
+
+    #endregion
 }
