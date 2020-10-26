@@ -130,6 +130,14 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         Thief thief = TurnManager.instance.thief;
         thief.TurnTargetTilesOff();
 
+        // The current tile or the tile in the end of the path can be clicked again
+        if (!thief.IsTileOnPath(this)) { 
+            tileHighlighter.ChangeColorToThiefRange();
+            tileHighlighter.TurnHighlighterOn();
+        }
+        thief.AddTileToTargets(this);
+
+        // Highlight neighbors
         foreach (var tile in listNeighbors) {
             if (tile.IsWalkable()) { // Non-walkable tiles are not added
                 
