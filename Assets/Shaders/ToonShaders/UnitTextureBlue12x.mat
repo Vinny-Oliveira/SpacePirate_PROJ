@@ -8,18 +8,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UnitTextureBlue12x
-  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
-  m_ShaderKeywords: _EMISSION _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
+  m_Shader: {fileID: -6465566751694194690, guid: 789351e9bb47f7647889b3badb9d0a41,
+    type: 3}
+  m_ShaderKeywords: _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_A833A19:
+        m_Texture: {fileID: 2800000, guid: bf44fd0b5bb0c4142b16ba9db02789fc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: df33d7843e7ff98489b55381f6cdd866, type: 3}
         m_Scale: {x: 12, y: 12}
@@ -41,6 +45,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_464BB1BC: 0
+    - Boolean_5C198B3B: 0
+    - Boolean_73B1BE0E: 1
+    - Vector1_33FC2446: 0.2
+    - Vector1_91056C74: 0.1
+    - Vector1_BE7D7EC2: 0.5
+    - Vector1_FCF7FE9C: 0.7
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -59,6 +70,11 @@ Material:
     - _Surface: 0
     - _ZWrite: 1
     m_Colors:
+    - Color_2A80489D: {r: 0.4622642, g: 0.3968495, b: 0.3968495, a: 0}
+    - Color_86D34E40: {r: 0, g: 0, b: 0, a: 0}
+    - Color_F3335FBF: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
+    - Vector2_4509CBB6: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_7A68A04B: {r: 6, g: 12, b: 0, a: 0}
     - _BaseColor: {r: 0.43306664, g: 0.48038867, b: 0.6544118, a: 0}
     - _Color: {r: 0.43306664, g: 0.48038867, b: 0.6544118, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
