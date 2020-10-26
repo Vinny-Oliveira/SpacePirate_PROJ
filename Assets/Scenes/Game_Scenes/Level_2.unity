@@ -1399,7 +1399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 1506846906}
   coordinates: {x: 0, y: 0, z: 2}
-  tileType: 0
+  tileType: 2
   listNeighbors:
   - {fileID: 1119287610}
   - {fileID: 636128826}
@@ -32369,7 +32369,7 @@ PrefabInstance:
         type: 3}
       propertyPath: placeTile
       value: 
-      objectReference: {fileID: 44624989}
+      objectReference: {fileID: 1119287610}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e65c4e235f6579448b90c09cb82de36, type: 3}
 --- !u!4 &1299540437 stripped
