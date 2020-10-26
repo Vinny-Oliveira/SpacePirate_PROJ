@@ -18,7 +18,7 @@ TagManager:
   - 
   - Tiles
   - Walls
-  - 
+  - Above Everything
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3809495737
+    locked: 0
+  - name: In-Game UI
+    uniqueID: 631876769
     locked: 0
