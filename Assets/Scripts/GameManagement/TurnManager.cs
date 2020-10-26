@@ -119,6 +119,7 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public bool IsThiefTouchingEMP() {
+        if (!emp) { return false; }
         return AreTilesTheSame(ref emp.placeTile, ref thief.currentTile);
     }
 

@@ -38,10 +38,6 @@ public class Thief : Character {
     public TMPro.TextMeshProUGUI tmpMoveCount;
     public Color maxRangeColor;
 
-    //private void Update() {
-    //    ControlMouseOverTiles();
-    //}
-
     #region STARTUP_FUNCTIONS
 
     /// <summary>

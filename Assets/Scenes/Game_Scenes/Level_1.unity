@@ -18910,6 +18910,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919176795}
   m_Mesh: {fileID: 4635790639215159872, guid: 8199f1d4d7175a746acd4b812d773efa, type: 3}
+--- !u!114 &920789388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 616441835, guid: 85738d7ece5fd8e4a9cc946803c8f121,
+    type: 3}
+  m_PrefabInstance: {fileID: 1190933904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c807626d612b044a8bd45dc6aaeacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &926016089
 GameObject:
   m_ObjectHideFlags: 0
@@ -20460,14 +20472,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fbb035d22854b4faeb658256c5ba19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thief: {fileID: 0}
+  thief: {fileID: 920789388}
   treasure: {fileID: 1819862891}
   listCubes:
   - {fileID: 648927134}
   listKeycards:
   - {fileID: 518084302}
   listSecCams: []
-  emp: {fileID: 2038497486}
+  emp: {fileID: 0}
   exitTile: {fileID: 119123653}
   btnEndTurn: {fileID: 2129363437}
   keycard_Image: {fileID: 123729549}
@@ -22985,7 +22997,7 @@ PrefabInstance:
     - target: {fileID: 3390214372662771510, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3712297506443728545, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
         type: 3}
