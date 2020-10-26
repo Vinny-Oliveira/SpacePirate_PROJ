@@ -13347,36 +13347,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614222671}
   m_Mesh: {fileID: 4635790639215159872, guid: 8199f1d4d7175a746acd4b812d773efa, type: 3}
---- !u!1 &616441833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3214614934144430699, guid: 85738d7ece5fd8e4a9cc946803c8f121,
-    type: 3}
-  m_PrefabInstance: {fileID: 1190933904}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &616441834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2870846767374035153, guid: 85738d7ece5fd8e4a9cc946803c8f121,
     type: 3}
   m_PrefabInstance: {fileID: 1190933904}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &616441835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616441833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c807626d612b044a8bd45dc6aaeacf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTile: {fileID: 1872699044}
-  currentGrid: {fileID: 1183770450}
-  intRange: 5
-  mainCamera: {fileID: 963194227}
-  tmpMoveCount: {fileID: 227420695}
-  maxRangeColor: {r: 1, g: 0.7756624, b: 0.15686274, a: 1}
 --- !u!1 &622044936
 GameObject:
   m_ObjectHideFlags: 0
@@ -20484,7 +20460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fbb035d22854b4faeb658256c5ba19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thief: {fileID: 616441835}
+  thief: {fileID: 0}
   treasure: {fileID: 1819862891}
   listCubes:
   - {fileID: 648927134}
@@ -25394,6 +25370,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894307649}
     m_Modifications:
+    - target: {fileID: 616441835, guid: 85738d7ece5fd8e4a9cc946803c8f121, type: 3}
+      propertyPath: currentTile
+      value: 
+      objectReference: {fileID: 1872699044}
+    - target: {fileID: 616441835, guid: 85738d7ece5fd8e4a9cc946803c8f121, type: 3}
+      propertyPath: currentGrid
+      value: 
+      objectReference: {fileID: 1183770450}
+    - target: {fileID: 616441835, guid: 85738d7ece5fd8e4a9cc946803c8f121, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 616441835, guid: 85738d7ece5fd8e4a9cc946803c8f121, type: 3}
+      propertyPath: tmpMoveCount
+      value: 
+      objectReference: {fileID: 227420695}
     - target: {fileID: 2870846767374035153, guid: 85738d7ece5fd8e4a9cc946803c8f121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41388,7 +41380,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 616441835}
+      objectReference: {fileID: 0}
     - target: {fileID: 4325698449319599470, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

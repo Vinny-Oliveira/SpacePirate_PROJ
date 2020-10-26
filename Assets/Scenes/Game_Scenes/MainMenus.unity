@@ -2490,7 +2490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 159.06006, y: 76.839966}
+  m_AnchoredPosition: {x: 159.06006, y: 76.83984}
   m_SizeDelta: {x: 161.86182, y: 63.782227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &515138772
@@ -2648,7 +2648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene:
-    m_SceneAsset: {fileID: 102900000, guid: 60c8076705fdb8143bf6a47053fae69e, type: 3}
+    m_SceneAsset: {fileID: 102900000, guid: 0a997b8c8ba26e543adc18f76cc8bd24, type: 3}
     m_SceneName: Level_1
 --- !u!114 &520217487
 MonoBehaviour:
@@ -4942,7 +4942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 159.06006, y: 76.839966}
+  m_AnchoredPosition: {x: 159.06006, y: 76.83984}
   m_SizeDelta: {x: 161.86182, y: 63.782227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &991040705
@@ -7240,7 +7240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 159.06006, y: 76.839966}
+  m_AnchoredPosition: {x: 159.06006, y: 76.83984}
   m_SizeDelta: {x: 161.86182, y: 63.782227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481377059
