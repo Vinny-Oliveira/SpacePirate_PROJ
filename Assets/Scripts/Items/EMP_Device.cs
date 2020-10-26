@@ -29,7 +29,6 @@ public class EMP_Device : Item {
     /// </summary>
     public void OnDevicePickedUp() {
         empBody.SetActive(false);
-        toggleEMP.interactable = true;
         intWaitTurns = 0;
     }
 
@@ -77,6 +76,7 @@ public class EMP_Device : Item {
     public void OnToggleValueChanged() {
         ColorBlock colorBlock = toggleEMP.colors;
         colorBlock.normalColor = (toggleEMP.isOn) ? (colorToggleOn) : (Color.white);
+        colorBlock.selectedColor = colorBlock.normalColor;
         toggleEMP.colors = colorBlock;
     }
 
