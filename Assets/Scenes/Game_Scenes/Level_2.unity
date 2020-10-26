@@ -26452,6 +26452,21 @@ PrefabInstance:
       propertyPath: toggleEMP
       value: 
       objectReference: {fileID: 213708129}
+    - target: {fileID: 1688168971838994637, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
+        type: 3}
+      propertyPath: colorToggleOn.g
+      value: 0.8226874
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688168971838994637, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
+        type: 3}
+      propertyPath: colorToggleOn.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688168971838994637, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
+        type: 3}
+      propertyPath: colorToggleOn.a
+      value: 0.72156864
+      objectReference: {fileID: 0}
     - target: {fileID: 2030885174939452463, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
         type: 3}
       propertyPath: m_Layer
@@ -49135,6 +49150,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PrototypeGame_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469978121327159809, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2038497486}
+    - target: {fileID: 7469978121327159809, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnToggleValueChanged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2107aa9a84051dd47878cc73d5eee266, type: 3}
