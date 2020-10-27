@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class CounterFollow : MonoBehaviour
 {
-    public TextMeshProUGUI counterLable;
+    public TMPro.TextMeshProUGUI counterLable;
+    public Camera mainCam;
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 counterPose = Camera.main.WorldToScreenPoint(this.transform.position);
-        counterLable.transform.position = counterPose;
+    /// <summary>
+    /// Update the position of the counter
+    /// </summary>
+    public void UpdateCounterPosition() {
+        if (counterLable) {
+            Vector3 counterPose = mainCam.WorldToScreenPoint(transform.position);
+            counterLable.transform.position = counterPose;
+        }
     }
 }

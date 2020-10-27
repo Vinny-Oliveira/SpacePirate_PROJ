@@ -37,6 +37,7 @@ public class Thief : Character {
     public Camera mainCamera;
     public TMPro.TextMeshProUGUI tmpMoveCount;
     public Color maxRangeColor;
+    public CounterFollow counterFollow;
 
     #region STARTUP_FUNCTIONS
 
@@ -68,7 +69,7 @@ public class Thief : Character {
         targetTile = nextTile;
 
         // Move to tile
-        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnComplete(UpdateTile);
+        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnUpdate(counterFollow.UpdateCounterPosition).OnComplete(UpdateTile);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
     }
 
