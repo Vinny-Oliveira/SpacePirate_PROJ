@@ -20488,6 +20488,7 @@ MonoBehaviour:
   thiefLosePanel: {fileID: 1543741492}
   needKeycardPanel: {fileID: 1921035401}
   needTreasurePanel: {fileID: 1921035400}
+  listGrids: []
 --- !u!4 &1007163571
 Transform:
   m_ObjectHideFlags: 0
@@ -25403,6 +25404,11 @@ PrefabInstance:
       propertyPath: counterLable
       value: 
       objectReference: {fileID: 1921035404}
+    - target: {fileID: 2374302590154838482, guid: 85738d7ece5fd8e4a9cc946803c8f121,
+        type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 2870846767374035153, guid: 85738d7ece5fd8e4a9cc946803c8f121,
         type: 3}
       propertyPath: m_LocalPosition.x

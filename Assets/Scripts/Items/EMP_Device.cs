@@ -14,6 +14,7 @@ public class EMP_Device : Item {
     public GameObject empBody;
 
     int intWaitTurns;
+    List<Tile> listRangeTiles = new List<Tile>();
 
     /// <summary>
     /// Activate the EMP if the toggle is on
@@ -47,7 +48,7 @@ public class EMP_Device : Item {
 
         // Disable enemies
         foreach (var enemy in listEnemies) { 
-            if (Vector3.Magnitude(TurnManager.instance.thief.transform.position - enemy.transform.position) < fltRange) {
+            if (listRangeTiles.Contains(enemy.currentTile)) {
                 enemy.DisableEnemy(intTurnsAffected);
             }
         }
@@ -71,13 +72,37 @@ public class EMP_Device : Item {
     }
 
     /// <summary>
-    /// Change the color of the toggle if it is on
+    /// FInd tile in range and change the color of the toggle if it is on
     /// </summary>
     public void OnToggleValueChanged() {
+        // Change color
         ColorBlock colorBlock = toggleEMP.colors;
         colorBlock.normalColor = (toggleEMP.isOn) ? (colorToggleOn) : (Color.white);
         colorBlock.selectedColor = colorBlock.normalColor;
         toggleEMP.colors = colorBlock;
+        
+        // Find tiles in range
+        if (toggleEMP.isOn) {
+            FindTilesWithinRange();
+        } else {
+            listRangeTiles.Clear();
+        }
+    }
+
+    /// <summary>
+    /// Find which tiles are within the range of the EMP
+    /// </summary>
+    void FindTilesWithinRange() {
+        TurnManager turnManager = TurnManager.instance;
+        listRangeTiles.Clear();
+
+        foreach (var grid in turnManager.listGrids) {
+            foreach (var tile in grid.listGridTiles) {
+                if (Vector3.Magnitude(turnManager.thief.currentTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
+                    listRangeTiles.Add(tile);
+                }
+            }
+        }
     }
 
 }

@@ -25,6 +25,9 @@ public class TurnManager : MonoBehaviour {
     public GameObject needKeycardPanel;
     public GameObject needTreasurePanel;
 
+    [Header("Grids")]
+    public List<GridManager> listGrids;
+
     public bool CanClick { get; set; }
     int intMoveCount;
 
