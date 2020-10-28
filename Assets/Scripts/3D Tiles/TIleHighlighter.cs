@@ -48,6 +48,13 @@ public class TileHighlighter : MonoBehaviour {
     //public void ChangeColorToThiefPath() {
     //    ChangeColor(colorThiefPathTag);
     //}
+    
+    /// <summary>
+    /// Change the color of the shader to the EMP range color
+    /// </summary>
+    public void ChangeColorToEmp() {
+        ChangeColor(colorEmpTag);
+    }
 
     /// <summary>
     /// Change the color of the shader to match the Cube's field of view color

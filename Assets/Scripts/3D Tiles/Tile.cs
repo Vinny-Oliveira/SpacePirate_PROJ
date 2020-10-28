@@ -137,20 +137,20 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         thief.TurnTargetTilesOff();
 
         // The current tile or the tile in the end of the path can be clicked again
-        if (!thief.IsTileOnPath(this)) { 
+        //if (!thief.IsTileOnPath(this)) { 
             moveQuad.ChangeColorToThiefMove();
             moveQuad.TurnHighlighterOn();
-        }
+        //}
         thief.AddTileToTargets(this);
 
         // Highlight neighbors
         foreach (var tile in listNeighbors) {
             if (tile.IsWalkable()) { // Non-walkable tiles are not added
                 
-                if (!thief.IsTileOnPath(tile)) { // Do not highlight tiles that are already on the path
+                //if (!thief.IsTileOnPath(tile)) { // Do not highlight tiles that are already on the path
                     tile.moveQuad.ChangeColorToThiefMove();
                     tile.moveQuad.TurnHighlighterOn();
-                }
+                //}
 
                 thief.AddTileToTargets(tile);
             }

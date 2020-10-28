@@ -199,10 +199,11 @@ public class Thief : Character {
     /// Highlight the tiles of the Thief's path
     /// </summary>
     public void HighlightPathTiles() { 
-        //foreach (var tile in listPathTiles) {
-        //    tile.moveQuad.ChangeColorToThiefPath();
-        //    tile.moveQuad.TurnHighlighterOn();
-        //}
+        foreach (var tile in listPathTiles) {
+            //tile.moveQuad.ChangeColorToThiefPath();
+            //tile.moveQuad.TurnHighlighterOn();
+            tile.moveQuad.TurnHighlighterOff();
+        }
     }
 
     /// <summary>
