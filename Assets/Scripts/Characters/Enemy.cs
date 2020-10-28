@@ -25,8 +25,8 @@ public class Enemy : Character {
     /// </summary>
     public void HighlightFieldOfView() { 
         foreach (var tile in listFieldOfView) {
-            tile.tileHighlighter.ChangeColorToCubeView();
-            tile.tileHighlighter.TurnHighlighterOn();
+            tile.visionQuad.ChangeColorToCubeView();
+            tile.visionQuad.TurnHighlighterOn();
         }
     }
 
@@ -35,7 +35,7 @@ public class Enemy : Character {
     /// </summary>
     public void DisableFieldOfView() { 
         foreach (var tile in listFieldOfView) {
-            tile.tileHighlighter.TurnHighlighterOff();
+            tile.visionQuad.TurnHighlighterOff();
         }
         listFieldOfView.Clear();
     }

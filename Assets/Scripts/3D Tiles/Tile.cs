@@ -19,7 +19,12 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     [Header("Control Path")]
     public ETileType tileType;
     public List<Tile> listNeighbors;
-    public TileHighlighter tileHighlighter;
+
+    [Header("Highlight Quads")]
+    //public TileHighlighter tileHighlighter;
+    public TileHighlighter moveQuad;
+    public TileHighlighter visionQuad;
+    public TileHighlighter empQuad;
 
     [Header("If tile is a DOOR, add the Door")]
     public Door door;
@@ -132,8 +137,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
         // The current tile or the tile in the end of the path can be clicked again
         if (!thief.IsTileOnPath(this)) { 
-            tileHighlighter.ChangeColorToThiefRange();
-            tileHighlighter.TurnHighlighterOn();
+            moveQuad.ChangeColorToThiefRange();
+            moveQuad.TurnHighlighterOn();
         }
         thief.AddTileToTargets(this);
 
@@ -142,8 +147,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
             if (tile.IsWalkable()) { // Non-walkable tiles are not added
                 
                 if (!thief.IsTileOnPath(tile)) { // Do not highlight tiles that are already on the path
-                    tile.tileHighlighter.ChangeColorToThiefRange();
-                    tile.tileHighlighter.TurnHighlighterOn();
+                    tile.moveQuad.ChangeColorToThiefRange();
+                    tile.moveQuad.TurnHighlighterOn();
                 }
 
                 thief.AddTileToTargets(tile);
