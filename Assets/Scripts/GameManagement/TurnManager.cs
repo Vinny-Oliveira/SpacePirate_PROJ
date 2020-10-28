@@ -244,7 +244,7 @@ public class TurnManager : MonoBehaviour {
     void EnableThief() {
         CanClick = true;
         btnEndTurn.interactable = true;
-        thief.ChargeEMP();
+        //thief.ChargeEMP();
         thief.StartNewPath();
     }
 

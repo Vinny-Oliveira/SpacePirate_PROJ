@@ -346,7 +346,6 @@ public class Thief : Character {
     public void PickUpEMP() { 
         if (TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
-            emp.toggleEMP.gameObject.SetActive(true);
             emp.transform.parent = transform; // EMP becomes a child of the thief
             emp.OnDevicePickedUp();
         }
@@ -362,14 +361,14 @@ public class Thief : Character {
         }
     }
 
-    /// <summary>
-    /// Charge the EMP for 1 turn
-    /// </summary>
-    public void ChargeEMP() { 
-        if (emp) { 
-            emp.ChargeOneTurn(); 
-        }
-    }
+    ///// <summary>
+    ///// Charge the EMP for 1 turn
+    ///// </summary>
+    //public void ChargeEMP() { 
+    //    if (emp) { 
+    //        emp.ChargeOneTurn(); 
+    //    }
+    //}
 
     #endregion
 

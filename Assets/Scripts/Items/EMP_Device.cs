@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class EMP_Device : Item {
 
     public float fltRange;
-    public int intChargeTurns;
+    //public int intChargeTurns;
     public int intTurnsAffected;
     public ParticleSystem particle;
     public Toggle toggleEMP;
     public Color colorToggleOn;
     public GameObject empBody;
 
-    int intWaitTurns;
+    //int intWaitTurns;
     List<Tile> listRangeTiles = new List<Tile>();
 
     /// <summary>
@@ -29,8 +29,10 @@ public class EMP_Device : Item {
     /// Called when the EMP is picked up. Setup all initial values
     /// </summary>
     public void OnDevicePickedUp() {
+        toggleEMP.interactable = true;
+        toggleEMP.gameObject.SetActive(true);
         empBody.SetActive(false);
-        intWaitTurns = 0;
+        //intWaitTurns = 0;
     }
 
     /// <summary>
@@ -53,23 +55,25 @@ public class EMP_Device : Item {
             }
         }
 
-        // Set turns to wait
-        intWaitTurns = intChargeTurns;
+        // Disable the EMP and toss it
+        //intWaitTurns = intChargeTurns;
         toggleEMP.interactable = false;
         toggleEMP.isOn = false;
-        OnToggleValueChanged();
+        //OnToggleValueChanged();
+        toggleEMP.gameObject.SetActive(false);
+        TurnManager.instance.emp = null;
     }
 
-    /// <summary>
-    /// Charge the EMP for 1 turn
-    /// </summary>
-    public void ChargeOneTurn() {
-        if (intWaitTurns > 0) { 
-            intWaitTurns--;
-        } else {
-            toggleEMP.interactable = true;
-        }
-    }
+    ///// <summary>
+    ///// Charge the EMP for 1 turn
+    ///// </summary>
+    //public void ChargeOneTurn() {
+    //    if (intWaitTurns > 0) { 
+    //        intWaitTurns--;
+    //    } else {
+    //        toggleEMP.interactable = true;
+    //    }
+    //}
 
     /// <summary>
     /// Find tiles in range and change the color of the toggle if it is on
