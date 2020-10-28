@@ -4879,18 +4879,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f928a0af11c3e4eadc891e880a3294, type: 3}
---- !u!114 &227420695 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6680632400173333810, guid: 2107aa9a84051dd47878cc73d5eee266,
-    type: 3}
-  m_PrefabInstance: {fileID: 1921035399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &243838140
 GameObject:
   m_ObjectHideFlags: 0
@@ -25398,7 +25386,7 @@ PrefabInstance:
     - target: {fileID: 616441835, guid: 85738d7ece5fd8e4a9cc946803c8f121, type: 3}
       propertyPath: tmpMoveCount
       value: 
-      objectReference: {fileID: 227420695}
+      objectReference: {fileID: 1921035404}
     - target: {fileID: 2374302590154838482, guid: 85738d7ece5fd8e4a9cc946803c8f121,
         type: 3}
       propertyPath: counterLable

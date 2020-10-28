@@ -282,7 +282,7 @@ public class Thief : Character {
     /// Position the camera accordingly depending on the Thief's grid
     /// </summary>
     void RepositionCamera() {
-        mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.9f);
+        mainCamera.transform.DOMove(currentGrid.cameraHolder.position, 0.9f).OnUpdate(counterFollow.UpdateCounterPosition);
     }
 
     #endregion
