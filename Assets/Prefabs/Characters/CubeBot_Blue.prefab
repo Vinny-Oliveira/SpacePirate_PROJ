@@ -94,6 +94,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2641779257310085052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7316626214807742881}
+  m_Layer: 8
+  m_Name: VisionCones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7316626214807742881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2641779257310085052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7833242635502616610}
+  - {fileID: 8207913497988492422}
+  m_Father: {fileID: 7183274305967445662}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2722392972818505800
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,8 +435,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7833242635502616610}
-  - {fileID: 8207913497988492422}
+  - {fileID: 7316626214807742881}
   m_Father: {fileID: 3936442426814826456}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -504,6 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
+  visionCones: {fileID: 2641779257310085052}
   intRollsPerTurn: 6
   listPath: 020000000200000002000000000000000000000000000000010000000100000001000000030000000300000003000000
   center: {fileID: 3244929332658082936}
@@ -679,7 +711,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7183274305967445662}
+    m_TransformParent: {fileID: 7316626214807742881}
     m_Modifications:
     - target: {fileID: 460868047471839395, guid: a3ecd230e9ba68a4388596f72571b77e,
         type: 3}
@@ -744,7 +776,7 @@ PrefabInstance:
     - target: {fileID: 7444817544959549335, guid: a3ecd230e9ba68a4388596f72571b77e,
         type: 3}
       propertyPath: m_Name
-      value: VisionCone
+      value: VisionConeRight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3ecd230e9ba68a4388596f72571b77e, type: 3}
@@ -759,7 +791,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7183274305967445662}
+    m_TransformParent: {fileID: 7316626214807742881}
     m_Modifications:
     - target: {fileID: 460868047471839395, guid: a3ecd230e9ba68a4388596f72571b77e,
         type: 3}
@@ -824,7 +856,7 @@ PrefabInstance:
     - target: {fileID: 7444817544959549335, guid: a3ecd230e9ba68a4388596f72571b77e,
         type: 3}
       propertyPath: m_Name
-      value: VisionCone (1)
+      value: VisionConeLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3ecd230e9ba68a4388596f72571b77e, type: 3}

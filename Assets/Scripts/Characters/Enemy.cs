@@ -9,6 +9,7 @@ public class Enemy : Character {
     /* Effects of the EMP */
     public bool IsDisabled { get; set; }
     protected int intWaitTurns;
+    public GameObject visionCones;
 
     #region FIELD_OF_VIEW
 
@@ -63,6 +64,7 @@ public class Enemy : Character {
     public void DisableEnemy(int turns) {
         IsDisabled = true;
         intWaitTurns = turns;
+        if (visionCones) { visionCones.SetActive(false); }
         DisableFieldOfView();
     }
 
@@ -71,6 +73,7 @@ public class Enemy : Character {
     /// </summary>
     public virtual void EnableEnemy() { 
         IsDisabled = false;
+        if (visionCones) { visionCones.SetActive(true); }
     }
 
     /// <summary>
