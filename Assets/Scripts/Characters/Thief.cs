@@ -133,6 +133,7 @@ public class Thief : Character {
         CanStep = false;
         Tile nextTile = listPathTiles[0];
         MoveToTile(ref nextTile);
+        RemoveGhostFromPath(nextTile);
 
         // Deactivate shaders and update counter
         listPathTiles.RemoveAt(0);

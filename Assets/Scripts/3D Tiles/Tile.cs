@@ -21,10 +21,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     public ETileType tileType;
     public List<Tile> listNeighbors;
     List<GameObject> listGhosts = new List<GameObject>();
-    //public GameObject GhostThief { get; set; }
 
     [Header("Highlight Quads")]
-    //public TileHighlighter tileHighlighter;
     public TileHighlighter moveQuad;
     public TileHighlighter visionQuad;
     public TileHighlighter empQuad;
