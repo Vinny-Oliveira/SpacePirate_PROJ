@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -948,9 +948,9 @@ MonoBehaviour:
   - {fileID: 709424795}
   - {fileID: 1838953101}
   - {fileID: 711826802}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1820497522}
+  visionQuad: {fileID: 1652861253}
+  empQuad: {fileID: 1739831287}
   door: {fileID: 0}
 --- !u!1001 &25499314
 PrefabInstance:
@@ -2010,9 +2010,9 @@ MonoBehaviour:
   - {fileID: 51270330}
   - {fileID: 1663066389}
   - {fileID: 1230715241}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1794631197}
+  visionQuad: {fileID: 374297037}
+  empQuad: {fileID: 1173600613}
   door: {fileID: 0}
 --- !u!65 &44624991
 BoxCollider:
@@ -2082,9 +2082,9 @@ MonoBehaviour:
   - {fileID: 1306758727}
   - {fileID: 259131474}
   - {fileID: 771053177}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1972344821}
+  visionQuad: {fileID: 1518907605}
+  empQuad: {fileID: 509547280}
   door: {fileID: 0}
 --- !u!65 &46298204
 BoxCollider:
@@ -2162,9 +2162,9 @@ MonoBehaviour:
   - {fileID: 2002680448}
   - {fileID: 2048564146}
   - {fileID: 1903135409}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1914353178}
+  visionQuad: {fileID: 1626411046}
+  empQuad: {fileID: 2032539742}
   door: {fileID: 0}
 --- !u!65 &49605289
 BoxCollider:
@@ -2236,9 +2236,9 @@ MonoBehaviour:
   - {fileID: 1667756625}
   - {fileID: 787649141}
   - {fileID: 1119287610}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 64042530}
+  visionQuad: {fileID: 1995110800}
+  empQuad: {fileID: 1792444308}
   door: {fileID: 0}
 --- !u!65 &51270332
 BoxCollider:
@@ -2319,9 +2319,9 @@ MonoBehaviour:
   - {fileID: 1530273611}
   - {fileID: 1439301244}
   - {fileID: 1380354269}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1463223881}
+  visionQuad: {fileID: 1497089763}
+  empQuad: {fileID: 1213345214}
   door: {fileID: 0}
 --- !u!65 &54126234
 BoxCollider:
@@ -4021,9 +4021,9 @@ MonoBehaviour:
   - {fileID: 1889183092}
   - {fileID: 1069363575}
   - {fileID: 668963482}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 92646252}
+  visionQuad: {fileID: 155832093}
+  empQuad: {fileID: 217157461}
   door: {fileID: 0}
 --- !u!65 &110579314
 BoxCollider:
@@ -5041,9 +5041,9 @@ MonoBehaviour:
   - {fileID: 1300223710}
   - {fileID: 1439301244}
   - {fileID: 245964308}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1086255689}
+  visionQuad: {fileID: 959143802}
+  empQuad: {fileID: 1651649931}
   door: {fileID: 0}
 --- !u!65 &145520045
 BoxCollider:
@@ -5115,9 +5115,9 @@ MonoBehaviour:
   - {fileID: 954902230}
   - {fileID: 2098734122}
   - {fileID: 2112921228}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1810138452}
+  visionQuad: {fileID: 897276677}
+  empQuad: {fileID: 1270428429}
   door: {fileID: 0}
 --- !u!65 &145783044
 BoxCollider:
@@ -5701,9 +5701,9 @@ MonoBehaviour:
   - {fileID: 1423131439}
   - {fileID: 1091753484}
   - {fileID: 1255241970}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 338925338}
+  visionQuad: {fileID: 1527653131}
+  empQuad: {fileID: 967358592}
   door: {fileID: 0}
 --- !u!65 &156719360
 BoxCollider:
@@ -5776,9 +5776,9 @@ MonoBehaviour:
   - {fileID: 771053177}
   - {fileID: 954902230}
   - {fileID: 2126164771}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 675337839}
+  visionQuad: {fileID: 85154650}
+  empQuad: {fileID: 909938157}
   door: {fileID: 0}
 --- !u!65 &158840857
 BoxCollider:
@@ -6067,9 +6067,9 @@ MonoBehaviour:
   - {fileID: 1965823957}
   - {fileID: 771452751}
   - {fileID: 1237718232}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1683311992}
+  visionQuad: {fileID: 2071104356}
+  empQuad: {fileID: 1520878798}
   door: {fileID: 0}
 --- !u!65 &164177249
 BoxCollider:
@@ -6572,9 +6572,9 @@ MonoBehaviour:
   - {fileID: 1119895118}
   - {fileID: 565295904}
   - {fileID: 2126164771}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1532029469}
+  visionQuad: {fileID: 1637818371}
+  empQuad: {fileID: 1600201432}
   door: {fileID: 0}
 --- !u!65 &179781207
 BoxCollider:
@@ -9579,9 +9579,9 @@ MonoBehaviour:
   - {fileID: 1411443224}
   - {fileID: 1763119247}
   - {fileID: 1272052985}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 595978045}
+  visionQuad: {fileID: 432539962}
+  empQuad: {fileID: 808606150}
   door: {fileID: 0}
 --- !u!65 &245964310
 BoxCollider:
@@ -9762,9 +9762,9 @@ MonoBehaviour:
   - {fileID: 1250435454}
   - {fileID: 986400859}
   - {fileID: 1280783154}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 540371692}
+  visionQuad: {fileID: 1366445474}
+  empQuad: {fileID: 2128610328}
   door: {fileID: 0}
 --- !u!65 &250224320
 BoxCollider:
@@ -10152,9 +10152,9 @@ MonoBehaviour:
   - {fileID: 2126164771}
   - {fileID: 158840855}
   - {fileID: 1306758727}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2100398671}
+  visionQuad: {fileID: 391777692}
+  empQuad: {fileID: 1820655221}
   door: {fileID: 0}
 --- !u!65 &259131476
 BoxCollider:
@@ -10448,9 +10448,9 @@ MonoBehaviour:
   - {fileID: 1768602965}
   - {fileID: 1251683885}
   - {fileID: 1057278123}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 896241090}
+  visionQuad: {fileID: 843369574}
+  empQuad: {fileID: 1714293679}
   door: {fileID: 0}
 --- !u!1 &282140827
 GameObject:
@@ -10633,9 +10633,9 @@ MonoBehaviour:
   - {fileID: 1769154660}
   - {fileID: 1158220015}
   - {fileID: 669437410}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 28722145}
+  visionQuad: {fileID: 189926782}
+  empQuad: {fileID: 76442879}
   door: {fileID: 0}
 --- !u!1 &284905749
 GameObject:
@@ -11214,9 +11214,9 @@ MonoBehaviour:
   - {fileID: 1307693794}
   - {fileID: 1769154660}
   - {fileID: 1626315436}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1903532088}
+  visionQuad: {fileID: 1411285476}
+  empQuad: {fileID: 870097137}
   door: {fileID: 0}
 --- !u!4 &294081503
 Transform:
@@ -11843,9 +11843,9 @@ MonoBehaviour:
   - {fileID: 1628305570}
   - {fileID: 785034266}
   - {fileID: 1091753484}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 678058376}
+  visionQuad: {fileID: 415590786}
+  empQuad: {fileID: 1225405325}
   door: {fileID: 0}
 --- !u!65 &307998323
 BoxCollider:
@@ -12127,9 +12127,9 @@ MonoBehaviour:
   - {fileID: 954902230}
   - {fileID: 843308782}
   - {fileID: 771053177}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2013101707}
+  visionQuad: {fileID: 1851021037}
+  empQuad: {fileID: 1843442265}
   door: {fileID: 0}
 --- !u!65 &323532311
 BoxCollider:
@@ -13328,9 +13328,9 @@ MonoBehaviour:
   - {fileID: 384974660}
   - {fileID: 453584614}
   - {fileID: 688032228}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 887119091}
+  visionQuad: {fileID: 1107173303}
+  empQuad: {fileID: 1069567428}
   door: {fileID: 0}
 --- !u!65 &361259801
 BoxCollider:
@@ -14230,9 +14230,9 @@ MonoBehaviour:
   - {fileID: 688032228}
   - {fileID: 453584614}
   - {fileID: 2098734122}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 384513261}
+  visionQuad: {fileID: 32024699}
+  empQuad: {fileID: 1870135613}
   door: {fileID: 0}
 --- !u!65 &384974662
 BoxCollider:
@@ -15111,9 +15111,9 @@ MonoBehaviour:
   - {fileID: 975070151}
   - {fileID: 810910040}
   - {fileID: 1763119247}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 443059052}
+  visionQuad: {fileID: 298092174}
+  empQuad: {fileID: 586007320}
   door: {fileID: 0}
 --- !u!65 &399789982
 BoxCollider:
@@ -17042,9 +17042,9 @@ MonoBehaviour:
   - {fileID: 1010094838}
   - {fileID: 1011167827}
   - {fileID: 1266072752}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1578295652}
+  visionQuad: {fileID: 207764271}
+  empQuad: {fileID: 1570654727}
   door: {fileID: 0}
 --- !u!65 &423797090
 BoxCollider:
@@ -17440,9 +17440,9 @@ MonoBehaviour:
   - {fileID: 1928515555}
   - {fileID: 668963482}
   - {fileID: 1574223761}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 340355291}
+  visionQuad: {fileID: 771602593}
+  empQuad: {fileID: 1883529307}
   door: {fileID: 0}
 --- !u!65 &434904181
 BoxCollider:
@@ -18194,9 +18194,9 @@ MonoBehaviour:
   - {fileID: 361259799}
   - {fileID: 384974660}
   - {fileID: 1281056861}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1308516002}
+  visionQuad: {fileID: 581208525}
+  empQuad: {fileID: 691368608}
   door: {fileID: 0}
 --- !u!65 &453584616
 BoxCollider:
@@ -19437,9 +19437,9 @@ MonoBehaviour:
   - {fileID: 423797088}
   - {fileID: 880926820}
   - {fileID: 54126232}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1228862122}
+  visionQuad: {fileID: 1488186431}
+  empQuad: {fileID: 168670278}
   door: {fileID: 0}
 --- !u!65 &486215169
 BoxCollider:
@@ -19511,9 +19511,9 @@ MonoBehaviour:
   - {fileID: 1965823957}
   - {fileID: 1561609774}
   - {fileID: 500558389}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 231974474}
+  visionQuad: {fileID: 1735474902}
+  empQuad: {fileID: 975802791}
   door: {fileID: 0}
 --- !u!65 &492570976
 BoxCollider:
@@ -19585,9 +19585,9 @@ MonoBehaviour:
   - {fileID: 975070151}
   - {fileID: 810910040}
   - {fileID: 1763119247}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 845138054}
+  visionQuad: {fileID: 1744633532}
+  empQuad: {fileID: 2083961498}
   door: {fileID: 0}
 --- !u!65 &492637704
 BoxCollider:
@@ -19883,9 +19883,9 @@ MonoBehaviour:
   - {fileID: 1057278123}
   - {fileID: 281556272}
   - {fileID: 935394234}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1240688188}
+  visionQuad: {fileID: 2079949836}
+  empQuad: {fileID: 1202892487}
   door: {fileID: 0}
 --- !u!1 &500558388
 GameObject:
@@ -19926,9 +19926,9 @@ MonoBehaviour:
   - {fileID: 164177247}
   - {fileID: 1771388365}
   - {fileID: 492570974}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1472925485}
+  visionQuad: {fileID: 2124345791}
+  empQuad: {fileID: 1739412134}
   door: {fileID: 0}
 --- !u!65 &500558391
 BoxCollider:
@@ -20067,9 +20067,9 @@ MonoBehaviour:
   - {fileID: 49605287}
   - {fileID: 2048564146}
   - {fileID: 2002680448}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 913180231}
+  visionQuad: {fileID: 964082097}
+  empQuad: {fileID: 1263442380}
   door: {fileID: 0}
 --- !u!65 &503842294
 BoxCollider:
@@ -20142,9 +20142,9 @@ MonoBehaviour:
   - {fileID: 2094754473}
   - {fileID: 1574223761}
   - {fileID: 1905663279}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1911262721}
+  visionQuad: {fileID: 1156419443}
+  empQuad: {fileID: 1794692095}
   door: {fileID: 495885056}
 --- !u!65 &506523927
 BoxCollider:
@@ -21417,9 +21417,9 @@ MonoBehaviour:
   - {fileID: 1220705655}
   - {fileID: 1422077854}
   - {fileID: 1250435454}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1899937127}
+  visionQuad: {fileID: 595804051}
+  empQuad: {fileID: 1609414859}
   door: {fileID: 0}
 --- !u!65 &551765618
 BoxCollider:
@@ -21804,9 +21804,9 @@ MonoBehaviour:
   - {fileID: 1220705655}
   - {fileID: 2048564146}
   - {fileID: 1903135409}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 471855163}
+  visionQuad: {fileID: 524705603}
+  empQuad: {fileID: 1577429470}
   door: {fileID: 0}
 --- !u!65 &565295906
 BoxCollider:
@@ -22473,9 +22473,9 @@ MonoBehaviour:
   - {fileID: 110579312}
   - {fileID: 1786658979}
   - {fileID: 1977408844}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 234420735}
+  visionQuad: {fileID: 114221050}
+  empQuad: {fileID: 566884318}
   door: {fileID: 0}
 --- !u!65 &587881150
 BoxCollider:
@@ -22860,9 +22860,9 @@ MonoBehaviour:
   - {fileID: 1077691708}
   - {fileID: 1745334902}
   - {fileID: 2094754473}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 724515877}
+  visionQuad: {fileID: 1291044431}
+  empQuad: {fileID: 1894332669}
   door: {fileID: 0}
 --- !u!65 &598304271
 BoxCollider:
@@ -23918,9 +23918,9 @@ MonoBehaviour:
   - {fileID: 44624989}
   - {fileID: 1119287610}
   - {fileID: 1745334902}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 482963734}
+  visionQuad: {fileID: 1615471283}
+  empQuad: {fileID: 1378217033}
   door: {fileID: 0}
 --- !u!65 &636128828
 BoxCollider:
@@ -24029,9 +24029,9 @@ MonoBehaviour:
   - {fileID: 1901263932}
   - {fileID: 2008765736}
   - {fileID: 935394234}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 835493553}
+  visionQuad: {fileID: 1642369580}
+  empQuad: {fileID: 1107448521}
   door: {fileID: 0}
 --- !u!1 &643849118
 GameObject:
@@ -24717,9 +24717,9 @@ MonoBehaviour:
   - {fileID: 1561609774}
   - {fileID: 1771388365}
   - {fileID: 164177247}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 282140832}
+  visionQuad: {fileID: 1506675828}
+  empQuad: {fileID: 1924148}
   door: {fileID: 0}
 --- !u!65 &667449394
 BoxCollider:
@@ -24794,9 +24794,9 @@ MonoBehaviour:
   - {fileID: 882547571}
   - {fileID: 1111574442}
   - {fileID: 434904179}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 959609973}
+  visionQuad: {fileID: 698678796}
+  empQuad: {fileID: 201680967}
   door: {fileID: 0}
 --- !u!65 &668963484
 BoxCollider:
@@ -24899,9 +24899,9 @@ MonoBehaviour:
   - {fileID: 1883161557}
   - {fileID: 284649614}
   - {fileID: 1251683885}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 15119629}
+  visionQuad: {fileID: 2017824459}
+  empQuad: {fileID: 1567449141}
   door: {fileID: 0}
 --- !u!1 &671101901
 GameObject:
@@ -24976,9 +24976,9 @@ MonoBehaviour:
   - {fileID: 1883161557}
   - {fileID: 1967722865}
   - {fileID: 1768602965}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 990531290}
+  visionQuad: {fileID: 1521255185}
+  empQuad: {fileID: 1685762232}
   door: {fileID: 0}
 --- !u!4 &672056887 stripped
 Transform:
@@ -25785,9 +25785,9 @@ MonoBehaviour:
   - {fileID: 1838953101}
   - {fileID: 711826802}
   - {fileID: 1158220015}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 419655044}
+  visionQuad: {fileID: 1212801534}
+  empQuad: {fileID: 57281317}
   door: {fileID: 0}
 --- !u!1 &688032227
 GameObject:
@@ -25828,9 +25828,9 @@ MonoBehaviour:
   - {fileID: 323532309}
   - {fileID: 2098734122}
   - {fileID: 506523925}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 38410335}
+  visionQuad: {fileID: 1268431831}
+  empQuad: {fileID: 1355253020}
   door: {fileID: 0}
 --- !u!65 &688032230
 BoxCollider:
@@ -26696,9 +26696,9 @@ MonoBehaviour:
   - {fileID: 711826802}
   - {fileID: 1838953101}
   - {fileID: 1626315436}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1710349045}
+  visionQuad: {fileID: 1003781536}
+  empQuad: {fileID: 382676028}
   door: {fileID: 0}
 --- !u!1 &711826798
 GameObject:
@@ -26771,9 +26771,9 @@ MonoBehaviour:
   - {fileID: 284649614}
   - {fileID: 1626315436}
   - {fileID: 1307693794}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1982358328}
+  visionQuad: {fileID: 407420813}
+  empQuad: {fileID: 680793329}
   door: {fileID: 0}
 --- !u!1001 &712025671
 PrefabInstance:
@@ -26971,9 +26971,9 @@ MonoBehaviour:
   - {fileID: 1280783154}
   - {fileID: 1903135409}
   - {fileID: 986400859}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1779112446}
+  visionQuad: {fileID: 850168600}
+  empQuad: {fileID: 812690112}
   door: {fileID: 0}
 --- !u!65 &718343143
 BoxCollider:
@@ -27688,9 +27688,9 @@ MonoBehaviour:
   - {fileID: 843308782}
   - {fileID: 1211579615}
   - {fileID: 2054105162}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1409112460}
+  visionQuad: {fileID: 1554212687}
+  empQuad: {fileID: 1956713927}
   door: {fileID: 0}
 --- !u!65 &730756279
 BoxCollider:
@@ -28374,9 +28374,9 @@ MonoBehaviour:
   - {fileID: 323532309}
   - {fileID: 158840855}
   - {fileID: 2126164771}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1212559483}
+  visionQuad: {fileID: 824953195}
+  empQuad: {fileID: 1928568212}
   door: {fileID: 0}
 --- !u!65 &771053179
 BoxCollider:
@@ -28446,9 +28446,9 @@ MonoBehaviour:
   - {fileID: 500558389}
   - {fileID: 1771388365}
   - {fileID: 164177247}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1679309039}
+  visionQuad: {fileID: 136945347}
+  empQuad: {fileID: 1092155050}
   door: {fileID: 0}
 --- !u!65 &771452753
 BoxCollider:
@@ -29047,9 +29047,9 @@ MonoBehaviour:
   - {fileID: 1583633709}
   - {fileID: 820690364}
   - {fileID: 1628305570}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 897251986}
+  visionQuad: {fileID: 1405318560}
+  empQuad: {fileID: 16618505}
   door: {fileID: 0}
 --- !u!65 &785034268
 BoxCollider:
@@ -29235,9 +29235,9 @@ MonoBehaviour:
   - {fileID: 1663066389}
   - {fileID: 51270330}
   - {fileID: 1786658979}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1204314018}
+  visionQuad: {fileID: 1023398210}
+  empQuad: {fileID: 411027488}
   door: {fileID: 0}
 --- !u!65 &787649143
 BoxCollider:
@@ -29645,9 +29645,9 @@ MonoBehaviour:
   - {fileID: 1284977705}
   - {fileID: 1158220015}
   - {fileID: 1901263932}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 838902191}
+  visionQuad: {fileID: 1095134997}
+  empQuad: {fileID: 407547418}
   door: {fileID: 0}
 --- !u!1 &797537957
 GameObject:
@@ -30199,9 +30199,9 @@ MonoBehaviour:
   - {fileID: 1111971100}
   - {fileID: 399789980}
   - {fileID: 492637702}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 31834474}
+  visionQuad: {fileID: 291161639}
+  empQuad: {fileID: 2034923437}
   door: {fileID: 0}
 --- !u!65 &810910042
 BoxCollider:
@@ -30488,9 +30488,9 @@ MonoBehaviour:
   - {fileID: 1904142597}
   - {fileID: 785034266}
   - {fileID: 1423131439}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1563860804}
+  visionQuad: {fileID: 1274185674}
+  empQuad: {fileID: 1426102068}
   door: {fileID: 0}
 --- !u!65 &820690366
 BoxCollider:
@@ -31626,9 +31626,9 @@ MonoBehaviour:
   - {fileID: 1511347903}
   - {fileID: 2054105162}
   - {fileID: 323532309}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 361719844}
+  visionQuad: {fileID: 609744094}
+  empQuad: {fileID: 1464193107}
   door: {fileID: 0}
 --- !u!65 &843308784
 BoxCollider:
@@ -32376,9 +32376,9 @@ MonoBehaviour:
   - {fileID: 1411443224}
   - {fileID: 245964308}
   - {fileID: 1763119247}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1822065707}
+  visionQuad: {fileID: 1990030326}
+  empQuad: {fileID: 1759706092}
   door: {fileID: 0}
 --- !u!65 &860895507
 BoxCollider:
@@ -32885,9 +32885,9 @@ MonoBehaviour:
   - {fileID: 1910293601}
   - {fileID: 486215167}
   - {fileID: 1439301244}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1492664355}
+  visionQuad: {fileID: 1219902004}
+  empQuad: {fileID: 1311628751}
   door: {fileID: 0}
 --- !u!65 &880926822
 BoxCollider:
@@ -32959,9 +32959,9 @@ MonoBehaviour:
   - {fileID: 918814836}
   - {fileID: 1904142597}
   - {fileID: 1423131439}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1682665105}
+  visionQuad: {fileID: 397456144}
+  empQuad: {fileID: 1841719175}
   door: {fileID: 0}
 --- !u!65 &882312170
 BoxCollider:
@@ -33033,9 +33033,9 @@ MonoBehaviour:
   - {fileID: 1303456794}
   - {fileID: 1889183092}
   - {fileID: 668963482}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 776212679}
+  visionQuad: {fileID: 1282414491}
+  empQuad: {fileID: 1755130308}
   door: {fileID: 0}
 --- !u!65 &882547573
 BoxCollider:
@@ -34837,9 +34837,9 @@ MonoBehaviour:
   - {fileID: 1380354269}
   - {fileID: 1266072752}
   - {fileID: 1742789184}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 284905754}
+  visionQuad: {fileID: 889311151}
+  empQuad: {fileID: 1886065303}
   door: {fileID: 0}
 --- !u!65 &918814838
 BoxCollider:
@@ -35324,9 +35324,9 @@ MonoBehaviour:
   - {fileID: 1768602965}
   - {fileID: 642859510}
   - {fileID: 499367471}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1572621631}
+  visionQuad: {fileID: 447625056}
+  empQuad: {fileID: 709180471}
   door: {fileID: 0}
 --- !u!1001 &938708950
 PrefabInstance:
@@ -35947,9 +35947,9 @@ MonoBehaviour:
   - {fileID: 506523925}
   - {fileID: 158840855}
   - {fileID: 2126164771}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2032035202}
+  visionQuad: {fileID: 413374646}
+  empQuad: {fileID: 1729771207}
   door: {fileID: 0}
 --- !u!65 &954902232
 BoxCollider:
@@ -37027,9 +37027,9 @@ MonoBehaviour:
   - {fileID: 1272052985}
   - {fileID: 1592972716}
   - {fileID: 1411443224}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1724292462}
+  visionQuad: {fileID: 1827641313}
+  empQuad: {fileID: 1454270526}
   door: {fileID: 0}
 --- !u!65 &975070153
 BoxCollider:
@@ -37492,9 +37492,9 @@ MonoBehaviour:
   - {fileID: 1539435865}
   - {fileID: 1838953101}
   - {fileID: 250224318}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 705964804}
+  visionQuad: {fileID: 1370687256}
+  empQuad: {fileID: 151485114}
   door: {fileID: 0}
 --- !u!65 &986400861
 BoxCollider:
@@ -38527,9 +38527,9 @@ MonoBehaviour:
   - {fileID: 54126232}
   - {fileID: 423797088}
   - {fileID: 1456226264}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2050427362}
+  visionQuad: {fileID: 793276663}
+  empQuad: {fileID: 944695070}
   door: {fileID: 0}
 --- !u!65 &1010094840
 BoxCollider:
@@ -38601,9 +38601,9 @@ MonoBehaviour:
   - {fileID: 880926820}
   - {fileID: 423797088}
   - {fileID: 1300223710}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1534421122}
+  visionQuad: {fileID: 305157610}
+  empQuad: {fileID: 1104876371}
   door: {fileID: 0}
 --- !u!65 &1011167829
 BoxCollider:
@@ -39284,9 +39284,9 @@ MonoBehaviour:
   - {fileID: 671101905}
   - {fileID: 284649614}
   - {fileID: 1626315436}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1242676116}
+  visionQuad: {fileID: 1096425460}
+  empQuad: {fileID: 604985871}
   door: {fileID: 0}
 --- !u!1001 &1028333822
 PrefabInstance:
@@ -39916,9 +39916,9 @@ MonoBehaviour:
   - {fileID: 1237941272}
   - {fileID: 1280783154}
   - {fileID: 1250435454}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2072617945}
+  visionQuad: {fileID: 389489786}
+  empQuad: {fileID: 1714323218}
   door: {fileID: 0}
 --- !u!1 &1057278119
 GameObject:
@@ -39990,9 +39990,9 @@ MonoBehaviour:
   - {fileID: 935394234}
   - {fileID: 1901263932}
   - {fileID: 281556272}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1759785676}
+  visionQuad: {fileID: 1973554885}
+  empQuad: {fileID: 921341035}
   door: {fileID: 0}
 --- !u!1 &1069363574
 GameObject:
@@ -40036,9 +40036,9 @@ MonoBehaviour:
   - {fileID: 110579312}
   - {fileID: 1230715241}
   - {fileID: 1111574442}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1715537410}
+  visionQuad: {fileID: 1053057626}
+  empQuad: {fileID: 787823059}
   door: {fileID: 0}
 --- !u!65 &1069363577
 BoxCollider:
@@ -40318,9 +40318,9 @@ MonoBehaviour:
   - {fileID: 1977408844}
   - {fileID: 598304269}
   - {fileID: 1827033553}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 429917506}
+  visionQuad: {fileID: 1715432250}
+  empQuad: {fileID: 89917622}
   door: {fileID: 0}
 --- !u!65 &1077691710
 BoxCollider:
@@ -41052,9 +41052,9 @@ MonoBehaviour:
   - {fileID: 1742789184}
   - {fileID: 307998321}
   - {fileID: 156719358}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2117002256}
+  visionQuad: {fileID: 1329376688}
+  empQuad: {fileID: 1982746527}
   door: {fileID: 0}
 --- !u!65 &1091753486
 BoxCollider:
@@ -42562,9 +42562,9 @@ MonoBehaviour:
   - {fileID: 668963482}
   - {fileID: 1801748886}
   - {fileID: 1574223761}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 685531635}
+  visionQuad: {fileID: 1317774299}
+  empQuad: {fileID: 658518147}
   door: {fileID: 0}
 --- !u!65 &1111574444
 BoxCollider:
@@ -42634,9 +42634,9 @@ MonoBehaviour:
   - {fileID: 399789980}
   - {fileID: 810910040}
   - {fileID: 975070151}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 565243775}
+  visionQuad: {fileID: 228787357}
+  empQuad: {fileID: 2024826128}
   door: {fileID: 0}
 --- !u!65 &1111971102
 BoxCollider:
@@ -42988,9 +42988,9 @@ MonoBehaviour:
   - {fileID: 1422077854}
   - {fileID: 2002680448}
   - {fileID: 2126164771}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2048877130}
+  visionQuad: {fileID: 371535819}
+  empQuad: {fileID: 1784346456}
   door: {fileID: 0}
 --- !u!65 &1119251026
 BoxCollider:
@@ -43065,9 +43065,9 @@ MonoBehaviour:
   - {fileID: 1786658979}
   - {fileID: 636128826}
   - {fileID: 598304269}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1325658224}
+  visionQuad: {fileID: 2135315020}
+  empQuad: {fileID: 1876570544}
   door: {fileID: 0}
 --- !u!65 &1119287612
 BoxCollider:
@@ -43145,9 +43145,9 @@ MonoBehaviour:
   - {fileID: 1422077854}
   - {fileID: 179781205}
   - {fileID: 1220705655}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 82948221}
+  visionQuad: {fileID: 977640933}
+  empQuad: {fileID: 1446871759}
   door: {fileID: 0}
 --- !u!65 &1119895120
 BoxCollider:
@@ -44453,9 +44453,9 @@ MonoBehaviour:
   - {fileID: 284649614}
   - {fileID: 795585044}
   - {fileID: 1251683885}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2013742577}
+  visionQuad: {fileID: 672156806}
+  empQuad: {fileID: 1024419454}
   door: {fileID: 0}
 --- !u!1 &1159022310
 GameObject:
@@ -46370,9 +46370,9 @@ MonoBehaviour:
   - {fileID: 1699345944}
   - {fileID: 1281056861}
   - {fileID: 730756277}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2140130344}
+  visionQuad: {fileID: 399903114}
+  empQuad: {fileID: 1607191635}
   door: {fileID: 0}
 --- !u!65 &1211579617
 BoxCollider:
@@ -47027,9 +47027,9 @@ MonoBehaviour:
   - {fileID: 1237941272}
   - {fileID: 565295904}
   - {fileID: 718343141}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 623358090}
+  visionQuad: {fileID: 421386768}
+  empQuad: {fileID: 801561538}
   door: {fileID: 0}
 --- !u!65 &1220705657
 BoxCollider:
@@ -47428,9 +47428,9 @@ MonoBehaviour:
   - {fileID: 1069363575}
   - {fileID: 1404492148}
   - {fileID: 1801748886}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1858871348}
+  visionQuad: {fileID: 2109166817}
+  empQuad: {fileID: 754266474}
   door: {fileID: 0}
 --- !u!65 &1230715243
 BoxCollider:
@@ -47579,9 +47579,9 @@ MonoBehaviour:
   - {fileID: 500558389}
   - {fileID: 492570974}
   - {fileID: 164177247}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 188555937}
+  visionQuad: {fileID: 1345022146}
+  empQuad: {fileID: 1734110609}
   door: {fileID: 0}
 --- !u!65 &1237718234
 BoxCollider:
@@ -47653,9 +47653,9 @@ MonoBehaviour:
   - {fileID: 1250435454}
   - {fileID: 1220705655}
   - {fileID: 1280783154}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 10111988}
+  visionQuad: {fileID: 725489086}
+  empQuad: {fileID: 1810388343}
   door: {fileID: 0}
 --- !u!65 &1237941274
 BoxCollider:
@@ -48035,9 +48035,9 @@ MonoBehaviour:
   - {fileID: 730756277}
   - {fileID: 1211579615}
   - {fileID: 843308782}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1431188251}
+  visionQuad: {fileID: 31797421}
+  empQuad: {fileID: 896569758}
   door: {fileID: 0}
 --- !u!65 &1245950808
 BoxCollider:
@@ -48397,9 +48397,9 @@ MonoBehaviour:
   - {fileID: 1056946514}
   - {fileID: 1502038045}
   - {fileID: 250224318}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 436211707}
+  visionQuad: {fileID: 1109414881}
+  empQuad: {fileID: 27586518}
   door: {fileID: 0}
 --- !u!65 &1250435456
 BoxCollider:
@@ -48505,9 +48505,9 @@ MonoBehaviour:
   - {fileID: 669437410}
   - {fileID: 1901263932}
   - {fileID: 281556272}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1204917453}
+  visionQuad: {fileID: 1438933578}
+  empQuad: {fileID: 1954783165}
   door: {fileID: 0}
 --- !u!1 &1255241969
 GameObject:
@@ -48548,9 +48548,9 @@ MonoBehaviour:
   - {fileID: 882312168}
   - {fileID: 1742789184}
   - {fileID: 156719358}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2116712951}
+  visionQuad: {fileID: 1980257751}
+  empQuad: {fileID: 891945850}
   door: {fileID: 0}
 --- !u!65 &1255241972
 BoxCollider:
@@ -48949,9 +48949,9 @@ MonoBehaviour:
   - {fileID: 1456226264}
   - {fileID: 1300223710}
   - {fileID: 918814836}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1369984857}
+  visionQuad: {fileID: 1471076964}
+  empQuad: {fileID: 1124564447}
   door: {fileID: 0}
 --- !u!65 &1266072754
 BoxCollider:
@@ -49353,9 +49353,9 @@ MonoBehaviour:
   - {fileID: 1763119247}
   - {fileID: 975070151}
   - {fileID: 245964308}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 219520645}
+  visionQuad: {fileID: 210948747}
+  empQuad: {fileID: 1934349735}
   door: {fileID: 0}
 --- !u!65 &1272052987
 BoxCollider:
@@ -49614,9 +49614,9 @@ MonoBehaviour:
   - {fileID: 1786658979}
   - {fileID: 1663066389}
   - {fileID: 110579312}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 787385218}
+  visionQuad: {fileID: 1973701409}
+  empQuad: {fileID: 426002127}
   door: {fileID: 0}
 --- !u!65 &1280650292
 BoxCollider:
@@ -49689,9 +49689,9 @@ MonoBehaviour:
   - {fileID: 1237941272}
   - {fileID: 250224318}
   - {fileID: 1056946514}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 220688993}
+  visionQuad: {fileID: 941817857}
+  empQuad: {fileID: 177924343}
   door: {fileID: 0}
 --- !u!65 &1280783156
 BoxCollider:
@@ -49764,9 +49764,9 @@ MonoBehaviour:
   - {fileID: 2054105162}
   - {fileID: 323532309}
   - {fileID: 2098734122}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1581739579}
+  visionQuad: {fileID: 1920796081}
+  empQuad: {fileID: 168181935}
   door: {fileID: 0}
 --- !u!65 &1281056863
 BoxCollider:
@@ -50043,9 +50043,9 @@ MonoBehaviour:
   - {fileID: 687841771}
   - {fileID: 1027715842}
   - {fileID: 1967722865}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 121299901}
+  visionQuad: {fileID: 1911267413}
+  empQuad: {fileID: 1539117343}
   door: {fileID: 0}
 --- !u!1001 &1286060165
 PrefabInstance:
@@ -50643,9 +50643,9 @@ MonoBehaviour:
   - {fileID: 1266072752}
   - {fileID: 1583633709}
   - {fileID: 1742789184}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 998224048}
+  visionQuad: {fileID: 1202294286}
+  empQuad: {fileID: 797537962}
   door: {fileID: 0}
 --- !u!65 &1300223712
 BoxCollider:
@@ -50968,9 +50968,9 @@ MonoBehaviour:
   - {fileID: 1889183092}
   - {fileID: 882547571}
   - {fileID: 1977408844}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1577945062}
+  visionQuad: {fileID: 2077266574}
+  empQuad: {fileID: 1660346567}
   door: {fileID: 0}
 --- !u!4 &1303753772 stripped
 Transform:
@@ -51125,9 +51125,9 @@ MonoBehaviour:
   - {fileID: 771053177}
   - {fileID: 2054105162}
   - {fileID: 259131474}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 913573716}
+  visionQuad: {fileID: 287974498}
+  empQuad: {fileID: 2119009591}
   door: {fileID: 0}
 --- !u!65 &1306758729
 BoxCollider:
@@ -51230,9 +51230,9 @@ MonoBehaviour:
   - {fileID: 1626315436}
   - {fileID: 711826802}
   - {fileID: 1769154660}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1300929205}
+  visionQuad: {fileID: 1492572616}
+  empQuad: {fileID: 913199737}
   door: {fileID: 0}
 --- !u!1 &1308021240
 GameObject:
@@ -53450,9 +53450,9 @@ MonoBehaviour:
   - {fileID: 1272052985}
   - {fileID: 245964308}
   - {fileID: 1763119247}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1339523573}
+  visionQuad: {fileID: 206687467}
+  empQuad: {fileID: 1453349198}
   door: {fileID: 0}
 --- !u!1 &1364029471
 GameObject:
@@ -54421,9 +54421,9 @@ MonoBehaviour:
   - {fileID: 54126232}
   - {fileID: 918814836}
   - {fileID: 1456226264}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1944934567}
+  visionQuad: {fileID: 131645753}
+  empQuad: {fileID: 350441339}
   door: {fileID: 0}
 --- !u!65 &1380354271
 BoxCollider:
@@ -54948,9 +54948,9 @@ MonoBehaviour:
   - {fileID: 1745334902}
   - {fileID: 636128826}
   - {fileID: 1230715241}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1914730449}
+  visionQuad: {fileID: 756062278}
+  empQuad: {fileID: 220126130}
   door: {fileID: 0}
 --- !u!65 &1404492150
 BoxCollider:
@@ -55631,9 +55631,9 @@ MonoBehaviour:
   - {fileID: 1763119247}
   - {fileID: 975070151}
   - {fileID: 245964308}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1643519728}
+  visionQuad: {fileID: 1929875341}
+  empQuad: {fileID: 1247080097}
   door: {fileID: 0}
 --- !u!65 &1411443226
 BoxCollider:
@@ -55708,9 +55708,9 @@ MonoBehaviour:
   - {fileID: 551765616}
   - {fileID: 1119251024}
   - {fileID: 1502038045}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1622445575}
+  visionQuad: {fileID: 1543931418}
+  empQuad: {fileID: 1835741359}
   door: {fileID: 0}
 --- !u!65 &1422077856
 BoxCollider:
@@ -55785,9 +55785,9 @@ MonoBehaviour:
   - {fileID: 882312168}
   - {fileID: 1628305570}
   - {fileID: 1782962007}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1524331212}
+  visionQuad: {fileID: 2139844883}
+  empQuad: {fileID: 834160371}
   door: {fileID: 0}
 --- !u!65 &1423131441
 BoxCollider:
@@ -56255,9 +56255,9 @@ MonoBehaviour:
   - {fileID: 54126232}
   - {fileID: 145520043}
   - {fileID: 1904142597}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1404667280}
+  visionQuad: {fileID: 155498777}
+  empQuad: {fileID: 1712957781}
   door: {fileID: 0}
 --- !u!65 &1439301246
 BoxCollider:
@@ -57072,9 +57072,9 @@ MonoBehaviour:
   - {fileID: 1010094838}
   - {fileID: 1380354269}
   - {fileID: 1530273611}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 396164931}
+  visionQuad: {fileID: 124694528}
+  empQuad: {fileID: 1330056267}
   door: {fileID: 0}
 --- !u!65 &1456226266
 BoxCollider:
@@ -59112,9 +59112,9 @@ MonoBehaviour:
   - {fileID: 1250435454}
   - {fileID: 2002680448}
   - {fileID: 1904481667}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 378296314}
+  visionQuad: {fileID: 398585951}
+  empQuad: {fileID: 1867063389}
   door: {fileID: 0}
 --- !u!65 &1502038047
 BoxCollider:
@@ -59405,9 +59405,9 @@ MonoBehaviour:
   - {fileID: 667449392}
   - {fileID: 1561609774}
   - {fileID: 1965823957}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 243045337}
+  visionQuad: {fileID: 831083401}
+  empQuad: {fileID: 857181687}
   door: {fileID: 0}
 --- !u!65 &1511347905
 BoxCollider:
@@ -60637,9 +60637,9 @@ MonoBehaviour:
   - {fileID: 54126232}
   - {fileID: 1010094838}
   - {fileID: 1456226264}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 311523332}
+  visionQuad: {fileID: 96365681}
+  empQuad: {fileID: 854376443}
   door: {fileID: 0}
 --- !u!1 &1532029464
 GameObject:
@@ -61514,9 +61514,9 @@ MonoBehaviour:
   - {fileID: 1679469272}
   - {fileID: 986400859}
   - {fileID: 1904481667}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1863573569}
+  visionQuad: {fileID: 1183223829}
+  empQuad: {fileID: 1538594858}
   door: {fileID: 0}
 --- !u!65 &1539435867
 BoxCollider:
@@ -61817,9 +61817,9 @@ MonoBehaviour:
   - {fileID: 164177247}
   - {fileID: 492570974}
   - {fileID: 1965823957}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 75957520}
+  visionQuad: {fileID: 1862972161}
+  empQuad: {fileID: 557111633}
   door: {fileID: 0}
 --- !u!65 &1561609776
 BoxCollider:
@@ -62540,9 +62540,9 @@ MonoBehaviour:
   - {fileID: 1827033553}
   - {fileID: 1905663279}
   - {fileID: 434904179}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 406137595}
+  visionQuad: {fileID: 1364029476}
+  empQuad: {fileID: 891993550}
   door: {fileID: 0}
 --- !u!65 &1574223763
 BoxCollider:
@@ -63047,9 +63047,9 @@ MonoBehaviour:
   - {fileID: 820690364}
   - {fileID: 1300223710}
   - {fileID: 245964308}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1479354445}
+  visionQuad: {fileID: 838691347}
+  empQuad: {fileID: 1488489291}
   door: {fileID: 0}
 --- !u!65 &1583633711
 BoxCollider:
@@ -63450,9 +63450,9 @@ MonoBehaviour:
   - {fileID: 492637702}
   - {fileID: 810910040}
   - {fileID: 975070151}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 400748650}
+  visionQuad: {fileID: 136983353}
+  empQuad: {fileID: 240580970}
   door: {fileID: 0}
 --- !u!65 &1592972718
 BoxCollider:
@@ -63740,9 +63740,9 @@ MonoBehaviour:
   - {fileID: 642859510}
   - {fileID: 2008765736}
   - {fileID: 1901263932}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1292912312}
+  visionQuad: {fileID: 1672156621}
+  empQuad: {fileID: 1174494727}
   door: {fileID: 0}
 --- !u!1 &1600201427
 GameObject:
@@ -64890,9 +64890,9 @@ MonoBehaviour:
   - {fileID: 294081501}
   - {fileID: 1027715842}
   - {fileID: 1883161557}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1533847332}
+  visionQuad: {fileID: 1107808463}
+  empQuad: {fileID: 417288159}
   door: {fileID: 0}
 --- !u!1 &1626411041
 GameObject:
@@ -65041,9 +65041,9 @@ MonoBehaviour:
   - {fileID: 1091753484}
   - {fileID: 785034266}
   - {fileID: 1423131439}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1409322808}
+  visionQuad: {fileID: 2144642636}
+  empQuad: {fileID: 519495292}
   door: {fileID: 0}
 --- !u!65 &1628305572
 BoxCollider:
@@ -65645,9 +65645,9 @@ MonoBehaviour:
   - {fileID: 1903135409}
   - {fileID: 2002680448}
   - {fileID: 1904481667}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 420192080}
+  visionQuad: {fileID: 1141933058}
+  empQuad: {fileID: 2125564146}
   door: {fileID: 0}
 --- !u!65 &1644453341
 BoxCollider:
@@ -66493,9 +66493,9 @@ MonoBehaviour:
   - {fileID: 1280650290}
   - {fileID: 44624989}
   - {fileID: 1069363575}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1593897950}
+  visionQuad: {fileID: 1269195847}
+  empQuad: {fileID: 1301441053}
   door: {fileID: 0}
 --- !u!65 &1663066391
 BoxCollider:
@@ -66679,9 +66679,9 @@ MonoBehaviour:
   - {fileID: 787649141}
   - {fileID: 51270330}
   - {fileID: 1663066389}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 251083156}
+  visionQuad: {fileID: 1446484215}
+  empQuad: {fileID: 1682563690}
   door: {fileID: 0}
 --- !u!65 &1667756627
 BoxCollider:
@@ -67221,9 +67221,9 @@ MonoBehaviour:
   - {fileID: 1904481667}
   - {fileID: 1903135409}
   - {fileID: 986400859}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 775466965}
+  visionQuad: {fileID: 1909585365}
+  empQuad: {fileID: 186365384}
   door: {fileID: 0}
 --- !u!65 &1679469274
 BoxCollider:
@@ -67916,9 +67916,9 @@ MonoBehaviour:
   - {fileID: 1380354269}
   - {fileID: 1456226264}
   - {fileID: 1530273611}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1717019901}
+  visionQuad: {fileID: 838262465}
+  empQuad: {fileID: 1871359543}
   door: {fileID: 471988539}
 --- !u!65 &1699345946
 BoxCollider:
@@ -70321,9 +70321,9 @@ MonoBehaviour:
   - {fileID: 1119895118}
   - {fileID: 179781205}
   - {fileID: 1422077854}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1960088971}
+  visionQuad: {fileID: 531059109}
+  empQuad: {fileID: 643849123}
   door: {fileID: 0}
 --- !u!65 &1741885015
 BoxCollider:
@@ -70492,9 +70492,9 @@ MonoBehaviour:
   - {fileID: 918814836}
   - {fileID: 1091753484}
   - {fileID: 1255241970}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1315916116}
+  visionQuad: {fileID: 1398310024}
+  empQuad: {fileID: 1357839273}
   door: {fileID: 0}
 --- !u!65 &1742789186
 BoxCollider:
@@ -70674,9 +70674,9 @@ MonoBehaviour:
   - {fileID: 1230715241}
   - {fileID: 636128826}
   - {fileID: 598304269}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 759053551}
+  visionQuad: {fileID: 2131889182}
+  empQuad: {fileID: 1892506081}
   door: {fileID: 0}
 --- !u!65 &1745334904
 BoxCollider:
@@ -71283,9 +71283,9 @@ MonoBehaviour:
   - {fileID: 1363557723}
   - {fileID: 492637702}
   - {fileID: 860895505}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1097987608}
+  visionQuad: {fileID: 1805010107}
+  empQuad: {fileID: 492873179}
   door: {fileID: 0}
 --- !u!65 &1763119249
 BoxCollider:
@@ -71536,9 +71536,9 @@ MonoBehaviour:
   - {fileID: 669437410}
   - {fileID: 671101905}
   - {fileID: 935394234}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 303016535}
+  visionQuad: {fileID: 1817045657}
+  empQuad: {fileID: 1724000496}
   door: {fileID: 0}
 --- !u!1 &1769154656
 GameObject:
@@ -71610,9 +71610,9 @@ MonoBehaviour:
   - {fileID: 294081501}
   - {fileID: 1307693794}
   - {fileID: 284649614}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2073212767}
+  visionQuad: {fileID: 949675125}
+  empQuad: {fileID: 1950240484}
   door: {fileID: 0}
 --- !u!1 &1771388364
 GameObject:
@@ -71653,9 +71653,9 @@ MonoBehaviour:
   - {fileID: 667449392}
   - {fileID: 1561609774}
   - {fileID: 500558389}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1707389411}
+  visionQuad: {fileID: 1574210686}
+  empQuad: {fileID: 1308021245}
   door: {fileID: 0}
 --- !u!65 &1771388367
 BoxCollider:
@@ -71902,9 +71902,9 @@ MonoBehaviour:
   - {fileID: 156719358}
   - {fileID: 1255241970}
   - {fileID: 1423131439}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1208118275}
+  visionQuad: {fileID: 762950472}
+  empQuad: {fileID: 1522899025}
   door: {fileID: 0}
 --- !u!65 &1782962009
 BoxCollider:
@@ -72087,9 +72087,9 @@ MonoBehaviour:
   - {fileID: 587881148}
   - {fileID: 1119287610}
   - {fileID: 1077691708}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 2047669860}
+  visionQuad: {fileID: 1188475610}
+  empQuad: {fileID: 1016046707}
   door: {fileID: 0}
 --- !u!65 &1786658981
 BoxCollider:
@@ -72442,9 +72442,9 @@ MonoBehaviour:
   - {fileID: 145783042}
   - {fileID: 2112921228}
   - {fileID: 954902230}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 343793915}
+  visionQuad: {fileID: 453379600}
+  empQuad: {fileID: 352798454}
   door: {fileID: 0}
 --- !u!1 &1794631192
 GameObject:
@@ -72855,9 +72855,9 @@ MonoBehaviour:
   - {fileID: 598304269}
   - {fileID: 1230715241}
   - {fileID: 1111574442}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1891240655}
+  visionQuad: {fileID: 2143986861}
+  empQuad: {fileID: 121077438}
   door: {fileID: 0}
 --- !u!65 &1801748888
 BoxCollider:
@@ -73916,9 +73916,9 @@ MonoBehaviour:
   - {fileID: 1928515555}
   - {fileID: 2094754473}
   - {fileID: 1905663279}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1537336019}
+  visionQuad: {fileID: 1839938911}
+  empQuad: {fileID: 1908764684}
   door: {fileID: 0}
 --- !u!65 &1827033555
 BoxCollider:
@@ -74491,9 +74491,9 @@ MonoBehaviour:
   - {fileID: 986400859}
   - {fileID: 250224318}
   - {fileID: 1280783154}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 958318263}
+  visionQuad: {fileID: 1304369344}
+  empQuad: {fileID: 1874739472}
   door: {fileID: 0}
 --- !u!1 &1839938906
 GameObject:
@@ -76702,9 +76702,9 @@ MonoBehaviour:
   - {fileID: 1769154660}
   - {fileID: 1626315436}
   - {fileID: 671101905}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 102951097}
+  visionQuad: {fileID: 1664647557}
+  empQuad: {fileID: 1719840421}
   door: {fileID: 0}
 --- !u!1 &1883529302
 GameObject:
@@ -77055,9 +77055,9 @@ MonoBehaviour:
   - {fileID: 1977408844}
   - {fileID: 110579312}
   - {fileID: 882547571}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1312316922}
+  visionQuad: {fileID: 1563719943}
+  empQuad: {fileID: 1453120681}
   door: {fileID: 0}
 --- !u!65 &1889183094
 BoxCollider:
@@ -77802,9 +77802,9 @@ MonoBehaviour:
   - {fileID: 1251683885}
   - {fileID: 1596417244}
   - {fileID: 1057278123}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1622473964}
+  visionQuad: {fileID: 1911933147}
+  empQuad: {fileID: 289365371}
   door: {fileID: 0}
 --- !u!1 &1902616079
 GameObject:
@@ -77927,9 +77927,9 @@ MonoBehaviour:
   - {fileID: 718343141}
   - {fileID: 49605287}
   - {fileID: 1679469272}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1657291222}
+  visionQuad: {fileID: 1491273053}
+  empQuad: {fileID: 416457505}
   door: {fileID: 0}
 --- !u!65 &1903135411
 BoxCollider:
@@ -78112,9 +78112,9 @@ MonoBehaviour:
   - {fileID: 1380354269}
   - {fileID: 820690364}
   - {fileID: 882312168}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 821764986}
+  visionQuad: {fileID: 257335416}
+  empQuad: {fileID: 799852340}
   door: {fileID: 0}
 --- !u!65 &1904142599
 BoxCollider:
@@ -78189,9 +78189,9 @@ MonoBehaviour:
   - {fileID: 250224318}
   - {fileID: 1644453339}
   - {fileID: 1539435865}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 454465195}
+  visionQuad: {fileID: 1933430964}
+  empQuad: {fileID: 952952156}
   door: {fileID: 0}
 --- !u!65 &1904481669
 BoxCollider:
@@ -78262,9 +78262,9 @@ MonoBehaviour:
   - {fileID: 1574223761}
   - {fileID: 1827033553}
   - {fileID: 434904179}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 900209769}
+  visionQuad: {fileID: 924741533}
+  empQuad: {fileID: 1471018296}
   door: {fileID: 0}
 --- !u!65 &1905663281
 BoxCollider:
@@ -78650,9 +78650,9 @@ MonoBehaviour:
   - {fileID: 486215167}
   - {fileID: 880926820}
   - {fileID: 423797088}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 422865405}
+  visionQuad: {fileID: 2142218464}
+  empQuad: {fileID: 1259973631}
   door: {fileID: 0}
 --- !u!65 &1910293603
 BoxCollider:
@@ -79868,9 +79868,9 @@ MonoBehaviour:
   - {fileID: 882547571}
   - {fileID: 1977408844}
   - {fileID: 1827033553}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1519515542}
+  visionQuad: {fileID: 1601510939}
+  empQuad: {fileID: 1349910335}
   door: {fileID: 0}
 --- !u!65 &1928515557
 BoxCollider:
@@ -81259,9 +81259,9 @@ MonoBehaviour:
   - {fileID: 164177247}
   - {fileID: 1561609774}
   - {fileID: 492570974}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 471055863}
+  visionQuad: {fileID: 1159022315}
+  empQuad: {fileID: 2114338963}
   door: {fileID: 0}
 --- !u!1 &1967585789
 GameObject:
@@ -81415,9 +81415,9 @@ MonoBehaviour:
   - {fileID: 671101905}
   - {fileID: 2008765736}
   - {fileID: 935394234}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1091634359}
+  visionQuad: {fileID: 1584336128}
+  empQuad: {fileID: 1260552527}
   door: {fileID: 0}
 --- !u!1 &1972344816
 GameObject:
@@ -81785,9 +81785,9 @@ MonoBehaviour:
   - {fileID: 1303456794}
   - {fileID: 1077691708}
   - {fileID: 1928515555}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1831997202}
+  visionQuad: {fileID: 1093806280}
+  empQuad: {fileID: 184593766}
   door: {fileID: 0}
 --- !u!65 &1977408846
 BoxCollider:
@@ -82581,9 +82581,9 @@ MonoBehaviour:
   - {fileID: 1502038045}
   - {fileID: 503842292}
   - {fileID: 1644453339}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1444188034}
+  visionQuad: {fileID: 576051604}
+  empQuad: {fileID: 2102017445}
   door: {fileID: 0}
 --- !u!65 &2002680450
 BoxCollider:
@@ -82888,9 +82888,9 @@ MonoBehaviour:
   - {fileID: 795585044}
   - {fileID: 1967722865}
   - {fileID: 642859510}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1136267719}
+  visionQuad: {fileID: 1868432493}
+  empQuad: {fileID: 339310185}
   door: {fileID: 0}
 --- !u!1 &2012243749
 GameObject:
@@ -84711,9 +84711,9 @@ MonoBehaviour:
   - {fileID: 49605287}
   - {fileID: 2002680448}
   - {fileID: 565295904}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 615765526}
+  visionQuad: {fileID: 1223674029}
+  empQuad: {fileID: 249885575}
   door: {fileID: 0}
 --- !u!65 &2048564148
 BoxCollider:
@@ -85145,9 +85145,9 @@ MonoBehaviour:
   - {fileID: 323532309}
   - {fileID: 771053177}
   - {fileID: 158840855}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 180523056}
+  visionQuad: {fileID: 1135253315}
+  empQuad: {fileID: 1757959181}
   door: {fileID: 0}
 --- !u!65 &2054105164
 BoxCollider:
@@ -86846,9 +86846,9 @@ MonoBehaviour:
   - {fileID: 1111574442}
   - {fileID: 1574223761}
   - {fileID: 1827033553}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1712255093}
+  visionQuad: {fileID: 1522947842}
+  empQuad: {fileID: 1248861743}
   door: {fileID: 0}
 --- !u!65 &2094754475
 BoxCollider:
@@ -87123,9 +87123,9 @@ MonoBehaviour:
   - {fileID: 145783042}
   - {fileID: 1281056861}
   - {fileID: 158840855}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 1802852397}
+  visionQuad: {fileID: 163613394}
+  empQuad: {fileID: 2003658023}
   door: {fileID: 0}
 --- !u!65 &2098734124
 BoxCollider:
@@ -87694,9 +87694,9 @@ MonoBehaviour:
   - {fileID: 1792878898}
   - {fileID: 145783042}
   - {fileID: 158840855}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 292673674}
+  visionQuad: {fileID: 1330250592}
+  empQuad: {fileID: 1110070597}
   door: {fileID: 0}
 --- !u!65 &2112921230
 BoxCollider:
@@ -88506,9 +88506,9 @@ MonoBehaviour:
   - {fileID: 771053177}
   - {fileID: 158840855}
   - {fileID: 954902230}
-  moveQuad: {fileID: 0}
-  visionQuad: {fileID: 0}
-  empQuad: {fileID: 0}
+  moveQuad: {fileID: 187301513}
+  visionQuad: {fileID: 1352043149}
+  empQuad: {fileID: 1861640041}
   door: {fileID: 0}
 --- !u!65 &2126164773
 BoxCollider:
