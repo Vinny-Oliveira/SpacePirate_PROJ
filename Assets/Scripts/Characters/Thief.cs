@@ -213,9 +213,16 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     public void AddTileToPath(Tile tile) {
+        // Place ghost on the path
+        if (listPathTiles.Count > 0) { 
+            AddGhostToPath(tile, listPathTiles.Last());
+        } else {
+            AddGhostToPath(tile, currentTile);
+        }
+
+        // Add to path
         listPathTiles.Add(tile);
         tile.moveQuad.TurnHighlighterOff();
-        AddGhostToPath(ref tile);
     }
 
     /// <summary>
@@ -384,13 +391,18 @@ public class Thief : Character {
     /// <summary>
     /// Get a ghost from the ghost pool and place it on a path tile
     /// </summary>
-    /// <param name="tile"></param>
-    void AddGhostToPath(ref Tile tile) {
+    /// <param name="newTile"></param>
+    void AddGhostToPath(Tile newTile, Tile prevTile) {
         GameObject ghost = GhostPooling();
         listGhosts.RemoveAt(0);
-        ghost.transform.position = new Vector3(tile.transform.position.x, transform.position.y, tile.transform.position.z);
+        ghost.transform.position = new Vector3(newTile.transform.position.x, transform.position.y, newTile.transform.position.z);
+
+        // Align ghost in the proper direction
+        Vector3 direction = newTile.transform.position - prevTile.transform.position;
+        ghost.transform.rotation = Quaternion.LookRotation(direction);
+
         ghost.SetActive(true);
-        tile.AddGhostToTile(ref ghost);
+        newTile.AddGhostToTile(ref ghost);
     }
 
     /// <summary>
