@@ -12,9 +12,9 @@ public class TileHighlighter : MonoBehaviour {
 
     /* Colors of Highlighters */
     static readonly string materialColorTag = "_HighlightColour";
-    static readonly string colorThiefRangeTag = "_HighlightColourGreen";
-    static readonly string colorThiefPathTag = "_HighlightColourBlue";
-    static readonly string colorCubeViewTag = "_HighlightColourRed";
+    static readonly string colorMoveTag = "_HighlightColourGreen";
+    static readonly string colorEmpTag = "_HighlightColourBlue";
+    static readonly string colorEnemyVisionTag = "_HighlightColourRed";
 
     /// <summary>
     /// Get the material from the Quad's MeshRenderer and assign it to the highlightMaterial
@@ -39,7 +39,7 @@ public class TileHighlighter : MonoBehaviour {
     /// Change the color of the shader to match the Thief range color
     /// </summary>
     public void ChangeColorToThiefMove() {
-        ChangeColor(colorThiefRangeTag);
+        ChangeColor(colorMoveTag);
     }
 
     ///// <summary>
@@ -53,7 +53,7 @@ public class TileHighlighter : MonoBehaviour {
     /// Change the color of the shader to match the Cube's field of view color
     /// </summary>
     public void ChangeColorToEnemyVision() {
-        ChangeColor(colorCubeViewTag);
+        ChangeColor(colorEnemyVisionTag);
     }
 
     /// <summary>
@@ -84,6 +84,10 @@ public class TileHighlighter : MonoBehaviour {
         canHighlight = false;
     }
 
+    /// <summary>
+    /// EDITOR USE
+    /// Add this gameObject to the quad
+    /// </summary>
     [ContextMenu("Add Self")]
     public void AddSelf() {
         highlightQuad = gameObject;

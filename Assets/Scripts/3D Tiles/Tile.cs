@@ -196,6 +196,10 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     #endregion
 
+    /// <summary>
+    /// EDITOR USE
+    /// Add the Quad gameObjects to the tile highlighters
+    /// </summary>
     [ContextMenu("Add Quads")]
     public void AddQuads() {
         List<TileHighlighter> moveHighlighter = GetComponentsInChildren<TileHighlighter>().Where(x => x.gameObject.name == "MoveQuad").ToList();
