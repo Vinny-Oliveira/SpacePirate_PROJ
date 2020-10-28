@@ -224,6 +224,7 @@ public class Thief : Character {
     public void ClearPath() {
         foreach (var tile in listPathTiles) {
             tile.moveQuad.TurnHighlighterOff();
+            RemoveGhostFromPath(tile);
         }
         listPathTiles.Clear();
         DisplayMoveCounter();
@@ -252,6 +253,7 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     public void RemoveLastTileFromPath() {
+        RemoveGhostFromPath(listPathTiles.Last());
         listPathTiles.RemoveAt(listPathTiles.Count - 1);
     }
 
@@ -388,7 +390,17 @@ public class Thief : Character {
         listGhosts.RemoveAt(0);
         ghost.transform.position = new Vector3(tile.transform.position.x, transform.position.y, tile.transform.position.z);
         ghost.SetActive(true);
-        tile.GhostThief = ghost;
+        tile.AddGhostToTile(ref ghost);
+    }
+
+    /// <summary>
+    /// Remove the ghost thief from a tile that is removed from the path
+    /// </summary>
+    /// <param name="tile"></param>
+    void RemoveGhostFromPath(Tile tile) {
+        GameObject ghost = tile.RemoveLastGhost();
+        ghost.SetActive(false);
+        listGhosts.Add(ghost);
     }
 
     #endregion

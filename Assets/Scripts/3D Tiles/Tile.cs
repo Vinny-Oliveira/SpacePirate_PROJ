@@ -20,7 +20,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     [Header("Control Path")]
     public ETileType tileType;
     public List<Tile> listNeighbors;
-    public GameObject GhostThief { get; set; }
+    List<GameObject> listGhosts = new List<GameObject>();
+    //public GameObject GhostThief { get; set; }
 
     [Header("Highlight Quads")]
     //public TileHighlighter tileHighlighter;
@@ -156,6 +157,27 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
                 thief.AddTileToTargets(tile);
             }
         }
+    }
+
+    #endregion
+
+    #region GHOST_THIEVES
+
+    /// <summary>
+    /// Add a ghost thief to the list of ghosts
+    /// </summary>
+    /// <param name="ghost"></param>
+    public void AddGhostToTile(ref GameObject ghost) {
+        listGhosts.Add(ghost);
+    }
+
+    /// <summary>
+    /// Remove the last ghost from the list of tiles
+    /// </summary>
+    public GameObject RemoveLastGhost() {
+        GameObject lastGhost = listGhosts.Last();
+        listGhosts.RemoveAt(listGhosts.Count - 1);
+        return lastGhost;
     }
 
     #endregion
