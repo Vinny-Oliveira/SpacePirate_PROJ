@@ -88,7 +88,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HighlightColour: {r: 5.0509806, g: 0.3173391, b: 0.3173391, a: 0.3529412}
+    - _HighlightColour: {r: 0.2666667, g: 1.301961, b: 0.3137255, a: 0}
     - _HighlightColourBlue: {r: 0.272662, g: 0.4848672, b: 1.301961, a: 0}
     - _HighlightColourGreen: {r: 0.2666667, g: 1.301961, b: 0.3137255, a: 0}
     - _HighlightColourMove: {r: 0.03137255, g: 1.5843138, b: 0.047058824, a: 0.45490196}

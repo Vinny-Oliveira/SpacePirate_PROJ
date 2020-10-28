@@ -12,7 +12,7 @@ Material:
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -66,9 +66,11 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _HighlightAlpha: 0.5
+    - _HighlightAlphaClip: 0
     - _HighlightColourBool: 0
     - _HighlightIsVisible: 0
     - _HighlightSineSpeed: 4
+    - _HighlightStripes: 7
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -78,6 +80,11 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _VisionAlpha: 0.83
+    - _VisionAlphaClip: 0
+    - _VisionIsVisible: 0
+    - _VisionSineSpeed: 4
+    - _VisionStripes: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -92,6 +99,7 @@ Material:
     - _HighlightColourRed: {r: 1.301961, g: 0.282353, b: 0.2666667, a: 0}
     - _HighlightColourYellow: {r: 1.190215, g: 1.301961, b: 0.272662, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _VisionColour: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &6665389299020159227
 MonoBehaviour:
   m_ObjectHideFlags: 11
