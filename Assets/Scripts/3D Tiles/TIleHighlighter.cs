@@ -83,4 +83,9 @@ public class TileHighlighter : MonoBehaviour {
         highlightMaterial.SetFloat(matIsVisibleTag, 0f);
         canHighlight = false;
     }
+
+    [ContextMenu("Add Self")]
+    public void AddSelf() {
+        highlightQuad = gameObject;
+    }
 }

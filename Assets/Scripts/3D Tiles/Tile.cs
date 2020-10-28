@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum ETileType {
@@ -195,6 +196,15 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     #endregion
 
+    [ContextMenu("Add Quads")]
+    public void AddQuads() {
+        List<TileHighlighter> moveHighlighter = GetComponentsInChildren<TileHighlighter>().Where(x => x.gameObject.name == "MoveQuad").ToList();
+        List<TileHighlighter> visionHighlighter = GetComponentsInChildren<TileHighlighter>().Where(x => x.gameObject.name == "VisionQuad").ToList();
+        List<TileHighlighter> empHighlighter = GetComponentsInChildren<TileHighlighter>().Where(x => x.gameObject.name == "EMPQuad").ToList();
+        moveQuad = moveHighlighter[0];
+        visionQuad = visionHighlighter[0];
+        empQuad = empHighlighter[0];
+    }
 }
 
 
