@@ -72,21 +72,43 @@ public class EMP_Device : Item {
     }
 
     /// <summary>
-    /// FInd tile in range and change the color of the toggle if it is on
+    /// Find tiles in range and change the color of the toggle if it is on
     /// </summary>
     public void OnToggleValueChanged() {
+        ChangeButtonStyle();
+        HandleTilesWithinRange();
+    }
+
+    /// <summary>
+    /// Change the style of the button depending on the toggle state
+    /// </summary>
+    void ChangeButtonStyle() {
         // Change color
         ColorBlock colorBlock = toggleEMP.colors;
         colorBlock.normalColor = (toggleEMP.isOn) ? (colorToggleOn) : (Color.white);
         colorBlock.selectedColor = colorBlock.normalColor;
         toggleEMP.colors = colorBlock;
-        
-        // Find tiles in range
+    }
+
+    /// <summary>
+    /// Depending on the state of the toggle, highlight the tiles in range or turn them off
+    /// </summary>
+    void HandleTilesWithinRange() { 
         if (toggleEMP.isOn) {
             FindTilesWithinRange();
         } else {
-            listRangeTiles.Clear();
+            ClearEmpTiles();
         }
+    }
+
+    /// <summary>
+    /// Clear all the tiles within range of the EMP
+    /// </summary>
+    void ClearEmpTiles() { 
+        foreach (var tile in listRangeTiles) {
+            tile.empQuad.TurnHighlighterOff();
+        }
+        listRangeTiles.Clear();
     }
 
     /// <summary>
@@ -94,15 +116,28 @@ public class EMP_Device : Item {
     /// </summary>
     void FindTilesWithinRange() {
         TurnManager turnManager = TurnManager.instance;
-        listRangeTiles.Clear();
+        ClearEmpTiles();
 
+        // Find tiles in each grid and highlight them
         foreach (var grid in turnManager.listGrids) {
             foreach (var tile in grid.listGridTiles) {
                 if (Vector3.Magnitude(turnManager.thief.currentTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
                     listRangeTiles.Add(tile);
+                    tile.empQuad.ChangeColorToEmp();
+                    tile.empQuad.TurnHighlighterOn();
                 }
             }
         }
     }
+
+    ///// <summary>
+    ///// Highlight tiles that are in range of the EMP
+    ///// </summary>
+    //public void HighlightEmpTiles() { 
+    //    foreach (var tile in listRangeTiles) {
+    //        tile.empQuad.ChangeColorToEmp();
+    //        tile.empQuad.TurnHighlighterOn();
+    //    }
+    //}
 
 }

@@ -38404,7 +38404,14 @@ MonoBehaviour:
   thiefLosePanel: {fileID: 1543741492}
   needKeycardPanel: {fileID: 1921035401}
   needTreasurePanel: {fileID: 1921035400}
-  listGrids: []
+  listGrids:
+  - {fileID: 1183770450}
+  - {fileID: 1638633886}
+  - {fileID: 2095320821}
+  - {fileID: 1506846906}
+  - {fileID: 2048769943}
+  - {fileID: 1115220461}
+  - {fileID: 768819839}
 --- !u!4 &1007163571
 Transform:
   m_ObjectHideFlags: 0
@@ -40764,6 +40771,11 @@ PrefabInstance:
         type: 3}
       propertyPath: colorToggleOn.a
       value: 0.72156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688168971838994637, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
+        type: 3}
+      propertyPath: fltRange
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2030885174939452463, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
         type: 3}
