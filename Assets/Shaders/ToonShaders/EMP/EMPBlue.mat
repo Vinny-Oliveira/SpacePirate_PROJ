@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DarkBrown
+  m_Name: EMPBlue
   m_Shader: {fileID: -6465566751694194690, guid: 789351e9bb47f7647889b3badb9d0a41,
     type: 3}
   m_ShaderKeywords: 
@@ -56,10 +56,10 @@ Material:
     - Boolean_464BB1BC: 1
     - Boolean_5C198B3B: 0
     - Boolean_73B1BE0E: 0
-    - Vector1_33FC2446: 0.253
-    - Vector1_91056C74: 0.305
-    - Vector1_BE7D7EC2: 0.684
-    - Vector1_FCF7FE9C: 0.446
+    - Vector1_33FC2446: 0.469
+    - Vector1_91056C74: 0.716
+    - Vector1_BE7D7EC2: 1
+    - Vector1_FCF7FE9C: 0.541
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -82,9 +82,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_2A80489D: {r: 0.49803922, g: 0.41568628, b: 0.65882355, a: 0}
+    - Color_2A80489D: {r: 0, g: 0.9999995, b: 1, a: 0}
     - Color_86D34E40: {r: 0.3882353, g: 0.3529412, b: 0.31764707, a: 0}
-    - Color_F3335FBF: {r: 0.48239538, g: 0.3882353, b: 0.65882355, a: 0}
+    - Color_F3335FBF: {r: 0, g: 0.5208678, b: 1, a: 1}
+    - Vector2_4509CBB6: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_7A68A04B: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
