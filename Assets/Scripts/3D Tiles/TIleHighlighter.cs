@@ -38,21 +38,21 @@ public class TileHighlighter : MonoBehaviour {
     /// <summary>
     /// Change the color of the shader to match the Thief range color
     /// </summary>
-    public void ChangeColorToThiefRange() {
+    public void ChangeColorToThiefMove() {
         ChangeColor(colorThiefRangeTag);
     }
 
-    /// <summary>
-    /// Change the color of the shader to match the Thief path color
-    /// </summary>
-    public void ChangeColorToThiefPath() {
-        ChangeColor(colorThiefPathTag);
-    }
+    ///// <summary>
+    ///// Change the color of the shader to match the Thief path color
+    ///// </summary>
+    //public void ChangeColorToThiefPath() {
+    //    ChangeColor(colorThiefPathTag);
+    //}
 
     /// <summary>
     /// Change the color of the shader to match the Cube's field of view color
     /// </summary>
-    public void ChangeColorToCubeView() {
+    public void ChangeColorToEnemyVision() {
         ChangeColor(colorCubeViewTag);
     }
 

@@ -25,7 +25,7 @@ public class Enemy : Character {
     /// </summary>
     public void HighlightFieldOfView() { 
         foreach (var tile in listFieldOfView) {
-            tile.visionQuad.ChangeColorToCubeView();
+            tile.visionQuad.ChangeColorToEnemyVision();
             tile.visionQuad.TurnHighlighterOn();
         }
     }

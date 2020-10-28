@@ -137,7 +137,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
         // The current tile or the tile in the end of the path can be clicked again
         if (!thief.IsTileOnPath(this)) { 
-            moveQuad.ChangeColorToThiefRange();
+            moveQuad.ChangeColorToThiefMove();
             moveQuad.TurnHighlighterOn();
         }
         thief.AddTileToTargets(this);
@@ -147,7 +147,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
             if (tile.IsWalkable()) { // Non-walkable tiles are not added
                 
                 if (!thief.IsTileOnPath(tile)) { // Do not highlight tiles that are already on the path
-                    tile.moveQuad.ChangeColorToThiefRange();
+                    tile.moveQuad.ChangeColorToThiefMove();
                     tile.moveQuad.TurnHighlighterOn();
                 }
 
