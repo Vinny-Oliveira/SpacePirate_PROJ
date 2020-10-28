@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2087391329799321838}
   - component: {fileID: 3616480927257520209}
   - component: {fileID: 3944833173059246456}
+  - component: {fileID: 5000209707878888179}
   m_Layer: 11
   m_Name: MoveQuad
   m_TagString: Untagged
@@ -94,6 +95,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5000209707878888179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394795872367756664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40674476915e0f846b904ad0e69c396e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightQuad: {fileID: 394795872367756664}
 --- !u!1 &3324571549623082284
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +212,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4602546010669599349}
   - component: {fileID: 3814615415496734184}
-  - component: {fileID: 2646917209192786611}
   - component: {fileID: 3284264613552180475}
   m_Layer: 11
   m_Name: WiredTile_Light
@@ -240,21 +253,10 @@ MonoBehaviour:
   coordinates: {x: 0, y: 0, z: 0}
   tileType: 0
   listNeighbors: []
-  tileHighlighter: {fileID: 2646917209192786611}
+  moveQuad: {fileID: 5000209707878888179}
+  visionQuad: {fileID: 919129353561636456}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
---- !u!114 &2646917209192786611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788749507725496527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40674476915e0f846b904ad0e69c396e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightQuad: {fileID: 394795872367756664}
 --- !u!65 &3284264613552180475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -280,6 +282,7 @@ GameObject:
   - component: {fileID: 8888957969459106711}
   - component: {fileID: 4244031831789525682}
   - component: {fileID: 3593140997353864052}
+  - component: {fileID: 919129353561636456}
   m_Layer: 11
   m_Name: VisionQuad
   m_TagString: Untagged
@@ -362,3 +365,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &919129353561636456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650774971814442061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40674476915e0f846b904ad0e69c396e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightQuad: {fileID: 6650774971814442061}

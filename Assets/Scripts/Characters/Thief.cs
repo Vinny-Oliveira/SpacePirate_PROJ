@@ -135,7 +135,7 @@ public class Thief : Character {
         // Deactivate shaders and update counter
         listPathTiles.RemoveAt(0);
         if (!listPathTiles.Contains(nextTile)) { 
-            nextTile.tileHighlighter.TurnHighlighterOff();
+            nextTile.moveQuad.TurnHighlighterOff();
         }
         HighlightPathTiles();
         DisplayMoveCounter();
@@ -151,7 +151,7 @@ public class Thief : Character {
     public void TurnTargetTilesOff() { 
         foreach (var tile in listTargetTiles) {
             if (!listPathTiles.Contains(tile)) { 
-                tile.tileHighlighter.TurnHighlighterOff();
+                tile.moveQuad.TurnHighlighterOff();
             }
         }
 
@@ -200,8 +200,8 @@ public class Thief : Character {
     /// </summary>
     public void HighlightPathTiles() { 
         foreach (var tile in listPathTiles) {
-            tile.tileHighlighter.ChangeColorToThiefPath();
-            tile.tileHighlighter.TurnHighlighterOn();
+            tile.moveQuad.ChangeColorToThiefPath();
+            tile.moveQuad.TurnHighlighterOn();
         }
     }
 
@@ -218,7 +218,7 @@ public class Thief : Character {
     /// </summary>
     public void ClearPath() {
         foreach (var tile in listPathTiles) {
-            tile.tileHighlighter.TurnHighlighterOff();
+            tile.moveQuad.TurnHighlighterOff();
         }
         listPathTiles.Clear();
         DisplayMoveCounter();
