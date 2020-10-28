@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8804572777914817559
 Transform:
   m_ObjectHideFlags: 0
@@ -252,6 +252,8 @@ MonoBehaviour:
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
   intRange: 5
+  ghostPrefab: {fileID: 0}
+  listGhosts: []
   mainCamera: {fileID: 0}
   tmpMoveCount: {fileID: 0}
   maxRangeColor: {r: 1, g: 0.7756624, b: 0.15686274, a: 1}

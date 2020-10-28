@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     [Header("Control Path")]
     public ETileType tileType;
     public List<Tile> listNeighbors;
+    public GameObject GhostThief { get; set; }
 
     [Header("Highlight Quads")]
     //public TileHighlighter tileHighlighter;
@@ -119,7 +120,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         Thief thief = TurnManager.instance.thief;
         
         thief.TurnTargetTilesOff();
-        TurnManager.instance.HighlightCubesFieldsOfView();
+        //TurnManager.instance.HighlightCubesFieldsOfView();
         thief.HighlightPathTiles();
         thief.DisplayMoveCounter();
 
@@ -196,6 +197,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
     #endregion
 
+    #region EDITOR_USE
+
     /// <summary>
     /// EDITOR USE
     /// Add the Quad gameObjects to the tile highlighters
@@ -209,6 +212,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         visionQuad = visionHighlighter[0];
         empQuad = empHighlighter[0];
     }
+
+    #endregion
 }
 
 

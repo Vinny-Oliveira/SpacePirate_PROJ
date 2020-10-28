@@ -10,10 +10,12 @@ public class Thief : Character {
     [SerializeField]
     int intRange = 2;
 
-    /* Path Control */
+    [Header("Path Control")]
     Tile targetTile;
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
+    public GameObject ghostPrefab;
+    public List<GameObject> listGhosts = new List<GameObject>();
 
     /// <summary>
     /// Last tile in the list of path tiles
@@ -212,6 +214,8 @@ public class Thief : Character {
     /// <param name="tile"></param>
     public void AddTileToPath(Tile tile) {
         listPathTiles.Add(tile);
+        tile.moveQuad.TurnHighlighterOff();
+        AddGhostToPath(ref tile);
     }
 
     /// <summary>
@@ -355,6 +359,36 @@ public class Thief : Character {
         if (emp) { 
             emp.ChargeOneTurn(); 
         }
+    }
+
+    #endregion
+
+    #region GHOST_POOLING
+
+    /// <summary>
+    /// Get a Ghost game object from the object pool
+    /// </summary>
+    /// <returns></returns>
+    GameObject GhostPooling() { 
+        if (listGhosts.Count > 0) {
+            return listGhosts[0];
+        }
+
+        GameObject ghost = Instantiate(ghostPrefab);
+        ghost.SetActive(false);
+        return ghost;
+    }
+
+    /// <summary>
+    /// Get a ghost from the ghost pool and place it on a path tile
+    /// </summary>
+    /// <param name="tile"></param>
+    void AddGhostToPath(ref Tile tile) {
+        GameObject ghost = GhostPooling();
+        listGhosts.RemoveAt(0);
+        ghost.transform.position = new Vector3(tile.transform.position.x, transform.position.y, tile.transform.position.z);
+        ghost.SetActive(true);
+        tile.GhostThief = ghost;
     }
 
     #endregion
