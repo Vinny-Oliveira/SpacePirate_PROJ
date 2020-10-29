@@ -13,6 +13,14 @@ public class CameraPanZoom : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        PanCamera();
+        Zoom(Input.GetAxis("Mouse ScrollWheel"));
+    }
+
+    /// <summary>
+    /// Pan the camera on the scene
+    /// </summary>
+    void PanCamera() {
         // Middle mouse click start
         if (Input.GetMouseButtonDown(2)) {
             clickStart = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -29,9 +37,6 @@ public class CameraPanZoom : MonoBehaviour {
 
             counterFollow.UpdateCounterPosition();
         }
-
-        // Zoom in or out using the mouse scroll wheel
-        Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }
 
     /// <summary>
