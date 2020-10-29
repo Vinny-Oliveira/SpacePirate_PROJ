@@ -64,7 +64,9 @@ public class Enemy : Character {
     public void DisableEnemy(int turns) {
         IsDisabled = true;
         intWaitTurns = turns;
-        if (visionCones) { visionCones.SetActive(false); }
+        if (visionCones) { 
+            visionCones.SetActive(false); 
+        }
         DisableFieldOfView();
     }
 
@@ -73,7 +75,9 @@ public class Enemy : Character {
     /// </summary>
     public virtual void EnableEnemy() { 
         IsDisabled = false;
-        if (visionCones) { visionCones.SetActive(true); }
+        if (visionCones) { 
+            visionCones.SetActive(true); 
+        }
     }
 
     /// <summary>

@@ -78,8 +78,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     private void OnMouseOver() {
         if (Input.GetMouseButtonDown(1) && TurnManager.instance.CanClick) { // Right click
             RemoveFromPath();
-        } else if (Input.GetMouseButtonDown(2)) { // Middle click
-            TurnManager.instance.thief.ResetPath();
+        //} else if (Input.GetMouseButtonDown(2)) { // Middle click
+        //    TurnManager.instance.thief.ResetPath();
         }
     }
 
