@@ -22367,6 +22367,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 506523928}
     m_Modifications:
+    - target: {fileID: 2781882274508739932, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8494083710651096755, guid: 0af6766d7ba3e8d49bf30ae291e07372,
+        type: 3}
     - target: {fileID: 6310291422752031928, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
         type: 3}
       propertyPath: m_Name
@@ -35757,6 +35763,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1699345947}
     m_Modifications:
+    - target: {fileID: 2781882274508739932, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 8494083710651096755, guid: 0af6766d7ba3e8d49bf30ae291e07372,
+        type: 3}
     - target: {fileID: 6310291422752031928, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
         type: 3}
       propertyPath: m_Name
@@ -36976,7 +36988,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.44
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -37000,7 +37012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.27781588, y: -0.36497167, z: 0.1150751, w: 0.8811196}
-  m_LocalPosition: {x: -16.14, y: 4.5, z: 4.11}
+  m_LocalPosition: {x: -3.83, y: 4.5, z: 0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51122,12 +51134,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 997bbe0b8cd374540b0cfde9f3145167, type: 2}
+      objectReference: {fileID: 2100000, guid: b510052bbe4edfa4e849841968e50eb6, type: 2}
     - target: {fileID: 6722152090652845857, guid: 3e65c4e235f6579448b90c09cb82de36,
         type: 3}
       propertyPath: placeTile
       value: 
       objectReference: {fileID: 1119287610}
+    - target: {fileID: 8086875579022931125, guid: 3e65c4e235f6579448b90c09cb82de36,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b510052bbe4edfa4e849841968e50eb6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e65c4e235f6579448b90c09cb82de36, type: 3}
 --- !u!4 &1299540437 stripped
@@ -85606,6 +85623,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4368252889361704660, guid: 6ae9eb3015c47e743b79be4b9c8053de,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49880886ca96dd54e8acfa5ad8adaf43, type: 2}
     - target: {fileID: 6014218356110609703, guid: 6ae9eb3015c47e743b79be4b9c8053de,
         type: 3}
       propertyPath: placeTile
