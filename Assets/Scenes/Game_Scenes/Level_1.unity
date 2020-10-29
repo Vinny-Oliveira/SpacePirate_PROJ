@@ -35392,6 +35392,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -35495,6 +35496,23 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a12ba3d9bea8d46b777620a94bc27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 963194227}
+  fltMaxRadius: 15
+  fltZoomOutMin: 1
+  fltZoomOutMax: 8
+  counterFollow: {fileID: 1190933905}
 --- !u!1 &971911632
 GameObject:
   m_ObjectHideFlags: 0
@@ -43789,6 +43807,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85738d7ece5fd8e4a9cc946803c8f121, type: 3}
+--- !u!114 &1190933905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2374302590154838482, guid: 85738d7ece5fd8e4a9cc946803c8f121,
+    type: 3}
+  m_PrefabInstance: {fileID: 1190933904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c66d896dfb330d4090e9455ba9c48cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191226452
 GameObject:
   m_ObjectHideFlags: 0

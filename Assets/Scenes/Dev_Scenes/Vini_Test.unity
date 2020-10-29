@@ -35405,7 +35405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 963194227}
-  fltMaxRadius: 20
+  fltMaxRadius: 15
   fltZoomOutMin: 1
   fltZoomOutMax: 8
   counterFollow: {fileID: 1943567393}
