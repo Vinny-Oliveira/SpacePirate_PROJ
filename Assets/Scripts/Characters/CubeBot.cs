@@ -44,7 +44,8 @@ public class CubeBot : Enemy {
     /// <summary>
     /// Setup all initial values for the cube
     /// </summary>
-    public void SetupCubeStart() {
+    public void SetupCubeStart(int rolls) {
+        intRollsPerTurn = rolls;
         IsMoving = false;
         CanStep = true;
         IsDisabled = false;
@@ -157,13 +158,12 @@ public class CubeBot : Enemy {
                 // Position cube on the tile and turn field of view on
                 MoveToTile(ref nextTile);
                 SetFieldOfView();
-
-                // Wait
-                yield return StartCoroutine(WaitOnTile());
             }
 
+            // Wait
             CanStep = true;
-            //yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+            yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+            yield return StartCoroutine(WaitOnTile());
 
             // Check if the thief was caught
             if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {

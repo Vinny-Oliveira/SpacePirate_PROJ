@@ -6,6 +6,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour {
 
     [Header("Characters and Items")]
+    public int intSteps = 5;
     public Thief thief;
     public Treasure treasure;
     public List<CubeBot> listCubes;
@@ -48,10 +49,10 @@ public class TurnManager : MonoBehaviour {
     /// Trigger the startup functions of all Characters
     /// </summary>
     void SetupCharacters() { 
-        thief.SetupThief();
+        thief.SetupThief(intSteps);
 
         foreach (var cube in listCubes) {
-            cube.SetupCubeStart();
+            cube.SetupCubeStart(intSteps);
         }
 
         foreach (var secCam in listSecCams) {
@@ -174,6 +175,7 @@ public class TurnManager : MonoBehaviour {
         intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
         thief.TryToActivateEMP();
+        thief.counterFollow.counterLable.gameObject.SetActive(false);
 
         // Play actions
         thief.TurnTargetTilesOff();
@@ -244,6 +246,7 @@ public class TurnManager : MonoBehaviour {
     void EnableThief() {
         CanClick = true;
         btnEndTurn.interactable = true;
+        thief.counterFollow.counterLable.gameObject.SetActive(true);
         //thief.ChargeEMP();
         thief.StartNewPath();
     }

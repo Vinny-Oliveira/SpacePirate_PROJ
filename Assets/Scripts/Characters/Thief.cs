@@ -7,7 +7,6 @@ using DG.Tweening;
 public class Thief : Character {
 
     [Header("Movement Range")]
-    [SerializeField]
     int intRange = 2;
 
     [Header("Path Control")]
@@ -46,7 +45,8 @@ public class Thief : Character {
     /// <summary>
     /// Startup for the Thief
     /// </summary>
-    public void SetupThief() {
+    public void SetupThief(int range) {
+        intRange = range;
         IsMoving = false;
         CanStep = true;
         HasTreasure = false;
@@ -94,9 +94,9 @@ public class Thief : Character {
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {
-        yield return StartCoroutine(base.WaitOnTile());
         CanStep = true;
-        //yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+        yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+        yield return StartCoroutine(base.WaitOnTile());
 
         TurnManager turnManager = TurnManager.instance;
 
@@ -286,7 +286,7 @@ public class Thief : Character {
             tmpMoveCount.color = maxRangeColor;
         }
 
-        tmpMoveCount.text = listPathTiles.Count.ToString() + "/" + intRange;
+        tmpMoveCount.text = (intRange - listPathTiles.Count).ToString() + "/" + intRange;
     }
 
     #endregion
