@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -24898,7 +24898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 2048769943}
   coordinates: {x: 0, y: 0, z: 2}
-  tileType: 0
+  tileType: 2
   listNeighbors:
   - {fileID: 1561609774}
   - {fileID: 1771388365}
@@ -27867,7 +27867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 2095320821}
   coordinates: {x: 1, y: 0, z: 0}
-  tileType: 2
+  tileType: 0
   listNeighbors:
   - {fileID: 1245950806}
   - {fileID: 1511347903}
@@ -51353,7 +51353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 2095320821}
   coordinates: {x: 3, y: 0, z: 0}
-  tileType: 2
+  tileType: 0
   listNeighbors:
   - {fileID: 1511347903}
   - {fileID: 46298202}
@@ -81731,7 +81731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 2048769943}
   coordinates: {x: 2, y: 0, z: 2}
-  tileType: 0
+  tileType: 2
   listNeighbors:
   - {fileID: 1511347903}
   - {fileID: 164177247}
