@@ -96,7 +96,7 @@ public class Thief : Character {
     protected override IEnumerator WaitOnTile() {
         yield return StartCoroutine(base.WaitOnTile());
         CanStep = true;
-        yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+        //yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
 
         TurnManager turnManager = TurnManager.instance;
 

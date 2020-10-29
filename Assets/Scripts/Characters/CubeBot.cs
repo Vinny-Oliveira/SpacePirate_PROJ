@@ -163,7 +163,7 @@ public class CubeBot : Enemy {
             }
 
             CanStep = true;
-            yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+            //yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
 
             // Check if the thief was caught
             if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
