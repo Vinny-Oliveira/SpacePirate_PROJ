@@ -21,6 +21,7 @@ public class TurnManager : MonoBehaviour {
     [Header("UI Images and Panels")]
     public GameObject keycard_Image;
     public GameObject treasure_Image;
+    public GameObject thiefGamePanel;
     public GameObject thiefWinPanel;
     public GameObject thiefLosePanel;
     public GameObject needKeycardPanel;
@@ -286,6 +287,7 @@ public class TurnManager : MonoBehaviour {
     bool HandleThiefCaught() {
         thief.ClearPath();
         Debug.Log("THIEF CAUGHT!");
+        thiefGamePanel.SetActive(false);
         thiefLosePanel.SetActive(true);
         return true;
     }
@@ -308,6 +310,7 @@ public class TurnManager : MonoBehaviour {
         if (CanThiefEscape()) {
             thief.ClearPath();
             Debug.Log("THIEF ESCAPED");
+            thiefGamePanel.SetActive(false);
             thiefWinPanel.SetActive(true);
             return true;
         }
