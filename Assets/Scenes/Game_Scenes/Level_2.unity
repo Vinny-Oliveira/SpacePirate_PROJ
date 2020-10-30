@@ -63430,7 +63430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 1115220461}
   coordinates: {x: 0, y: 0, z: 2}
-  tileType: 2
+  tileType: 0
   listNeighbors:
   - {fileID: 785034266}
   - {fileID: 145520043}
