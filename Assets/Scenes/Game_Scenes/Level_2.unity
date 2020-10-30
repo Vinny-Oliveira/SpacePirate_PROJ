@@ -28581,6 +28581,7 @@ MonoBehaviour:
   - {fileID: 323532309}
   - {fileID: 158840855}
   - {fileID: 2126164771}
+  - {fileID: 1306758727}
   moveQuad: {fileID: 1212559483}
   visionQuad: {fileID: 824953195}
   empQuad: {fileID: 1928568212}
@@ -31843,6 +31844,7 @@ MonoBehaviour:
   - {fileID: 1511347903}
   - {fileID: 2054105162}
   - {fileID: 323532309}
+  - {fileID: 730756277}
   moveQuad: {fileID: 361719844}
   visionQuad: {fileID: 609744094}
   empQuad: {fileID: 1464193107}
@@ -38720,7 +38722,7 @@ MonoBehaviour:
   btnEndTurn: {fileID: 2129363437}
   keycard_Image: {fileID: 123729549}
   treasure_Image: {fileID: 676490251}
-  thiefGamePanel: {fileID: 0}
+  thiefGamePanel: {fileID: 1263113898}
   thiefWinPanel: {fileID: 607960480}
   thiefLosePanel: {fileID: 1543741492}
   needKeycardPanel: {fileID: 1921035401}
@@ -49130,6 +49132,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightQuad: {fileID: 1260552522}
+--- !u!1 &1263113898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7220968534858441641, guid: 2107aa9a84051dd47878cc73d5eee266,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921035399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1263442375
 GameObject:
   m_ObjectHideFlags: 0
@@ -59796,6 +59804,8 @@ MonoBehaviour:
   - {fileID: 667449392}
   - {fileID: 1561609774}
   - {fileID: 1965823957}
+  - {fileID: 730756277}
+  - {fileID: 1306758727}
   moveQuad: {fileID: 243045337}
   visionQuad: {fileID: 831083401}
   empQuad: {fileID: 857181687}
@@ -85441,6 +85451,8 @@ MonoBehaviour:
   - {fileID: 323532309}
   - {fileID: 771053177}
   - {fileID: 158840855}
+  - {fileID: 1306758727}
+  - {fileID: 730756277}
   moveQuad: {fileID: 180523056}
   visionQuad: {fileID: 1135253315}
   empQuad: {fileID: 1757959181}
