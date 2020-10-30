@@ -38720,6 +38720,7 @@ MonoBehaviour:
   btnEndTurn: {fileID: 2129363437}
   keycard_Image: {fileID: 123729549}
   treasure_Image: {fileID: 676490251}
+  thiefGamePanel: {fileID: 0}
   thiefWinPanel: {fileID: 607960480}
   thiefLosePanel: {fileID: 1543741492}
   needKeycardPanel: {fileID: 1921035401}
@@ -40706,21 +40707,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894307649}
     m_Modifications:
-    - target: {fileID: 733088764239341801, guid: a9ed3a15a87139c479b1d5a3154a4428,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 1159236882, guid: a9ed3a15a87139c479b1d5a3154a4428, type: 3}
+      propertyPath: currentTile
       value: 
-      objectReference: {fileID: 2100000, guid: e3653ee8d5bc15341b12fbca8b52c0c8, type: 2}
-    - target: {fileID: 845802159602422665, guid: a9ed3a15a87139c479b1d5a3154a4428,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      objectReference: {fileID: 145520043}
+    - target: {fileID: 1159236882, guid: a9ed3a15a87139c479b1d5a3154a4428, type: 3}
+      propertyPath: currentGrid
       value: 
-      objectReference: {fileID: 2100000, guid: e3653ee8d5bc15341b12fbca8b52c0c8, type: 2}
-    - target: {fileID: 2728240886864594010, guid: a9ed3a15a87139c479b1d5a3154a4428,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e3653ee8d5bc15341b12fbca8b52c0c8, type: 2}
+      objectReference: {fileID: 1115220461}
     - target: {fileID: 2874448095199807774, guid: a9ed3a15a87139c479b1d5a3154a4428,
         type: 3}
       propertyPath: m_Name
@@ -40729,7 +40723,7 @@ PrefabInstance:
     - target: {fileID: 3220012146911777700, guid: a9ed3a15a87139c479b1d5a3154a4428,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.314
+      value: -14.171
       objectReference: {fileID: 0}
     - target: {fileID: 3220012146911777700, guid: a9ed3a15a87139c479b1d5a3154a4428,
         type: 3}
@@ -40781,21 +40775,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614531403108423240, guid: a9ed3a15a87139c479b1d5a3154a4428,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e3653ee8d5bc15341b12fbca8b52c0c8, type: 2}
-    - target: {fileID: 3823233875770343473, guid: a9ed3a15a87139c479b1d5a3154a4428,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e3653ee8d5bc15341b12fbca8b52c0c8, type: 2}
-    - target: {fileID: 6047548671660290371, guid: a9ed3a15a87139c479b1d5a3154a4428,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e3653ee8d5bc15341b12fbca8b52c0c8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ed3a15a87139c479b1d5a3154a4428, type: 3}
 --- !u!1 &1086255684
@@ -44931,60 +44910,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightQuad: {fileID: 1159022310}
---- !u!1 &1159236880 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2874448095199807774, guid: a9ed3a15a87139c479b1d5a3154a4428,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079085573}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1159236881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3220012146911777700, guid: a9ed3a15a87139c479b1d5a3154a4428,
     type: 3}
   m_PrefabInstance: {fileID: 1079085573}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1159236882
+--- !u!114 &1159236882 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1159236882, guid: a9ed3a15a87139c479b1d5a3154a4428,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079085573}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159236880}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68e5c93db35caad4c93a93f496f81c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTile: {fileID: 145520043}
-  currentGrid: {fileID: 1115220461}
-  visionCones: {fileID: 0}
-  camPosition: 0
-  centerDirection: 2
-  isForward: 1
-  leftCoords:
-  - {x: -1, y: 0}
-  - {x: -2, y: 0}
-  - {x: -3, y: 0}
-  - {x: -2, y: 1}
-  - {x: -3, y: 1}
-  - {x: -3, y: 2}
-  centerCoords:
-  - {x: 0, y: 1}
-  - {x: 0, y: 2}
-  - {x: 0, y: 3}
-  - {x: -1, y: 2}
-  - {x: -1, y: 3}
-  - {x: -2, y: 3}
-  - {x: 1, y: 2}
-  - {x: 1, y: 3}
-  - {x: 2, y: 3}
-  rightCoords:
-  - {x: 1, y: 0}
-  - {x: 2, y: 0}
-  - {x: 3, y: 0}
-  - {x: 2, y: 1}
-  - {x: 3, y: 1}
-  - {x: 3, y: 2}
 --- !u!1 &1169823098
 GameObject:
   m_ObjectHideFlags: 0
