@@ -36506,6 +36506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fbb035d22854b4faeb658256c5ba19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intSteps: 5
   thief: {fileID: 920789388}
   treasure: {fileID: 1819862891}
   listCubes:
@@ -36518,6 +36519,7 @@ MonoBehaviour:
   btnEndTurn: {fileID: 2129363437}
   keycard_Image: {fileID: 123729549}
   treasure_Image: {fileID: 676490251}
+  thiefGamePanel: {fileID: 1921035405}
   thiefWinPanel: {fileID: 1921035403}
   thiefLosePanel: {fileID: 1543741492}
   needKeycardPanel: {fileID: 1921035401}
@@ -71090,7 +71092,7 @@ PrefabInstance:
     - target: {fileID: 7220968534021114778, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
       propertyPath: m_Name
-      value: PrototypeGame_Canvas
+      value: InGame_Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7469978121327159809, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
@@ -71175,6 +71177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1921035405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7220968534858441641, guid: 2107aa9a84051dd47878cc73d5eee266,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921035399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1923425600
 PrefabInstance:
   m_ObjectHideFlags: 0
