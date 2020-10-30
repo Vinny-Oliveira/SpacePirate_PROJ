@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -40715,6 +40715,11 @@ PrefabInstance:
       propertyPath: currentGrid
       value: 
       objectReference: {fileID: 1115220461}
+    - target: {fileID: 1953131385695602044, guid: a9ed3a15a87139c479b1d5a3154a4428,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2874448095199807774, guid: a9ed3a15a87139c479b1d5a3154a4428,
         type: 3}
       propertyPath: m_Name
@@ -40775,7 +40780,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7196481607993882387, guid: a9ed3a15a87139c479b1d5a3154a4428, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a9ed3a15a87139c479b1d5a3154a4428, type: 3}
 --- !u!1 &1086255684
 GameObject:

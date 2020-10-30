@@ -230,8 +230,8 @@ public class TurnManager : MonoBehaviour {
                 
             // Go to next camera position
             if (!secCam.IsDisabled) {
+                secCam.DisableFieldOfView();
                 secCam.NextPosition();
-                secCam.SetFieldOfView();
                 if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
                     return HandleThiefCaught();
                 }

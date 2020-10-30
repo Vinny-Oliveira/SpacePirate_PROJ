@@ -168,6 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3220012146911777700}
   - component: {fileID: 1159236882}
+  - component: {fileID: 7196481607993882387}
   m_Layer: 0
   m_Name: SecurityCamera
   m_TagString: Untagged
@@ -209,10 +210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
-  visionCones: {fileID: 0}
+  visionCones: {fileID: 8946103362817742336}
   camPosition: 0
   centerDirection: 2
   isForward: 1
+  animator: {fileID: 1953131385695602044}
   leftCoords:
   - {x: -1, y: 0}
   - {x: -2, y: 0}
@@ -237,6 +239,25 @@ MonoBehaviour:
   - {x: 2, y: 1}
   - {x: 3, y: 1}
   - {x: 3, y: 2}
+--- !u!95 &7196481607993882387
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874448095199807774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ab35475ed7680d47bff5a2ac76aa008, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2935603590941474133
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +349,7 @@ GameObject:
   - component: {fileID: 6919368551548708553}
   - component: {fileID: 3823233875770343473}
   - component: {fileID: 1953131385695602044}
+  - component: {fileID: 1131026836101238377}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -416,6 +438,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1131026836101238377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155917865569247779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5495ec474c1f74cba9f092970ccb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  securityCamera: {fileID: 1159236882}
 --- !u!1 &4791075300651086836
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +696,12 @@ PrefabInstance:
 --- !u!4 &2094994667616993588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 460868047471839395, guid: a3ecd230e9ba68a4388596f72571b77e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1979261121089309079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8946103362817742336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7444817544959549335, guid: a3ecd230e9ba68a4388596f72571b77e,
     type: 3}
   m_PrefabInstance: {fileID: 1979261121089309079}
   m_PrefabAsset: {fileID: 0}

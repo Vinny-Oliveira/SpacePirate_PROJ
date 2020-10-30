@@ -15,6 +15,7 @@ public class SecurityCamera : Enemy {
     public EDirection centerDirection;
     [SerializeField]
     bool isForward;
+    public Animator animator;
 
     /* Coordinates of fields of view */
     public List<Vector2> leftCoords = new List<Vector2>();
@@ -75,6 +76,8 @@ public class SecurityCamera : Enemy {
             camPosition = (isForward) ? (camPosition + 1) : (camPosition - 1);
         }
 
+        // Play animation
+        animator.SetTrigger(animator.parameters[0].name);
     }
 
     /// <summary>
