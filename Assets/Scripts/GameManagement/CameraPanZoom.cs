@@ -21,13 +21,13 @@ public class CameraPanZoom : MonoBehaviour {
     /// Pan the camera on the scene
     /// </summary>
     void PanCamera() {
-        // Middle mouse click start
-        if (Input.GetMouseButtonDown(2)) {
+        // Left mouse click start
+        if (Input.GetMouseButtonDown(0)) {
             clickStart = mainCam.ScreenToWorldPoint(Input.mousePosition);
         }
 
-        // Middle mouse click continues down
-        if (Input.GetMouseButton(2)) {
+        // Left mouse click continues down
+        if (Input.GetMouseButton(0)) {
             Vector3 direction = clickStart - mainCam.ScreenToWorldPoint(Input.mousePosition);
             
             // Set bounds to the pan
