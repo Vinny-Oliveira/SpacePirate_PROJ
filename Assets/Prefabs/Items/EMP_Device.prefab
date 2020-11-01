@@ -281,10 +281,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeTile: {fileID: 0}
   fltRange: 666
-  intChargeTurns: 5
   intTurnsAffected: 2
   particle: {fileID: 3820291495535698881}
-  btnActivate_EMP: {fileID: 0}
+  toggleEMP: {fileID: 0}
+  colorToggleOn: {r: 0, g: 0, b: 0, a: 0}
   empBody: {fileID: 3212186412172031383}
 --- !u!1 &3712297506443728545
 GameObject:
@@ -1265,7 +1265,7 @@ PrefabInstance:
     - target: {fileID: 6015569257914219199, guid: 063ff0bddd1049c49bdc55a9b034152f,
         type: 3}
       propertyPath: m_Name
-      value: Particle System
+      value: EMP Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 063ff0bddd1049c49bdc55a9b034152f, type: 3}
