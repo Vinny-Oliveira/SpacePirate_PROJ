@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6049,7 +6049,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'EMP Device: Pick up and use an EMP (electromagnetic pulse) device to temporarily
     take some patrolling robots or security cameras off the grid for the next 2 turns.
-    Use them wisely, as they are one-time-use items, or until you pick-up another.'
+    Use them wisely, as they are one-time-use items until you pick-up another.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 14ff76c35ff2b0541b8c2ab8e2853d3a, type: 2}
   m_sharedMaterial: {fileID: -5621087220304982161, guid: 14ff76c35ff2b0541b8c2ab8e2853d3a,
