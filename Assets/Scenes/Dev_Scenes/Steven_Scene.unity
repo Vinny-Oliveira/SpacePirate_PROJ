@@ -240,7 +240,9 @@ MonoBehaviour:
   - {fileID: 2146382457}
   - {fileID: 2055809403}
   - {fileID: 485291677}
-  tileHighlighter: {fileID: 7565439}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &7565439
 MonoBehaviour:
@@ -513,7 +515,9 @@ MonoBehaviour:
   - {fileID: 2033696613}
   - {fileID: 714110906}
   - {fileID: 563641969}
-  tileHighlighter: {fileID: 17745449}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &17745449
 MonoBehaviour:
@@ -832,7 +836,9 @@ MonoBehaviour:
   - {fileID: 722591319}
   - {fileID: 1317133438}
   - {fileID: 1748542341}
-  tileHighlighter: {fileID: 29875908}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &29875908
 MonoBehaviour:
@@ -916,7 +922,9 @@ MonoBehaviour:
   - {fileID: 124411840}
   - {fileID: 692482183}
   - {fileID: 1934734196}
-  tileHighlighter: {fileID: 30624460}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &30624460
 MonoBehaviour:
@@ -1082,7 +1090,9 @@ MonoBehaviour:
   - {fileID: 1305448418}
   - {fileID: 2141268205}
   - {fileID: 577420949}
-  tileHighlighter: {fileID: 36667650}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &36667650
 MonoBehaviour:
@@ -1356,7 +1366,9 @@ MonoBehaviour:
   - {fileID: 2134334123}
   - {fileID: 303037431}
   - {fileID: 2118867836}
-  tileHighlighter: {fileID: 49069851}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &49069851
 MonoBehaviour:
@@ -1443,7 +1455,9 @@ MonoBehaviour:
   - {fileID: 765887336}
   - {fileID: 1870590791}
   - {fileID: 260527185}
-  tileHighlighter: {fileID: 50930685}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &50930685
 MonoBehaviour:
@@ -1621,7 +1635,9 @@ MonoBehaviour:
   - {fileID: 954657958}
   - {fileID: 2106357006}
   - {fileID: 991387786}
-  tileHighlighter: {fileID: 62041930}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &62041930
 MonoBehaviour:
@@ -1708,7 +1724,9 @@ MonoBehaviour:
   - {fileID: 510608232}
   - {fileID: 1327298948}
   - {fileID: 1888114101}
-  tileHighlighter: {fileID: 64074135}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &64074135
 MonoBehaviour:
@@ -2014,7 +2032,9 @@ MonoBehaviour:
   - {fileID: 1934734196}
   - {fileID: 30624459}
   - {fileID: 1818078934}
-  tileHighlighter: {fileID: 91439441}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &91439441
 MonoBehaviour:
@@ -2101,7 +2121,9 @@ MonoBehaviour:
   - {fileID: 2065525226}
   - {fileID: 781348824}
   - {fileID: 1022595798}
-  tileHighlighter: {fileID: 99685854}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &99685854
 MonoBehaviour:
@@ -2279,7 +2301,9 @@ MonoBehaviour:
   - {fileID: 2055809403}
   - {fileID: 1916725124}
   - {fileID: 2146382457}
-  tileHighlighter: {fileID: 103479139}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &103479139
 MonoBehaviour:
@@ -2631,7 +2655,9 @@ MonoBehaviour:
   - {fileID: 1783169778}
   - {fileID: 1964175008}
   - {fileID: 650666369}
-  tileHighlighter: {fileID: 121563237}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &121563237
 MonoBehaviour:
@@ -2809,7 +2835,9 @@ MonoBehaviour:
   - {fileID: 901796308}
   - {fileID: 934646363}
   - {fileID: 1818078934}
-  tileHighlighter: {fileID: 124411841}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &124411841
 MonoBehaviour:
@@ -2893,7 +2921,9 @@ MonoBehaviour:
   - {fileID: 888575989}
   - {fileID: 1408414430}
   - {fileID: 1218843992}
-  tileHighlighter: {fileID: 127763191}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &127763191
 MonoBehaviour:
@@ -3074,7 +3104,9 @@ MonoBehaviour:
   - {fileID: 2118867836}
   - {fileID: 692482183}
   - {fileID: 1870590791}
-  tileHighlighter: {fileID: 137322721}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &137322721
 MonoBehaviour:
@@ -3519,7 +3551,9 @@ MonoBehaviour:
   - {fileID: 62041929}
   - {fileID: 722591319}
   - {fileID: 1748542341}
-  tileHighlighter: {fileID: 161861296}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &161861296
 MonoBehaviour:
@@ -3981,7 +4015,9 @@ MonoBehaviour:
   - {fileID: 494432578}
   - {fileID: 1022597940}
   - {fileID: 1133032789}
-  tileHighlighter: {fileID: 191153075}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &191153075
 MonoBehaviour:
@@ -4943,7 +4979,9 @@ MonoBehaviour:
   - {fileID: 2140410217}
   - {fileID: 545620733}
   - {fileID: 1317133438}
-  tileHighlighter: {fileID: 260527186}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &260527186
 MonoBehaviour:
@@ -5511,7 +5549,9 @@ MonoBehaviour:
   - {fileID: 2104290648}
   - {fileID: 1553333514}
   - {fileID: 1277132350}
-  tileHighlighter: {fileID: 291164689}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &291164689
 MonoBehaviour:
@@ -5598,7 +5638,9 @@ MonoBehaviour:
   - {fileID: 1014768198}
   - {fileID: 577420949}
   - {fileID: 873744871}
-  tileHighlighter: {fileID: 294859856}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &294859856
 MonoBehaviour:
@@ -5936,7 +5978,9 @@ MonoBehaviour:
   - {fileID: 49069850}
   - {fileID: 901796308}
   - {fileID: 137322720}
-  tileHighlighter: {fileID: 303037432}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &303037432
 MonoBehaviour:
@@ -6260,7 +6304,9 @@ MonoBehaviour:
   - {fileID: 1598147142}
   - {fileID: 2118867836}
   - {fileID: 765887336}
-  tileHighlighter: {fileID: 330459221}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &330459221
 MonoBehaviour:
@@ -6535,7 +6581,9 @@ MonoBehaviour:
   - {fileID: 991387786}
   - {fileID: 1888114101}
   - {fileID: 1991985143}
-  tileHighlighter: {fileID: 336357024}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &336357024
 MonoBehaviour:
@@ -7650,7 +7698,9 @@ MonoBehaviour:
   - {fileID: 1863072898}
   - {fileID: 697615494}
   - {fileID: 970887722}
-  tileHighlighter: {fileID: 436722055}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &436722055
 MonoBehaviour:
@@ -7892,7 +7942,9 @@ MonoBehaviour:
   - {fileID: 673094168}
   - {fileID: 1818078934}
   - {fileID: 1713519837}
-  tileHighlighter: {fileID: 451231208}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &451231208
 MonoBehaviour:
@@ -8213,7 +8265,9 @@ MonoBehaviour:
   - {fileID: 1875327526}
   - {fileID: 485291677}
   - {fileID: 2033696613}
-  tileHighlighter: {fileID: 472044811}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &472044811
 MonoBehaviour:
@@ -8300,7 +8354,9 @@ MonoBehaviour:
   - {fileID: 1833223795}
   - {fileID: 797420098}
   - {fileID: 1626917974}
-  tileHighlighter: {fileID: 472093243}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &472093243
 MonoBehaviour:
@@ -8746,7 +8802,9 @@ MonoBehaviour:
   - {fileID: 472044810}
   - {fileID: 1931712750}
   - {fileID: 17745448}
-  tileHighlighter: {fileID: 485291678}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &485291678
 MonoBehaviour:
@@ -8963,7 +9021,9 @@ MonoBehaviour:
   - {fileID: 581151536}
   - {fileID: 191153074}
   - {fileID: 1116300150}
-  tileHighlighter: {fileID: 494432579}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &494432579
 MonoBehaviour:
@@ -9129,7 +9189,9 @@ MonoBehaviour:
   - {fileID: 1277132350}
   - {fileID: 64074134}
   - {fileID: 336357023}
-  tileHighlighter: {fileID: 510608233}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &510608233
 MonoBehaviour:
@@ -9346,7 +9408,9 @@ MonoBehaviour:
   - {fileID: 577420949}
   - {fileID: 1409458045}
   - {fileID: 2134334123}
-  tileHighlighter: {fileID: 518826396}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &518826396
 MonoBehaviour:
@@ -9729,7 +9793,9 @@ MonoBehaviour:
   - {fileID: 731107496}
   - {fileID: 1348470768}
   - {fileID: 1844734225}
-  tileHighlighter: {fileID: 542924317}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &542924317
 MonoBehaviour:
@@ -9816,7 +9882,9 @@ MonoBehaviour:
   - {fileID: 260527185}
   - {fileID: 1028593067}
   - {fileID: 1486808595}
-  tileHighlighter: {fileID: 545620734}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &545620734
 MonoBehaviour:
@@ -10234,7 +10302,9 @@ MonoBehaviour:
   - {fileID: 1218843992}
   - {fileID: 1920574318}
   - {fileID: 472093242}
-  tileHighlighter: {fileID: 563641970}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &563641970
 MonoBehaviour:
@@ -10803,7 +10873,9 @@ MonoBehaviour:
   - {fileID: 294859855}
   - {fileID: 518826395}
   - {fileID: 1817071642}
-  tileHighlighter: {fileID: 577420950}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &577420950
 MonoBehaviour:
@@ -10984,7 +11056,9 @@ MonoBehaviour:
   - {fileID: 2145411667}
   - {fileID: 494432578}
   - {fileID: 1672187126}
-  tileHighlighter: {fileID: 581151537}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &581151537
 MonoBehaviour:
@@ -11717,7 +11791,9 @@ MonoBehaviour:
   - {fileID: 1676857199}
   - {fileID: 970887722}
   - {fileID: 191153074}
-  tileHighlighter: {fileID: 617885877}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &617885877
 MonoBehaviour:
@@ -12240,7 +12316,9 @@ MonoBehaviour:
   - {fileID: 1833223795}
   - {fileID: 121563236}
   - {fileID: 731107496}
-  tileHighlighter: {fileID: 650666370}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &650666370
 MonoBehaviour:
@@ -12426,7 +12504,9 @@ MonoBehaviour:
   - {fileID: 1920574318}
   - {fileID: 1672187126}
   - {fileID: 1703582418}
-  tileHighlighter: {fileID: 658081801}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &658081801
 MonoBehaviour:
@@ -12513,7 +12593,9 @@ MonoBehaviour:
   - {fileID: 1870590791}
   - {fileID: 1934734196}
   - {fileID: 1028593067}
-  tileHighlighter: {fileID: 673094169}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &673094169
 MonoBehaviour:
@@ -12691,7 +12773,9 @@ MonoBehaviour:
   - {fileID: 1348959644}
   - {fileID: 1596415717}
   - {fileID: 2106357006}
-  tileHighlighter: {fileID: 689518508}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &689518508
 MonoBehaviour:
@@ -12778,7 +12862,9 @@ MonoBehaviour:
   - {fileID: 137322720}
   - {fileID: 30624459}
   - {fileID: 673094168}
-  tileHighlighter: {fileID: 692482184}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &692482184
 MonoBehaviour:
@@ -12959,7 +13045,9 @@ MonoBehaviour:
   - {fileID: 1022595798}
   - {fileID: 436722054}
   - {fileID: 802423546}
-  tileHighlighter: {fileID: 697615495}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &697615495
 MonoBehaviour:
@@ -13498,7 +13586,9 @@ MonoBehaviour:
   - {fileID: 17745448}
   - {fileID: 2145411667}
   - {fileID: 1920574318}
-  tileHighlighter: {fileID: 714110907}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &714110907
 MonoBehaviour:
@@ -13664,7 +13754,9 @@ MonoBehaviour:
   - {fileID: 954657958}
   - {fileID: 29875907}
   - {fileID: 161861295}
-  tileHighlighter: {fileID: 722591320}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &722591320
 MonoBehaviour:
@@ -13963,7 +14055,9 @@ MonoBehaviour:
   - {fileID: 650666369}
   - {fileID: 542924316}
   - {fileID: 1348959644}
-  tileHighlighter: {fileID: 731107497}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &731107497
 MonoBehaviour:
@@ -14577,7 +14671,9 @@ MonoBehaviour:
   - {fileID: 2033696613}
   - {fileID: 1875327526}
   - {fileID: 1817438761}
-  tileHighlighter: {fileID: 760662571}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &760662571
 MonoBehaviour:
@@ -14758,7 +14854,9 @@ MonoBehaviour:
   - {fileID: 1348470768}
   - {fileID: 50930684}
   - {fileID: 2140410217}
-  tileHighlighter: {fileID: 765887337}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &765887337
 MonoBehaviour:
@@ -14987,7 +15085,9 @@ MonoBehaviour:
   - {fileID: 801750736}
   - {fileID: 99685853}
   - {fileID: 697615494}
-  tileHighlighter: {fileID: 781348825}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &781348825
 MonoBehaviour:
@@ -15362,7 +15462,9 @@ MonoBehaviour:
   - {fileID: 472093242}
   - {fileID: 1703582418}
   - {fileID: 1596415717}
-  tileHighlighter: {fileID: 797420099}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &797420099
 MonoBehaviour:
@@ -15525,7 +15627,9 @@ MonoBehaviour:
   - {fileID: 832436014}
   - {fileID: 1172409018}
   - {fileID: 1810305880}
-  tileHighlighter: {fileID: 801750737}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &801750737
 MonoBehaviour:
@@ -15706,7 +15810,9 @@ MonoBehaviour:
   - {fileID: 1807004357}
   - {fileID: 970887722}
   - {fileID: 581151536}
-  tileHighlighter: {fileID: 802423547}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &802423547
 MonoBehaviour:
@@ -16292,7 +16398,9 @@ MonoBehaviour:
   - {fileID: 1172409018}
   - {fileID: 801750736}
   - {fileID: 99685853}
-  tileHighlighter: {fileID: 832436015}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &832436015
 MonoBehaviour:
@@ -16977,7 +17085,9 @@ MonoBehaviour:
   - {fileID: 1439694991}
   - {fileID: 1817071642}
   - {fileID: 1318250739}
-  tileHighlighter: {fileID: 873744872}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &873744872
 MonoBehaviour:
@@ -17390,7 +17500,9 @@ MonoBehaviour:
   - {fileID: 1408414430}
   - {fileID: 127763190}
   - {fileID: 1817438761}
-  tileHighlighter: {fileID: 888575990}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &888575990
 MonoBehaviour:
@@ -17553,7 +17665,9 @@ MonoBehaviour:
   - {fileID: 1022597940}
   - {fileID: 303037431}
   - {fileID: 692482183}
-  tileHighlighter: {fileID: 901796309}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &901796309
 MonoBehaviour:
@@ -17640,7 +17754,9 @@ MonoBehaviour:
   - {fileID: 1523134296}
   - {fileID: 1818078934}
   - {fileID: 1713519837}
-  tileHighlighter: {fileID: 903305430}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &903305430
 MonoBehaviour:
@@ -17892,7 +18008,9 @@ MonoBehaviour:
   - {fileID: 617885876}
   - {fileID: 1409458045}
   - {fileID: 303037431}
-  tileHighlighter: {fileID: 917736425}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &917736425
 MonoBehaviour:
@@ -18073,7 +18191,9 @@ MonoBehaviour:
   - {fileID: 1133032789}
   - {fileID: 124411840}
   - {fileID: 903305429}
-  tileHighlighter: {fileID: 934646364}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &934646364
 MonoBehaviour:
@@ -18612,7 +18732,9 @@ MonoBehaviour:
   - {fileID: 689518507}
   - {fileID: 1844734225}
   - {fileID: 722591319}
-  tileHighlighter: {fileID: 954657959}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &954657959
 MonoBehaviour:
@@ -18872,7 +18994,9 @@ MonoBehaviour:
   - {fileID: 802423546}
   - {fileID: 617885876}
   - {fileID: 494432578}
-  tileHighlighter: {fileID: 970887723}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &970887723
 MonoBehaviour:
@@ -19117,7 +19241,9 @@ MonoBehaviour:
   - {fileID: 62041929}
   - {fileID: 336357023}
   - {fileID: 1180297978}
-  tileHighlighter: {fileID: 991387787}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &991387787
 MonoBehaviour:
@@ -19974,7 +20100,9 @@ MonoBehaviour:
   - {fileID: 1875327526}
   - {fileID: 294859855}
   - {fileID: 1439694991}
-  tileHighlighter: {fileID: 1014768199}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1014768199
 MonoBehaviour:
@@ -20155,7 +20283,9 @@ MonoBehaviour:
   - {fileID: 2055809403}
   - {fileID: 697615494}
   - {fileID: 1807004357}
-  tileHighlighter: {fileID: 1022595799}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1022595799
 MonoBehaviour:
@@ -20239,7 +20369,9 @@ MonoBehaviour:
   - {fileID: 917736424}
   - {fileID: 191153074}
   - {fileID: 934646363}
-  tileHighlighter: {fileID: 1022597941}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1022597941
 MonoBehaviour:
@@ -20326,7 +20458,9 @@ MonoBehaviour:
   - {fileID: 1817438761}
   - {fileID: 1439694991}
   - {fileID: 121563236}
-  tileHighlighter: {fileID: 1025400584}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1025400584
 MonoBehaviour:
@@ -20410,7 +20544,9 @@ MonoBehaviour:
   - {fileID: 1713519837}
   - {fileID: 673094168}
   - {fileID: 545620733}
-  tileHighlighter: {fileID: 1028593068}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1028593068
 MonoBehaviour:
@@ -21408,7 +21544,9 @@ MonoBehaviour:
   - {fileID: 1672187126}
   - {fileID: 1133032789}
   - {fileID: 1927040136}
-  tileHighlighter: {fileID: 1116300151}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1116300151
 MonoBehaviour:
@@ -21841,7 +21979,9 @@ MonoBehaviour:
   - {fileID: 1116300150}
   - {fileID: 934646363}
   - {fileID: 1523134296}
-  tileHighlighter: {fileID: 1133032790}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1133032790
 MonoBehaviour:
@@ -22424,7 +22564,9 @@ MonoBehaviour:
   - {fileID: 99685853}
   - {fileID: 801750736}
   - {fileID: 1916725124}
-  tileHighlighter: {fileID: 1172409019}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1172409019
 MonoBehaviour:
@@ -22508,7 +22650,9 @@ MonoBehaviour:
   - {fileID: 161861295}
   - {fileID: 991387786}
   - {fileID: 1991985143}
-  tileHighlighter: {fileID: 1180297979}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1180297979
 MonoBehaviour:
@@ -22595,7 +22739,9 @@ MonoBehaviour:
   - {fileID: 127763190}
   - {fileID: 563641969}
   - {fileID: 1833223795}
-  tileHighlighter: {fileID: 1218843993}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1218843993
 MonoBehaviour:
@@ -23180,7 +23326,9 @@ MonoBehaviour:
   - {fileID: 2106357006}
   - {fileID: 510608232}
   - {fileID: 991387786}
-  tileHighlighter: {fileID: 1277132351}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1277132351
 MonoBehaviour:
@@ -23822,7 +23970,9 @@ MonoBehaviour:
   - {fileID: 2146382457}
   - {fileID: 36667649}
   - {fileID: 294859855}
-  tileHighlighter: {fileID: 1305448419}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1305448419
 MonoBehaviour:
@@ -24003,7 +24153,9 @@ MonoBehaviour:
   - {fileID: 29875907}
   - {fileID: 1486808595}
   - {fileID: 1555969920}
-  tileHighlighter: {fileID: 1317133439}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1317133439
 MonoBehaviour:
@@ -24090,7 +24242,9 @@ MonoBehaviour:
   - {fileID: 1964175008}
   - {fileID: 1598147142}
   - {fileID: 542924316}
-  tileHighlighter: {fileID: 1318250740}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1318250740
 MonoBehaviour:
@@ -24174,7 +24328,9 @@ MonoBehaviour:
   - {fileID: 545620733}
   - {fileID: 1713519837}
   - {fileID: 64074134}
-  tileHighlighter: {fileID: 1327298949}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1327298949
 MonoBehaviour:
@@ -24256,7 +24412,9 @@ MonoBehaviour:
   - {fileID: 1991985143}
   - {fileID: 1180297978}
   - {fileID: 1748542341}
-  tileHighlighter: {fileID: 1334528704}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1334528704
 MonoBehaviour:
@@ -24343,7 +24501,9 @@ MonoBehaviour:
   - {fileID: 542924316}
   - {fileID: 765887336}
   - {fileID: 1760474891}
-  tileHighlighter: {fileID: 1348470769}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1348470769
 MonoBehaviour:
@@ -24427,7 +24587,9 @@ MonoBehaviour:
   - {fileID: 1626917974}
   - {fileID: 731107496}
   - {fileID: 1844734225}
-  tileHighlighter: {fileID: 1348959645}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1348959645
 MonoBehaviour:
@@ -25462,7 +25624,9 @@ MonoBehaviour:
   - {fileID: 1817438761}
   - {fileID: 2033696613}
   - {fileID: 127763190}
-  tileHighlighter: {fileID: 1408414431}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1408414431
 MonoBehaviour:
@@ -25549,7 +25713,9 @@ MonoBehaviour:
   - {fileID: 518826395}
   - {fileID: 917736424}
   - {fileID: 49069850}
-  tileHighlighter: {fileID: 1409458046}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1409458046
 MonoBehaviour:
@@ -25809,7 +25975,9 @@ MonoBehaviour:
   - {fileID: 1025400583}
   - {fileID: 873744871}
   - {fileID: 1964175008}
-  tileHighlighter: {fileID: 1439694992}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1439694992
 MonoBehaviour:
@@ -26516,7 +26684,9 @@ MonoBehaviour:
   - {fileID: 64074134}
   - {fileID: 545620733}
   - {fileID: 1317133438}
-  tileHighlighter: {fileID: 1486808596}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1486808596
 MonoBehaviour:
@@ -27122,7 +27292,9 @@ MonoBehaviour:
   - {fileID: 1927040136}
   - {fileID: 903305429}
   - {fileID: 1934627665}
-  tileHighlighter: {fileID: 1523134297}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1523134297
 MonoBehaviour:
@@ -27491,7 +27663,9 @@ MonoBehaviour:
   - {fileID: 291164688}
   - {fileID: 1934627665}
   - {fileID: 510608232}
-  tileHighlighter: {fileID: 1553333515}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1553333515
 MonoBehaviour:
@@ -27654,7 +27828,9 @@ MonoBehaviour:
   - {fileID: 336357023}
   - {fileID: 1317133438}
   - {fileID: 1748542341}
-  tileHighlighter: {fileID: 1555969921}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1555969921
 MonoBehaviour:
@@ -28255,7 +28431,9 @@ MonoBehaviour:
   - {fileID: 1626917974}
   - {fileID: 2104290648}
   - {fileID: 689518507}
-  tileHighlighter: {fileID: 1596415718}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1596415718
 MonoBehaviour:
@@ -28342,7 +28520,9 @@ MonoBehaviour:
   - {fileID: 1318250739}
   - {fileID: 330459220}
   - {fileID: 1348470768}
-  tileHighlighter: {fileID: 1598147143}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1598147143
 MonoBehaviour:
@@ -28678,7 +28858,9 @@ MonoBehaviour:
   - {fileID: 650666369}
   - {fileID: 472093242}
   - {fileID: 1596415717}
-  tileHighlighter: {fileID: 1626917975}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1626917975
 MonoBehaviour:
@@ -29491,7 +29673,9 @@ MonoBehaviour:
   - {fileID: 658081800}
   - {fileID: 1116300150}
   - {fileID: 1998067094}
-  tileHighlighter: {fileID: 1672187127}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1672187127
 MonoBehaviour:
@@ -29654,7 +29838,9 @@ MonoBehaviour:
   - {fileID: 436722054}
   - {fileID: 2141268205}
   - {fileID: 1409458045}
-  tileHighlighter: {fileID: 1676857200}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1676857200
 MonoBehaviour:
@@ -30181,7 +30367,9 @@ MonoBehaviour:
   - {fileID: 797420098}
   - {fileID: 1998067094}
   - {fileID: 2104290648}
-  tileHighlighter: {fileID: 1703582419}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1703582419
 MonoBehaviour:
@@ -30362,7 +30550,9 @@ MonoBehaviour:
   - {fileID: 1934627665}
   - {fileID: 451231207}
   - {fileID: 1327298948}
-  tileHighlighter: {fileID: 1713519838}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1713519838
 MonoBehaviour:
@@ -30739,7 +30929,9 @@ MonoBehaviour:
   - {fileID: 161861295}
   - {fileID: 1555969920}
   - {fileID: 1334528703}
-  tileHighlighter: {fileID: 1748542342}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1748542342
 MonoBehaviour:
@@ -31132,7 +31324,9 @@ MonoBehaviour:
   - {fileID: 1844734225}
   - {fileID: 2140410217}
   - {fileID: 722591319}
-  tileHighlighter: {fileID: 1760474892}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1760474892
 MonoBehaviour:
@@ -31389,7 +31583,9 @@ MonoBehaviour:
   - {fileID: 127763190}
   - {fileID: 1817438761}
   - {fileID: 121563236}
-  tileHighlighter: {fileID: 1783169779}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1783169779
 MonoBehaviour:
@@ -31713,7 +31909,9 @@ MonoBehaviour:
   - {fileID: 1931712750}
   - {fileID: 802423546}
   - {fileID: 2145411667}
-  tileHighlighter: {fileID: 1807004358}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1807004358
 MonoBehaviour:
@@ -31879,7 +32077,9 @@ MonoBehaviour:
   - {fileID: 1916725124}
   - {fileID: 1863072898}
   - {fileID: 36667649}
-  tileHighlighter: {fileID: 1810305881}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1810305881
 MonoBehaviour:
@@ -32045,7 +32245,9 @@ MonoBehaviour:
   - {fileID: 873744871}
   - {fileID: 2134334123}
   - {fileID: 1598147142}
-  tileHighlighter: {fileID: 1817071643}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1817071643
 MonoBehaviour:
@@ -32132,7 +32334,9 @@ MonoBehaviour:
   - {fileID: 888575989}
   - {fileID: 1025400583}
   - {fileID: 1783169778}
-  tileHighlighter: {fileID: 1817438762}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1817438762
 MonoBehaviour:
@@ -32219,7 +32423,9 @@ MonoBehaviour:
   - {fileID: 903305429}
   - {fileID: 91439440}
   - {fileID: 451231207}
-  tileHighlighter: {fileID: 1818078935}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1818078935
 MonoBehaviour:
@@ -32397,7 +32603,9 @@ MonoBehaviour:
   - {fileID: 1783169778}
   - {fileID: 1218843992}
   - {fileID: 472093242}
-  tileHighlighter: {fileID: 1833223796}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1833223796
 MonoBehaviour:
@@ -32481,7 +32689,9 @@ MonoBehaviour:
   - {fileID: 485291677}
   - {fileID: 2146382457}
   - {fileID: 1875327526}
-  tileHighlighter: {fileID: 1841152511}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1841152511
 MonoBehaviour:
@@ -32568,7 +32778,9 @@ MonoBehaviour:
   - {fileID: 1348959644}
   - {fileID: 1760474891}
   - {fileID: 954657958}
-  tileHighlighter: {fileID: 1844734226}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1844734226
 MonoBehaviour:
@@ -33044,7 +33256,9 @@ MonoBehaviour:
   - {fileID: 781348824}
   - {fileID: 1810305880}
   - {fileID: 2141268205}
-  tileHighlighter: {fileID: 1863072899}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1863072899
 MonoBehaviour:
@@ -33131,7 +33345,9 @@ MonoBehaviour:
   - {fileID: 50930684}
   - {fileID: 673094168}
   - {fileID: 545620733}
-  tileHighlighter: {fileID: 1870590792}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1870590792
 MonoBehaviour:
@@ -33297,7 +33513,9 @@ MonoBehaviour:
   - {fileID: 760662570}
   - {fileID: 1014768198}
   - {fileID: 1025400583}
-  tileHighlighter: {fileID: 1875327527}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1875327527
 MonoBehaviour:
@@ -33554,7 +33772,9 @@ MonoBehaviour:
   - {fileID: 1317133438}
   - {fileID: 64074134}
   - {fileID: 336357023}
-  tileHighlighter: {fileID: 1888114102}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1888114102
 MonoBehaviour:
@@ -34462,7 +34682,9 @@ MonoBehaviour:
   - {fileID: 103479138}
   - {fileID: 1810305880}
   - {fileID: 1305448418}
-  tileHighlighter: {fileID: 1916725125}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1916725125
 MonoBehaviour:
@@ -34549,7 +34771,9 @@ MonoBehaviour:
   - {fileID: 563641969}
   - {fileID: 658081800}
   - {fileID: 797420098}
-  tileHighlighter: {fileID: 1920574319}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1920574319
 MonoBehaviour:
@@ -34755,7 +34979,9 @@ MonoBehaviour:
   - {fileID: 1998067094}
   - {fileID: 1523134296}
   - {fileID: 1553333514}
-  tileHighlighter: {fileID: 1927040137}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1927040137
 MonoBehaviour:
@@ -34842,7 +35068,9 @@ MonoBehaviour:
   - {fileID: 485291677}
   - {fileID: 1807004357}
   - {fileID: 714110906}
-  tileHighlighter: {fileID: 1931712751}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1931712751
 MonoBehaviour:
@@ -34929,7 +35157,9 @@ MonoBehaviour:
   - {fileID: 1553333514}
   - {fileID: 1713519837}
   - {fileID: 64074134}
-  tileHighlighter: {fileID: 1934627666}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1934627666
 MonoBehaviour:
@@ -35013,7 +35243,9 @@ MonoBehaviour:
   - {fileID: 1818078934}
   - {fileID: 30624459}
   - {fileID: 673094168}
-  tileHighlighter: {fileID: 1934734197}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1934734197
 MonoBehaviour:
@@ -35359,7 +35591,9 @@ MonoBehaviour:
   - {fileID: 121563236}
   - {fileID: 1318250739}
   - {fileID: 731107496}
-  tileHighlighter: {fileID: 1964175009}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1964175009
 MonoBehaviour:
@@ -35853,7 +36087,9 @@ MonoBehaviour:
   - {fileID: 1748542341}
   - {fileID: 336357023}
   - {fileID: 1180297978}
-  tileHighlighter: {fileID: 1991985144}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1991985144
 MonoBehaviour:
@@ -36034,7 +36270,9 @@ MonoBehaviour:
   - {fileID: 1703582418}
   - {fileID: 1927040136}
   - {fileID: 291164688}
-  tileHighlighter: {fileID: 1998067095}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1998067095
 MonoBehaviour:
@@ -36418,7 +36656,9 @@ MonoBehaviour:
   - {fileID: 1408414430}
   - {fileID: 17745448}
   - {fileID: 1218843992}
-  tileHighlighter: {fileID: 2033696614}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2033696614
 MonoBehaviour:
@@ -36691,7 +36931,9 @@ MonoBehaviour:
   - {fileID: 7565438}
   - {fileID: 1022595798}
   - {fileID: 1931712750}
-  tileHighlighter: {fileID: 2055809404}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2055809404
 MonoBehaviour:
@@ -36943,7 +37185,9 @@ MonoBehaviour:
   - {fileID: 1916725124}
   - {fileID: 99685853}
   - {fileID: 2055809403}
-  tileHighlighter: {fileID: 2065525227}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2065525227
 MonoBehaviour:
@@ -37808,7 +38052,9 @@ MonoBehaviour:
   - {fileID: 1596415717}
   - {fileID: 291164688}
   - {fileID: 2106357006}
-  tileHighlighter: {fileID: 2104290649}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2104290649
 MonoBehaviour:
@@ -37989,7 +38235,9 @@ MonoBehaviour:
   - {fileID: 689518507}
   - {fileID: 1277132350}
   - {fileID: 62041929}
-  tileHighlighter: {fileID: 2106357007}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2106357007
 MonoBehaviour:
@@ -38170,7 +38418,9 @@ MonoBehaviour:
   - {fileID: 330459220}
   - {fileID: 137322720}
   - {fileID: 50930684}
-  tileHighlighter: {fileID: 2118867837}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2118867837
 MonoBehaviour:
@@ -38369,7 +38619,9 @@ MonoBehaviour:
   - {fileID: 1817071642}
   - {fileID: 49069850}
   - {fileID: 330459220}
-  tileHighlighter: {fileID: 2134334124}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2134334124
 MonoBehaviour:
@@ -38456,7 +38708,9 @@ MonoBehaviour:
   - {fileID: 1760474891}
   - {fileID: 260527185}
   - {fileID: 29875907}
-  tileHighlighter: {fileID: 2140410218}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2140410218
 MonoBehaviour:
@@ -38543,7 +38797,9 @@ MonoBehaviour:
   - {fileID: 36667649}
   - {fileID: 1676857199}
   - {fileID: 518826395}
-  tileHighlighter: {fileID: 2141268206}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2141268206
 MonoBehaviour:
@@ -38818,7 +39074,9 @@ MonoBehaviour:
   - {fileID: 714110906}
   - {fileID: 581151536}
   - {fileID: 658081800}
-  tileHighlighter: {fileID: 2145411668}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2145411668
 MonoBehaviour:
@@ -38905,7 +39163,9 @@ MonoBehaviour:
   - {fileID: 1841152510}
   - {fileID: 1305448418}
   - {fileID: 1014768198}
-  tileHighlighter: {fileID: 2146382458}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &2146382458
 MonoBehaviour:
@@ -39664,6 +39924,75 @@ MonoBehaviour:
   nextScene:
     m_SceneAsset: {fileID: 102900000, guid: 572d2321951eb064ebe866bff171780f, type: 3}
     m_SceneName: MainMenus
+--- !u!1001 &6756781188779121860
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6756781189773600876, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_Name
+      value: EntranceParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 37.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756781189773600879, guid: ef77cb576d96d0a4e84967936067c1ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef77cb576d96d0a4e84967936067c1ef, type: 3}
 --- !u!1001 &7139386156243280800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40037,6 +40366,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edef8b096b0aafd4ba6e246d4a552550, type: 3}
+--- !u!1001 &8235869407202099569
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8235869407161852386, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_Name
+      value: ExitParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.39213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235869407161852391, guid: 7cdc67aec5808e449b335126d18add2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7cdc67aec5808e449b335126d18add2a, type: 3}
 --- !u!224 &9024588848270078284 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3682584881094687350, guid: 7795300e11facab4fb7b6eafe7fc6dfa,
