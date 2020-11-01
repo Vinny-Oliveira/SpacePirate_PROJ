@@ -4,15 +4,30 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening;
 
+/// <summary>
+/// Status of the Thief during each move along their path
+/// </summary>
+public enum EThiefStatus { 
+    IDLE = 0,
+    MOVE = 1,
+    EMP = 2,
+    OPEN_DOOR = 3
+}
+
+/// <summary>
+/// Class for the Thief main character
+/// </summary>
 public class Thief : Character {
 
-    [Header("Movement Range")]
-    int intRange = 2;
+    /* Maximum moves per turn */
+    int intMaxMoves = 2;
 
     [Header("Path Control")]
     Tile targetTile;
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
+    EThiefStatus thiefStatus;
+    List<EThiefStatus> listThiefStatus = new List<EThiefStatus>();
     public GameObject ghostPrefab;
     public List<GameObject> listGhosts = new List<GameObject>();
 
@@ -45,11 +60,12 @@ public class Thief : Character {
     /// <summary>
     /// Startup for the Thief
     /// </summary>
-    public void SetupThief(int range) {
-        intRange = range;
+    public void SetupThief(int maxMoves) {
+        intMaxMoves = maxMoves;
         IsMoving = false;
         CanStep = true;
         HasTreasure = false;
+        thiefStatus = EThiefStatus.IDLE;
         SetStartingTile();
         RepositionCamera();
         DisplayMoveCounter();
@@ -195,7 +211,7 @@ public class Thief : Character {
     /// </summary>
     /// <returns></returns>
     public bool CanAddToPath() {
-        return (listPathTiles.Count < intRange);
+        return (listThiefStatus.Count < intMaxMoves);
     }
 
     /// <summary>
@@ -222,6 +238,7 @@ public class Thief : Character {
         }
 
         // Add to path
+        listThiefStatus.Add(EThiefStatus.MOVE);
         listPathTiles.Add(tile);
         tile.moveQuad.TurnHighlighterOff();
     }
@@ -235,6 +252,7 @@ public class Thief : Character {
             RemoveGhostFromPath(tile);
         }
         listPathTiles.Clear();
+        listThiefStatus.Clear();
         DisplayMoveCounter();
     }
 
@@ -253,7 +271,7 @@ public class Thief : Character {
     /// <param name="tile"></param>
     /// <returns></returns>
     public bool IsTileLastOfPath(Tile tile) {
-        return tile.Equals(LastPathTile);
+        return (listThiefStatus.Last() == EThiefStatus.MOVE && tile.Equals(LastPathTile));
     }
 
     /// <summary>
@@ -263,6 +281,7 @@ public class Thief : Character {
     public void RemoveLastTileFromPath() {
         RemoveGhostFromPath(listPathTiles.Last());
         listPathTiles.RemoveAt(listPathTiles.Count - 1);
+        listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
     }
 
     /// <summary>
@@ -280,13 +299,13 @@ public class Thief : Character {
     /// Display how many moves the Thief still has
     /// </summary>
     public void DisplayMoveCounter() {
-        if (listPathTiles.Count < intRange) {
+        if (listPathTiles.Count < intMaxMoves) {
             tmpMoveCount.color = Color.white;
         } else {
             tmpMoveCount.color = maxRangeColor;
         }
 
-        tmpMoveCount.text = (intRange - listPathTiles.Count).ToString() + "/" + intRange;
+        tmpMoveCount.text = (intMaxMoves - listPathTiles.Count).ToString() + "/" + intMaxMoves;
     }
 
     #endregion
