@@ -6,14 +6,13 @@ using UnityEngine.UI;
 public class EMP_Device : Item {
 
     public float fltRange;
-    //public int intChargeTurns;
     public int intTurnsAffected;
     public ParticleSystem particle;
     public Toggle toggleEMP;
     public Color colorToggleOn;
     public GameObject empBody;
 
-    //int intWaitTurns;
+    Thief thief;
     List<Tile> listRangeTiles = new List<Tile>();
 
     /// <summary>
@@ -28,11 +27,11 @@ public class EMP_Device : Item {
     /// <summary>
     /// Called when the EMP is picked up. Setup all initial values
     /// </summary>
-    public void OnDevicePickedUp() {
+    public void OnDevicePickedUp(Thief newThief) {
+        thief = newThief;
         toggleEMP.interactable = true;
         toggleEMP.gameObject.SetActive(true);
         empBody.SetActive(false);
-        //intWaitTurns = 0;
     }
 
     /// <summary>
@@ -56,24 +55,11 @@ public class EMP_Device : Item {
         }
 
         // Disable the EMP and toss it
-        //intWaitTurns = intChargeTurns;
         toggleEMP.interactable = false;
         toggleEMP.isOn = false;
-        //OnToggleValueChanged();
         toggleEMP.gameObject.SetActive(false);
         TurnManager.instance.emp = null;
     }
-
-    ///// <summary>
-    ///// Charge the EMP for 1 turn
-    ///// </summary>
-    //public void ChargeOneTurn() {
-    //    if (intWaitTurns > 0) { 
-    //        intWaitTurns--;
-    //    } else {
-    //        toggleEMP.interactable = true;
-    //    }
-    //}
 
     /// <summary>
     /// Find tiles in range and change the color of the toggle if it is on
@@ -121,11 +107,15 @@ public class EMP_Device : Item {
     void FindTilesWithinRange() {
         TurnManager turnManager = TurnManager.instance;
         ClearEmpTiles();
+        turnManager.thief.ToggleEmpOn();
 
         // Find tiles in each grid and highlight them
         foreach (var grid in turnManager.listGrids) {
             foreach (var tile in grid.listGridTiles) {
-                if (Vector3.Magnitude(turnManager.thief.currentTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
+
+                // The last tile of the Thief's path is the ogigin of the EMP blast
+                Tile originTile = (turnManager.thief.LastPathTile) ? (turnManager.thief.LastPathTile) : (turnManager.thief.currentTile);
+                if (Vector3.Magnitude(originTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
                     listRangeTiles.Add(tile);
                     tile.empQuad.ChangeColorToEmp();
                     tile.empQuad.TurnHighlighterOn();

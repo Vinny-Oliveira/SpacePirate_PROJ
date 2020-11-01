@@ -241,6 +241,11 @@ public class Thief : Character {
         listThiefStatus.Add(EThiefStatus.MOVE);
         listPathTiles.Add(tile);
         tile.moveQuad.TurnHighlighterOff();
+
+        // Disable EMP if the path is full or if the EMP is already active
+        if (emp != null && (!CanAddToPath() || listThiefStatus.Contains(EThiefStatus.EMP))) {
+            emp.toggleEMP.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -282,6 +287,11 @@ public class Thief : Character {
         RemoveGhostFromPath(listPathTiles.Last());
         listPathTiles.RemoveAt(listPathTiles.Count - 1);
         listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+
+        // Re-enable the EMP if possible
+        if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
+            emp.toggleEMP.gameObject.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -305,7 +315,7 @@ public class Thief : Character {
             tmpMoveCount.color = maxRangeColor;
         }
 
-        tmpMoveCount.text = (intMaxMoves - listPathTiles.Count).ToString() + "/" + intMaxMoves;
+        tmpMoveCount.text = (intMaxMoves - listThiefStatus.Count).ToString() + "/" + intMaxMoves;
     }
 
     #endregion
@@ -366,7 +376,7 @@ public class Thief : Character {
         if (TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
             emp.transform.parent = transform; // EMP becomes a child of the thief
-            emp.OnDevicePickedUp();
+            emp.OnDevicePickedUp(this);
         }
     }
 
@@ -380,14 +390,12 @@ public class Thief : Character {
         }
     }
 
-    ///// <summary>
-    ///// Charge the EMP for 1 turn
-    ///// </summary>
-    //public void ChargeEMP() { 
-    //    if (emp) { 
-    //        emp.ChargeOneTurn(); 
-    //    }
-    //}
+    /// <summary>
+    /// Add the EMP to the status list when the EMP is toggled on
+    /// </summary>
+    public void ToggleEmpOn() {
+        listThiefStatus.Add(EThiefStatus.EMP);
+    }
 
     #endregion
 

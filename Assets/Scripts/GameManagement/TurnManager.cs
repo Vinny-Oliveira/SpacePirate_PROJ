@@ -175,7 +175,8 @@ public class TurnManager : MonoBehaviour {
         CanClick = false;
         intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
-        thief.TryToActivateEMP();
+        emp.toggleEMP.interactable = false;
+        //thief.TryToActivateEMP();
         thief.counterFollow.counterLable.gameObject.SetActive(false);
 
         // Play actions
@@ -247,8 +248,8 @@ public class TurnManager : MonoBehaviour {
     void EnableThief() {
         CanClick = true;
         btnEndTurn.interactable = true;
+        emp.toggleEMP.interactable = true;
         thief.counterFollow.counterLable.gameObject.SetActive(true);
-        //thief.ChargeEMP();
         thief.StartNewPath();
     }
 
