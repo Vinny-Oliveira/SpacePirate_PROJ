@@ -137,7 +137,7 @@ public class Thief : Character {
         TurnManager turnManager = TurnManager.instance;
         
         // Path is over
-        if (listPathTiles.Count < 1) {
+        if (listThiefStatus.Count < 1) {
             IsMoving = false;
             turnManager.DecreaseMovementCount();
             DisplayMoveCounter();
@@ -147,16 +147,46 @@ public class Thief : Character {
         // Continue the path
         IsMoving = true;
         CanStep = false;
-        Tile nextTile = listPathTiles[0];
-        MoveToTile(ref nextTile);
-        RemoveGhostFromPath(nextTile);
+        HandleCurrentStatus();
+    }
 
-        // Deactivate shaders and update counter
-        listPathTiles.RemoveAt(0);
-        if (!listPathTiles.Contains(nextTile)) { 
-            nextTile.moveQuad.TurnHighlighterOff();
+    /// <summary>
+    /// Handle the Thief's behavior on the path depending on their status
+    /// </summary>
+    void HandleCurrentStatus() {
+        thiefStatus = listThiefStatus[0];
+        listThiefStatus.RemoveAt(0);
+
+        switch (thiefStatus) {
+            case EThiefStatus.IDLE: // Just wait on the tile
+                StartCoroutine(WaitOnTile());
+                break;
+
+            case EThiefStatus.MOVE: // Move on the path
+                Tile nextTile = listPathTiles[0];
+                MoveToTile(ref nextTile);
+                RemoveGhostFromPath(nextTile);
+
+                // Deactivate shaders and update counter
+                listPathTiles.RemoveAt(0);
+                if (!listPathTiles.Contains(nextTile)) { 
+                    nextTile.moveQuad.TurnHighlighterOff();
+                }
+                HighlightPathTiles();
+                break;
+
+            case EThiefStatus.EMP: // Activate the EMP and wait on the tile
+                emp.TryToActivateEMP();
+                StartCoroutine(WaitOnTile());
+                break;
+
+            case EThiefStatus.OPEN_DOOR: // Open the doors around and wait on the tile
+                break;
+
+            default:
+                break;
         }
-        HighlightPathTiles();
+
         DisplayMoveCounter();
     }
 
@@ -395,6 +425,15 @@ public class Thief : Character {
     /// </summary>
     public void ToggleEmpOn() {
         listThiefStatus.Add(EThiefStatus.EMP);
+    }
+    
+    /// <summary>
+    /// Add the EMP to the status list when the EMP is toggled on
+    /// </summary>
+    public void ToggleEmpOff() {
+        if (listThiefStatus.Count > 0 && listThiefStatus.Last() == EThiefStatus.EMP) {
+            listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+        }
     }
 
     #endregion

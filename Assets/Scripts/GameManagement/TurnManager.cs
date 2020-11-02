@@ -248,7 +248,9 @@ public class TurnManager : MonoBehaviour {
     void EnableThief() {
         CanClick = true;
         btnEndTurn.interactable = true;
-        emp.toggleEMP.interactable = true;
+        if (emp) {
+            emp.toggleEMP.interactable = true;
+        }
         thief.counterFollow.counterLable.gameObject.SetActive(true);
         thief.StartNewPath();
     }

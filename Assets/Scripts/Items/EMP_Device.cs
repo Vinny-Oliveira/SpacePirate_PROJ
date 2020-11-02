@@ -88,6 +88,7 @@ public class EMP_Device : Item {
             FindTilesWithinRange();
         } else {
             ClearEmpTiles();
+            TurnManager.instance.thief.ToggleEmpOff();
         }
     }
 
@@ -115,6 +116,7 @@ public class EMP_Device : Item {
 
                 // The last tile of the Thief's path is the ogigin of the EMP blast
                 Tile originTile = (turnManager.thief.LastPathTile) ? (turnManager.thief.LastPathTile) : (turnManager.thief.currentTile);
+                originTile.DisplayPathAndTargets();
                 if (Vector3.Magnitude(originTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
                     listRangeTiles.Add(tile);
                     tile.empQuad.ChangeColorToEmp();

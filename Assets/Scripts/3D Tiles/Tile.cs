@@ -119,7 +119,6 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         Thief thief = TurnManager.instance.thief;
         
         thief.TurnTargetTilesOff();
-        //TurnManager.instance.HighlightCubesFieldsOfView();
         thief.HighlightPathTiles();
         thief.DisplayMoveCounter();
 
