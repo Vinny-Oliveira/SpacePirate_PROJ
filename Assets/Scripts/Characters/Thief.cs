@@ -51,6 +51,7 @@ public class Thief : Character {
 
     [Header("Camera & UI")]
     public Camera mainCamera;
+    public UnityEngine.UI.Button btnOpenDoor;
     public TMPro.TextMeshProUGUI tmpMoveCount;
     public Color maxRangeColor;
     public CounterFollow counterFollow;
@@ -276,6 +277,9 @@ public class Thief : Character {
         if (emp != null && (!CanAddToPath() || listThiefStatus.Contains(EThiefStatus.EMP))) {
             emp.toggleEMP.gameObject.SetActive(false);
         }
+
+        // Enable the option to open doors if next to one
+        TurnOpenDoorButtonOnOrOff(tile);
     }
 
     /// <summary>
@@ -306,17 +310,23 @@ public class Thief : Character {
     /// <param name="tile"></param>
     /// <returns></returns>
     public bool IsTileLastOfPath(Tile tile) {
-        return (listThiefStatus.Last() == EThiefStatus.MOVE && tile.Equals(LastPathTile));
+        return (listThiefStatus.Count > 0 && listThiefStatus.Last() == EThiefStatus.MOVE && tile.Equals(LastPathTile));
     }
 
     /// <summary>
     /// Remove the last tile of the path
     /// </summary>
-    /// <param name="tile"></param>
     public void RemoveLastTileFromPath() {
         RemoveGhostFromPath(listPathTiles.Last());
         listPathTiles.RemoveAt(listPathTiles.Count - 1);
         listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+
+        if (listThiefStatus.Count < 1) {
+            return;
+        }
+
+        // Enable the option to open doors if next to one
+        TurnOpenDoorButtonOnOrOff((LastPathTile) ? (LastPathTile) : (currentTile));
 
         // Re-enable the EMP if possible
         if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
@@ -331,6 +341,7 @@ public class Thief : Character {
         if (TurnManager.instance.CanClick) { 
             TurnTargetTilesOff();
             ClearPath();
+            btnOpenDoor.gameObject.SetActive(false);
             StartNewPath();
         }
     }
@@ -393,6 +404,22 @@ public class Thief : Character {
                 TurnManager.instance.ThiefNeedsKeycard();
             }
         }
+    }
+
+    /// <summary>
+    /// Set the open door button active if the given tile has DOOR tiles as neighbors and the Thief has a keycard to open them
+    /// </summary>
+    /// <param name="tile"></param>
+    void TurnOpenDoorButtonOnOrOff(Tile tile) {
+        List<Tile> doorTiles = tile.listNeighbors.Where(x => x.tileType == ETileType.DOOR).ToList();
+
+        foreach (var keycard in listKeycards) { 
+            if (doorTiles.Exists(x => x.door.cardType == keycard.cardType)) {
+                btnOpenDoor.gameObject.SetActive(true);
+            }
+        }
+
+        btnOpenDoor.gameObject.SetActive(false);
     }
 
     #endregion
