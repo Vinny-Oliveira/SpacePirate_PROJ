@@ -144,6 +144,14 @@ public class CubeBot : Enemy {
         TurnManager turnManager = TurnManager.instance;
 
         for (int i = 0; i < intRollsPerTurn; i++) {
+            // If the Thief activates the EMP mid-path, disable the cube
+            if (IsDisabled) {
+                DisableFieldOfView();
+                ReduceOneWaitTurn();
+                TurnManager.instance.DecreaseMovementCount();
+                yield break;
+            }
+
             CanStep = false;
             EDirection direction = quePath.Dequeue();
             quePath.Enqueue(direction);
@@ -164,15 +172,7 @@ public class CubeBot : Enemy {
             CanStep = true;
             yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
             yield return StartCoroutine(WaitOnTile());
-
-            // If the Thief activates the EMP mid-path, disable the cube
-            if (IsDisabled) {
-                DisableFieldOfView();
-                ReduceOneWaitTurn();
-                TurnManager.instance.DecreaseMovementCount();
-                yield break;
-            }
-
+            
             // Check if the thief was caught
             if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
                 yield break;

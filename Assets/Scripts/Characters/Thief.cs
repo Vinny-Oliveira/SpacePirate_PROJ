@@ -182,6 +182,8 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.OPEN_DOOR: // Open the doors around and wait on the tile
+                OpenNeighborDoors();
+                StartCoroutine(WaitOnTile());
                 break;
 
             default:
@@ -292,6 +294,9 @@ public class Thief : Character {
         }
         listPathTiles.Clear();
         listThiefStatus.Clear();
+        if (emp) {
+            emp.toggleEMP.isOn = false;
+        }
         DisplayMoveCounter();
     }
 
@@ -342,6 +347,10 @@ public class Thief : Character {
             TurnTargetTilesOff();
             ClearPath();
             btnOpenDoor.gameObject.SetActive(false);
+            if (emp) {
+                emp.toggleEMP.gameObject.SetActive(true);
+                //emp.toggleEMP.isOn = false;
+            }
             StartNewPath();
         }
     }
@@ -390,7 +399,7 @@ public class Thief : Character {
     }
 
     /// <summary>
-    /// CHeck if the Thief if close to doors that can be opened and open them
+    /// Check if the Thief if close to doors that can be opened and open them
     /// </summary>
     void OpenNeighborDoors() {
         List<Tile> doorTiles = currentTile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR);
@@ -411,15 +420,24 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void TurnOpenDoorButtonOnOrOff(Tile tile) {
-        List<Tile> doorTiles = tile.listNeighbors.Where(x => x.tileType == ETileType.DOOR).ToList();
+        List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR);
 
         foreach (var keycard in listKeycards) { 
             if (doorTiles.Exists(x => x.door.cardType == keycard.cardType)) {
                 btnOpenDoor.gameObject.SetActive(true);
+                return;
             }
         }
 
         btnOpenDoor.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Event for when the Open Doors button is pressed
+    /// </summary>
+    public void OnOpenDoorsButtonPressed() {
+        listThiefStatus.Add(EThiefStatus.OPEN_DOOR);
+        DisplayMoveCounter();
     }
 
     #endregion
@@ -452,6 +470,7 @@ public class Thief : Character {
     /// </summary>
     public void ToggleEmpOn() {
         listThiefStatus.Add(EThiefStatus.EMP);
+        DisplayMoveCounter();
     }
     
     /// <summary>
@@ -460,6 +479,7 @@ public class Thief : Character {
     public void ToggleEmpOff() {
         if (listThiefStatus.Count > 0 && listThiefStatus.Last() == EThiefStatus.EMP) {
             listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+            DisplayMoveCounter();
         }
     }
 
