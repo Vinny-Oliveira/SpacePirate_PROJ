@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using DG.Tweening;
+using System;
 
 /// <summary>
 /// Status of the Thief during each move along their path
@@ -43,6 +44,10 @@ public class Thief : Character {
             }
         }
     }
+
+    /* Door Control */
+    List<Door> listCloseDoors = new List<Door>();
+    List<Tuple<int, Door>> listDoorsToOpen = new List<Tuple<int, Door>>();
 
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
@@ -127,7 +132,7 @@ public class Thief : Character {
         PickUpKeycard();
         PickUpEMP();
         turnManager.CheckForTreasure();
-        OpenNeighborDoors();
+        //OpenNeighborDoors();
         MoveOnPath();
     }
 
@@ -182,7 +187,7 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.OPEN_DOOR: // Open the doors around and wait on the tile
-                OpenNeighborDoors();
+                //OpenNeighborDoors();
                 StartCoroutine(WaitOnTile());
                 break;
 
@@ -225,6 +230,17 @@ public class Thief : Character {
     /// <param name="tile"></param>
     public void AddTileToTargets(Tile tile) {
         listTargetTiles.Add(tile);
+    }
+
+    /// <summary>
+    /// Display the current targets depending on the last tile of the path
+    /// </summary>
+    public void DisplayCurrentTargets() { 
+        if (LastPathTile) { 
+            LastPathTile.DisplayPathAndTargets();
+        } else {
+            currentTile.DisplayPathAndTargets();
+        }
     }
 
     #endregion
@@ -349,7 +365,6 @@ public class Thief : Character {
             btnOpenDoor.gameObject.SetActive(false);
             if (emp) {
                 emp.toggleEMP.gameObject.SetActive(true);
-                //emp.toggleEMP.isOn = false;
             }
             StartNewPath();
         }
@@ -420,16 +435,16 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void TurnOpenDoorButtonOnOrOff(Tile tile) {
-        List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR);
+        listCloseDoors.Clear();
+        List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
 
-        foreach (var keycard in listKeycards) { 
-            if (doorTiles.Exists(x => x.door.cardType == keycard.cardType)) {
-                btnOpenDoor.gameObject.SetActive(true);
-                return;
+        foreach (var doorTile in doorTiles) { 
+            if (listKeycards.Exists(x => x.cardType == doorTile.door.cardType)) {
+                listCloseDoors.Add(doorTile.door);
             }
         }
 
-        btnOpenDoor.gameObject.SetActive(false);
+        btnOpenDoor.gameObject.SetActive(listCloseDoors.Count > 0);
     }
 
     /// <summary>
@@ -437,7 +452,21 @@ public class Thief : Character {
     /// </summary>
     public void OnOpenDoorsButtonPressed() {
         listThiefStatus.Add(EThiefStatus.OPEN_DOOR);
+        OpenDoorsMidPath();
         DisplayMoveCounter();
+    }
+
+    /// <summary>
+    /// Mark the doors as open and be able to move on a path beyond them
+    /// </summary>
+    void OpenDoorsMidPath() {
+        // Store the index of the status list and the doors
+        foreach (var door in listCloseDoors) {
+            door.IsOpen = true;
+            listDoorsToOpen.Add(new Tuple<int, Door>(listThiefStatus.Count - 1, door));
+        }
+
+        DisplayCurrentTargets();
     }
 
     #endregion

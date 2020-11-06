@@ -103,12 +103,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
         if (thief.IsTileLastOfPath(this)) {
             thief.RemoveLastTileFromPath();
-
-            if (thief.LastPathTile) { 
-                thief.LastPathTile.DisplayPathAndTargets();
-            } else {
-                thief.currentTile.DisplayPathAndTargets();
-            }
+            thief.DisplayCurrentTargets();
         }
     }
 
@@ -186,7 +181,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     /// <returns></returns>
     public bool IsWalkable() {
-        return (tileType != ETileType.WALL && tileType != ETileType.DOOR);
+        return (tileType != ETileType.WALL && (tileType != ETileType.DOOR || (tileType == ETileType.DOOR && door.IsOpen)));
     }
 
     /// <summary>
@@ -194,7 +189,6 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     public void OpenDoor() {
         door.OpenDoor();
-        tileType = ETileType.DEFAULT;
     }
 
     #endregion
