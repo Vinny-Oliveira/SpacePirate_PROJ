@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using DG.Tweening;
-using System;
 
 /// <summary>
 /// Status of the Thief during each move along their path
@@ -45,9 +44,9 @@ public class Thief : Character {
         }
     }
 
-    /* Door Control */
-    List<Door> listCloseDoors = new List<Door>();
-    List<Tuple<int, Door>> listDoorsToOpen = new List<Tuple<int, Door>>();
+    ///* Door Control */
+    //List<Door> listCloseDoors = new List<Door>();
+    //List<Tuple<int, Door>> listDoorsToOpen = new List<Tuple<int, Door>>();
 
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
@@ -435,39 +434,39 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void TurnOpenDoorButtonOnOrOff(Tile tile) {
-        listCloseDoors.Clear();
-        List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
+        //listCloseDoors.Clear();
+        //List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
 
-        foreach (var doorTile in doorTiles) { 
-            if (listKeycards.Exists(x => x.cardType == doorTile.door.cardType)) {
-                listCloseDoors.Add(doorTile.door);
-            }
-        }
+        //foreach (var doorTile in doorTiles) { 
+        //    if (listKeycards.Exists(x => x.cardType == doorTile.door.cardType)) {
+        //        listCloseDoors.Add(doorTile.door);
+        //    }
+        //}
 
-        btnOpenDoor.gameObject.SetActive(listCloseDoors.Count > 0);
+        //btnOpenDoor.gameObject.SetActive(listCloseDoors.Count > 0);
     }
 
-    /// <summary>
-    /// Event for when the Open Doors button is pressed
-    /// </summary>
-    public void OnOpenDoorsButtonPressed() {
-        listThiefStatus.Add(EThiefStatus.OPEN_DOOR);
-        OpenDoorsMidPath();
-        DisplayMoveCounter();
-    }
+    ///// <summary>
+    ///// Event for when the Open Doors button is pressed
+    ///// </summary>
+    //public void OnOpenDoorsButtonPressed() {
+    //    listThiefStatus.Add(EThiefStatus.OPEN_DOOR);
+    //    OpenDoorsMidPath();
+    //    DisplayMoveCounter();
+    //}
 
-    /// <summary>
-    /// Mark the doors as open and be able to move on a path beyond them
-    /// </summary>
-    void OpenDoorsMidPath() {
-        // Store the index of the status list and the doors
-        foreach (var door in listCloseDoors) {
-            door.IsOpen = true;
-            listDoorsToOpen.Add(new Tuple<int, Door>(listThiefStatus.Count - 1, door));
-        }
+    ///// <summary>
+    ///// Mark the doors as open and be able to move on a path beyond them
+    ///// </summary>
+    //void OpenDoorsMidPath() {
+    //    // Store the index of the status list and the doors
+    //    foreach (var door in listCloseDoors) {
+    //        door.IsOpen = true;
+    //        listDoorsToOpen.Add(new Tuple<int, Door>(listThiefStatus.Count - 1, door));
+    //    }
 
-        DisplayCurrentTargets();
-    }
+    //    DisplayCurrentTargets();
+    //}
 
     #endregion
 
