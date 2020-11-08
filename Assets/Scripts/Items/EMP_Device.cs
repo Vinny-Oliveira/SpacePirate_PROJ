@@ -65,19 +65,8 @@ public class EMP_Device : Item {
     /// Find tiles in range and change the color of the toggle if it is on
     /// </summary>
     public void OnToggleValueChanged() {
-        ChangeButtonStyle();
+        GameUtilities.ChangeButtonStyle(toggleEMP, colorToggleOn);
         HandleTilesWithinRange();
-    }
-
-    /// <summary>
-    /// Change the style of the button depending on the toggle state
-    /// </summary>
-    void ChangeButtonStyle() {
-        // Change color
-        ColorBlock colorBlock = toggleEMP.colors;
-        colorBlock.normalColor = (toggleEMP.isOn) ? (colorToggleOn) : (Color.white);
-        colorBlock.selectedColor = colorBlock.normalColor;
-        toggleEMP.colors = colorBlock;
     }
 
     /// <summary>

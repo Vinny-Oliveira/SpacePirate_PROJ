@@ -45,7 +45,7 @@ public class Thief : Character {
     }
 
     ///* Door Control */
-    //List<Door> listCloseDoors = new List<Door>();
+    List<Door> listTempDoors = new List<Door>();
     //List<Tuple<int, Door>> listDoorsToOpen = new List<Tuple<int, Door>>();
 
     /* Item Control */
@@ -55,7 +55,7 @@ public class Thief : Character {
 
     [Header("Camera & UI")]
     public Camera mainCamera;
-    public UnityEngine.UI.Button btnOpenDoor;
+    //public UnityEngine.UI.Button btnOpenDoor;
     public TMPro.TextMeshProUGUI tmpMoveCount;
     public Color maxRangeColor;
     public CounterFollow counterFollow;
@@ -177,7 +177,7 @@ public class Thief : Character {
                 if (!listPathTiles.Contains(nextTile)) { 
                     nextTile.moveQuad.TurnHighlighterOff();
                 }
-                HighlightPathTiles();
+                TurnPathTilesOff();
                 break;
 
             case EThiefStatus.EMP: // Activate the EMP and wait on the tile
@@ -265,10 +265,8 @@ public class Thief : Character {
     /// <summary>
     /// Highlight the tiles of the Thief's path
     /// </summary>
-    public void HighlightPathTiles() { 
+    public void TurnPathTilesOff() { 
         foreach (var tile in listPathTiles) {
-            //tile.moveQuad.ChangeColorToThiefPath();
-            //tile.moveQuad.TurnHighlighterOn();
             tile.moveQuad.TurnHighlighterOff();
         }
     }
@@ -296,7 +294,7 @@ public class Thief : Character {
         }
 
         // Enable the option to open doors if next to one
-        TurnOpenDoorButtonOnOrOff(tile);
+        EnableDoorToggles(tile);
     }
 
     /// <summary>
@@ -346,7 +344,7 @@ public class Thief : Character {
         }
 
         // Enable the option to open doors if next to one
-        TurnOpenDoorButtonOnOrOff((LastPathTile) ? (LastPathTile) : (currentTile));
+        EnableDoorToggles((LastPathTile) ? (LastPathTile) : (currentTile));
 
         // Re-enable the EMP if possible
         if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
@@ -361,7 +359,7 @@ public class Thief : Character {
         if (TurnManager.instance.CanClick) { 
             TurnTargetTilesOff();
             ClearPath();
-            btnOpenDoor.gameObject.SetActive(false);
+            //btnOpenDoor.gameObject.SetActive(false);
             if (emp) {
                 emp.toggleEMP.gameObject.SetActive(true);
             }
@@ -433,17 +431,30 @@ public class Thief : Character {
     /// Set the open door button active if the given tile has DOOR tiles as neighbors and the Thief has a keycard to open them
     /// </summary>
     /// <param name="tile"></param>
-    void TurnOpenDoorButtonOnOrOff(Tile tile) {
-        //listCloseDoors.Clear();
-        //List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
+    void EnableDoorToggles(Tile tile) {
+        // Disable door toggles from previous tile
+        DisableDoorToggles();
 
-        //foreach (var doorTile in doorTiles) { 
-        //    if (listKeycards.Exists(x => x.cardType == doorTile.door.cardType)) {
-        //        listCloseDoors.Add(doorTile.door);
-        //    }
-        //}
+        // Enable toggles of closed doors if the Thief has their keycards
+        List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
 
-        //btnOpenDoor.gameObject.SetActive(listCloseDoors.Count > 0);
+        foreach (var doorTile in doorTiles) { 
+            if (listKeycards.Exists(x => x.cardType == doorTile.door.cardType)) {
+                listTempDoors.Add(doorTile.door);
+                doorTile.door.EnableToggle();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Disable the door toggles of the door temporarily stored
+    /// </summary>
+    void DisableDoorToggles() {
+        foreach (var door in listTempDoors) {
+            door.DisableToggle();
+        }
+
+        listTempDoors.Clear();
     }
 
     ///// <summary>

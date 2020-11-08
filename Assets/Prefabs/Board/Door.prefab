@@ -90,7 +90,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2049545923736868854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -559,6 +559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   animator: {fileID: 2431718229979513032}
+  toggleDoor: {fileID: 3644703504482641900}
+  openColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6804600091400761242
 GameObject:
   m_ObjectHideFlags: 0
