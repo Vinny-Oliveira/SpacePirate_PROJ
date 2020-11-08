@@ -187,7 +187,8 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.OPEN_DOOR: // Open the doors around and wait on the tile
-                //OpenNeighborDoors();
+                listOpenDoorTiles.Last().door.OpenDoor();
+                listOpenDoorTiles.RemoveAt(listOpenDoorTiles.Count - 1);
                 StartCoroutine(WaitOnTile());
                 break;
 
