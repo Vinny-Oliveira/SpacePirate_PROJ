@@ -46,6 +46,7 @@ public class Thief : Character {
 
     ///* Door Control */
     List<Door> listTempDoors = new List<Door>();
+    List<Tile> listOpenDoorTiles = new List<Tile>();
     //List<Tuple<int, Door>> listDoorsToOpen = new List<Tuple<int, Door>>();
 
     /* Item Control */
@@ -251,6 +252,7 @@ public class Thief : Character {
     /// </summary>
     public void StartNewPath() {
         ClearPath();
+        ResetDoorsOnPath();
         currentTile.HighlightNeighbors();
     }
 
@@ -305,6 +307,7 @@ public class Thief : Character {
             tile.moveQuad.TurnHighlighterOff();
             RemoveGhostFromPath(tile);
         }
+
         listPathTiles.Clear();
         listThiefStatus.Clear();
         if (emp) {
@@ -339,12 +342,12 @@ public class Thief : Character {
         listPathTiles.RemoveAt(listPathTiles.Count - 1);
         listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
 
+        // Enable the option to open doors if next to one
+        EnableDoorToggles((LastPathTile) ? (LastPathTile) : (currentTile));
+
         if (listThiefStatus.Count < 1) {
             return;
         }
-
-        // Enable the option to open doors if next to one
-        EnableDoorToggles((LastPathTile) ? (LastPathTile) : (currentTile));
 
         // Re-enable the EMP if possible
         if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
@@ -359,7 +362,7 @@ public class Thief : Character {
         if (TurnManager.instance.CanClick) { 
             TurnTargetTilesOff();
             ClearPath();
-            //btnOpenDoor.gameObject.SetActive(false);
+            EnableDoorToggles(currentTile);
             if (emp) {
                 emp.toggleEMP.gameObject.SetActive(true);
             }
@@ -410,22 +413,22 @@ public class Thief : Character {
         }
     }
 
-    /// <summary>
-    /// Check if the Thief if close to doors that can be opened and open them
-    /// </summary>
-    void OpenNeighborDoors() {
-        List<Tile> doorTiles = currentTile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR);
+    ///// <summary>
+    ///// Check if the Thief if close to doors that can be opened and open them
+    ///// </summary>
+    //void OpenNeighborDoors() {
+    //    List<Tile> doorTiles = currentTile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR);
 
-        foreach (var doorTile in doorTiles) {
-            ECardType doorType = doorTile.door.cardType;
+    //    foreach (var doorTile in doorTiles) {
+    //        ECardType doorType = doorTile.door.cardType;
 
-            if (listKeycards.Find(x => x.cardType == doorType)) {
-                doorTile.OpenDoor();
-            } else {
-                TurnManager.instance.ThiefNeedsKeycard();
-            }
-        }
-    }
+    //        if (listKeycards.Find(x => x.cardType == doorType)) {
+    //            doorTile.OpenDoor();
+    //        } else {
+    //            TurnManager.instance.ThiefNeedsKeycard();
+    //        }
+    //    }
+    //}
 
     /// <summary>
     /// Set the open door button active if the given tile has DOOR tiles as neighbors and the Thief has a keycard to open them
@@ -457,27 +460,40 @@ public class Thief : Character {
         listTempDoors.Clear();
     }
 
-    ///// <summary>
-    ///// Event for when the Open Doors button is pressed
-    ///// </summary>
-    //public void OnOpenDoorsButtonPressed() {
-    //    listThiefStatus.Add(EThiefStatus.OPEN_DOOR);
-    //    OpenDoorsMidPath();
-    //    DisplayMoveCounter();
-    //}
+    /// <summary>
+    /// Mark a door as open and allow the Thief to move beyond it
+    /// </summary>
+    public void OpenDoorMidPath(Tile doorTile) {
+        listThiefStatus.Add(EThiefStatus.OPEN_DOOR);
+        listOpenDoorTiles.Add(doorTile);
+        DisplayCurrentTargets();
+    }
 
-    ///// <summary>
-    ///// Mark the doors as open and be able to move on a path beyond them
-    ///// </summary>
-    //void OpenDoorsMidPath() {
-    //    // Store the index of the status list and the doors
-    //    foreach (var door in listCloseDoors) {
-    //        door.IsOpen = true;
-    //        listDoorsToOpen.Add(new Tuple<int, Door>(listThiefStatus.Count - 1, door));
-    //    }
+    /// <summary>
+    /// Mark a door as not open and do not allow the Thief to move beyond it
+    /// </summary>
+    public void CloseDoorMidPath(Tile doorTile) {
+        if (listThiefStatus.Count > 0) { 
+            listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+        }
+        listOpenDoorTiles.Remove(doorTile);
+        DisplayCurrentTargets();
+    }
 
-    //    DisplayCurrentTargets();
-    //}
+    /// <summary>
+    /// Close doors that were open during the path if the path is reset
+    /// </summary>
+    void ResetDoorsOnPath() {
+        // Copy of open door list so that no items are removed from it during the loop
+        List<Tile> tempTileDoors = new List<Tile>();
+        tempTileDoors.AddRange(listOpenDoorTiles);
+
+        foreach (var doorTile in tempTileDoors) {
+            doorTile.door.CloseDoor();
+        }
+
+        listOpenDoorTiles.Clear();
+    }
 
     #endregion
 

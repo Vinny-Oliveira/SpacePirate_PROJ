@@ -5,7 +5,8 @@ using UnityEngine;
 public class Door : MonoBehaviour {
 
     public bool IsOpen { get; set; }
-    
+
+    public Tile doorTile;
     public ECardType cardType;
     public Animator animator;
     public UnityEngine.UI.Toggle toggleDoor;
@@ -26,10 +27,24 @@ public class Door : MonoBehaviour {
     }
 
     /// <summary>
+    /// Mark the door as closed
+    /// </summary>
+    public void CloseDoor() { 
+        IsOpen = false;
+        toggleDoor.isOn = false;
+    }
+
+    /// <summary>
     /// Event for when the toggle of the door is used
     /// </summary>
     public void OnToggleValueChanged() {
         IsOpen = toggleDoor.isOn;
+
+        if (IsOpen) {
+            TurnManager.instance.thief.OpenDoorMidPath(doorTile);
+        } else {
+            TurnManager.instance.thief.CloseDoorMidPath(doorTile);
+        }
     }
 
     /// <summary>

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -20350,6 +20350,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3451573560450322163, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
+        type: 3}
+      propertyPath: doorTile
+      value: 
+      objectReference: {fileID: 243838141}
     - target: {fileID: 5208057202040233409, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -40731,7 +40736,7 @@ PrefabInstance:
     - target: {fileID: 5641576375029092217, guid: f016b3f9a33e1504a972e29d633e405d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5641576375029092221, guid: f016b3f9a33e1504a972e29d633e405d,
         type: 3}
