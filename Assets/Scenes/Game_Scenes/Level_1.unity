@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7356,6 +7356,8 @@ MonoBehaviour:
   listNeighbors:
   - {fileID: 525593463}
   - {fileID: 308847431}
+  - {fileID: 1009917324}
+  - {fileID: 1286985331}
   moveQuad: {fileID: 74141325}
   visionQuad: {fileID: 560233742}
   empQuad: {fileID: 511078777}
@@ -36693,6 +36695,7 @@ MonoBehaviour:
   - {fileID: 1300682207}
   - {fileID: 1748218850}
   - {fileID: 1197825239}
+  - {fileID: 243838141}
   moveQuad: {fileID: 1797192076}
   visionQuad: {fileID: 1089811417}
   empQuad: {fileID: 1971196450}
@@ -42692,6 +42695,7 @@ MonoBehaviour:
   - {fileID: 843772797}
   - {fileID: 433983177}
   - {fileID: 1364274248}
+  - {fileID: 1206194818}
   moveQuad: {fileID: 1113712517}
   visionQuad: {fileID: 1496166107}
   empQuad: {fileID: 1474215558}
@@ -44531,6 +44535,8 @@ MonoBehaviour:
   - {fileID: 428470341}
   - {fileID: 1032817156}
   - {fileID: 843772797}
+  - {fileID: 1483040968}
+  - {fileID: 1137105924}
   moveQuad: {fileID: 1448800910}
   visionQuad: {fileID: 659599598}
   empQuad: {fileID: 800167038}
@@ -47163,6 +47169,7 @@ MonoBehaviour:
   - {fileID: 817589796}
   - {fileID: 1197825239}
   - {fileID: 1083044853}
+  - {fileID: 243838141}
   moveQuad: {fileID: 1917782677}
   visionQuad: {fileID: 358833678}
   empQuad: {fileID: 1944429264}
@@ -54964,6 +54971,7 @@ MonoBehaviour:
   - {fileID: 1822239952}
   - {fileID: 1068839179}
   - {fileID: 433983177}
+  - {fileID: 1206194818}
   moveQuad: {fileID: 382655086}
   visionQuad: {fileID: 676217364}
   empQuad: {fileID: 892901782}
@@ -71104,6 +71112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGame_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7220968534858441641, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7469978121327159809, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -71152,7 +71165,7 @@ PrefabInstance:
     - target: {fileID: 8374360108220451632, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2107aa9a84051dd47878cc73d5eee266, type: 3}
