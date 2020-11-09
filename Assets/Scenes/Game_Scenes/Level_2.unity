@@ -62755,6 +62755,8 @@ MonoBehaviour:
   - {fileID: 164177247}
   - {fileID: 492570974}
   - {fileID: 1965823957}
+  - {fileID: 730756277}
+  - {fileID: 1306758727}
   moveQuad: {fileID: 75957520}
   visionQuad: {fileID: 1862972161}
   empQuad: {fileID: 557111633}
