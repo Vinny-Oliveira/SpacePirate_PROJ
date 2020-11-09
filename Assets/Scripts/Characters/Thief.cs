@@ -47,7 +47,6 @@ public class Thief : Character {
     ///* Door Control */
     List<Door> listTempDoors = new List<Door>();
     List<Tile> listOpenDoorTiles = new List<Tile>();
-    //List<Tuple<int, Door>> listDoorsToOpen = new List<Tuple<int, Door>>();
 
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
@@ -414,23 +413,6 @@ public class Thief : Character {
             turnManager.keycard_Image.SetActive(true);
         }
     }
-
-    ///// <summary>
-    ///// Check if the Thief if close to doors that can be opened and open them
-    ///// </summary>
-    //void OpenNeighborDoors() {
-    //    List<Tile> doorTiles = currentTile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR);
-
-    //    foreach (var doorTile in doorTiles) {
-    //        ECardType doorType = doorTile.door.cardType;
-
-    //        if (listKeycards.Find(x => x.cardType == doorType)) {
-    //            doorTile.OpenDoor();
-    //        } else {
-    //            TurnManager.instance.ThiefNeedsKeycard();
-    //        }
-    //    }
-    //}
 
     /// <summary>
     /// Set the open door button active if the given tile has DOOR tiles as neighbors and the Thief has a keycard to open them
