@@ -58,13 +58,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.17721963, a: 0.68235296}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef178b26bbd99d64da1bc0e948d23634, type: 3}
+  m_Sprite: {fileID: 21300000, guid: febbbd5272b79014fa4798fcb55038b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -568,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6f7a14dfbf4794cbb34fc351639cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorTile: {fileID: 0}
   cardType: 0
   animator: {fileID: 2431718229979513032}
   toggleDoor: {fileID: 3644703504482641900}
@@ -710,13 +711,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.25943398, b: 0.25943398, a: 0.8352941}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef178b26bbd99d64da1bc0e948d23634, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 492516f4b6238e746bcb0ee568fb2e67, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
