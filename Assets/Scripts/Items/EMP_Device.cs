@@ -103,7 +103,7 @@ public class EMP_Device : Item {
         foreach (var grid in turnManager.listGrids) {
             foreach (var tile in grid.listGridTiles) {
 
-                // The last tile of the Thief's path is the ogigin of the EMP blast
+                // The last tile of the Thief's path is the origin of the EMP blast
                 Tile originTile = (turnManager.thief.LastPathTile) ? (turnManager.thief.LastPathTile) : (turnManager.thief.currentTile);
                 originTile.DisplayPathAndTargets();
                 if (Vector3.Magnitude(originTile.transform.position - tile.transform.position) < fltRange + 0.5f) {

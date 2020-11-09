@@ -254,6 +254,7 @@ public class Thief : Character {
     public void StartNewPath() {
         ClearPath();
         ResetDoorsOnPath();
+        EnableDoorToggles(currentTile);
         currentTile.HighlightNeighbors();
     }
 
@@ -453,7 +454,7 @@ public class Thief : Character {
     /// <summary>
     /// Disable the door toggles of the door temporarily stored
     /// </summary>
-    void DisableDoorToggles() {
+    public void DisableDoorToggles() {
         foreach (var door in listTempDoors) {
             door.DisableToggle();
         }
