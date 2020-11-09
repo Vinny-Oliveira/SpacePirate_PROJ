@@ -437,17 +437,21 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void EnableDoorToggles(Tile tile) {
-        // Disable door toggles from previous tile
-        DisableDoorToggles();
+        if (listThiefStatus.Count < intMaxMoves) { 
 
-        // Enable toggles of closed doors if the Thief has their keycards
-        List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
+            // Disable door toggles from previous tile
+            DisableDoorToggles();
 
-        foreach (var doorTile in doorTiles) { 
-            if (listKeycards.Exists(x => x.cardType == doorTile.door.cardType)) {
-                listTempDoors.Add(doorTile.door);
-                doorTile.door.EnableToggle();
+            // Enable toggles of closed doors if the Thief has their keycards
+            List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
+
+            foreach (var doorTile in doorTiles) { 
+                if (listKeycards.Exists(x => x.cardType == doorTile.door.cardType)) {
+                    listTempDoors.Add(doorTile.door);
+                    doorTile.door.EnableToggle();
+                }
             }
+
         }
     }
 
