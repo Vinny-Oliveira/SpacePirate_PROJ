@@ -178,7 +178,6 @@ public class TurnManager : MonoBehaviour {
         if (emp) { 
             emp.toggleEMP.interactable = false;
         }
-        //thief.TryToActivateEMP();
         thief.DisableDoorToggles();
         thief.counterFollow.counterLable.gameObject.SetActive(false);
 

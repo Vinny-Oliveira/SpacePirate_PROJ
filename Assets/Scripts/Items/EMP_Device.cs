@@ -65,7 +65,6 @@ public class EMP_Device : Item {
     /// Find tiles in range and change the color of the toggle if it is on
     /// </summary>
     public void OnToggleValueChanged() {
-        GameUtilities.ChangeButtonStyle(toggleEMP, colorToggleOn);
         HandleTilesWithinRange();
     }
 
