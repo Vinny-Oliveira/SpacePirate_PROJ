@@ -66,7 +66,7 @@ public class Thief : Character {
     /// Startup for the Thief
     /// </summary>
     public void SetupThief(int maxMoves) {
-        intMaxMoves = maxMoves;
+        SetMaxMoves(maxMoves);
         IsMoving = false;
         CanStep = true;
         HasTreasure = false;
@@ -75,6 +75,14 @@ public class Thief : Character {
         RepositionCamera();
         DisplayMoveCounter();
         StartNewPath();
+    }
+
+    /// <summary>
+    /// Set the maximum number of moves
+    /// </summary>
+    /// <param name="maxMoves"></param>
+    public void SetMaxMoves(int maxMoves) {
+        intMaxMoves = maxMoves;
     }
 
     #endregion
@@ -404,14 +412,17 @@ public class Thief : Character {
     /// </summary>
     /// <param name="keycard"></param>
     public void PickUpKeycard() {
-        TurnManager turnManager = TurnManager.instance;
-        Keycard keycard = turnManager.IsThefTouchingKeycard();
+        Keycard keycard = TurnManager.instance.IsThefTouchingKeycard();
 
-        if (keycard) { 
-            listKeycards.Add(keycard);
-            keycard.gameObject.SetActive(false);
-            turnManager.keycard_Image.SetActive(true);
+        if (keycard) {
+            PickUpKeycard(ref keycard);
         }
+    }
+
+    public void PickUpKeycard(ref Keycard keycard) { 
+        listKeycards.Add(keycard);
+        keycard.gameObject.SetActive(false);
+        TurnManager.instance.keycard_Image.SetActive(true);
     }
 
     /// <summary>
