@@ -290,6 +290,7 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     bool HandleThiefCaught() {
+        thief.DeathStart();
         thief.ClearPath();
         Debug.Log("THIEF CAUGHT!");
         thiefGamePanel.SetActive(false);

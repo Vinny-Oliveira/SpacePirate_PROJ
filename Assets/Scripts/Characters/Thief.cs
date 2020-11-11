@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using DG.Tweening;
-using System;
+
+/// <summary>
+/// Delegate used for multiplayer events
+/// </summary>
+public delegate void Notify();
 
 /// <summary>
 /// Status of the Thief during each move along their path
@@ -143,7 +147,6 @@ public class Thief : Character {
         PickUpKeycard();
         PickUpEMP();
         turnManager.CheckForTreasure();
-        //OpenNeighborDoors();
         MoveOnPath();
     }
 
@@ -165,6 +168,7 @@ public class Thief : Character {
         IsMoving = true;
         CanStep = false;
         HandleCurrentStatus();
+        MoveStart();
     }
 
     /// <summary>
@@ -588,4 +592,29 @@ public class Thief : Character {
 
     #endregion
 
+    #region EVENTS_FOR_MULTIPLAYER
+
+    /* Movement Events */
+    public event Notify MoveCompleted;
+
+    public void MoveStart() {
+        OnMoveCompleted();
+    }
+
+    protected virtual void OnMoveCompleted() {
+        MoveCompleted?.Invoke();
+    }
+
+    /* Death Events */
+    public event Notify ThiefDead;
+
+    public void DeathStart() {
+        OnThiefDead();
+    }
+
+    protected virtual void OnThiefDead() {
+        ThiefDead?.Invoke();
+    }
+
+    #endregion
 }
