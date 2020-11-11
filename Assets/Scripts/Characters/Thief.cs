@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using DG.Tweening;
+using System;
 
 /// <summary>
 /// Status of the Thief during each move along their path
@@ -59,6 +60,9 @@ public class Thief : Character {
     public TMPro.TextMeshProUGUI tmpMoveCount;
     public Color maxRangeColor;
     public CounterFollow counterFollow;
+
+    /* Data for Multiplayer */
+    public ThiefData thiefData = new ThiefData();
 
     #region STARTUP_FUNCTIONS
 
