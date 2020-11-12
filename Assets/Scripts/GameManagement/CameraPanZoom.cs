@@ -9,12 +9,15 @@ public class CameraPanZoom : MonoBehaviour {
     public float fltMaxRadius = 15f;
     public float fltZoomOutMin = 1f;
     public float fltZoomOutMax = 8f;
+    public float fltRotationSpeed = 20f;
     public CounterFollow counterFollow;
+    public Transform pivot;
 
     // Update is called once per frame
     void Update() {
         PanCamera();
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
+        RotateCamera();
     }
 
     /// <summary>
@@ -46,5 +49,18 @@ public class CameraPanZoom : MonoBehaviour {
     void Zoom(float increment) {
         mainCam.orthographicSize = Mathf.Clamp(mainCam.orthographicSize - increment, fltZoomOutMin, fltZoomOutMax);
         counterFollow.UpdateCounterPosition();
+    }
+
+
+    void RotateCamera() {
+        RotateCamera(KeyCode.A, fltRotationSpeed);
+        RotateCamera(KeyCode.D, -fltRotationSpeed);
+    }
+
+    void RotateCamera(KeyCode keyCode, float speed) { 
+        if (Input.GetKey(keyCode)) {
+            transform.LookAt(pivot.position);
+            transform.RotateAround(pivot.position, Vector3.up, speed * Time.deltaTime);
+        }
     }
 }
