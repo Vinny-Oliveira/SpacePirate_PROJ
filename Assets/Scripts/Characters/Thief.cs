@@ -214,6 +214,15 @@ public class Thief : Character {
         DisplayMoveCounter();
     }
 
+    /// <summary>
+    /// Fill the rest of the status list with IDLE
+    /// </summary>
+    public void CompleteStatusList() { 
+        while (listThiefStatus.Count < intMaxMoves) {
+            listThiefStatus.Add(EThiefStatus.IDLE);
+        }
+    }
+
     #endregion
 
     #region TARGET_TILES

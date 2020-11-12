@@ -21,7 +21,7 @@ public class CheatManager : MonoBehaviour {
     }
     
     static void DoubleThiefsMoves() {
-
+        
     }
     
     static void CollectEveryKeycard() {

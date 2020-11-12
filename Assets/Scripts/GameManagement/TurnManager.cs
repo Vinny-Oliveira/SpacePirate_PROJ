@@ -183,6 +183,7 @@ public class TurnManager : MonoBehaviour {
 
         // Play actions
         thief.TurnTargetTilesOff();
+        thief.CompleteStatusList();
         thief.MoveOnPath();
         foreach (var cube in listCubes) {
             cube.MoveOnPath();
@@ -280,7 +281,7 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool IsThiefCaught(ref Tile newTile, ref List<Tile> fieldOfView) {
         if (IsThiefTouchingCube(ref newTile) || IsEnemySeeingThief(fieldOfView)) {
-            return HandleThiefCaught();
+            return true; // HandleThiefCaught();
         }
         return false;
     }
