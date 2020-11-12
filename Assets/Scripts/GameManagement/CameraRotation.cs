@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
 {
-    public GameObject spaceship;
+    public GameObject spacePirate;
     public float rotateValue;
 
     /// <summary>
@@ -18,7 +18,7 @@ public class CameraRotation : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A))
             {
-                Vector3 centre = spaceship.transform.position; //find the position of the centre of the spaceship level. this could be a new game object or the "spaceship" game object. 
+                Vector3 centre = spacePirate.transform.position; //find the position of the centre of the spaceship level. this could be a new game object or the "spaceship" game object. 
                 Vector3 distToCentre = transform.position - centre; //find the distance from that centre point to the main camera
                 Vector3 angles = new Vector3(0, rotateValue, 0);
                 Quaternion newRotation = Quaternion.Euler(angles);
@@ -28,7 +28,7 @@ public class CameraRotation : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.D))
             {
-                Vector3 centre = spaceship.transform.position; //find the position of the centre of the spaceship level. this could be a new game object or the "spaceship" game object. 
+                Vector3 centre = spacePirate.transform.position; //find the position of the centre of the spaceship level. this could be a new game object or the "spaceship" game object. 
                 Vector3 distToCentre = transform.position - centre; //find the distance from that centre point to the main camera
                 Vector3 angles = new Vector3(0, -rotateValue, 0);
                 Quaternion newRotation = Quaternion.Euler(angles);
@@ -40,12 +40,7 @@ public class CameraRotation : MonoBehaviour
         }
 
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
     void Update()

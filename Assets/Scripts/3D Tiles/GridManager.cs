@@ -204,6 +204,7 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
         if (!grid) { return false; }
 
         return cameraHolder.position == grid.cameraHolder.position;
+        //return listGridTiles == grid.listGridTiles;
     }
 
     public override int GetHashCode() {
