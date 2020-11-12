@@ -31280,7 +31280,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 601537134}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1485487278}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84c807626d612b044a8bd45dc6aaeacf, type: 3}
@@ -37456,8 +37456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf11dc4552a5a74f93994d1616d658f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceship: {fileID: 1822988992}
-  rotateValue: 1
+  spacePirate: {fileID: 1485487278}
+  rotateValue: 3
 --- !u!1 &964082092
 GameObject:
   m_ObjectHideFlags: 0
@@ -58780,6 +58780,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4575859979101626722, guid: d3f928a0af11c3e4eadc891e880a3294,
     type: 3}
   m_PrefabInstance: {fileID: 818645597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1485487278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3214614934144430699, guid: 85738d7ece5fd8e4a9cc946803c8f121,
+    type: 3}
+  m_PrefabInstance: {fileID: 601537134}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1488186426
 GameObject:
