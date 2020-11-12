@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
 
-    public Transform cameraHolder;
+    //public Transform cameraHolder;
 
     public int[,] grid = new int[0,0]; // Grid with positions
 
@@ -203,8 +203,8 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
     public bool Equals(GridManager grid) {
         if (!grid) { return false; }
 
-        return cameraHolder.position == grid.cameraHolder.position;
-        //return listGridTiles == grid.listGridTiles;
+        //return cameraHolder.position == grid.cameraHolder.position;
+        return listGridTiles == grid.listGridTiles;
     }
 
     public override int GetHashCode() {

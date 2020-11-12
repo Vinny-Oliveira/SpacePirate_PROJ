@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -18636,7 +18636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &457755312
 Transform:
   m_ObjectHideFlags: 0
@@ -28612,7 +28612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 995937818}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -43708,7 +43707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 773353808}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -46108,7 +46106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1178463987}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -46141,6 +46138,135 @@ MonoBehaviour:
   - {fileID: 1883161557}
   - {fileID: 1769154660}
   - {fileID: 294081501}
+  - {fileID: 503842292}
+  - {fileID: 2048564146}
+  - {fileID: 1119251024}
+  - {fileID: 179781205}
+  - {fileID: 1741885013}
+  - {fileID: 49605287}
+  - {fileID: 2002680448}
+  - {fileID: 565295904}
+  - {fileID: 1422077854}
+  - {fileID: 1119895118}
+  - {fileID: 1644453339}
+  - {fileID: 1903135409}
+  - {fileID: 1502038045}
+  - {fileID: 1220705655}
+  - {fileID: 551765616}
+  - {fileID: 1679469272}
+  - {fileID: 1904481667}
+  - {fileID: 718343141}
+  - {fileID: 1250435454}
+  - {fileID: 1237941272}
+  - {fileID: 1539435865}
+  - {fileID: 986400859}
+  - {fileID: 250224318}
+  - {fileID: 1280783154}
+  - {fileID: 1056946514}
+  - {fileID: 1245950806}
+  - {fileID: 1211579615}
+  - {fileID: 1699345944}
+  - {fileID: 453584614}
+  - {fileID: 361259799}
+  - {fileID: 730756277}
+  - {fileID: 843308782}
+  - {fileID: 1281056861}
+  - {fileID: 688032228}
+  - {fileID: 384974660}
+  - {fileID: 1511347903}
+  - {fileID: 2054105162}
+  - {fileID: 323532309}
+  - {fileID: 2098734122}
+  - {fileID: 506523925}
+  - {fileID: 1306758727}
+  - {fileID: 771053177}
+  - {fileID: 158840855}
+  - {fileID: 954902230}
+  - {fileID: 145783042}
+  - {fileID: 46298202}
+  - {fileID: 259131474}
+  - {fileID: 2126164771}
+  - {fileID: 2112921228}
+  - {fileID: 1792878898}
+  - {fileID: 1404492148}
+  - {fileID: 636128826}
+  - {fileID: 44624989}
+  - {fileID: 51270330}
+  - {fileID: 1667756625}
+  - {fileID: 1745334902}
+  - {fileID: 1230715241}
+  - {fileID: 1119287610}
+  - {fileID: 1663066389}
+  - {fileID: 787649141}
+  - {fileID: 1801748886}
+  - {fileID: 598304269}
+  - {fileID: 1069363575}
+  - {fileID: 1786658979}
+  - {fileID: 1280650290}
+  - {fileID: 2094754473}
+  - {fileID: 1111574442}
+  - {fileID: 1077691708}
+  - {fileID: 110579312}
+  - {fileID: 587881148}
+  - {fileID: 1574223761}
+  - {fileID: 1827033553}
+  - {fileID: 668963482}
+  - {fileID: 1977408844}
+  - {fileID: 1889183092}
+  - {fileID: 1905663279}
+  - {fileID: 434904179}
+  - {fileID: 1928515555}
+  - {fileID: 882547571}
+  - {fileID: 1303456794}
+  - {fileID: 771452751}
+  - {fileID: 1771388365}
+  - {fileID: 667449392}
+  - {fileID: 500558389}
+  - {fileID: 164177247}
+  - {fileID: 1561609774}
+  - {fileID: 1237718232}
+  - {fileID: 492570974}
+  - {fileID: 1965823957}
+  - {fileID: 307998321}
+  - {fileID: 785034266}
+  - {fileID: 1583633709}
+  - {fileID: 145520043}
+  - {fileID: 1011167827}
+  - {fileID: 880926820}
+  - {fileID: 1910293601}
+  - {fileID: 1628305570}
+  - {fileID: 1091753484}
+  - {fileID: 820690364}
+  - {fileID: 1300223710}
+  - {fileID: 1439301244}
+  - {fileID: 423797088}
+  - {fileID: 486215167}
+  - {fileID: 156719358}
+  - {fileID: 1423131439}
+  - {fileID: 1742789184}
+  - {fileID: 1904142597}
+  - {fileID: 1266072752}
+  - {fileID: 54126232}
+  - {fileID: 1010094838}
+  - {fileID: 1782962007}
+  - {fileID: 1255241970}
+  - {fileID: 882312168}
+  - {fileID: 918814836}
+  - {fileID: 1380354269}
+  - {fileID: 1456226264}
+  - {fileID: 1530273611}
+  - {fileID: 1592972716}
+  - {fileID: 810910040}
+  - {fileID: 1111971100}
+  - {fileID: 492637702}
+  - {fileID: 975070151}
+  - {fileID: 399789980}
+  - {fileID: 1411443224}
+  - {fileID: 1763119247}
+  - {fileID: 1272052985}
+  - {fileID: 860895505}
+  - {fileID: 245964308}
+  - {fileID: 1363557723}
   intMapSizeX: 4
   intMapSizeZ: 7
 --- !u!4 &1183770451
@@ -60264,7 +60390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1016217720}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -66150,7 +66275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1048210567}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -85648,7 +85772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1608523259}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
@@ -87821,7 +87944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 318876661}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}

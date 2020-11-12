@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5301,7 +5301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1016217720}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -15824,7 +15823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &457755312
 Transform:
   m_ObjectHideFlags: 0
@@ -38165,7 +38164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 318876661}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
@@ -38270,6 +38268,51 @@ MonoBehaviour:
   - {fileID: 1719634620}
   - {fileID: 424662735}
   - {fileID: 1380783392}
+  - {fileID: 1872699044}
+  - {fileID: 851179434}
+  - {fileID: 483532562}
+  - {fileID: 654945782}
+  - {fileID: 1094270669}
+  - {fileID: 113215352}
+  - {fileID: 1936445646}
+  - {fileID: 1846886402}
+  - {fileID: 1639585711}
+  - {fileID: 913323902}
+  - {fileID: 608989381}
+  - {fileID: 1636340543}
+  - {fileID: 557616073}
+  - {fileID: 2061796067}
+  - {fileID: 39585356}
+  - {fileID: 886151226}
+  - {fileID: 557070226}
+  - {fileID: 1105519606}
+  - {fileID: 1220059400}
+  - {fileID: 1629048442}
+  - {fileID: 119123653}
+  - {fileID: 188386516}
+  - {fileID: 1549644735}
+  - {fileID: 1393898355}
+  - {fileID: 2102338606}
+  - {fileID: 39230735}
+  - {fileID: 745267232}
+  - {fileID: 1891456527}
+  - {fileID: 398070382}
+  - {fileID: 864944453}
+  - {fileID: 500049651}
+  - {fileID: 846272798}
+  - {fileID: 1032817156}
+  - {fileID: 2058840104}
+  - {fileID: 428470341}
+  - {fileID: 1070407479}
+  - {fileID: 1503566581}
+  - {fileID: 1349687803}
+  - {fileID: 1206194818}
+  - {fileID: 530155942}
+  - {fileID: 179215558}
+  - {fileID: 243838141}
+  - {fileID: 525593463}
+  - {fileID: 654352563}
+  - {fileID: 1936513497}
   intMapSizeX: 10
   intMapSizeZ: 10
 --- !u!4 &1058557818
@@ -43430,7 +43473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1178463987}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -74071,7 +74113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 995937818}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
