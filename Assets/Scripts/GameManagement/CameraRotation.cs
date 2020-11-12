@@ -14,7 +14,9 @@ public class CameraRotation : MonoBehaviour
 
     void RotateCamera()
     {
-        if (rotateValue != 0.0f)
+        transform.LookAt(spacePirate.transform.position);
+
+        if (rotateValue > 0.0f)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -40,11 +42,17 @@ public class CameraRotation : MonoBehaviour
         }
 
     }
-    
+
+    private void Start()
+    {
+        transform.LookAt(spacePirate.transform.position);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        RotateCamera();
+        //RotateCamera();
+        transform.RotateAround(spacePirate.transform.position, new Vector3(0.0f, 1.0f, 0.0f), 20 * Time.deltaTime/* * speedMod*/);
     }
 }
+
