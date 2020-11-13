@@ -37457,7 +37457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacePirate: {fileID: 1485487278}
-  rotateValue: 3
+  rotateValue: 45
 --- !u!1 &964082092
 GameObject:
   m_ObjectHideFlags: 0

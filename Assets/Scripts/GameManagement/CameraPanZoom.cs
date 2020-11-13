@@ -32,6 +32,7 @@ public class CameraPanZoom : MonoBehaviour {
         // Right mouse click continues down
         if (Input.GetMouseButton(1)) {
             Vector3 direction = clickStart - mainCam.ScreenToWorldPoint(Input.mousePosition);
+            direction = new Vector3(direction.x, 0f, direction.z);
             
             // Set bounds to the pan
             if ((mainCam.transform.position + direction).magnitude < fltMaxRadius) { 
@@ -59,7 +60,7 @@ public class CameraPanZoom : MonoBehaviour {
 
     void RotateCamera(KeyCode keyCode, float speed) { 
         if (Input.GetKey(keyCode)) {
-            transform.LookAt(pivot.position);
+            //transform.LookAt(pivot.position);
             transform.RotateAround(pivot.position, Vector3.up, speed * Time.deltaTime);
         }
     }
