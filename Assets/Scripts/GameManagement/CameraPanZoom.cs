@@ -12,6 +12,7 @@ public class CameraPanZoom : MonoBehaviour {
     public float fltRotationSpeed = 20f;
     public CounterFollow counterFollow;
     public Transform pivot;
+    public List<Transform> listButtons = new List<Transform>();
 
     // Update is called once per frame
     void Update() {
@@ -62,6 +63,11 @@ public class CameraPanZoom : MonoBehaviour {
         if (Input.GetKey(keyCode)) {
             //transform.LookAt(pivot.position);
             transform.RotateAround(pivot.position, Vector3.up, speed * Time.deltaTime);
+
+            // Make buttons look away from the camera
+            foreach (var button in listButtons) {
+                button.LookAt(2 * button.position - mainCam.gameObject.transform.position);
+            }
         }
     }
 }

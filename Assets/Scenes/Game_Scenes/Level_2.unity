@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -22391,6 +22391,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a, type: 3}
+--- !u!224 &579300420 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2049545923736868854, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 579300419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &581208520
 GameObject:
   m_ObjectHideFlags: 0
@@ -36231,6 +36237,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a, type: 3}
+--- !u!224 &938708951 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2049545923736868854, guid: c9a1d25f7b5c0ce4a9d2baf03e056d8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 938708950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &941817852
 GameObject:
   m_ObjectHideFlags: 0
@@ -37469,6 +37481,9 @@ MonoBehaviour:
   fltRotationSpeed: 20
   counterFollow: {fileID: 601537136}
   pivot: {fileID: 601537135}
+  listButtons:
+  - {fileID: 938708951}
+  - {fileID: 579300420}
 --- !u!1 &964082092
 GameObject:
   m_ObjectHideFlags: 0
@@ -40508,7 +40523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6aae08f1397c314bb8576681f8681d9, type: 2}
+  - {fileID: 2100000, guid: 90623549d4482f042ade35d8a0758e35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -10,7 +10,6 @@ public class Door : MonoBehaviour {
     public ECardType cardType;
     public Animator animator;
     public UnityEngine.UI.Toggle toggleDoor;
-    public Color openColor;
 
     /// <summary>
     /// Play the animation to open the door
