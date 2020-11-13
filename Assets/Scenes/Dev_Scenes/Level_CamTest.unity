@@ -28612,7 +28612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 995937818}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -37443,7 +37442,9 @@ MonoBehaviour:
   fltMaxRadius: 15
   fltZoomOutMin: 1
   fltZoomOutMax: 8
+  fltRotationSpeed: 50
   counterFollow: {fileID: 601537136}
+  pivot: {fileID: 2126164774}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37451,13 +37452,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daf11dc4552a5a74f93994d1616d658f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spacePirate: {fileID: 1485487278}
-  rotateValue: 45
+  rotateValue: 50
 --- !u!1 &964082092
 GameObject:
   m_ObjectHideFlags: 0
@@ -43723,7 +43724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 773353808}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -46123,7 +46123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1178463987}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -60285,7 +60284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1016217720}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -66171,7 +66169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1048210567}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
@@ -85669,7 +85666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 1608523259}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
@@ -87842,7 +87838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ff2877bc69ac4786aadf59facfe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 318876661}
   listPrefabTiles:
   - {fileID: 3788749507725496527, guid: 952b1b365a2dfd14d92c15d492286a80, type: 3}
   - {fileID: 3788749507725496527, guid: 824e3e60d233840458fc156d41b707a6, type: 3}
