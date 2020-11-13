@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -23453,6 +23453,8 @@ MonoBehaviour:
   - {fileID: 483532562}
   - {fileID: 1936445646}
   - {fileID: 23298}
+  - {fileID: 1424632568}
+  - {fileID: 1771286189}
   moveQuad: {fileID: 1308734014}
   visionQuad: {fileID: 921546397}
   empQuad: {fileID: 591377699}
@@ -35520,7 +35522,7 @@ MonoBehaviour:
   fltZoomOutMax: 8
   fltRotationSpeed: 20
   counterFollow: {fileID: 1190933905}
-  pivot: {fileID: 0}
+  pivot: {fileID: 616441834}
 --- !u!1 &971911632
 GameObject:
   m_ObjectHideFlags: 0
@@ -52549,6 +52551,7 @@ MonoBehaviour:
   - {fileID: 668373999}
   - {fileID: 275574148}
   - {fileID: 529496024}
+  - {fileID: 654945782}
   moveQuad: {fileID: 1956702051}
   visionQuad: {fileID: 416027945}
   empQuad: {fileID: 51320890}
@@ -65634,6 +65637,9 @@ MonoBehaviour:
   - {fileID: 1775975163}
   - {fileID: 529496024}
   - {fileID: 1530737716}
+  - {fileID: 654945782}
+  - {fileID: 1846886402}
+  - {fileID: 1636340543}
   moveQuad: {fileID: 949307972}
   visionQuad: {fileID: 1448919298}
   empQuad: {fileID: 383890945}
