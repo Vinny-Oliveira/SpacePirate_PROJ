@@ -116,10 +116,10 @@ public class Thief : Character {
     /// Update the current tile of the Thief
     /// </summary>
     void UpdateTile() { 
-        if (currentGrid != targetTile.gridManager) {
-            currentGrid = targetTile.gridManager;
-            RepositionCamera();
-        }
+        //if (currentGrid != targetTile.gridManager) {
+        //    currentGrid = targetTile.gridManager;
+        //    RepositionCamera();
+        //}
 
         currentTile = targetTile;
 

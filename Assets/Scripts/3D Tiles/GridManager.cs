@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
+public class GridManager : MonoBehaviour/*, System.IEquatable<GridManager>*/ {
 
     //public Transform cameraHolder;
 
@@ -144,8 +144,19 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
         }
     }
 
+    /// <summary>
+    /// Reset the values of tile coordinates based on their locations
+    /// </summary>
+    [ContextMenu("Reset Coordinates")]
+    public void ResetCoordinates() { 
+        foreach (var tile in listGridTiles) {
+            int x = (int)tile.gameObject.transform.position.x;
+            int z = (int)tile.gameObject.transform.position.z;
 
-
+            tile.SetLocation(x, z);
+            tile.gameObject.name = "Tile (" + x + "," + z + ")";
+        }
+    }
 
     /// <summary>
     /// Link vertical and horizontal neighbors
@@ -195,22 +206,22 @@ public class GridManager : MonoBehaviour, System.IEquatable<GridManager> {
 
     #endregion
 
-    #region EQUALITY_OVERLOAD
-    public override bool Equals(object other) {
-        return Equals(other as GridManager);
-    }
+    //#region EQUALITY_OVERLOAD
+    //public override bool Equals(object other) {
+    //    return Equals(other as GridManager);
+    //}
 
-    public bool Equals(GridManager grid) {
-        if (!grid) { return false; }
+    //public bool Equals(GridManager grid) {
+    //    if (!grid) { return false; }
 
-        //return cameraHolder.position == grid.cameraHolder.position;
-        return listGridTiles == grid.listGridTiles;
-    }
+    //    //return cameraHolder.position == grid.cameraHolder.position;
+    //    return listGridTiles == grid.listGridTiles;
+    //}
 
-    public override int GetHashCode() {
-        return base.GetHashCode();
-    }
+    //public override int GetHashCode() {
+    //    return base.GetHashCode();
+    //}
 
-    #endregion
+    //#endregion
 
 }

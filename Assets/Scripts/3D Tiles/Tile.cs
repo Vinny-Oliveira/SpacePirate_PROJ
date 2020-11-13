@@ -201,7 +201,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     public bool Equals(Tile tile) {
         if (!tile) { return false; } // tile is null
 
-        return (coordinates == tile.coordinates && gridManager.Equals(tile.gridManager));
+        //return (coordinates == tile.coordinates && gridManager.Equals(tile.gridManager));
+        return (gameObject.transform.position == tile.gameObject.transform.position);
     }
 
     public override int GetHashCode() {
