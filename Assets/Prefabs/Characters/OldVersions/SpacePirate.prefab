@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2870846767374035153}
   - component: {fileID: 616441835}
+  - component: {fileID: 2079217394987656393}
   m_Layer: 8
   m_Name: SpacePirate
   m_TagString: Untagged
@@ -172,7 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   currentGrid: {fileID: 0}
-  intRange: 5
   ghostPrefab: {fileID: 8177394420667090605, guid: c29fce3e9aef81647b863315f79d48b0,
     type: 3}
   listGhosts: []
@@ -180,6 +180,26 @@ MonoBehaviour:
   tmpMoveCount: {fileID: 0}
   maxRangeColor: {r: 1, g: 0.7756624, b: 0.15686274, a: 1}
   counterFollow: {fileID: 2374302590154838482}
+  animator: {fileID: 2079217394987656393}
+--- !u!95 &2079217394987656393
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214614934144430699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0372a9266dbb2b344b869442d1892446, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7904520015990360647
 GameObject:
   m_ObjectHideFlags: 0

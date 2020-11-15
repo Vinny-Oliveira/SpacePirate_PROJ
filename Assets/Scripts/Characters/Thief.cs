@@ -60,10 +60,12 @@ public class Thief : Character {
 
     [Header("Camera & UI")]
     public Camera mainCamera;
-    //public UnityEngine.UI.Button btnOpenDoor;
     public TMPro.TextMeshProUGUI tmpMoveCount;
     public Color maxRangeColor;
     public CounterFollow counterFollow;
+
+    [Header("Thief Animations")]
+    public Animator animator;
 
     /* Data for Multiplayer */
     public ThiefData thiefData = new ThiefData();
@@ -131,6 +133,7 @@ public class Thief : Character {
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {
+        animator.SetBool("IsWalking", false);
         CanStep = true;
         yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
         yield return StartCoroutine(base.WaitOnTile());
@@ -166,6 +169,7 @@ public class Thief : Character {
 
         // Continue the path
         IsMoving = true;
+        animator.SetBool("IsWalking", true);
         CanStep = false;
         HandleCurrentStatus();
         MoveStart();
