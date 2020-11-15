@@ -90536,6 +90536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 5722389350068163570, guid: 09bded9443567c242b81d3779434b250,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bded9443567c242b81d3779434b250, type: 3}
 --- !u!1 &6126445269669016615
