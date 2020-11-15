@@ -440,7 +440,8 @@ public class Thief : Character {
         }
     }
 
-    public void PickUpKeycard(ref Keycard keycard) { 
+    public void PickUpKeycard(ref Keycard keycard) {
+        animator.SetTrigger("Grab");
         listKeycards.Add(keycard);
         keycard.gameObject.SetActive(false);
         TurnManager.instance.keycard_Image.SetActive(true);
@@ -524,6 +525,7 @@ public class Thief : Character {
     /// </summary>
     public void PickUpEMP() { 
         if (TurnManager.instance.IsThiefTouchingEMP()) {
+            animator.SetTrigger("Grab");
             emp = TurnManager.instance.emp;
             emp.transform.parent = transform; // EMP becomes a child of the thief
             emp.OnDevicePickedUp(this);

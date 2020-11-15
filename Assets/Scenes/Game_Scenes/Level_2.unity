@@ -21786,7 +21786,7 @@ PrefabInstance:
     - target: {fileID: 742655993712731547, guid: b069c9cc8efc46a4c838032198715558,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 742655993712731547, guid: b069c9cc8efc46a4c838032198715558,
         type: 3}
@@ -21923,6 +21923,11 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 5313440665644958549, guid: b069c9cc8efc46a4c838032198715558,
+        type: 3}
+      propertyPath: counterLabel
+      value: 
+      objectReference: {fileID: 1921035403}
     - target: {fileID: 5332509621738917825, guid: b069c9cc8efc46a4c838032198715558,
         type: 3}
       propertyPath: m_Layer
@@ -33405,7 +33410,7 @@ Transform:
   - {fileID: 666103551}
   - {fileID: 1933234616}
   m_Father: {fileID: 894307649}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880926819
 GameObject:
@@ -34256,8 +34261,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 878212813}
   - {fileID: 1251303735}
+  - {fileID: 878212813}
   - {fileID: 272423718}
   - {fileID: 1177676595}
   - {fileID: 986519783}
