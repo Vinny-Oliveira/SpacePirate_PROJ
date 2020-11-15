@@ -179,7 +179,7 @@ public class TurnManager : MonoBehaviour {
             emp.toggleEMP.interactable = false;
         }
         thief.DisableDoorToggles();
-        thief.counterFollow.counterLable.gameObject.SetActive(false);
+        thief.counterFollow.counterLabel.gameObject.SetActive(false);
 
         // Play actions
         thief.TurnTargetTilesOff();
@@ -254,7 +254,7 @@ public class TurnManager : MonoBehaviour {
         if (emp) {
             emp.toggleEMP.interactable = true;
         }
-        thief.counterFollow.counterLable.gameObject.SetActive(true);
+        thief.counterFollow.counterLabel.gameObject.SetActive(true);
         thief.StartNewPath();
     }
 
