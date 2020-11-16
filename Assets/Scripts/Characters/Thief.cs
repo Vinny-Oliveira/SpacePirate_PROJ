@@ -133,7 +133,6 @@ public class Thief : Character {
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {
-        animator.SetBool("IsWalking", false);
         CanStep = true;
         yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
         yield return StartCoroutine(base.WaitOnTile());
@@ -161,6 +160,7 @@ public class Thief : Character {
         
         // Path is over
         if (listThiefStatus.Count < 1) {
+            animator.SetBool("IsWalking", false);
             IsMoving = false;
             turnManager.DecreaseMovementCount();
             DisplayMoveCounter();
@@ -169,7 +169,6 @@ public class Thief : Character {
 
         // Continue the path
         IsMoving = true;
-        animator.SetBool("IsWalking", true);
         CanStep = false;
         HandleCurrentStatus();
         MoveStart();
@@ -184,10 +183,12 @@ public class Thief : Character {
 
         switch (thiefStatus) {
             case EThiefStatus.IDLE: // Just wait on the tile
+                animator.SetBool("IsWalking", false);
                 StartCoroutine(WaitOnTile());
                 break;
 
             case EThiefStatus.MOVE: // Move on the path
+                animator.SetBool("IsWalking", true);
                 Tile nextTile = listPathTiles[0];
                 MoveToTile(ref nextTile);
                 RemoveGhostFromPath(nextTile);
@@ -201,11 +202,13 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.EMP: // Activate the EMP and wait on the tile
+                animator.SetBool("IsWalking", false);
                 emp.TryToActivateEMP();
                 StartCoroutine(WaitOnTile());
                 break;
 
             case EThiefStatus.OPEN_DOOR: // Open the doors around and wait on the tile
+                animator.SetBool("IsWalking", false);
                 listOpenDoorTiles.Last().door.OpenDoor();
                 listOpenDoorTiles.RemoveAt(listOpenDoorTiles.Count - 1);
                 StartCoroutine(WaitOnTile());
