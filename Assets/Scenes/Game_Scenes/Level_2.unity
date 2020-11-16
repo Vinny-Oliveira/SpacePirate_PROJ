@@ -17610,6 +17610,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightQuad: {fileID: 436211702}
+--- !u!95 &437839987 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8233041335278270311, guid: 2107aa9a84051dd47878cc73d5eee266,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921035399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &443054340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29136,6 +29142,12 @@ Transform:
   m_Father: {fileID: 457755312}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &774001956 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1970858002759762921, guid: 2107aa9a84051dd47878cc73d5eee266,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921035399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &775466960
 GameObject:
   m_ObjectHideFlags: 0
@@ -41559,6 +41571,16 @@ PrefabInstance:
         type: 3}
       propertyPath: fltRange
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688168971838994637, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
+        type: 3}
+      propertyPath: animatorPanel
+      value: 
+      objectReference: {fileID: 774001956}
+    - target: {fileID: 1688168971838994637, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
+        type: 3}
+      propertyPath: strAnimationState
+      value: EMP_Instructions
       objectReference: {fileID: 0}
     - target: {fileID: 2030885174939452463, guid: 5ef7220d6a9b2e047ae5d9ed5dd2d2fe,
         type: 3}
@@ -85596,6 +85618,16 @@ PrefabInstance:
       propertyPath: placeTile
       value: 
       objectReference: {fileID: 771452751}
+    - target: {fileID: 6014218356110609703, guid: 6ae9eb3015c47e743b79be4b9c8053de,
+        type: 3}
+      propertyPath: animatorPanel
+      value: 
+      objectReference: {fileID: 437839987}
+    - target: {fileID: 6014218356110609703, guid: 6ae9eb3015c47e743b79be4b9c8053de,
+        type: 3}
+      propertyPath: strAnimationState
+      value: KeyCard_Instructions
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae9eb3015c47e743b79be4b9c8053de, type: 3}
 --- !u!4 &2048196530 stripped

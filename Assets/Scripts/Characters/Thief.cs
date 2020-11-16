@@ -444,6 +444,7 @@ public class Thief : Character {
         listKeycards.Add(keycard);
         keycard.gameObject.SetActive(false);
         TurnManager.instance.keycard_Image.SetActive(true);
+        keycard.PlayAnimationPanel();
     }
 
     /// <summary>
