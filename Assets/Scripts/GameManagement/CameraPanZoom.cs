@@ -53,7 +53,9 @@ public class CameraPanZoom : MonoBehaviour {
         counterFollow.UpdateCounterPosition();
     }
 
-
+    /// <summary>
+    /// Rotate the camera to see the entire level
+    /// </summary>
     void RotateCamera() {
         RotateCamera(KeyCode.A, fltRotationSpeed);
         RotateCamera(KeyCode.D, -fltRotationSpeed);
