@@ -13,10 +13,10 @@ public delegate void Notify();
 /// Status of the Thief during each move along their path
 /// </summary>
 public enum EThiefStatus { 
-    IDLE = 0,
+    WAIT = 0,
     MOVE = 1,
     EMP = 2,
-    OPEN_DOOR = 3
+    OPEN = 3
 }
 
 /// <summary>
@@ -62,13 +62,9 @@ public class Thief : Character {
     public Camera mainCamera;
     public TMPro.TextMeshProUGUI tmpMoveCount;
     public Color maxRangeColor;
-    public CounterFollow counterFollow;
 
     [Header("Thief Animations")]
     public Animator animator;
-
-    /* Data for Multiplayer */
-    public ThiefData thiefData = new ThiefData();
 
     #region STARTUP_FUNCTIONS
 
@@ -80,7 +76,7 @@ public class Thief : Character {
         IsMoving = false;
         CanStep = true;
         HasTreasure = false;
-        thiefStatus = EThiefStatus.IDLE;
+        thiefStatus = EThiefStatus.WAIT;
         SetStartingTile();
         RepositionCamera();
         DisplayMoveCounter();
@@ -110,7 +106,7 @@ public class Thief : Character {
         targetTile = nextTile;
 
         // Move to tile
-        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnUpdate(counterFollow.UpdateCounterPosition).OnComplete(UpdateTile);
+        transform.DOMove(target, stepTime).SetEase(Ease.OutQuart).OnComplete(UpdateTile);
         transform.DORotateQuaternion(Quaternion.LookRotation(lookRotation), 0.3f);
     }
 
@@ -118,13 +114,7 @@ public class Thief : Character {
     /// Update the current tile of the Thief
     /// </summary>
     void UpdateTile() { 
-        //if (currentGrid != targetTile.gridManager) {
-        //    currentGrid = targetTile.gridManager;
-        //    RepositionCamera();
-        //}
-
         currentTile = targetTile;
-
         StartCoroutine(WaitOnTile());
     }
 
@@ -133,7 +123,6 @@ public class Thief : Character {
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {
-        animator.SetBool("IsWalking", false);
         CanStep = true;
         yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
         yield return StartCoroutine(base.WaitOnTile());
@@ -161,6 +150,7 @@ public class Thief : Character {
         
         // Path is over
         if (listThiefStatus.Count < 1) {
+            animator.SetBool("IsWalking", false);
             IsMoving = false;
             turnManager.DecreaseMovementCount();
             DisplayMoveCounter();
@@ -169,7 +159,6 @@ public class Thief : Character {
 
         // Continue the path
         IsMoving = true;
-        animator.SetBool("IsWalking", true);
         CanStep = false;
         HandleCurrentStatus();
         MoveStart();
@@ -183,11 +172,13 @@ public class Thief : Character {
         listThiefStatus.RemoveAt(0);
 
         switch (thiefStatus) {
-            case EThiefStatus.IDLE: // Just wait on the tile
+            case EThiefStatus.WAIT: // Just wait on the tile
+                animator.SetBool("IsWalking", false);
                 StartCoroutine(WaitOnTile());
                 break;
 
             case EThiefStatus.MOVE: // Move on the path
+                animator.SetBool("IsWalking", true);
                 Tile nextTile = listPathTiles[0];
                 MoveToTile(ref nextTile);
                 RemoveGhostFromPath(nextTile);
@@ -201,11 +192,13 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.EMP: // Activate the EMP and wait on the tile
+                animator.SetBool("IsWalking", false);
                 emp.TryToActivateEMP();
                 StartCoroutine(WaitOnTile());
                 break;
 
-            case EThiefStatus.OPEN_DOOR: // Open the doors around and wait on the tile
+            case EThiefStatus.OPEN: // Open the doors around and wait on the tile
+                animator.SetBool("IsWalking", false);
                 listOpenDoorTiles.Last().door.OpenDoor();
                 listOpenDoorTiles.RemoveAt(listOpenDoorTiles.Count - 1);
                 StartCoroutine(WaitOnTile());
@@ -223,7 +216,7 @@ public class Thief : Character {
     /// </summary>
     public void CompleteStatusList() { 
         while (listThiefStatus.Count < intMaxMoves) {
-            listThiefStatus.Add(EThiefStatus.IDLE);
+            listThiefStatus.Add(EThiefStatus.WAIT);
         }
     }
 
@@ -441,10 +434,10 @@ public class Thief : Character {
     }
 
     public void PickUpKeycard(ref Keycard keycard) {
-        animator.SetTrigger("Grab");
         listKeycards.Add(keycard);
         keycard.gameObject.SetActive(false);
         TurnManager.instance.keycard_Image.SetActive(true);
+        keycard.PlayAnimationPanel();
     }
 
     /// <summary>
@@ -485,7 +478,7 @@ public class Thief : Character {
     /// Mark a door as open and allow the Thief to move beyond it
     /// </summary>
     public void OpenDoorMidPath(Tile doorTile) {
-        listThiefStatus.Add(EThiefStatus.OPEN_DOOR);
+        listThiefStatus.Add(EThiefStatus.OPEN);
         listOpenDoorTiles.Add(doorTile);
         DisplayCurrentTargets();
     }
@@ -524,8 +517,7 @@ public class Thief : Character {
     /// Pick up the EMP device
     /// </summary>
     public void PickUpEMP() { 
-        if (TurnManager.instance.IsThiefTouchingEMP()) {
-            animator.SetTrigger("Grab");
+        if (emp == null && TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
             emp.transform.parent = transform; // EMP becomes a child of the thief
             emp.OnDevicePickedUp(this);

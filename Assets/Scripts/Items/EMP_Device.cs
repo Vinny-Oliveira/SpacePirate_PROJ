@@ -32,6 +32,7 @@ public class EMP_Device : Item {
         toggleEMP.interactable = true;
         toggleEMP.gameObject.SetActive(true);
         empBody.SetActive(false);
+        PlayAnimationPanel();
     }
 
     /// <summary>
