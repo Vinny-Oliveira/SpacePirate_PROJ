@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThiefData {
-
-    public string PlayerName { get; set; }
-    public int Id { get; set; }
+public class LevelThiefData 
+{
+    
     public int MovesMade { get; set; }
     public int TimeTaken { get; set; } // seconds?
     public int Deaths { get; set; }
-
-
-
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Dev_Scenes/Rahul_Multiplayer.unity
+    guid: cb295687fe11c82458da0fd44dd2868e
+  - enabled: 1
     path: Assets/Scenes/Game_Scenes/MainMenus.unity
     guid: 572d2321951eb064ebe866bff171780f
   - enabled: 1
