@@ -170,7 +170,7 @@ public class Thief : Character {
     /// </summary>
     void HandleCurrentStatus() {
         thiefStatus = listThiefStatus[0];
-        listThiefStatus.RemoveAt(0);
+        RemoveFirstActiveStatus(); // Remove 1st item of the list
 
         switch (thiefStatus) {
             case EThiefStatus.WAIT: // Just wait on the tile
@@ -217,7 +217,7 @@ public class Thief : Character {
     /// </summary>
     public void CompleteStatusList() { 
         while (listThiefStatus.Count < intMaxMoves) {
-            listThiefStatus.Add(EThiefStatus.WAIT);
+            AddNewStatus(EThiefStatus.WAIT);
         }
     }
 
@@ -310,7 +310,7 @@ public class Thief : Character {
         }
 
         // Add to path
-        listThiefStatus.Add(EThiefStatus.MOVE);
+        AddNewStatus(EThiefStatus.MOVE);
         listPathTiles.Add(tile);
         tile.moveQuad.TurnHighlighterOff();
 
@@ -334,6 +334,10 @@ public class Thief : Character {
 
         listPathTiles.Clear();
         listThiefStatus.Clear();
+        foreach (var action in listActions) {
+            action.TurnActionOff();
+        }
+
         if (emp) {
             emp.toggleEMP.isOn = false;
         }
@@ -364,7 +368,7 @@ public class Thief : Character {
     public void RemoveLastTileFromPath() {
         RemoveGhostFromPath(listPathTiles.Last());
         listPathTiles.RemoveAt(listPathTiles.Count - 1);
-        listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+        RemoveLastActiveStatus();
 
         // Enable the option to open doors if next to one
         EnableDoorToggles((LastPathTile) ? (LastPathTile) : (currentTile));
@@ -479,7 +483,7 @@ public class Thief : Character {
     /// Mark a door as open and allow the Thief to move beyond it
     /// </summary>
     public void OpenDoorMidPath(Tile doorTile) {
-        listThiefStatus.Add(EThiefStatus.OPEN);
+        AddNewStatus(EThiefStatus.OPEN);
         listOpenDoorTiles.Add(doorTile);
         DisplayCurrentTargets();
     }
@@ -488,8 +492,8 @@ public class Thief : Character {
     /// Mark a door as not open and do not allow the Thief to move beyond it
     /// </summary>
     public void CloseDoorMidPath(Tile doorTile) {
-        if (listThiefStatus.Count > 0) { 
-            listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+        if (listThiefStatus.Count > 0) {
+            RemoveLastActiveStatus();
         }
         listOpenDoorTiles.Remove(doorTile);
         DisplayCurrentTargets();
@@ -539,7 +543,7 @@ public class Thief : Character {
     /// Add the EMP to the status list when the EMP is toggled on
     /// </summary>
     public void ToggleEmpOn() {
-        listThiefStatus.Add(EThiefStatus.EMP);
+        AddNewStatus(EThiefStatus.EMP);
         DisplayMoveCounter();
     }
     
@@ -548,7 +552,7 @@ public class Thief : Character {
     /// </summary>
     public void ToggleEmpOff() {
         if (listThiefStatus.Count > 0 && listThiefStatus.Last() == EThiefStatus.EMP) {
-            listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+            RemoveLastActiveStatus();
             DisplayMoveCounter();
         }
     }
@@ -600,6 +604,35 @@ public class Thief : Character {
 
     #endregion
 
+    #region STATUS_AND_ACTION_LISTS
+
+    /// <summary>
+    /// Add a new status to the status list and turn on its respective action tracker
+    /// </summary>
+    /// <param name="thiefStatus"></param>
+    void AddNewStatus(EThiefStatus thiefStatus) {
+        listThiefStatus.Add(thiefStatus);
+        listActions[listThiefStatus.Count - 1].SetNewAction(thiefStatus);
+    }
+
+    /// <summary>
+    /// Remove the first status of the Status List and turn the first active action off
+    /// </summary>
+    void RemoveFirstActiveStatus() {
+        listActions[listActions.Count - listThiefStatus.Count].TurnActionOff();
+        listThiefStatus.RemoveAt(0);
+    }
+
+    /// <summary>
+    /// Remove the last status of the Status List and turn the last active action off
+    /// </summary>
+    void RemoveLastActiveStatus() {
+        listActions[listThiefStatus.Count - 1].TurnActionOff();
+        listThiefStatus.RemoveAt(listThiefStatus.Count - 1);
+    }
+
+    #endregion
+
     #region EVENTS_FOR_MULTIPLAYER
 
     /* Movement Events */
@@ -625,4 +658,5 @@ public class Thief : Character {
     }
 
     #endregion
+
 }
