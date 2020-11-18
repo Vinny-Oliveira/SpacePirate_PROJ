@@ -25,7 +25,7 @@ public enum EThiefStatus {
 public class Thief : Character {
 
     /* Maximum moves per turn */
-    int intMaxMoves = 2;
+    int intMaxMoves;
 
     [Header("Path Control")]
     Tile targetTile;
@@ -35,6 +35,7 @@ public class Thief : Character {
     List<EThiefStatus> listThiefStatus = new List<EThiefStatus>();
     public GameObject ghostPrefab;
     public List<GameObject> listGhosts = new List<GameObject>();
+    public List<ActionTracker> listActions = new List<ActionTracker>(); // CONSTRAINT: This list MUST have as many ActionTracker panels as the number of maximum moves for the Thief
 
     /// <summary>
     /// Last tile in the list of path tiles

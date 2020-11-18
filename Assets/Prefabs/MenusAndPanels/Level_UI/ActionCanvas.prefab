@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15571810717d3f4f9e3cae5de933add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmpActionName: {fileID: 0}
-  imgAction: {fileID: 0}
+  tmpActionName: {fileID: 7025578183776228744}
+  imgAction: {fileID: 7025578183575406511}
 --- !u!1 &7025578183619016471
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7025578183892980519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -904,8 +904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15571810717d3f4f9e3cae5de933add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmpActionName: {fileID: 0}
-  imgAction: {fileID: 0}
+  tmpActionName: {fileID: 7025578183855520125}
+  imgAction: {fileID: 7025578184105749938}
 --- !u!1 &7025578184724014517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,8 +1090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15571810717d3f4f9e3cae5de933add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmpActionName: {fileID: 0}
-  imgAction: {fileID: 0}
+  tmpActionName: {fileID: 7025578183747894107}
+  imgAction: {fileID: 7025578185019103593}
 --- !u!1 &7025578185036106726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,5 +1566,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15571810717d3f4f9e3cae5de933add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmpActionName: {fileID: 0}
-  imgAction: {fileID: 0}
+  tmpActionName: {fileID: 7025578185036106720}
+  imgAction: {fileID: 7025578185254650141}
