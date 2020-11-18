@@ -7,10 +7,10 @@ using UnityEngine;
 /// Directions the cube can roll to
 /// </summary>
 public enum EDirection { 
-    NORTHEAST = 0,
-    NORTHWEST = 1,
-    SOUTHEAST = 2,
-    SOUTHWEST = 3
+    NE = 0, // NorthEast
+    NW = 1, // NorthWest
+    SE = 2, // SouthEast
+    SW = 3  // SouthWest
 }
 
 public class CubeBot : Enemy {
@@ -86,10 +86,10 @@ public class CubeBot : Enemy {
     /// </summary>
     public void BuildDirectionDictionary() {
         dicDirections = new Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> {
-            { EDirection.NORTHEAST, new Tuple<GameObject, Vector3, Vector3>(northEast, Vector3.right, Vector3.forward) },
-            { EDirection.NORTHWEST, new Tuple<GameObject, Vector3, Vector3>(northWest, Vector3.forward, Vector3.left) },
-            { EDirection.SOUTHEAST, new Tuple<GameObject, Vector3, Vector3>(southEast, Vector3.back, Vector3.right) },
-            { EDirection.SOUTHWEST, new Tuple<GameObject, Vector3, Vector3>(southWest, Vector3.left, Vector3.back) }
+            { EDirection.NE, new Tuple<GameObject, Vector3, Vector3>(northEast, Vector3.right, Vector3.forward) },
+            { EDirection.NW, new Tuple<GameObject, Vector3, Vector3>(northWest, Vector3.forward, Vector3.left) },
+            { EDirection.SE, new Tuple<GameObject, Vector3, Vector3>(southEast, Vector3.back, Vector3.right) },
+            { EDirection.SW, new Tuple<GameObject, Vector3, Vector3>(southWest, Vector3.left, Vector3.back) }
         };
 
     }
@@ -144,6 +144,14 @@ public class CubeBot : Enemy {
         TurnManager turnManager = TurnManager.instance;
 
         for (int i = 0; i < intRollsPerTurn; i++) {
+            // If the Thief activates the EMP mid-path, disable the cube
+            if (IsDisabled) {
+                DisableFieldOfView();
+                ReduceOneWaitTurn();
+                TurnManager.instance.DecreaseMovementCount();
+                yield break;
+            }
+
             CanStep = false;
             EDirection direction = quePath.Dequeue();
             quePath.Enqueue(direction);
@@ -164,7 +172,7 @@ public class CubeBot : Enemy {
             CanStep = true;
             yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
             yield return StartCoroutine(WaitOnTile());
-
+            
             // Check if the thief was caught
             if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
                 yield break;

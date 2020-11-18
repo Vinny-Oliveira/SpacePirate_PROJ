@@ -45,13 +45,13 @@ public class SecurityCamera : Enemy {
     /// <returns></returns>
     Vector3 GetFrontDirection(Vector2 coord) {
         switch (centerDirection) {
-            case EDirection.NORTHEAST:
+            case EDirection.NE:
                 return coord.x * Vector3.right + coord.y * Vector3.forward;
-            case EDirection.NORTHWEST:
+            case EDirection.NW:
                 return coord.x * Vector3.forward + coord.y * Vector3.left;
-            case EDirection.SOUTHEAST:
+            case EDirection.SE:
                 return coord.x * Vector3.back + coord.y * Vector3.right;
-            case EDirection.SOUTHWEST:
+            case EDirection.SW:
                 return coord.x * Vector3.left + coord.y * Vector3.back;
             default:
                 return Vector3.zero;

@@ -175,11 +175,14 @@ public class TurnManager : MonoBehaviour {
         CanClick = false;
         intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
-        thief.TryToActivateEMP();
-        thief.counterFollow.counterLable.gameObject.SetActive(false);
+        if (emp) { 
+            emp.toggleEMP.interactable = false;
+        }
+        thief.DisableDoorToggles();
 
         // Play actions
         thief.TurnTargetTilesOff();
+        thief.CompleteStatusList();
         thief.MoveOnPath();
         foreach (var cube in listCubes) {
             cube.MoveOnPath();
@@ -247,8 +250,9 @@ public class TurnManager : MonoBehaviour {
     void EnableThief() {
         CanClick = true;
         btnEndTurn.interactable = true;
-        thief.counterFollow.counterLable.gameObject.SetActive(true);
-        //thief.ChargeEMP();
+        if (emp) {
+            emp.toggleEMP.interactable = true;
+        }
         thief.StartNewPath();
     }
 
@@ -275,7 +279,7 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool IsThiefCaught(ref Tile newTile, ref List<Tile> fieldOfView) {
         if (IsThiefTouchingCube(ref newTile) || IsEnemySeeingThief(fieldOfView)) {
-            return HandleThiefCaught();
+            return true; // HandleThiefCaught();
         }
         return false;
     }
@@ -285,6 +289,7 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     bool HandleThiefCaught() {
+        thief.DeathStart();
         thief.ClearPath();
         Debug.Log("THIEF CAUGHT!");
         thiefGamePanel.SetActive(false);

@@ -103,12 +103,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
 
         if (thief.IsTileLastOfPath(this)) {
             thief.RemoveLastTileFromPath();
-
-            if (thief.LastPathTile) { 
-                thief.LastPathTile.DisplayPathAndTargets();
-            } else {
-                thief.currentTile.DisplayPathAndTargets();
-            }
+            thief.DisplayCurrentTargets();
         }
     }
 
@@ -119,8 +114,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         Thief thief = TurnManager.instance.thief;
         
         thief.TurnTargetTilesOff();
-        //TurnManager.instance.HighlightCubesFieldsOfView();
-        thief.HighlightPathTiles();
+        thief.TurnPathTilesOff();
         thief.DisplayMoveCounter();
 
         if (thief.CanAddToPath()) {
@@ -187,7 +181,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     /// <returns></returns>
     public bool IsWalkable() {
-        return (tileType != ETileType.WALL && tileType != ETileType.DOOR);
+        return (tileType != ETileType.WALL && (tileType != ETileType.DOOR || (tileType == ETileType.DOOR && door.IsOpen)));
     }
 
     /// <summary>
@@ -195,7 +189,6 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// </summary>
     public void OpenDoor() {
         door.OpenDoor();
-        tileType = ETileType.DEFAULT;
     }
 
     #endregion
@@ -208,7 +201,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     public bool Equals(Tile tile) {
         if (!tile) { return false; } // tile is null
 
-        return (coordinates == tile.coordinates && gridManager.Equals(tile.gridManager));
+        //return (coordinates == tile.coordinates && gridManager.Equals(tile.gridManager));
+        return (gameObject.transform.position == tile.gameObject.transform.position);
     }
 
     public override int GetHashCode() {

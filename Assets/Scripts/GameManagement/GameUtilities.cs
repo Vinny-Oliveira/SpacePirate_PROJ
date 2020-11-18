@@ -16,4 +16,15 @@ public class GameUtilities : MonoBehaviour {
         elem2 = temp;
     }
 
+    /// <summary>
+    /// Change the style of the button depending on the toggle state
+    /// </summary>
+    public static void ChangeButtonStyle(UnityEngine.UI.Toggle toggle, Color colorToggleOn) {
+        // Change color
+        UnityEngine.UI.ColorBlock colorBlock = toggle.colors;
+        colorBlock.normalColor = (toggle.isOn) ? (colorToggleOn) : (Color.white);
+        colorBlock.selectedColor = colorBlock.normalColor;
+        toggle.colors = colorBlock;
+    }
+
 }

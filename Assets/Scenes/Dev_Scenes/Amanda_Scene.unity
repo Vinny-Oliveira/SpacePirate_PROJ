@@ -239,7 +239,9 @@ MonoBehaviour:
   - {fileID: 1298270580}
   - {fileID: 652235815}
   - {fileID: 1385883125}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &57433859
 GameObject:
@@ -425,7 +427,9 @@ MonoBehaviour:
   - {fileID: 1385883125}
   - {fileID: 1084725052}
   - {fileID: 763313834}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &141252619
 GameObject:
@@ -545,7 +549,9 @@ MonoBehaviour:
   - {fileID: 1086705827}
   - {fileID: 1319520103}
   - {fileID: 1379650382}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &152629555
 GameObject:
@@ -665,7 +671,9 @@ MonoBehaviour:
   - {fileID: 174558445}
   - {fileID: 880551021}
   - {fileID: 1086705827}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &174558440
 GameObject:
@@ -785,7 +793,9 @@ MonoBehaviour:
   - {fileID: 559126239}
   - {fileID: 152629560}
   - {fileID: 1949578400}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &209120961
 GameObject:
@@ -902,7 +912,9 @@ MonoBehaviour:
   - {fileID: 806829157}
   - {fileID: 548340946}
   - {fileID: 956279820}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &398577933
 GameObject:
@@ -1022,7 +1034,9 @@ MonoBehaviour:
   - {fileID: 2033035905}
   - {fileID: 763313834}
   - {fileID: 2053492902}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &445166821
 GameObject:
@@ -1139,7 +1153,9 @@ MonoBehaviour:
   - {fileID: 1253589855}
   - {fileID: 1489463887}
   - {fileID: 1720499673}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &508149898
 GameObject:
@@ -1256,7 +1272,9 @@ MonoBehaviour:
   - {fileID: 2033035905}
   - {fileID: 1082820263}
   - {fileID: 1762451862}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &525368298
 GameObject:
@@ -1373,7 +1391,9 @@ MonoBehaviour:
   - {fileID: 554773726}
   - {fileID: 791769404}
   - {fileID: 752858737}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &548340941
 GameObject:
@@ -1493,7 +1513,9 @@ MonoBehaviour:
   - {fileID: 1683499014}
   - {fileID: 1298270580}
   - {fileID: 209120966}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &554773721
 GameObject:
@@ -1613,7 +1635,9 @@ MonoBehaviour:
   - {fileID: 2048725739}
   - {fileID: 1387407122}
   - {fileID: 1419740837}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &559126234
 GameObject:
@@ -1733,7 +1757,9 @@ MonoBehaviour:
   - {fileID: 1419740837}
   - {fileID: 174558445}
   - {fileID: 806829157}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &593470730
 GameObject:
@@ -1850,7 +1876,9 @@ MonoBehaviour:
   - {fileID: 445166826}
   - {fileID: 2016649060}
   - {fileID: 1598436513}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &652235810
 GameObject:
@@ -1967,7 +1995,9 @@ MonoBehaviour:
   - {fileID: 880551021}
   - {fileID: 7740304}
   - {fileID: 129244396}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &674282847
 GameObject:
@@ -2199,7 +2229,9 @@ MonoBehaviour:
   - {fileID: 2048725739}
   - {fileID: 525368303}
   - {fileID: 1423443203}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &763313829
 GameObject:
@@ -2319,7 +2351,9 @@ MonoBehaviour:
   - {fileID: 398577938}
   - {fileID: 1373251522}
   - {fileID: 2085463367}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &786994251
 GameObject:
@@ -2531,7 +2565,9 @@ MonoBehaviour:
   - {fileID: 525368303}
   - {fileID: 2016649060}
   - {fileID: 1423443203}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &806829152
 GameObject:
@@ -2648,7 +2684,9 @@ MonoBehaviour:
   - {fileID: 1683499014}
   - {fileID: 559126239}
   - {fileID: 1949578400}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &824153231
 GameObject:
@@ -2765,7 +2803,9 @@ MonoBehaviour:
   - {fileID: 791769404}
   - {fileID: 1489463887}
   - {fileID: 554773726}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &880551016
 GameObject:
@@ -2882,7 +2922,9 @@ MonoBehaviour:
   - {fileID: 1856364432}
   - {fileID: 152629560}
   - {fileID: 141252624}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &892603645
 GameObject:
@@ -2999,7 +3041,9 @@ MonoBehaviour:
   - {fileID: 209120966}
   - {fileID: 1949578400}
   - {fileID: 1082820263}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &909914483
 GameObject:
@@ -3224,7 +3268,9 @@ MonoBehaviour:
   - {fileID: 1379650382}
   - {fileID: 1156194736}
   - {fileID: 955528632}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &938691791
 GameObject:
@@ -3341,7 +3387,9 @@ MonoBehaviour:
   - {fileID: 593470735}
   - {fileID: 1720499673}
   - {fileID: 152629560}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &955528627
 GameObject:
@@ -3458,7 +3506,9 @@ MonoBehaviour:
   - {fileID: 763313834}
   - {fileID: 920537870}
   - {fileID: 1762451862}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &956279815
 GameObject:
@@ -3578,7 +3628,9 @@ MonoBehaviour:
   - {fileID: 209120966}
   - {fileID: 1385883125}
   - {fileID: 2033035905}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &976622876
 GameObject:
@@ -3729,7 +3781,9 @@ MonoBehaviour:
   - {fileID: 1489463887}
   - {fileID: 1253589855}
   - {fileID: 791769404}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1001465012
 GameObject:
@@ -3894,7 +3948,9 @@ MonoBehaviour:
   - {fileID: 892603650}
   - {fileID: 1379650382}
   - {fileID: 508149903}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1084725047
 GameObject:
@@ -4011,7 +4067,9 @@ MonoBehaviour:
   - {fileID: 1319520103}
   - {fileID: 129244396}
   - {fileID: 1373251522}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1086705822
 GameObject:
@@ -4131,7 +4189,9 @@ MonoBehaviour:
   - {fileID: 1949578400}
   - {fileID: 141252624}
   - {fileID: 1082820263}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1156194731
 GameObject:
@@ -4246,7 +4306,9 @@ MonoBehaviour:
   - {fileID: 1373251522}
   - {fileID: 1084725052}
   - {fileID: 920537870}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1197254982
 GameObject:
@@ -4487,7 +4549,9 @@ MonoBehaviour:
   - {fileID: 1317025427}
   - {fileID: 996906743}
   - {fileID: 2016649060}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1298270575
 GameObject:
@@ -4607,7 +4671,9 @@ MonoBehaviour:
   - {fileID: 548340946}
   - {fileID: 7740304}
   - {fileID: 956279820}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1317025422
 GameObject:
@@ -4722,7 +4788,9 @@ MonoBehaviour:
   - {fileID: 996906743}
   - {fileID: 1253589855}
   - {fileID: 1489463887}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1319520098
 GameObject:
@@ -4839,7 +4907,9 @@ MonoBehaviour:
   - {fileID: 652235815}
   - {fileID: 141252624}
   - {fileID: 920537870}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1373251517
 GameObject:
@@ -4956,7 +5026,9 @@ MonoBehaviour:
   - {fileID: 920537870}
   - {fileID: 1084725052}
   - {fileID: 763313834}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1379650377
 GameObject:
@@ -5076,7 +5148,9 @@ MonoBehaviour:
   - {fileID: 1082820263}
   - {fileID: 920537870}
   - {fileID: 1762451862}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1385883120
 GameObject:
@@ -5196,7 +5270,9 @@ MonoBehaviour:
   - {fileID: 956279820}
   - {fileID: 129244396}
   - {fileID: 398577938}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1387407117
 GameObject:
@@ -5316,7 +5392,9 @@ MonoBehaviour:
   - {fileID: 554773726}
   - {fileID: 1720499673}
   - {fileID: 559126239}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1395748485
 GameObject:
@@ -5352,8 +5430,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 955528632}
   currentGrid: {fileID: 909914484}
-  intRange: 5
+  ghostPrefab: {fileID: 0}
+  listGhosts: []
   mainCamera: {fileID: 674282848}
+  btnOpenDoor: {fileID: 0}
   tmpMoveCount: {fileID: 0}
   maxRangeColor: {r: 0, g: 0, b: 0, a: 0}
   counterFollow: {fileID: 0}
@@ -5549,7 +5629,9 @@ MonoBehaviour:
   - {fileID: 752858737}
   - {fileID: 554773726}
   - {fileID: 559126239}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1423443198
 GameObject:
@@ -5669,7 +5751,9 @@ MonoBehaviour:
   - {fileID: 752858737}
   - {fileID: 1967805800}
   - {fileID: 1683499014}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1454374174
 GameObject:
@@ -5848,6 +5932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PrototypeGame_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7220968534021114778, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2107aa9a84051dd47878cc73d5eee266, type: 3}
 --- !u!1 &1489463882
@@ -5968,7 +6057,9 @@ MonoBehaviour:
   - {fileID: 824153236}
   - {fileID: 445166826}
   - {fileID: 1387407122}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1521507766
 GameObject:
@@ -6083,7 +6174,9 @@ MonoBehaviour:
   - {fileID: 2085463367}
   - {fileID: 2053492902}
   - {fileID: 1762451862}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1598436508
 GameObject:
@@ -6203,7 +6296,9 @@ MonoBehaviour:
   - {fileID: 1967805800}
   - {fileID: 1856364432}
   - {fileID: 1298270580}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1683499009
 GameObject:
@@ -6320,7 +6415,9 @@ MonoBehaviour:
   - {fileID: 1419740837}
   - {fileID: 1423443203}
   - {fileID: 548340946}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1687237712
 GameObject:
@@ -6499,7 +6596,9 @@ MonoBehaviour:
   - {fileID: 1387407122}
   - {fileID: 938691796}
   - {fileID: 174558445}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1762451857
 GameObject:
@@ -6619,7 +6718,9 @@ MonoBehaviour:
   - {fileID: 508149903}
   - {fileID: 955528632}
   - {fileID: 1521507771}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1840714094
 GameObject:
@@ -6872,7 +6973,9 @@ MonoBehaviour:
   - {fileID: 938691796}
   - {fileID: 1598436513}
   - {fileID: 7740304}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1949578395
 GameObject:
@@ -6992,7 +7095,9 @@ MonoBehaviour:
   - {fileID: 806829157}
   - {fileID: 1086705827}
   - {fileID: 892603650}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &1967805795
 GameObject:
@@ -7112,7 +7217,9 @@ MonoBehaviour:
   - {fileID: 1423443203}
   - {fileID: 1598436513}
   - {fileID: 548340946}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &2016649055
 GameObject:
@@ -7232,7 +7339,9 @@ MonoBehaviour:
   - {fileID: 791769404}
   - {fileID: 593470735}
   - {fileID: 1967805800}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &2033035900
 GameObject:
@@ -7349,7 +7458,9 @@ MonoBehaviour:
   - {fileID: 892603650}
   - {fileID: 956279820}
   - {fileID: 398577938}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &2048725738
 GameObject:
@@ -7390,7 +7501,9 @@ MonoBehaviour:
   - {fileID: 525368303}
   - {fileID: 752858737}
   - {fileID: 554773726}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!65 &2048725740
 BoxCollider:
@@ -7581,7 +7694,9 @@ MonoBehaviour:
   - {fileID: 508149903}
   - {fileID: 398577938}
   - {fileID: 2085463367}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1 &2085463362
 GameObject:
@@ -7698,7 +7813,9 @@ MonoBehaviour:
   - {fileID: 1762451862}
   - {fileID: 763313834}
   - {fileID: 2053492902}
-  tileHighlighter: {fileID: 0}
+  moveQuad: {fileID: 0}
+  visionQuad: {fileID: 0}
+  empQuad: {fileID: 0}
   door: {fileID: 0}
 --- !u!1001 &2270428897041184487
 PrefabInstance:

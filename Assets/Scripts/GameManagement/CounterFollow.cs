@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CounterFollow : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI counterLable;
+    public TMPro.TextMeshProUGUI counterLabel;
     public Camera mainCam;
 
     /// <summary>
     /// Update the position of the counter
     /// </summary>
     public void UpdateCounterPosition() {
-        if (counterLable) {
+        if (counterLabel) {
             Vector3 counterPose = mainCam.WorldToScreenPoint(transform.position);
-            counterLable.transform.position = counterPose;
+            counterLabel.transform.position = counterPose;
         }
     }
 }
