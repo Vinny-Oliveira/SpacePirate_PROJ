@@ -80810,6 +80810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1251303737}
+    - target: {fileID: 5404920677108141999, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetPath
       objectReference: {fileID: 0}
     - target: {fileID: 6359599116269602755, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
