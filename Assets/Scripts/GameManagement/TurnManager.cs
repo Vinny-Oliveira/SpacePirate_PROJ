@@ -279,7 +279,7 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool IsThiefCaught(ref Tile newTile, ref List<Tile> fieldOfView) {
         if (IsThiefTouchingCube(ref newTile) || IsEnemySeeingThief(fieldOfView)) {
-            return true; // HandleThiefCaught();
+            return HandleThiefCaught();
         }
         return false;
     }
@@ -356,8 +356,8 @@ public class TurnManager : MonoBehaviour {
     /// <param name="listEnemies"></param>
     /// <returns></returns>
     bool IsThiefSeenByEnemies<T>(List<T> listEnemies) where T : Enemy { 
-        foreach (var secCam in listEnemies.Where(x => !x.IsDisabled)) { 
-            if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
+        foreach (var enemy in listEnemies.Where(x => !x.IsDisabled)) { 
+            if (IsEnemySeeingThief(enemy.GetFieldOfView())) {
                 return true;
             }
         }

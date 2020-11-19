@@ -27,4 +27,14 @@ public class GameUtilities : MonoBehaviour {
         toggle.colors = colorBlock;
     }
 
+
+    /// <summary>
+    /// Turn a list into a Queue
+    /// </summary>
+    public static void EnqueueList<T>(ref List<T> listT, ref Queue<T> queueT) { 
+        foreach (var elem in listT) {
+            queueT.Enqueue(elem);
+        }
+    }
+
 }

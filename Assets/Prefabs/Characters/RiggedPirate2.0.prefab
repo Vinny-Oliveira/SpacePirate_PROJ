@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73642117485805345}
-  m_LocalRotation: {x: 0.029822044, y: -0.34093803, z: 0.06143578, w: 0.937602}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 5531172345321416338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 5.6130004, y: -39.697002, z: 5.4700003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &73642117485805344
 Animator:
   serializedVersion: 3
@@ -66,7 +66,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
-  currentGrid: {fileID: 0}
   ghostPrefab: {fileID: 8177394420667090605, guid: c29fce3e9aef81647b863315f79d48b0,
     type: 3}
   listGhosts:
@@ -1473,6 +1472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5531172345321416338}
+  - component: {fileID: 2386132003225939693}
   m_Layer: 2
   m_Name: PirateGeo
   m_TagString: Untagged
@@ -1496,3 +1496,16 @@ Transform:
   m_Father: {fileID: 742655993712731547}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2386132003225939693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980865852380947568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.864395, y: 20.648485, z: 7.975498}
+  m_Center: {x: 0, y: 13.588514, z: 1.783389}

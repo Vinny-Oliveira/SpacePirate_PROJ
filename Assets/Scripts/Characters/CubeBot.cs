@@ -52,17 +52,8 @@ public class CubeBot : Enemy {
         SetStartingTile();
         StoreStartingPosition();
         BuildDirectionDictionary();
-        EnqueueThePath();
+        GameUtilities.EnqueueList(ref listPath, ref quePath);
         SetFieldOfView();
-    }
-
-    /// <summary>
-    /// Turn the list of path to a Queue
-    /// </summary>
-    void EnqueueThePath() { 
-        foreach (var direction in listPath) {
-            quePath.Enqueue(direction);
-        }
     }
 
     /// <summary>

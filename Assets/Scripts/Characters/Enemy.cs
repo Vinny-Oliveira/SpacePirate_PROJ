@@ -96,4 +96,5 @@ public class Enemy : Character {
     }
 
     #endregion
+
 }
