@@ -18,8 +18,8 @@ public class Character : MonoBehaviour {
     public bool CanStep { get; set; }
 
     /* Movement times */
-    public static float stepTime = 0.5f;
-    public static float waitOnTileTime = 0.2f;
+    protected const float stepTime = 0.5f;
+    const float waitOnTileTime = 0.2f;
 
     /// <summary>
     /// Move the player to given tile
