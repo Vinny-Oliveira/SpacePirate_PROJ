@@ -66,6 +66,7 @@ public class Thief : Character {
 
     [Header("Thief Animations")]
     public Animator animator;
+    const string WALK_ANIM_NAME = "IsWalking";
 
     #region STARTUP_FUNCTIONS
 
@@ -151,7 +152,7 @@ public class Thief : Character {
         
         // Path is over
         if (listThiefStatus.Count < 1) {
-            animator.SetBool("IsWalking", false);
+            animator.SetBool(WALK_ANIM_NAME, false);
             IsMoving = false;
             turnManager.DecreaseMovementCount();
             DisplayMoveCounter();
@@ -174,12 +175,13 @@ public class Thief : Character {
 
         switch (thiefStatus) {
             case EThiefStatus.WAIT: // Just wait on the tile
-                animator.SetBool("IsWalking", false);
+                animator.SetBool(WALK_ANIM_NAME, false);
+                RemoveGhostFromPath(currentTile);
                 StartCoroutine(WaitOnTile());
                 break;
 
             case EThiefStatus.MOVE: // Move on the path
-                animator.SetBool("IsWalking", true);
+                animator.SetBool(WALK_ANIM_NAME, true);
                 Tile nextTile = listPathTiles[0];
                 MoveToTile(ref nextTile);
                 RemoveGhostFromPath(nextTile);
@@ -193,13 +195,13 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.EMP: // Activate the EMP and wait on the tile
-                animator.SetBool("IsWalking", false);
+                animator.SetBool(WALK_ANIM_NAME, false);
                 emp.TryToActivateEMP();
                 StartCoroutine(WaitOnTile());
                 break;
 
-            case EThiefStatus.OPEN: // Open the doors around and wait on the tile
-                animator.SetBool("IsWalking", false);
+            case EThiefStatus.OPEN: // Open a door and wait on the tile
+                animator.SetBool(WALK_ANIM_NAME, false);
                 listOpenDoorTiles.Last().door.OpenDoor();
                 listOpenDoorTiles.RemoveAt(listOpenDoorTiles.Count - 1);
                 StartCoroutine(WaitOnTile());
@@ -314,9 +316,9 @@ public class Thief : Character {
             AddNewStatus(EThiefStatus.WAIT);
         } else { 
             AddNewStatus(EThiefStatus.MOVE);
+            listPathTiles.Add(tile);
+            tile.moveQuad.TurnHighlighterOff();
         }
-        listPathTiles.Add(tile);
-        tile.moveQuad.TurnHighlighterOff();
 
         // Disable EMP if the path is full or if the EMP is already active
         if (emp != null && (!CanAddToPath() || listThiefStatus.Contains(EThiefStatus.EMP))) {
@@ -373,7 +375,9 @@ public class Thief : Character {
     /// </summary>
     public void RemoveLastTileFromPath() {
         RemoveGhostFromPath(listPathTiles.Last());
-        listPathTiles.RemoveAt(listPathTiles.Count - 1);
+        if (listThiefStatus.Last() == EThiefStatus.MOVE) { 
+            listPathTiles.RemoveAt(listPathTiles.Count - 1);
+        }
         RemoveLastActiveStatus();
 
         // Enable the option to open doors if next to one
@@ -604,8 +608,11 @@ public class Thief : Character {
     /// <param name="tile"></param>
     void RemoveGhostFromPath(Tile tile) {
         GameObject ghost = tile.RemoveLastGhost();
-        ghost.SetActive(false);
-        listGhosts.Add(ghost);
+
+        if (ghost) { 
+            ghost.SetActive(false);
+            listGhosts.Add(ghost);
+        }
     }
 
     #endregion

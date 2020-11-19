@@ -163,8 +163,11 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Remove the last ghost from the list of tiles
     /// </summary>
     public GameObject RemoveLastGhost() {
-        GameObject lastGhost = listGhosts.Last();
-        listGhosts.RemoveAt(listGhosts.Count - 1);
+        GameObject lastGhost = null;
+        if (listGhosts.Count > 0) {
+            lastGhost = listGhosts.Last();
+            listGhosts.RemoveAt(listGhosts.Count - 1);
+        }
         return lastGhost;
     }
 

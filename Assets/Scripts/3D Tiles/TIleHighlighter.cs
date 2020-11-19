@@ -11,10 +11,10 @@ public class TileHighlighter : MonoBehaviour {
     bool canHighlight = false;
 
     /* Colors of Highlighters */
-    static readonly string materialColorTag = "_HighlightColour";
-    static readonly string colorMoveTag = "_HighlightColourGreen";
-    static readonly string colorEmpTag = "_HighlightColourBlue";
-    static readonly string colorEnemyVisionTag = "_HighlightColourRed";
+    const string materialColorTag = "_HighlightColour";
+    const string colorMoveTag = "_HighlightColourGreen";
+    const string colorEmpTag = "_HighlightColourBlue";
+    const string colorEnemyVisionTag = "_HighlightColourRed";
 
     /// <summary>
     /// Get the material from the Quad's MeshRenderer and assign it to the highlightMaterial

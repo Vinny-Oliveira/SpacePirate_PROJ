@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16020,6 +16020,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightQuad: {fileID: 413374641}
+--- !u!114 &413607195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7025578185157329203, guid: 36495fee4c913304e8214f74b7bbd8f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1106462676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &415132282
 GameObject:
   m_ObjectHideFlags: 0
@@ -21889,7 +21901,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tmpMoveCount
       value: 
-      objectReference: {fileID: 1921035403}
+      objectReference: {fileID: 413607195}
     - target: {fileID: 3416455133923969715, guid: b069c9cc8efc46a4c838032198715558,
         type: 3}
       propertyPath: listActions.Array.data[0]
@@ -21954,7 +21966,7 @@ PrefabInstance:
         type: 3}
       propertyPath: counterLable
       value: 
-      objectReference: {fileID: 1921035403}
+      objectReference: {fileID: 0}
     - target: {fileID: 5313440665644958549, guid: b069c9cc8efc46a4c838032198715558,
         type: 3}
       propertyPath: mainCam
@@ -21964,7 +21976,7 @@ PrefabInstance:
         type: 3}
       propertyPath: counterLabel
       value: 
-      objectReference: {fileID: 1921035403}
+      objectReference: {fileID: 0}
     - target: {fileID: 5332509621738917825, guid: b069c9cc8efc46a4c838032198715558,
         type: 3}
       propertyPath: m_Layer
@@ -28359,18 +28371,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734035332}
   m_Mesh: {fileID: 4635790639215159872, guid: 8199f1d4d7175a746acd4b812d773efa, type: 3}
---- !u!114 &750200143 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5313440665644958549, guid: b069c9cc8efc46a4c838032198715558,
-    type: 3}
-  m_PrefabInstance: {fileID: 559865047}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c66d896dfb330d4090e9455ba9c48cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &751974129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4575859979101626722, guid: d3f928a0af11c3e4eadc891e880a3294,
@@ -37417,7 +37417,6 @@ MonoBehaviour:
   fltZoomOutMin: 1
   fltZoomOutMax: 8
   fltRotationSpeed: 50
-  counterFollow: {fileID: 750200143}
   pivot: {fileID: 323532312}
   listButtons:
   - {fileID: 938708951}
@@ -42850,6 +42849,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 184710087}
     m_Modifications:
+    - target: {fileID: 7025578185157329200, guid: 36495fee4c913304e8214f74b7bbd8f8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -44.40576
+      objectReference: {fileID: 0}
     - target: {fileID: 7025578185250326944, guid: 36495fee4c913304e8214f74b7bbd8f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -80981,18 +80985,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1921035399}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1921035403 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5686723665786948246, guid: 2107aa9a84051dd47878cc73d5eee266,
-    type: 3}
-  m_PrefabInstance: {fileID: 1921035399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1928515554
 GameObject:
   m_ObjectHideFlags: 0
