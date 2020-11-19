@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
 
-    [Header("Characters and Items")]
+    [Header("Characters and their Steps")]
     public int intSteps = 5;
     public Thief thief;
     public Treasure treasure;
     public List<CubeBot> listCubes;
-    public List<Keycard> listKeycards = new List<Keycard>();
     public List<SecurityCamera> listSecCams = new List<SecurityCamera>();
+    public List<LaserBeam> listLaserBeams = new List<LaserBeam>();
+
+    [Header("Items")]
+    public List<Keycard> listKeycards = new List<Keycard>();
     public EMP_Device emp;
 
     [Header("Turn Control")]
@@ -288,7 +291,7 @@ public class TurnManager : MonoBehaviour {
     /// Clear Thief's path and turn lose panel on
     /// </summary>
     /// <returns></returns>
-    bool HandleThiefCaught() {
+    public bool HandleThiefCaught() {
         thief.DeathStart();
         thief.ClearPath();
         Debug.Log("THIEF CAUGHT!");

@@ -50,7 +50,10 @@ public class LaserBeam : Enemy {
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other) {
-        //Thief touchedThief = 
+        Thief touchedThief = other.gameObject.GetComponent<Thief>();
+        if (touchedThief) {
+            TurnManager.instance.HandleThiefCaught();
+        }
     }
 
 }
