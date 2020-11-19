@@ -22,14 +22,6 @@ public class GridManager : MonoBehaviour/*, System.IEquatable<GridManager>*/ {
     #region TILE_MAP_CREATION
 
     /// <summary>
-    /// Getter of listTempTiles
-    /// </summary>
-    /// <returns></returns>
-    public List<Tile> GetTileList() {
-        return listGridTiles;
-    }
-
-    /// <summary>
     /// Clear the current tiles of the scene and clear the list of spawned tiles
     /// </summary>
     [ContextMenu("Clear Map")]

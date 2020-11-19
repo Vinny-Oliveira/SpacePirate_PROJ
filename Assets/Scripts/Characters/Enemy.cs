@@ -46,7 +46,7 @@ public class Enemy : Character {
     /// </summary>
     /// <param name="newTileCoord"></param>
     protected void AddTileWithCoordinates(Vector3 newTileCoord) { 
-        Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
+        Tile viewedTile = currentTile.gridManager.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
 
         if (viewedTile) { 
             listFieldOfView.Add(viewedTile);

@@ -6,7 +6,6 @@ public class Character : MonoBehaviour {
 
     [Header("Grid Control")]
     public Tile currentTile;
-    public GridManager currentGrid;
 
     /// <summary>
     /// Is moving on the path
@@ -37,20 +36,10 @@ public class Character : MonoBehaviour {
     /// </summary>
     protected void SetStartingTile() { 
 #if UNITY_EDITOR
-        if (currentGrid == null) {
-            Debug.Log("ERROR: Assign a Grid!");
+        if (!currentTile) {
+            Debug.Log("ERROR: Assign a Tile!");
             UnityEditor.EditorApplication.isPlaying = false;
             return;
-        }
-
-        if (currentTile == null) { 
-            if (currentGrid.GetTileList().Count < 1) {
-                Debug.Log("ERROR: Create a Tile Map!");
-                UnityEditor.EditorApplication.isPlaying = false;
-                return;
-            }
-
-            currentTile = currentGrid.GetTileList()[0].GetComponent<Tile>();
         }
 #endif
         //MoveToTile(ref currentTile);

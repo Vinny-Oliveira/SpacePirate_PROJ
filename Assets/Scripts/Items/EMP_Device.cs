@@ -100,29 +100,16 @@ public class EMP_Device : Item {
         turnManager.thief.ToggleEmpOn();
 
         // Find tiles in each grid and highlight them
-        foreach (var grid in turnManager.listGrids) {
-            foreach (var tile in grid.listGridTiles) {
-
-                // The last tile of the Thief's path is the origin of the EMP blast
-                Tile originTile = (turnManager.thief.LastPathTile) ? (turnManager.thief.LastPathTile) : (turnManager.thief.currentTile);
-                originTile.DisplayPathAndTargets();
-                if (Vector3.Magnitude(originTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
-                    listRangeTiles.Add(tile);
-                    tile.empQuad.ChangeColorToEmp();
-                    tile.empQuad.TurnHighlighterOn();
-                }
+        foreach (var tile in turnManager.gridManager.listGridTiles) {
+            // The last tile of the Thief's path is the origin of the EMP blast
+            Tile originTile = (turnManager.thief.LastPathTile) ? (turnManager.thief.LastPathTile) : (turnManager.thief.currentTile);
+            originTile.DisplayPathAndTargets();
+            if (Vector3.Magnitude(originTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
+                listRangeTiles.Add(tile);
+                tile.empQuad.ChangeColorToEmp();
+                tile.empQuad.TurnHighlighterOn();
             }
         }
     }
-
-    ///// <summary>
-    ///// Highlight tiles that are in range of the EMP
-    ///// </summary>
-    //public void HighlightEmpTiles() { 
-    //    foreach (var tile in listRangeTiles) {
-    //        tile.empQuad.ChangeColorToEmp();
-    //        tile.empQuad.TurnHighlighterOn();
-    //    }
-    //}
 
 }
