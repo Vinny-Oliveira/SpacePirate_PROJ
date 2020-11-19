@@ -10,7 +10,6 @@ public class CameraPanZoom : MonoBehaviour {
     public float fltZoomOutMin = 1f;
     public float fltZoomOutMax = 8f;
     public float fltRotationSpeed = 20f;
-    public CounterFollow counterFollow;
     public Transform pivot;
     public List<Transform> listButtons = new List<Transform>();
 
@@ -40,7 +39,6 @@ public class CameraPanZoom : MonoBehaviour {
                 mainCam.transform.position += direction;
             }
 
-            counterFollow.UpdateCounterPosition();
         }
     }
 
@@ -50,7 +48,6 @@ public class CameraPanZoom : MonoBehaviour {
     /// <param name="increment"></param>
     void Zoom(float increment) {
         mainCam.orthographicSize = Mathf.Clamp(mainCam.orthographicSize - increment, fltZoomOutMin, fltZoomOutMax);
-        counterFollow.UpdateCounterPosition();
     }
 
     /// <summary>

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -35945,7 +35945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.27781588, y: -0.36497167, z: 0.1150751, w: 0.8811196}
-  m_LocalPosition: {x: 8, y: 4.5, z: -6.5000005}
+  m_LocalPosition: {x: 9.27, y: 3.58, z: 2.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35999,7 +35999,6 @@ MonoBehaviour:
   fltZoomOutMin: 1
   fltZoomOutMax: 8
   fltRotationSpeed: 20
-  counterFollow: {fileID: 1943567393}
   pivot: {fileID: 0}
   listButtons: []
 --- !u!1 &971911632
@@ -44421,7 +44420,7 @@ PrefabInstance:
         type: 3}
       propertyPath: counterLable
       value: 
-      objectReference: {fileID: 1921035404}
+      objectReference: {fileID: 0}
     - target: {fileID: 2374302590154838482, guid: 85738d7ece5fd8e4a9cc946803c8f121,
         type: 3}
       propertyPath: mainCam
@@ -72690,6 +72689,11 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8106517397944054881, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2107aa9a84051dd47878cc73d5eee266, type: 3}
 --- !u!1 &1921035400 stripped
@@ -72716,18 +72720,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1921035399}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1921035404 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5686723665786948246, guid: 2107aa9a84051dd47878cc73d5eee266,
-    type: 3}
-  m_PrefabInstance: {fileID: 1921035399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1923425600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73428,18 +73420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightQuad: {fileID: 1940688130}
---- !u!114 &1943567393 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2374302590154838482, guid: 85738d7ece5fd8e4a9cc946803c8f121,
-    type: 3}
-  m_PrefabInstance: {fileID: 1190933904}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c66d896dfb330d4090e9455ba9c48cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1944298337
 GameObject:
   m_ObjectHideFlags: 0
@@ -80399,7 +80379,7 @@ PrefabInstance:
     - target: {fileID: 4461621559423098210, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6113884319540137844, guid: a86a153ea7e025c4c94f257fe3fdf165,
         type: 3}

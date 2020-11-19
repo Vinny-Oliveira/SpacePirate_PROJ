@@ -31,7 +31,6 @@ Transform:
   m_Children:
   - {fileID: 3173224494613990255}
   - {fileID: 5531172345321416338}
-  - {fileID: 2187388893418049837}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.6130004, y: -39.697002, z: 5.4700003}
@@ -76,10 +75,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  listActions: []
   mainCamera: {fileID: 0}
   tmpMoveCount: {fileID: 0}
   maxRangeColor: {r: 1, g: 0.7756624, b: 0.15686274, a: 1}
-  counterFollow: {fileID: 5313440665644958549}
   animator: {fileID: 73642117485805344}
 --- !u!1 &225954200269946533
 GameObject:
@@ -1283,51 +1282,6 @@ Transform:
   m_Father: {fileID: 5746241315487934224}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8365604006051343436
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2187388893418049837}
-  - component: {fileID: 5313440665644958549}
-  m_Layer: 2
-  m_Name: MoveCounterPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2187388893418049837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8365604006051343436}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.95500004, y: 1.479, z: 1.007}
-  m_LocalScale: {x: 0.20935999, y: 0.20935999, z: 0.20935999}
-  m_Children: []
-  m_Father: {fileID: 742655993712731547}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5313440665644958549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8365604006051343436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c66d896dfb330d4090e9455ba9c48cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counterLabel: {fileID: 0}
-  mainCam: {fileID: 0}
 --- !u!1 &8617312921299753408
 GameObject:
   m_ObjectHideFlags: 0

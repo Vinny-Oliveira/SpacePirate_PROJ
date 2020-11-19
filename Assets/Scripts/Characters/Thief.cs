@@ -309,8 +309,12 @@ public class Thief : Character {
             AddGhostToPath(tile, currentTile);
         }
 
-        // Add to path
-        AddNewStatus(EThiefStatus.MOVE);
+        // Add to path. If consecutive tiles reteat, use a WAIT status
+        if ( (listPathTiles.Count > 0 && tile == listPathTiles.Last()) || (listPathTiles.Count < 1 && tile == currentTile) ) {
+            AddNewStatus(EThiefStatus.WAIT);
+        } else { 
+            AddNewStatus(EThiefStatus.MOVE);
+        }
         listPathTiles.Add(tile);
         tile.moveQuad.TurnHighlighterOff();
 
@@ -359,7 +363,9 @@ public class Thief : Character {
     /// <param name="tile"></param>
     /// <returns></returns>
     public bool IsTileLastOfPath(Tile tile) {
-        return (listThiefStatus.Count > 0 && listThiefStatus.Last() == EThiefStatus.MOVE && tile.Equals(LastPathTile));
+        return (listThiefStatus.Count > 0 && 
+                (listThiefStatus.Last() == EThiefStatus.MOVE || listThiefStatus.Last() == EThiefStatus.WAIT) && 
+                tile.Equals(LastPathTile));
     }
 
     /// <summary>
