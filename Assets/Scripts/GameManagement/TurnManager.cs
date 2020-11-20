@@ -229,29 +229,19 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     bool EnableEnemies() { 
         // Re-enable the disabled cubes or reduce their wait times
-        foreach (var cube in listCubes.Where(x => x.IsDisabled)) {
-            if (cube.CanEnable()) { 
-                cube.EnableEnemy();
-            } else {
-                cube.ReduceOneWaitTurn();
-            }
+        foreach (var cube in listCubes) {
+            TryToEnableEnemy(cube);
 
-            if (IsEnemySeeingThief(cube.GetFieldOfView())) {
+            if (!cube.IsDisabled && IsEnemySeeingThief(cube.GetFieldOfView())) {
                 return HandleThiefCaught();
             }
         }
 
         // Move security cameras
-        foreach (var secCam in listSecCams) { 
+        foreach (var secCam in listSecCams) {
             // Enable cameras that can be enabled, or reduce their wait turns
-            if (secCam.IsDisabled) {
-                secCam.ReduceOneWaitTurn();
+            TryToEnableEnemy(secCam);
 
-                if (secCam.CanEnable()) { 
-                    secCam.EnableEnemy();
-                }
-            } 
-                
             // Go to next camera position
             if (!secCam.IsDisabled) {
                 secCam.DisableFieldOfView();
@@ -263,6 +253,21 @@ public class TurnManager : MonoBehaviour {
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Reduce the wait turn of a disbled enemy and re-enable it is possible
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="enemy"></param>
+    void TryToEnableEnemy<T>(T enemy) where T : Enemy { 
+        if (enemy.IsDisabled) {
+            enemy.ReduceOneWaitTurn();
+
+            if (enemy.CanEnable()) {
+                enemy.EnableEnemy();
+            }
+        }
     }
 
     /// <summary>
