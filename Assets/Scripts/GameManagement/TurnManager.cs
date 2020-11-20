@@ -34,7 +34,6 @@ public class TurnManager : MonoBehaviour {
     public GridManager gridManager;
 
     public bool CanClick { get; set; }
-    int intMoveCount;
 
     public static TurnManager instance;
 
@@ -61,6 +60,10 @@ public class TurnManager : MonoBehaviour {
 
         foreach (var secCam in listSecCams) {
             secCam.SetFieldOfView();
+        }
+
+        foreach (var laser in listLaserBeams) {
+            laser.SetupLaserStart();
         }
     }
 
@@ -176,27 +179,26 @@ public class TurnManager : MonoBehaviour {
     IEnumerator PlayEveryAction() {
         // Disable clicking while things move
         CanClick = false;
-        intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
         if (emp) { 
             emp.toggleEMP.interactable = false;
         }
         thief.DisableDoorToggles();
 
-        // Prepare the Thief to move
+        // Prepare the Thief and enemies to move
         thief.TurnTargetTilesOff();
         thief.CompleteStatusList();
-
-        //thief.MoveOnPath();
-        //foreach (var cube in listCubes) {
-        //    cube.MoveOnPath();
-        //}
 
         // Play the actions
         for (int i = 0; i < intSteps; i++) {
             thief.MoveOnPath();
+            
             foreach (var cube in listCubes) {
                 cube.MoveOnPath();
+            }
+
+            foreach (var laser in listLaserBeams) {
+                laser.MoveOnPath();
             }
 
             yield return new WaitUntil(() => CanCharactersStep());
@@ -204,16 +206,6 @@ public class TurnManager : MonoBehaviour {
 
         EnableNewTurn();
     }
-
-    ///// <summary>
-    ///// Decrese the count of moving objects and enable move when the count is zero
-    ///// </summary>
-    //public void DecreaseMovementCount() {
-    //    intMoveCount--;
-    //    if (intMoveCount < 1) {
-    //        EnableNewTurn();
-    //    }
-    //}
 
     /// <summary>
     /// Enable a new turn to be played

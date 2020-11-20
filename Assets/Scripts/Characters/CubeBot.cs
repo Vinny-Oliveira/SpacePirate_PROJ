@@ -128,46 +128,33 @@ public class CubeBot : Enemy {
         IsMoving = true;
         TurnManager turnManager = TurnManager.instance;
 
-        //for (int i = 0; i < intRollsPerTurn; i++) {
-            // If the Thief activates the EMP mid-path, disable the cube
-            if (IsDisabled) {
-                //DisableFieldOfView();
-                //ReduceOneWaitTurn();
-                //TurnManager.instance.DecreaseMovementCount();
-                yield break;
-            }
+        // Get the next coordinate
+        CanStep = false;
+        EDirection direction = quePath.Dequeue();
+        quePath.Enqueue(direction);
+        Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
+        Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
 
-            CanStep = false;
-            EDirection direction = quePath.Dequeue();
-            quePath.Enqueue(direction);
-            Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
-            Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
+        // Only roll to a tile that is within the grid
+        if (nextTile != null) {
+            DisableFieldOfView();
+            yield return StartCoroutine(Roll_Cube(direction));
 
-            // Only roll to a tile that is within the grid
-            if (nextTile != null) {
-                DisableFieldOfView();
-                yield return StartCoroutine(Roll_Cube(direction));
+            // Position cube on the tile and turn field of view on
+            MoveToTile(ref nextTile);
+            SetFieldOfView();
+        }
 
-                // Position cube on the tile and turn field of view on
-                MoveToTile(ref nextTile);
-                SetFieldOfView();
-            }
-
-            // Wait
-            //yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
-            yield return StartCoroutine(WaitOnTile());
+        // Wait
+        yield return StartCoroutine(WaitOnTile());
             
-            // Check if the thief was caught
-            if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
-                yield break;
-            }
-
-        //}
+        // Check if the thief was caught
+        if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
+            yield break;
+        }
         
         IsMoving = false;
-            CanStep = true;
-        //ResetPositionToStart();
-        //turnManager.DecreaseMovementCount();
+        CanStep = true;
     }
 
     #endregion

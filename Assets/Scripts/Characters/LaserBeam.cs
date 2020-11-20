@@ -34,9 +34,8 @@ public class LaserBeam : Enemy {
         visionCones.SetActive(laserState);
 
         // Wait
-        CanStep = true;
-        yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
         yield return StartCoroutine(WaitOnTile());
+        CanStep = true;
     }
 
     /// <summary>
