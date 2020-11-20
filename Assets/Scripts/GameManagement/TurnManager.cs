@@ -167,13 +167,13 @@ public class TurnManager : MonoBehaviour {
     /// Event for when the End Turn button is pressed
     /// </summary>
     public void OnEndTurnButtonPress() {
-        PlayEveryAction();
+        StartCoroutine(PlayEveryAction());
     }
 
     /// <summary>
     /// Play all the actions of the thief and the cubes
     /// </summary>
-    void PlayEveryAction() {
+    IEnumerator PlayEveryAction() {
         // Disable clicking while things move
         CanClick = false;
         intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
@@ -183,24 +183,37 @@ public class TurnManager : MonoBehaviour {
         }
         thief.DisableDoorToggles();
 
-        // Play actions
+        // Prepare the Thief to move
         thief.TurnTargetTilesOff();
         thief.CompleteStatusList();
-        thief.MoveOnPath();
-        foreach (var cube in listCubes) {
-            cube.MoveOnPath();
+
+        //thief.MoveOnPath();
+        //foreach (var cube in listCubes) {
+        //    cube.MoveOnPath();
+        //}
+
+        // Play the actions
+        for (int i = 0; i < intSteps; i++) {
+            thief.MoveOnPath();
+            foreach (var cube in listCubes) {
+                cube.MoveOnPath();
+            }
+
+            yield return new WaitUntil(() => CanCharactersStep());
         }
+
+        EnableNewTurn();
     }
 
-    /// <summary>
-    /// Decrese the count of moving objects and enable move when the count is zero
-    /// </summary>
-    public void DecreaseMovementCount() {
-        intMoveCount--;
-        if (intMoveCount < 1) {
-            EnableNewTurn();
-        }
-    }
+    ///// <summary>
+    ///// Decrese the count of moving objects and enable move when the count is zero
+    ///// </summary>
+    //public void DecreaseMovementCount() {
+    //    intMoveCount--;
+    //    if (intMoveCount < 1) {
+    //        EnableNewTurn();
+    //    }
+    //}
 
     /// <summary>
     /// Enable a new turn to be played
@@ -215,9 +228,14 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     bool EnableEnemies() { 
-        // Re-enable the disabled cubes
-        foreach (var cube in listCubes.Where(x => x.IsDisabled && x.CanEnable())) {
-            cube.EnableEnemy();
+        // Re-enable the disabled cubes or reduce their wait times
+        foreach (var cube in listCubes.Where(x => x.IsDisabled)) {
+            if (cube.CanEnable()) { 
+                cube.EnableEnemy();
+            } else {
+                cube.ReduceOneWaitTurn();
+            }
+
             if (IsEnemySeeingThief(cube.GetFieldOfView())) {
                 return HandleThiefCaught();
             }
@@ -225,7 +243,7 @@ public class TurnManager : MonoBehaviour {
 
         // Move security cameras
         foreach (var secCam in listSecCams) { 
-            // Enable cameras that can be enables, or reduce their wait turns
+            // Enable cameras that can be enabled, or reduce their wait turns
             if (secCam.IsDisabled) {
                 secCam.ReduceOneWaitTurn();
 

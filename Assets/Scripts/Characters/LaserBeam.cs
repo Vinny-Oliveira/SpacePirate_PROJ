@@ -21,7 +21,7 @@ public class LaserBeam : Enemy {
         // Check if the cube is not disabled
         if (IsDisabled) {
             ReduceOneWaitTurn();
-            TurnManager.instance.DecreaseMovementCount();
+            //TurnManager.instance.DecreaseMovementCount();
         } else { 
             StartCoroutine(BlinkLaserBeam());
         }

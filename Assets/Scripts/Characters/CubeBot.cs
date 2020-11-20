@@ -118,10 +118,10 @@ public class CubeBot : Enemy {
     /// </summary>
     public override void MoveOnPath() {
         // Check if the cube is not disabled
-        if (IsDisabled) {
-            ReduceOneWaitTurn();
-            TurnManager.instance.DecreaseMovementCount();
-        } else { 
+        if (!IsDisabled) {
+            //ReduceOneWaitTurn();
+            //TurnManager.instance.DecreaseMovementCount();
+        //} else { 
             StartCoroutine(MoveOnEachDirection());
         }
     }
@@ -134,12 +134,12 @@ public class CubeBot : Enemy {
         IsMoving = true;
         TurnManager turnManager = TurnManager.instance;
 
-        for (int i = 0; i < intRollsPerTurn; i++) {
+        //for (int i = 0; i < intRollsPerTurn; i++) {
             // If the Thief activates the EMP mid-path, disable the cube
             if (IsDisabled) {
-                DisableFieldOfView();
-                ReduceOneWaitTurn();
-                TurnManager.instance.DecreaseMovementCount();
+                //DisableFieldOfView();
+                //ReduceOneWaitTurn();
+                //TurnManager.instance.DecreaseMovementCount();
                 yield break;
             }
 
@@ -160,8 +160,7 @@ public class CubeBot : Enemy {
             }
 
             // Wait
-            CanStep = true;
-            yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
+            //yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
             yield return StartCoroutine(WaitOnTile());
             
             // Check if the thief was caught
@@ -169,11 +168,12 @@ public class CubeBot : Enemy {
                 yield break;
             }
 
-        }
+        //}
         
         IsMoving = false;
-        ResetPositionToStart();
-        turnManager.DecreaseMovementCount();
+            CanStep = true;
+        //ResetPositionToStart();
+        //turnManager.DecreaseMovementCount();
     }
 
     #endregion

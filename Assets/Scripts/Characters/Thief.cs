@@ -125,11 +125,10 @@ public class Thief : Character {
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {
-        CanStep = true;
-        yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
-        yield return StartCoroutine(base.WaitOnTile());
-
         TurnManager turnManager = TurnManager.instance;
+
+        //yield return new WaitUntil(() => turnManager.CanCharactersStep());
+        yield return StartCoroutine(base.WaitOnTile());
 
         // Caught by a cube or ended the level
         if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
@@ -141,23 +140,25 @@ public class Thief : Character {
         PickUpKeycard();
         PickUpEMP();
         turnManager.CheckForTreasure();
-        MoveOnPath();
+        //MoveOnPath();
+
+        CanStep = true;
+        
+        // Path is over
+        if (listThiefStatus.Count < 1) {
+            animator.SetBool(WALK_ANIM_NAME, false);
+            IsMoving = false;
+            //turnManager.DecreaseMovementCount();
+            DisplayMoveCounter();
+        }
     }
 
     /// <summary>
     /// Move the player through the path of tiles and destroy the list of path tiles as they go
     /// </summary>
     public override void MoveOnPath() {
-        TurnManager turnManager = TurnManager.instance;
+        //TurnManager turnManager = TurnManager.instance;
         
-        // Path is over
-        if (listThiefStatus.Count < 1) {
-            animator.SetBool(WALK_ANIM_NAME, false);
-            IsMoving = false;
-            turnManager.DecreaseMovementCount();
-            DisplayMoveCounter();
-            return;
-        }
 
         // Continue the path
         IsMoving = true;
