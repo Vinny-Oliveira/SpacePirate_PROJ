@@ -17,14 +17,8 @@ public class LaserBeam : Enemy {
     /// <summary>
     /// Have the laser start its blinking pattern if it is active
     /// </summary>
-    public void StartLaserBlink() {
-        // Check if the cube is not disabled
-        if (IsDisabled) {
-            ReduceOneWaitTurn();
-            //TurnManager.instance.DecreaseMovementCount();
-        } else { 
-            StartCoroutine(BlinkLaserBeam());
-        }
+    public override void MoveOnPath() {
+        PlayMovePattern(BlinkLaserBeam());
     }
 
     /// <summary>

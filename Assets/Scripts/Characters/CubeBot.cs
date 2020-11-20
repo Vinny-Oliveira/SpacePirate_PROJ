@@ -117,13 +117,7 @@ public class CubeBot : Enemy {
     /// Move on the path set to the Cube
     /// </summary>
     public override void MoveOnPath() {
-        // Check if the cube is not disabled
-        if (!IsDisabled) {
-            //ReduceOneWaitTurn();
-            //TurnManager.instance.DecreaseMovementCount();
-        //} else { 
-            StartCoroutine(MoveOnEachDirection());
-        }
+        PlayMovePattern(MoveOnEachDirection());
     }
 
     /// <summary>

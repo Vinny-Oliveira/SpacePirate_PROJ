@@ -11,6 +11,20 @@ public class Enemy : Character {
     protected int intWaitTurns;
     public GameObject visionCones;
 
+    #region MOVEMENT
+
+    /// <summary>
+    /// Check if the enemy is not disabled
+    /// </summary>
+    /// <param name="moveCoroutine"></param>
+    public void PlayMovePattern(IEnumerator moveCoroutine) {
+        if (!IsDisabled) { 
+            StartCoroutine(moveCoroutine);
+        }
+    }
+
+    #endregion
+
     #region FIELD_OF_VIEW
 
     /// <summary>
