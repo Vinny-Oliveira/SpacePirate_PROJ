@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6767106996799946490}
   - component: {fileID: 6767106996799946485}
   - component: {fileID: 6767106996799946484}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: LaserBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6767106996925614359}
   - component: {fileID: 6767106996925614358}
   - component: {fileID: 6767106996925614357}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: VisionCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
