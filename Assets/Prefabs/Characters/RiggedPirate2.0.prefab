@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 742655993712731547}
   - component: {fileID: 73642117485805344}
   - component: {fileID: 3416455133923969715}
+  - component: {fileID: 7664033956215079149}
   m_Layer: 2
   m_Name: RiggedPirate2.0
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MonoBehaviour:
   tmpMoveCount: {fileID: 0}
   maxRangeColor: {r: 1, g: 0.7756624, b: 0.15686274, a: 1}
   animator: {fileID: 73642117485805344}
+--- !u!65 &7664033956215079149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73642117485805345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4122029, y: 0.7953032, z: 0.30866587}
+  m_Center: {x: 0.000000029802322, y: 0.54263943, z: 0.07531291}
 --- !u!1 &225954200269946533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1486,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5531172345321416338}
-  - component: {fileID: 2386132003225939693}
   m_Layer: 2
   m_Name: PirateGeo
   m_TagString: Untagged
@@ -1496,16 +1509,3 @@ Transform:
   m_Father: {fileID: 742655993712731547}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2386132003225939693
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980865852380947568}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.864395, y: 20.648485, z: 7.975498}
-  m_Center: {x: 0, y: 13.588514, z: 1.783389}

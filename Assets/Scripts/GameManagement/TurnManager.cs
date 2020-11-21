@@ -244,6 +244,11 @@ public class TurnManager : MonoBehaviour {
             }
         }
 
+        // Re-enable laser beams
+        foreach (var laser in listLaserBeams) {
+            TryToEnableEnemy(laser);
+        }
+
         return false;
     }
 

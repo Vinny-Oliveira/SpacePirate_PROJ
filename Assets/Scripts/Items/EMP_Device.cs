@@ -47,6 +47,7 @@ public class EMP_Device : Item {
         List<Enemy> listEnemies = new List<Enemy>();
         listEnemies.AddRange(TurnManager.instance.listCubes);
         listEnemies.AddRange(TurnManager.instance.listSecCams);
+        listEnemies.AddRange(TurnManager.instance.listLaserBeams);
 
         // Disable enemies
         foreach (var enemy in listEnemies) { 

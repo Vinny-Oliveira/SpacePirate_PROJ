@@ -148,7 +148,6 @@ public class Thief : Character {
         if (listThiefStatus.Count < 1) {
             animator.SetBool(WALK_ANIM_NAME, false);
             IsMoving = false;
-            //turnManager.DecreaseMovementCount();
             DisplayMoveCounter();
         }
     }
@@ -157,10 +156,6 @@ public class Thief : Character {
     /// Move the player through the path of tiles and destroy the list of path tiles as they go
     /// </summary>
     public override void MoveOnPath() {
-        //TurnManager turnManager = TurnManager.instance;
-        
-
-        // Continue the path
         IsMoving = true;
         CanStep = false;
         HandleCurrentStatus();
@@ -171,6 +166,10 @@ public class Thief : Character {
     /// Handle the Thief's behavior on the path depending on their status
     /// </summary>
     void HandleCurrentStatus() {
+        if (listThiefStatus.Count < 1) {
+            return;
+        }
+
         thiefStatus = listThiefStatus[0];
         RemoveFirstActiveStatus(); // Remove 1st item of the list
 
