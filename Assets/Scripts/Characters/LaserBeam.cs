@@ -43,10 +43,16 @@ public class LaserBeam : Enemy {
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other) {
+        Debug.Log("Trigger");
         Thief touchedThief = other.gameObject.GetComponent<Thief>();
         if (touchedThief) {
+            Debug.Log("Thief Touched");
             TurnManager.instance.HandleThiefCaught();
         }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        Debug.Log("Collision");
     }
 
 }
