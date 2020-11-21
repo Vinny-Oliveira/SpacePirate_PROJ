@@ -17,18 +17,6 @@ public class GameUtilities : MonoBehaviour {
     }
 
     /// <summary>
-    /// Change the style of the button depending on the toggle state
-    /// </summary>
-    public static void ChangeButtonStyle(UnityEngine.UI.Toggle toggle, Color colorToggleOn) {
-        // Change color
-        UnityEngine.UI.ColorBlock colorBlock = toggle.colors;
-        colorBlock.normalColor = (toggle.isOn) ? (colorToggleOn) : (Color.white);
-        colorBlock.selectedColor = colorBlock.normalColor;
-        toggle.colors = colorBlock;
-    }
-
-
-    /// <summary>
     /// Turn a list into a Queue
     /// </summary>
     public static void EnqueueList<T>(ref List<T> listT, ref Queue<T> queueT) { 

@@ -310,9 +310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeTile: {fileID: 0}
+  pickableBody: {fileID: 5806304486681572989}
+  inventory_icon: {fileID: 0}
   animatorPanel: {fileID: 0}
   strAnimationState: 
-  coins: {fileID: 5806304486681572989}
 --- !u!1 &5806304486681572989
 GameObject:
   m_ObjectHideFlags: 0

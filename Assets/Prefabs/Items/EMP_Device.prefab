@@ -280,12 +280,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeTile: {fileID: 0}
-  fltRange: 666
+  pickableBody: {fileID: 3212186412172031383}
+  inventory_icon: {fileID: 0}
+  animatorPanel: {fileID: 0}
+  strAnimationState: 
+  fltRange: 10
   intTurnsAffected: 2
   particle: {fileID: 3820291495535698881}
   toggleEMP: {fileID: 0}
   colorToggleOn: {r: 0, g: 0, b: 0, a: 0}
-  empBody: {fileID: 3212186412172031383}
 --- !u!1 &3712297506443728545
 GameObject:
   m_ObjectHideFlags: 0

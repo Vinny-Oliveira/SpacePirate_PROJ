@@ -450,9 +450,7 @@ public class Thief : Character {
 
     public void PickUpKeycard(ref Keycard keycard) {
         listKeycards.Add(keycard);
-        keycard.gameObject.SetActive(false);
-        TurnManager.instance.keycard_Image.SetActive(true);
-        keycard.PlayAnimationPanel();
+        keycard.On_ItemPickedUp();
     }
 
     /// <summary>
@@ -535,7 +533,7 @@ public class Thief : Character {
         if (emp == null && TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
             emp.transform.parent = transform; // EMP becomes a child of the thief
-            emp.OnDevicePickedUp(this);
+            emp.On_ItemPickedUp();
         }
     }
 

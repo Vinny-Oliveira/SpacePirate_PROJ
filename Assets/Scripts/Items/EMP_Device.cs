@@ -9,10 +9,7 @@ public class EMP_Device : Item {
     public int intTurnsAffected;
     public ParticleSystem particle;
     public Toggle toggleEMP;
-    public Color colorToggleOn;
-    public GameObject empBody;
 
-    Thief thief;
     List<Tile> listRangeTiles = new List<Tile>();
 
     /// <summary>
@@ -27,12 +24,9 @@ public class EMP_Device : Item {
     /// <summary>
     /// Called when the EMP is picked up. Setup all initial values
     /// </summary>
-    public void OnDevicePickedUp(Thief newThief) {
-        thief = newThief;
+    public override void On_ItemPickedUp() {
         toggleEMP.interactable = true;
-        toggleEMP.gameObject.SetActive(true);
-        empBody.SetActive(false);
-        PlayAnimationPanel();
+        base.On_ItemPickedUp();
     }
 
     /// <summary>

@@ -349,8 +349,7 @@ public class TurnManager : MonoBehaviour {
     /// Make the player grab the treasure
     /// </summary>
     public void PickUpTreasure() {
-        treasure.StealCoins();
-        treasure_Image.SetActive(true);
+        treasure.On_ItemPickedUp();
     }
 
     #endregion
