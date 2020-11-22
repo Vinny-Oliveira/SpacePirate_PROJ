@@ -339,7 +339,7 @@ public class TurnManager : MonoBehaviour {
             Debug.Log("THIEF ESCAPED");
             thief.PlayWinSfx();
             thiefGamePanel.SetActive(false);
-            thiefWinPanel.SetActive(true);
+            thief.thiefPaticles.PlayExitParticle();
             return true;
         }
         return false;
