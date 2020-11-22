@@ -283,14 +283,15 @@ MonoBehaviour:
   placeTile: {fileID: 0}
   pickableBody: {fileID: 3212186412172031383}
   inventory_icon: {fileID: 0}
-  audioPickup: {fileID: 0}
+  clipPickup: {fileID: 8300000, guid: 0f7f3672cb7d2ad448a23245462f4eb2, type: 3}
+  audioSource: {fileID: 2091438771799644322}
   animatorPanel: {fileID: 0}
   strAnimationState: 
   fltRange: 10
   intTurnsAffected: 2
   particle: {fileID: 3820291495535698881}
   toggleEMP: {fileID: 0}
-  audioActivate: {fileID: 2091438771799644322}
+  clipActivateEmp: {fileID: 8300000, guid: bcfc44bb0f9720943abd970b07002e11, type: 3}
 --- !u!82 &2091438771799644322
 AudioSource:
   m_ObjectHideFlags: 0

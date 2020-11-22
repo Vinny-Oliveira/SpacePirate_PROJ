@@ -313,7 +313,8 @@ MonoBehaviour:
   placeTile: {fileID: 0}
   pickableBody: {fileID: 5806304486681572989}
   inventory_icon: {fileID: 0}
-  audioPickup: {fileID: 2609019815920836366}
+  clipPickup: {fileID: 8300000, guid: 0f7f3672cb7d2ad448a23245462f4eb2, type: 3}
+  audioSource: {fileID: 2609019815920836366}
   animatorPanel: {fileID: 0}
   strAnimationState: 
 --- !u!82 &2609019815920836366

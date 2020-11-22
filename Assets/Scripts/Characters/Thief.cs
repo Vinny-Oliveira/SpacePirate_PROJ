@@ -27,12 +27,14 @@ public class Thief : Character {
     /* Maximum moves per turn */
     int intMaxMoves;
 
-    [Header("Path Control")]
+    /* Path Control */
     Tile targetTile;
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
     EThiefStatus thiefStatus;
     List<EThiefStatus> listThiefStatus = new List<EThiefStatus>();
+    
+    [Header("Path Control")]
     public GameObject ghostPrefab;
     public List<GameObject> listGhosts = new List<GameObject>();
     public List<ActionTracker> listActions = new List<ActionTracker>(); // CONSTRAINT: This list MUST have as many ActionTracker panels as the number of maximum moves for the Thief
