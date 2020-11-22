@@ -53,7 +53,7 @@ public class EMP_Device : Item {
         // Disable the EMP and toss it
         toggleEMP.interactable = false;
         toggleEMP.isOn = false;
-        toggleEMP.gameObject.SetActive(false);
+        inventory_icon.gameObject.SetActive(false);
         TurnManager.instance.emp = null;
     }
 
