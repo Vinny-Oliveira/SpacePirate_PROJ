@@ -28278,7 +28278,7 @@ GameObject:
   - component: {fileID: 499370006835495411}
   - component: {fileID: 4715258890456281305}
   m_Layer: 5
-  m_Name: ThiefInventory_Panel
+  m_Name: Thief_Inventory_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
