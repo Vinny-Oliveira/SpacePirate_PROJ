@@ -28,14 +28,25 @@ public class LaserBeam : Enemy {
     IEnumerator BlinkLaserBeam() {
         CanStep = false;
 
+        // Wait half the time
+        yield return StartCoroutine(WaitOnTile());
+
         // Blink the vision cylinder ("cone") of the laser beam, the object that has the collider
         bool laserState = queLaserStates.Dequeue();
         queLaserStates.Enqueue(laserState);
         visionCones.SetActive(laserState);
 
-        // Wait
+        // Wait another half
         yield return StartCoroutine(WaitOnTile());
         CanStep = true;
+    }
+
+    /// <summary>
+    /// Laser waits half the usual time to start and finish its actions
+    /// </summary>
+    /// <returns></returns>
+    protected override IEnumerator WaitOnTile() {
+        yield return new WaitForSeconds(waitOnTileTime/2f);
     }
 
     /// <summary>

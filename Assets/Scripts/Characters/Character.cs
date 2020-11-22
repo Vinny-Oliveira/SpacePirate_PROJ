@@ -22,7 +22,7 @@ public class Character : MonoBehaviour {
 
     /* Movement times */
     protected const float stepTime = 0.5f;
-    const float waitOnTileTime = 0.2f;
+    protected const float waitOnTileTime = 0.2f;
 
     /// <summary>
     /// Move the player to given tile
