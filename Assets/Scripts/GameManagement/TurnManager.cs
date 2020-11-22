@@ -22,8 +22,6 @@ public class TurnManager : MonoBehaviour {
     public UnityEngine.UI.Button btnEndTurn;
 
     [Header("UI Images and Panels")]
-    public GameObject keycard_Image;
-    public GameObject treasure_Image;
     public GameObject thiefGamePanel;
     public GameObject thiefWinPanel;
     public GameObject thiefLosePanel;
