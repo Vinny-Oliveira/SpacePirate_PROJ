@@ -536,6 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   visionCones: {fileID: 2641779257310085052}
+  audioSource: {fileID: 8036323104559925568}
   intRollsPerTurn: 5
   listPath: 020000000200000002000000000000000000000000000000010000000100000001000000030000000300000003000000
   center: {fileID: 3244929332658082936}
@@ -552,7 +553,6 @@ MonoBehaviour:
   - {x: -2, y: 0}
   - {x: -2, y: 1}
   - {x: -2, y: -1}
-  audioSource: {fileID: 8036323104559925568}
 --- !u!82 &8036323104559925568
 AudioSource:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: e1ed9041f60ec2145a607f37e32cbff5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
