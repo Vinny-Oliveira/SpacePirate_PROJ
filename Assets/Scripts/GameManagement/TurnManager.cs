@@ -313,6 +313,7 @@ public class TurnManager : MonoBehaviour {
         thief.DeathStart();
         thief.ClearPath();
         Debug.Log("THIEF CAUGHT!");
+        thief.PlayLossSfx();
         thiefGamePanel.SetActive(false);
         thiefLosePanel.SetActive(true);
         return true;
@@ -336,6 +337,7 @@ public class TurnManager : MonoBehaviour {
         if (CanThiefEscape()) {
             thief.ClearPath();
             Debug.Log("THIEF ESCAPED");
+            thief.PlayWinSfx();
             thiefGamePanel.SetActive(false);
             thiefWinPanel.SetActive(true);
             return true;

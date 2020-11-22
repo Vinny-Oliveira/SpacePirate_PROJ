@@ -6,10 +6,14 @@ public class Enemy : Character {
 
     protected List<Tile> listFieldOfView = new List<Tile>();
 
-    /* Effects of the EMP */
     public bool IsDisabled { get; set; }
+
+    [Header("EMP Effects")]
     protected int intWaitTurns;
     public GameObject visionCones;
+
+    [Header("Audio Source")]
+    public AudioSource audioSource;
 
     #region MOVEMENT
 

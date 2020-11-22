@@ -68,6 +68,11 @@ public class Thief : Character {
     public Animator animator;
     const string WALK_ANIM_NAME = "IsWalking";
 
+    [Header("Audio Clips and Source")]
+    public AudioClip clipPlayerWins;
+    public AudioClip clipPlayerLoses;
+    public AudioSource audioSource;
+
     #region STARTUP_FUNCTIONS
 
     /// <summary>
@@ -664,6 +669,35 @@ public class Thief : Character {
 
     protected virtual void OnThiefDead() {
         ThiefDead?.Invoke();
+    }
+
+    #endregion
+
+    #region WIN_LOSS_SFX
+
+    /// <summary>
+    /// Play an audio clip
+    /// </summary>
+    /// <param name="audioClip"></param>
+    void PlayAudioClip(AudioClip audioClip) { 
+        if (audioSource) {
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        }
+    }
+
+    /// <summary>
+    /// Play the sound effect for when the player wins the level
+    /// </summary>
+    public void PlayWinSfx() {
+        PlayAudioClip(clipPlayerWins);
+    }
+    
+    /// <summary>
+    /// Play the sound effect for when the player loses the level
+    /// </summary>
+    public void PlayLossSfx() {
+        PlayAudioClip(clipPlayerLoses);
     }
 
     #endregion

@@ -11,13 +11,14 @@ public enum ECameraPosition {
 
 public class SecurityCamera : Enemy {
 
+    [Header("Camera Movement Control")]
     public ECameraPosition camPosition;
     public EDirection centerDirection;
     [SerializeField]
     bool isForward;
     public Animator animator;
 
-    /* Coordinates of fields of view */
+    [Header("Coordinates of Fields of View")]
     public List<Vector2> leftCoords = new List<Vector2>();
     public List<Vector2> centerCoords = new List<Vector2>();
     public List<Vector2> rightCoords = new List<Vector2>();
@@ -76,8 +77,11 @@ public class SecurityCamera : Enemy {
             camPosition = (isForward) ? (camPosition + 1) : (camPosition - 1);
         }
 
-        // Play animation
+        // Play animation and sound effect
         animator.SetTrigger(animator.parameters[0].name);
+        if (audioSource) {
+            audioSource.Play();
+        }
     }
 
     /// <summary>

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
+    [Header("Game References")]
     public Tile placeTile;
     public GameObject pickableBody;
     public GameObject inventory_icon;
 
+    [Header("Pickup Audio")]
+    public AudioSource audioPickup;
+
+    [Header("Panel Animation")]
     public Animator animatorPanel;
     public string strAnimationState;
 
@@ -25,6 +30,9 @@ public class Item : MonoBehaviour {
     /// </summary>
     /// <param name="itemObject"></param>
     public virtual void On_ItemPickedUp() {
+        if (audioPickup) {
+            audioPickup.Play();
+        }
         pickableBody.SetActive(false);
         inventory_icon.SetActive(true);
         PlayAnimationPanel();

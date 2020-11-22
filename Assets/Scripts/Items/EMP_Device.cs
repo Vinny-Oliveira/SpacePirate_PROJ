@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class EMP_Device : Item {
 
+    [Header("EMP Functionality")]
     public float fltRange;
     public int intTurnsAffected;
     public ParticleSystem particle;
     public Toggle toggleEMP;
+    public AudioSource audioActivate;
 
     List<Tile> listRangeTiles = new List<Tile>();
 
@@ -36,6 +38,11 @@ public class EMP_Device : Item {
         // Play particles
         if (particle) { 
             particle.Play();
+        }
+
+        // Play the sound
+        if (audioActivate) {
+            audioActivate.Play();
         }
 
         List<Enemy> listEnemies = new List<Enemy>();

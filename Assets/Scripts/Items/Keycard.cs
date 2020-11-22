@@ -10,6 +10,7 @@ public enum ECardType {
 
 public class Keycard : Item {
 
+    [Header("Keycard Values")]
     public ECardType cardType;
 
 }

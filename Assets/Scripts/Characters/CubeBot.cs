@@ -35,9 +35,9 @@ public class CubeBot : Enemy {
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
-    /* Initial setup */
-    float initPosY;
-    Quaternion initCenterRotation;
+    ///* Initial setup */
+    //float initPosY;
+    //Quaternion initCenterRotation;
 
     #region INITIAL_SETUP
 
@@ -50,27 +50,27 @@ public class CubeBot : Enemy {
         CanStep = true;
         IsDisabled = false;
         SetStartingTile();
-        StoreStartingPosition();
+        //StoreStartingPosition();
         BuildDirectionDictionary();
         GameUtilities.EnqueueList(ref listPath, ref quePath);
         SetFieldOfView();
     }
 
-    /// <summary>
-    /// Store the initial values of height (position.y) and rotation
-    /// </summary>
-    void StoreStartingPosition() {
-        initPosY = transform.position.y;
-        initCenterRotation = center.transform.rotation;
-    }
+    ///// <summary>
+    ///// Store the initial values of height (position.y) and rotation
+    ///// </summary>
+    //void StoreStartingPosition() {
+    //    initPosY = transform.position.y;
+    //    initCenterRotation = center.transform.rotation;
+    //}
 
-    /// <summary>
-    /// Reset the cube's rotation and Y position to the initial ones
-    /// </summary>
-    void ResetPositionToStart() {
-        transform.position = new Vector3(transform.position.x, initPosY, transform.position.z);
-        center.transform.rotation = initCenterRotation;
-    }
+    ///// <summary>
+    ///// Reset the cube's rotation and Y position to the initial ones
+    ///// </summary>
+    //void ResetPositionToStart() {
+    //    transform.position = new Vector3(transform.position.x, initPosY, transform.position.z);
+    //    center.transform.rotation = initCenterRotation;
+    //}
 
     /// <summary>
     /// Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates
@@ -139,6 +139,9 @@ public class CubeBot : Enemy {
         if (nextTile != null) {
             DisableFieldOfView();
             yield return StartCoroutine(Roll_Cube(direction));
+            if (audioSource) {
+                audioSource.Play();
+            }
 
             // Position cube on the tile and turn field of view on
             MoveToTile(ref nextTile);
