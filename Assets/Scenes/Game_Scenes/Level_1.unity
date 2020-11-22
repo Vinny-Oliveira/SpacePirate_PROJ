@@ -36583,7 +36583,7 @@ MonoBehaviour:
   exitTile: {fileID: 119123653}
   btnEndTurn: {fileID: 2129363437}
   thiefGamePanel: {fileID: 1921035405}
-  thiefWinPanel: {fileID: 1921035403}
+  thiefWinPanel: {fileID: 2100950395}
   thiefLosePanel: {fileID: 1543741492}
   needKeycardPanel: {fileID: 1921035401}
   needTreasurePanel: {fileID: 1921035400}
@@ -71656,12 +71656,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1921035399}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1921035403 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3608675055437516606, guid: 2107aa9a84051dd47878cc73d5eee266,
-    type: 3}
-  m_PrefabInstance: {fileID: 1921035399}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1921035404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 273942305485111552, guid: 2107aa9a84051dd47878cc73d5eee266,
@@ -77707,6 +77701,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightQuad: {fileID: 2090997446}
+--- !u!1 &2100950395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7220968533788922602, guid: 2107aa9a84051dd47878cc73d5eee266,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921035399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2102338605
 GameObject:
   m_ObjectHideFlags: 0
