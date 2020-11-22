@@ -12,12 +12,23 @@ public class CameraPanZoom : MonoBehaviour {
     public float fltRotationSpeed = 20f;
     public Transform pivot;
     public List<Transform> listButtons = new List<Transform>();
+    Vector3 distToPivot;
+    Quaternion initRotation;
+
+    private void Start() {
+        // Set the vector that represents the distance to the pivot
+        distToPivot = transform.position - pivot.position;
+        initRotation = transform.rotation;
+    }
 
     // Update is called once per frame
     void Update() {
         PanCamera();
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
         RotateCamera();
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            ResetCamera();
+        }
     }
 
     /// <summary>
@@ -69,4 +80,13 @@ public class CameraPanZoom : MonoBehaviour {
             }
         }
     }
+
+    /// <summary>
+    /// Reset the camera position
+    /// </summary>
+    void ResetCamera() { 
+        transform.position = pivot.position + distToPivot;
+        transform.rotation = initRotation;
+    }
+
 }
