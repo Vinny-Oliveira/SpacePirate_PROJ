@@ -10,7 +10,8 @@ public class Item : MonoBehaviour {
     public GameObject inventory_icon;
 
     [Header("Pickup Audio")]
-    public AudioSource audioPickup;
+    public AudioClip clipPickup;
+    public AudioSource audioSource;
 
     [Header("Panel Animation")]
     public Animator animatorPanel;
@@ -30,12 +31,17 @@ public class Item : MonoBehaviour {
     /// </summary>
     /// <param name="itemObject"></param>
     public virtual void On_ItemPickedUp() {
-        if (audioPickup) {
-            audioPickup.Play();
-        }
+        PlayPickupSound();
         pickableBody.SetActive(false);
         inventory_icon.SetActive(true);
         PlayAnimationPanel();
+    }
+
+    /// <summary>
+    /// Play a sound effect when the item is picked up
+    /// </summary>
+    void PlayPickupSound() {
+        GameUtilities.PlayAudioClip(ref clipPickup, ref audioSource);
     }
 
 }

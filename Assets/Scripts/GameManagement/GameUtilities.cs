@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameUtilities : MonoBehaviour {
+public class GameUtilities {
 
     /// <summary>
     /// Swap the values of two items of the same type
@@ -22,6 +22,17 @@ public class GameUtilities : MonoBehaviour {
     public static void EnqueueList<T>(ref List<T> listT, ref Queue<T> queueT) { 
         foreach (var elem in listT) {
             queueT.Enqueue(elem);
+        }
+    }
+
+    /// <summary>
+    /// Play an audio clip
+    /// </summary>
+    /// <param name="audioClip"></param>
+    public static void PlayAudioClip(ref AudioClip audioClip, ref AudioSource audioSource) { 
+        if (audioSource && audioClip) {
+            audioSource.clip = audioClip;
+            audioSource.Play();
         }
     }
 

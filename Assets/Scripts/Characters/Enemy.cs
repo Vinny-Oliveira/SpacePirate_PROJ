@@ -12,9 +12,6 @@ public class Enemy : Character {
     protected int intWaitTurns;
     public GameObject visionCones;
 
-    [Header("Audio Source")]
-    public AudioSource audioSource;
-
     #region MOVEMENT
 
     /// <summary>

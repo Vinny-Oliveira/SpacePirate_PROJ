@@ -10,7 +10,7 @@ public class EMP_Device : Item {
     public int intTurnsAffected;
     public ParticleSystem particle;
     public Toggle toggleEMP;
-    public AudioSource audioActivate;
+    public AudioClip clipActivateEmp;
 
     List<Tile> listRangeTiles = new List<Tile>();
 
@@ -41,9 +41,7 @@ public class EMP_Device : Item {
         }
 
         // Play the sound
-        if (audioActivate) {
-            audioActivate.Play();
-        }
+        GameUtilities.PlayAudioClip(ref clipActivateEmp, ref audioSource);
 
         List<Enemy> listEnemies = new List<Enemy>();
         listEnemies.AddRange(TurnManager.instance.listCubes);

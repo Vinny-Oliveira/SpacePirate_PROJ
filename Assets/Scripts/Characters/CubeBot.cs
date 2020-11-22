@@ -17,7 +17,7 @@ public class CubeBot : Enemy {
 
     [Header("Path where the Cube rolls")]
     [SerializeField]
-    int intRollsPerTurn = 1;
+    //int intRollsPerTurn = 1;
     public List<EDirection> listPath = new List<EDirection>();
     Queue<EDirection> quePath = new Queue<EDirection>();
 
@@ -45,7 +45,7 @@ public class CubeBot : Enemy {
     /// Setup all initial values for the cube
     /// </summary>
     public void SetupCubeStart(int rolls) {
-        intRollsPerTurn = rolls;
+        //intRollsPerTurn = rolls;
         IsMoving = false;
         CanStep = true;
         IsDisabled = false;

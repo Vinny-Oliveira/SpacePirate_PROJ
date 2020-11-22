@@ -7,6 +7,9 @@ public class Character : MonoBehaviour {
     [Header("Grid Control")]
     public Tile currentTile;
 
+    [Header("Audio Source")]
+    public AudioSource audioSource;
+
     /// <summary>
     /// Is moving on the path
     /// </summary>
