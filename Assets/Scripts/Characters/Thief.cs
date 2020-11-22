@@ -45,7 +45,7 @@ public class Thief : Character {
             if (listPathTiles.Count > 0) {
                 return listPathTiles.Last();
             } else {
-                return null;
+                return currentTile;
             }
         }
     }
@@ -261,11 +261,7 @@ public class Thief : Character {
     /// Display the current targets depending on the last tile of the path
     /// </summary>
     public void DisplayCurrentTargets() { 
-        if (LastPathTile) { 
-            LastPathTile.DisplayPathAndTargets();
-        } else {
-            currentTile.DisplayPathAndTargets();
-        }
+        LastPathTile.DisplayPathAndTargets();
     }
 
     #endregion
@@ -347,6 +343,8 @@ public class Thief : Character {
         if (emp) {
             emp.toggleEMP.isOn = false;
         }
+
+        RemoveGhostFromPath(currentTile);
         DisplayMoveCounter();
     }
 
@@ -374,14 +372,14 @@ public class Thief : Character {
     /// Remove the last tile of the path
     /// </summary>
     public void RemoveLastTileFromPath() {
-        RemoveGhostFromPath(listPathTiles.Last());
+        RemoveGhostFromPath(LastPathTile);
         if (listThiefStatus.Last() == EThiefStatus.MOVE) { 
             listPathTiles.RemoveAt(listPathTiles.Count - 1);
         }
         RemoveLastActiveStatus();
 
         // Enable the option to open doors if next to one
-        EnableDoorToggles((LastPathTile) ? (LastPathTile) : (currentTile));
+        EnableDoorToggles(LastPathTile);
 
         if (listThiefStatus.Count < 1) {
             return;

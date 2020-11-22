@@ -41,13 +41,6 @@ public class TileHighlighter : MonoBehaviour {
     public void ChangeColorToThiefMove() {
         ChangeColor(colorMoveTag);
     }
-
-    ///// <summary>
-    ///// Change the color of the shader to match the Thief path color
-    ///// </summary>
-    //public void ChangeColorToThiefPath() {
-    //    ChangeColor(colorThiefPathTag);
-    //}
     
     /// <summary>
     /// Change the color of the shader to the EMP range color
