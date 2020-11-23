@@ -80816,6 +80816,17 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2038497486}
+    - target: {fileID: 7796746201169281874, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: nextScene.m_SceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 903f573894e658744bd59adb81215f42,
+        type: 3}
+    - target: {fileID: 7796746201169281874, guid: 2107aa9a84051dd47878cc73d5eee266,
+        type: 3}
+      propertyPath: nextScene.m_SceneName
+      value: Level_3
+      objectReference: {fileID: 0}
     - target: {fileID: 8106517397944054881, guid: 2107aa9a84051dd47878cc73d5eee266,
         type: 3}
       propertyPath: m_IsActive
