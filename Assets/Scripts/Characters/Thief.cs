@@ -459,6 +459,7 @@ public class Thief : Character {
     public void PickUpKeycard(ref Keycard keycard) {
         listKeycards.Add(keycard);
         keycard.On_ItemPickedUp();
+        keycard.placeTile = null;
     }
 
     /// <summary>
