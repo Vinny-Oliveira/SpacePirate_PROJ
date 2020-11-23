@@ -105,6 +105,16 @@ public class SecurityCamera : Enemy {
     public override void EnableEnemy() { 
         base.EnableEnemy();
         SetFieldOfView();
+        CheckForThiefCaught();
+    }
+
+    /// <summary>
+    /// Check if the camera has caught the Thief
+    /// </summary>
+    public void CheckForThiefCaught() {
+        if (TurnManager.instance.IsEnemySeeingThief(listFieldOfView)) {
+            TurnManager.instance.HandleThiefCaught();
+        }
     }
 
 }
