@@ -26,8 +26,8 @@ public class ThiefPaticles : MonoBehaviour
 
     IEnumerator WaitForExit()
     {
-        yield return new WaitUntil(() => exitParticle.isStopped);
         pirateGeo.SetActive(false);
+        yield return new WaitUntil(() => exitParticle.isStopped);
         TurnManager.instance.thiefWinPanel.SetActive(true);
     }
 

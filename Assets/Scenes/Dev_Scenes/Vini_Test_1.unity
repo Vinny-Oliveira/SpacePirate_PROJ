@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -37157,7 +37157,7 @@ MonoBehaviour:
   listKeycards:
   - {fileID: 518084302}
   emp: {fileID: 0}
-  exitTile: {fileID: 119123653}
+  exitTile: {fileID: 654352563}
   btnEndTurn: {fileID: 2129363437}
   thiefGamePanel: {fileID: 449226864}
   thiefWinPanel: {fileID: 1921035403}
@@ -51675,7 +51675,7 @@ PrefabInstance:
     - target: {fileID: 2270428896160405782, guid: b823d75eb8a010e4cba7e01aa2fd52cd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.043161
+      value: 15.09
       objectReference: {fileID: 0}
     - target: {fileID: 2270428896160405782, guid: b823d75eb8a010e4cba7e01aa2fd52cd,
         type: 3}
@@ -51720,7 +51720,7 @@ PrefabInstance:
     - target: {fileID: 2270428896160405782, guid: b823d75eb8a010e4cba7e01aa2fd52cd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9.901758
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2270428896160405782, guid: b823d75eb8a010e4cba7e01aa2fd52cd,
         type: 3}
