@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1132167812804411447}
   - component: {fileID: 4368252889361704660}
   m_Layer: 9
-  m_Name: KeyCard
+  m_Name: KeyCardBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeTile: {fileID: 0}
-  pickableBody: {fileID: 3695994109400014937}
+  pickableBody: {fileID: 2601398621002138437}
   inventory_icon: {fileID: 0}
   clipPickup: {fileID: 8300000, guid: 0f7f3672cb7d2ad448a23245462f4eb2, type: 3}
   audioSource: {fileID: 3686275344208106086}
