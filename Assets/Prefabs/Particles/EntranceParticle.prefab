@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6756781189773600879}
   - component: {fileID: 6756781189773600878}
   - component: {fileID: 6756781189773600877}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EntranceParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
