@@ -10,6 +10,9 @@ public class ThiefPaticles : MonoBehaviour
     public ParticleSystem enterParticle;
     public GameObject pirateGeo;
 
+    /// <summary>
+    /// Plays the exit particle and then starts a wait coroutine
+    /// </summary>
     [ContextMenu("ExitParticle")]
     public void PlayExitParticle()
     {
@@ -17,6 +20,9 @@ public class ThiefPaticles : MonoBehaviour
         StartCoroutine(WaitForExit());
     }
 
+    /// <summary>
+    /// Plays the enter particle and then starts a wait coroutine
+    /// </summary>
     [ContextMenu("EnterParticle")]
     public void PlayEnterParticle()
     {
@@ -24,6 +30,11 @@ public class ThiefPaticles : MonoBehaviour
         StartCoroutine(WaitForEnter());
     }
 
+    /// <summary>
+    /// Sets the pirate's geometry inactive and then delays until the the particle effect is over
+    /// then it turns on the win panel
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitForExit()
     {
         pirateGeo.SetActive(false);
@@ -31,6 +42,10 @@ public class ThiefPaticles : MonoBehaviour
         TurnManager.instance.thiefWinPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Waits until the end of the particle effect and then sets the parite's geometry to active.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitForEnter()
     {
         yield return new WaitUntil(() => enterParticle.isStopped);
