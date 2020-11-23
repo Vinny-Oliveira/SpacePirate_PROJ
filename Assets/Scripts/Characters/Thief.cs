@@ -74,6 +74,9 @@ public class Thief : Character {
     public AudioClip clipPlayerWins;
     public AudioClip clipPlayerLoses;
 
+    [Header("Particle Effects")]
+    public ThiefPaticles thiefPaticles;
+
     #region STARTUP_FUNCTIONS
 
     /// <summary>
@@ -81,6 +84,7 @@ public class Thief : Character {
     /// </summary>
     public void SetupThief(int maxMoves) {
         SetMaxMoves(maxMoves);
+        thiefPaticles.PlayEnterParticle();
         IsMoving = false;
         CanStep = true;
         HasTreasure = false;
