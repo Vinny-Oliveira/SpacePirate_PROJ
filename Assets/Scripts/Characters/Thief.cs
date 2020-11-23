@@ -156,7 +156,7 @@ public class Thief : Character {
         
         // Path is over
         if (listThiefStatus.Count < 1) {
-            animator.SetBool(WALK_ANIM_NAME, false);
+            StopWalkAnimation();
             IsMoving = false;
             DisplayMoveCounter();
         }
@@ -185,13 +185,13 @@ public class Thief : Character {
 
         switch (thiefStatus) {
             case EThiefStatus.WAIT: // Just wait on the tile
-                animator.SetBool(WALK_ANIM_NAME, false);
+                StopWalkAnimation();
                 RemoveGhostFromPath(currentTile);
                 StartCoroutine(WaitOnTile());
                 break;
 
             case EThiefStatus.MOVE: // Move on the path
-                animator.SetBool(WALK_ANIM_NAME, true);
+                PlayWalkAnimation();
                 Tile nextTile = listPathTiles[0];
                 MoveToTile(ref nextTile);
                 RemoveGhostFromPath(nextTile);
@@ -205,13 +205,13 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.EMP: // Activate the EMP and wait on the tile
-                animator.SetBool(WALK_ANIM_NAME, false);
+                StopWalkAnimation();
                 emp.TryToActivateEMP();
                 StartCoroutine(WaitOnTile());
                 break;
 
             case EThiefStatus.OPEN: // Open a door and wait on the tile
-                animator.SetBool(WALK_ANIM_NAME, false);
+                StopWalkAnimation();
                 listOpenDoorTiles.Last().door.OpenDoor();
                 listOpenDoorTiles.RemoveAt(listOpenDoorTiles.Count - 1);
                 StartCoroutine(WaitOnTile());
@@ -693,6 +693,24 @@ public class Thief : Character {
     /// </summary>
     public void PlayLossSfx() {
         GameUtilities.PlayAudioClip(ref clipPlayerLoses, ref audioSource);
+    }
+
+    #endregion
+
+    #region ANIMATION_FUNCTIONS
+
+    /// <summary>
+    /// Start playing the walk animation
+    /// </summary>
+    public void PlayWalkAnimation() {
+        animator.SetBool(WALK_ANIM_NAME, true);
+    }
+    
+    /// <summary>
+    /// Stop playing the walk animation
+    /// </summary>
+    public void StopWalkAnimation() {
+        animator.SetBool(WALK_ANIM_NAME, false);
     }
 
     #endregion

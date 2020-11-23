@@ -336,6 +336,7 @@ public class TurnManager : MonoBehaviour {
     public bool HasThiefBeatenLevel() { 
         if (CanThiefEscape()) {
             thief.ClearPath();
+            thief.StopWalkAnimation();
             Debug.Log("THIEF ESCAPED");
             thief.PlayWinSfx();
             thiefGamePanel.SetActive(false);
