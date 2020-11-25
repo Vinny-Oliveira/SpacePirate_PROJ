@@ -35,6 +35,7 @@ public class Item : MonoBehaviour {
         pickableBody.SetActive(false);
         inventory_icon.SetActive(true);
         PlayAnimationPanel();
+        placeTile = null;
     }
 
     /// <summary>

@@ -37157,7 +37157,7 @@ MonoBehaviour:
   listKeycards:
   - {fileID: 518084302}
   emp: {fileID: 0}
-  exitTile: {fileID: 654352563}
+  exitTile: {fileID: 1484456936}
   btnEndTurn: {fileID: 2129363437}
   thiefGamePanel: {fileID: 449226864}
   thiefWinPanel: {fileID: 1921035403}
@@ -51720,7 +51720,7 @@ PrefabInstance:
     - target: {fileID: 2270428896160405782, guid: b823d75eb8a010e4cba7e01aa2fd52cd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.05
+      value: -2.87
       objectReference: {fileID: 0}
     - target: {fileID: 2270428896160405782, guid: b823d75eb8a010e4cba7e01aa2fd52cd,
         type: 3}

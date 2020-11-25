@@ -186,7 +186,7 @@ public class Thief : Character {
         switch (thiefStatus) {
             case EThiefStatus.WAIT: // Just wait on the tile
                 StopWalkAnimation();
-                RemoveGhostFromPath(currentTile);
+                RemoveLastGhostFromTile(currentTile);
                 StartCoroutine(WaitOnTile());
                 break;
 
@@ -194,7 +194,7 @@ public class Thief : Character {
                 PlayWalkAnimation();
                 Tile nextTile = listPathTiles[0];
                 MoveToTile(ref nextTile);
-                RemoveGhostFromPath(nextTile);
+                RemoveLastGhostFromTile(nextTile);
 
                 // Deactivate shaders and update counter
                 listPathTiles.RemoveAt(0);
@@ -339,11 +339,14 @@ public class Thief : Character {
     /// Clear the path of tiles
     /// </summary>
     public void ClearPath() {
+        // Clear ghosts
         foreach (var tile in listPathTiles) {
             tile.moveQuad.TurnHighlighterOff();
-            RemoveGhostFromPath(tile);
+            RemoveEveryGhostFromTile(tile);
         }
+        RemoveEveryGhostFromTile(currentTile);
 
+        // Clear path, statuses, and actions
         listPathTiles.Clear();
         listThiefStatus.Clear();
         foreach (var action in listActions) {
@@ -354,7 +357,6 @@ public class Thief : Character {
             emp.toggleEMP.isOn = false;
         }
 
-        RemoveGhostFromPath(currentTile);
         DisplayMoveCounter();
     }
 
@@ -382,7 +384,7 @@ public class Thief : Character {
     /// Remove the last tile of the path
     /// </summary>
     public void RemoveLastTileFromPath() {
-        RemoveGhostFromPath(LastPathTile);
+        RemoveLastGhostFromTile(LastPathTile);
         if (listThiefStatus.Last() == EThiefStatus.MOVE) { 
             listPathTiles.RemoveAt(listPathTiles.Count - 1);
         }
@@ -459,7 +461,6 @@ public class Thief : Character {
     public void PickUpKeycard(ref Keycard keycard) {
         listKeycards.Add(keycard);
         keycard.On_ItemPickedUp();
-        keycard.placeTile = null;
     }
 
     /// <summary>
@@ -540,7 +541,8 @@ public class Thief : Character {
     public void PickUpEMP() { 
         if (emp == null && TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
-            emp.transform.parent = transform; // EMP becomes a child of the thief
+            TurnManager.instance.emp = null;
+            //emp.transform.parent = transform; // EMP becomes a child of the thief
             emp.On_ItemPickedUp();
         }
     }
@@ -552,6 +554,7 @@ public class Thief : Character {
     public void TryToActivateEMP() { 
         if (emp && emp.toggleEMP.isOn) {
             emp.Activate_EMP();
+            emp = null;
         }
     }
 
@@ -587,6 +590,7 @@ public class Thief : Character {
         }
 
         GameObject ghost = Instantiate(ghostPrefab);
+        listGhosts.Add(ghost);
         ghost.SetActive(false);
         return ghost;
     }
@@ -609,16 +613,36 @@ public class Thief : Character {
     }
 
     /// <summary>
-    /// Remove the ghost thief from a tile that is removed from the path
+    /// Remove the ghost thief from a tile and add it back to the list of ghosts
     /// </summary>
     /// <param name="tile"></param>
-    void RemoveGhostFromPath(Tile tile) {
+    void RemoveLastGhostFromTile(Tile tile) {
         GameObject ghost = tile.RemoveLastGhost();
 
-        if (ghost) { 
-            ghost.SetActive(false);
-            listGhosts.Add(ghost);
+        if (ghost) {
+            AddGhostBackToList(ghost);
         }
+    }
+
+    /// <summary>
+    /// Remove all the ghosts from a tile and add them back to the list of ghosts
+    /// </summary>
+    /// <param name="tile"></param>
+    void RemoveEveryGhostFromTile(Tile tile) {
+        List<GameObject> ghosts = tile.RemoveEveryGhost();
+
+        foreach (var ghost in ghosts) {
+            AddGhostBackToList(ghost);
+        }
+    }
+
+    /// <summary>
+    /// Add a ghost back to the ghost list
+    /// </summary>
+    /// <param name="ghost"></param>
+    void AddGhostBackToList(GameObject ghost) { 
+        ghost.SetActive(false);
+        listGhosts.Add(ghost);
     }
 
     #endregion

@@ -160,8 +160,9 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     }
 
     /// <summary>
-    /// Remove the last ghost from the list of tiles
+    /// Remove the last ghost from the tiles
     /// </summary>
+    /// <returns>Return the removed ghost</returns>
     public GameObject RemoveLastGhost() {
         GameObject lastGhost = null;
         if (listGhosts.Count > 0) {
@@ -169,6 +170,18 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
             listGhosts.RemoveAt(listGhosts.Count - 1);
         }
         return lastGhost;
+    }
+
+    /// <summary>
+    /// Remove all ghosts from the tile
+    /// </summary>
+    /// <returns>Return a list with all removed ghosts</returns>
+    public List<GameObject> RemoveEveryGhost() {
+        List<GameObject> removedGhosts = new List<GameObject>();
+        while (listGhosts.Count > 0) {
+            removedGhosts.Add(RemoveLastGhost());
+        }
+        return removedGhosts;
     }
 
     #endregion
