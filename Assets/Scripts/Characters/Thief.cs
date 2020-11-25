@@ -317,7 +317,7 @@ public class Thief : Character {
             AddGhostToPath(tile, currentTile);
         }
 
-        // Add to path. If consecutive tiles reteat, use a WAIT status
+        // Add to path. If consecutive tiles repeat, use a WAIT status
         if ( (listPathTiles.Count > 0 && tile == listPathTiles.Last()) || (listPathTiles.Count < 1 && tile == currentTile) ) {
             AddNewStatus(EThiefStatus.WAIT);
         } else { 
@@ -467,11 +467,10 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void EnableDoorToggles(Tile tile) {
+        // Disable previous door toggles
+        DisableDoorToggles();
+
         if (listThiefStatus.Count < intMaxMoves) { 
-
-            // Disable door toggles from previous tile
-            DisableDoorToggles();
-
             // Enable toggles of closed doors if the Thief has their keycards
             List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
 
