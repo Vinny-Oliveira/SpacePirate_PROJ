@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11039,8 +11039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene:
-    m_SceneAsset: {fileID: 102900000, guid: 903f573894e658744bd59adb81215f42, type: 3}
-    m_SceneName: Level_3
+    m_SceneAsset: {fileID: 102900000, guid: c839f1d72d834084db6441c481827e22, type: 3}
+    m_SceneName: Level_3_Easier
 --- !u!114 &728188210
 MonoBehaviour:
   m_ObjectHideFlags: 0
