@@ -37366,7 +37366,8 @@ MonoBehaviour:
   fltMaxRadius: 25
   fltZoomOutMin: 1
   fltZoomOutMax: 8
-  fltRotationSpeed: 50
+  zoomSpeed: 5
+  fltRotationSpeed: 70
   pivot: {fileID: 1251303735}
   listButtons:
   - {fileID: 938708951}

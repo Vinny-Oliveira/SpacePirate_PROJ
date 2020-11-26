@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -35573,7 +35573,8 @@ MonoBehaviour:
   fltMaxRadius: 15
   fltZoomOutMin: 1
   fltZoomOutMax: 8
-  fltRotationSpeed: 50
+  zoomSpeed: 5
+  fltRotationSpeed: 70
   pivot: {fileID: 1031414533}
   listButtons:
   - {fileID: 561506777}

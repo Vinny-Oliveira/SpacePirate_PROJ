@@ -9,6 +9,7 @@ public class CameraPanZoom : MonoBehaviour {
     public float fltMaxRadius = 15f;
     public float fltZoomOutMin = 1f;
     public float fltZoomOutMax = 8f;
+    public float zoomSpeed = 1f;
     public float fltRotationSpeed = 20f;
     public Transform pivot;
     public List<Transform> listButtons = new List<Transform>();
@@ -24,7 +25,7 @@ public class CameraPanZoom : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         PanCamera();
-        Zoom(Input.GetAxis("Mouse ScrollWheel"));
+        Zoom(Input.GetAxis("Mouse ScrollWheel") * zoomSpeed);
         RotateCamera();
         if (Input.GetKeyDown(KeyCode.Space)) {
             ResetCamera();
