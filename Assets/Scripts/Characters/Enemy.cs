@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemy : Character {
 
+    /* Field of View */
     protected List<Tile> listFieldOfView = new List<Tile>();
 
+    /* EMP Effects */
     public bool IsDisabled { get; set; }
-
-    [Header("EMP Effects")]
     protected int intWaitTurns;
+    [Header("EMP Effects")]
     public GameObject visionCones;
 
     #region MOVEMENT

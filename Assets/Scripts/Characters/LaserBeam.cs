@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserBeam : Enemy {
 
+    [Header("Laser States")]
     public List<bool> listLaserStates = new List<bool>();
     Queue<bool> queLaserStates = new Queue<bool>();
 
@@ -35,6 +36,7 @@ public class LaserBeam : Enemy {
         bool laserState = queLaserStates.Dequeue();
         queLaserStates.Enqueue(laserState);
         visionCones.SetActive(laserState);
+        GameUtilities.PlayAudioClip(ref audioSource);
 
         // Wait another half
         yield return StartCoroutine(WaitOnTile());

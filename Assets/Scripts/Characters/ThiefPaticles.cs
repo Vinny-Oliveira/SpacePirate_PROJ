@@ -9,6 +9,9 @@ public class ThiefPaticles : MonoBehaviour
     public ParticleSystem exitParticle;
     public ParticleSystem enterParticle;
     public GameObject pirateGeo;
+    public AudioSource audioSource;
+    public AudioClip clipEntrance;
+    public AudioClip clipExit;
 
     /// <summary>
     /// Plays the exit particle and then starts a wait coroutine
@@ -17,6 +20,7 @@ public class ThiefPaticles : MonoBehaviour
     public void PlayExitParticle()
     {
         exitParticle.Play();
+        GameUtilities.PlayAudioClip(ref clipExit, ref audioSource);
         StartCoroutine(WaitForExit());
     }
 
@@ -27,6 +31,7 @@ public class ThiefPaticles : MonoBehaviour
     public void PlayEnterParticle()
     {
         enterParticle.Play();
+        GameUtilities.PlayAudioClip(ref clipEntrance, ref audioSource);
         StartCoroutine(WaitForEnter());
     }
 

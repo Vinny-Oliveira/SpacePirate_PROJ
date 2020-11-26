@@ -26,12 +26,23 @@ public class GameUtilities {
     }
 
     /// <summary>
-    /// Play an audio clip
+    /// Play a given audio clip on a given audio source
     /// </summary>
     /// <param name="audioClip"></param>
+    /// <param name="audioSource"></param>
     public static void PlayAudioClip(ref AudioClip audioClip, ref AudioSource audioSource) { 
         if (audioSource && audioClip) {
             audioSource.clip = audioClip;
+            audioSource.Play();
+        }
+    }
+
+    /// <summary>
+    /// Play the audio clip from a given audio source
+    /// </summary>
+    /// <param name="audioSource"></param>
+    public static void PlayAudioClip(ref AudioSource audioSource) { 
+        if (audioSource && audioSource.clip) {
             audioSource.Play();
         }
     }

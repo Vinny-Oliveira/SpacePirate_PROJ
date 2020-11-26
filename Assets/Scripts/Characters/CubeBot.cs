@@ -139,9 +139,7 @@ public class CubeBot : Enemy {
         if (nextTile != null) {
             DisableFieldOfView();
             yield return StartCoroutine(Roll_Cube(direction));
-            if (audioSource) {
-                audioSource.Play();
-            }
+            GameUtilities.PlayAudioClip(ref audioSource);
 
             // Position cube on the tile and turn field of view on
             MoveToTile(ref nextTile);

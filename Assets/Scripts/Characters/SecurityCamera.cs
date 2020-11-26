@@ -79,9 +79,7 @@ public class SecurityCamera : Enemy {
 
         // Play animation and sound effect
         animator.SetTrigger(animator.parameters[0].name);
-        if (audioSource) {
-            audioSource.Play();
-        }
+        GameUtilities.PlayAudioClip(ref audioSource);
     }
 
     /// <summary>
