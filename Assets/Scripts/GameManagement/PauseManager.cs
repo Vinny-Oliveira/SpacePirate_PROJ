@@ -6,11 +6,7 @@ using UnityEngine;
 /// Manage the pause state of the game
 /// Attach this script to the Canvas_Level
 /// </summary>
-public class PauseManager {
-
-    //private void Start(){
-    //    ResumeGame(); // Make sure the game is not paused when a level starts
-    //}
+public class PauseManager : MonoBehaviour {
 
     /// <summary>
     /// Pause the game
@@ -22,7 +18,14 @@ public class PauseManager {
     /// <summary>
     /// Unpause the game
     /// </summary>
-    public static void ResumeGame() {
+    public void ResumeGame() {
+        UnPauseGame();
+    }
+
+    /// <summary>
+    /// Static method to un pause the game
+    /// </summary>
+    public static void UnPauseGame() {
         Time.timeScale = 1;
     }
 

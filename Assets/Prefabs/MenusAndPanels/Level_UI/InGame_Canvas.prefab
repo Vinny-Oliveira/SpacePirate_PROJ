@@ -4158,6 +4158,7 @@ GameObject:
   - component: {fileID: 7641497020799075064}
   - component: {fileID: 24686216784577365}
   - component: {fileID: 3757433602270525706}
+  - component: {fileID: 1321441556429349544}
   m_Layer: 5
   m_Name: Resume_btn
   m_TagString: Untagged
@@ -4309,6 +4310,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1321441556429349544}
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1321441556429349544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603278927883683755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e756b0c37b9e347987543de1c13bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1643462787226301543
 GameObject:
   m_ObjectHideFlags: 0
@@ -21955,6 +21979,7 @@ GameObject:
   - component: {fileID: 6808908174577743082}
   - component: {fileID: 6137560102238691094}
   - component: {fileID: 1032210313270037629}
+  - component: {fileID: 1632759211758617045}
   m_Layer: 5
   m_Name: Pause_Btn
   m_TagString: Untagged
@@ -22105,6 +22130,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1632759211758617045}
+        m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1632759211758617045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006399164306140271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e756b0c37b9e347987543de1c13bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7044129379242010895
 GameObject:
   m_ObjectHideFlags: 0
