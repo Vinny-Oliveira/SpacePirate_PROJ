@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CameraPanZoom : MonoBehaviour {
 
@@ -29,6 +30,8 @@ public class CameraPanZoom : MonoBehaviour {
             PanCamera();
             Zoom(Input.GetAxis("Mouse ScrollWheel") * zoomSpeed);
             RotateCamera();
+            RotateActiveButtons();
+
             if (Input.GetKeyDown(KeyCode.Space)) {
                 ResetCamera();
             }
@@ -75,13 +78,7 @@ public class CameraPanZoom : MonoBehaviour {
 
     void RotateCamera(KeyCode keyCode, float speed) { 
         if (Input.GetKey(keyCode)) {
-            //transform.LookAt(pivot.position);
             transform.RotateAround(pivot.position, Vector3.up, speed * Time.deltaTime);
-
-            // Make buttons look away from the camera
-            foreach (var button in listButtons) {
-                button.LookAt(2 * button.position - mainCam.gameObject.transform.position);
-            }
         }
     }
 
@@ -91,6 +88,17 @@ public class CameraPanZoom : MonoBehaviour {
     void ResetCamera() { 
         transform.position = pivot.position + distToPivot;
         transform.rotation = initRotation;
+    }
+
+    /// <summary>
+    /// Make active buttons look away from the camera
+    /// </summary>
+    void RotateActiveButtons() { 
+        foreach (var button in listButtons) {
+            if (button.gameObject.activeInHierarchy) { 
+                button.LookAt(2 * button.position - mainCam.gameObject.transform.position);
+            }
+        }
     }
 
 }
