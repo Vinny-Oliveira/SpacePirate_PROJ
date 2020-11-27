@@ -24,11 +24,14 @@ public class CameraPanZoom : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        PanCamera();
-        Zoom(Input.GetAxis("Mouse ScrollWheel") * zoomSpeed);
-        RotateCamera();
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            ResetCamera();
+        // Game must not be paused
+        if (Time.timeScale > 0f) { 
+            PanCamera();
+            Zoom(Input.GetAxis("Mouse ScrollWheel") * zoomSpeed);
+            RotateCamera();
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                ResetCamera();
+            }
         }
     }
 

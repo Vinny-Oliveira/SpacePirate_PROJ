@@ -8,11 +8,17 @@ using UnityEngine;
 /// </summary>
 public class PauseManager : MonoBehaviour {
 
+    //public static PauseManager instance;
+
+    //private void Awake() {
+    //    instance = this;
+    //}
+
     /// <summary>
     /// Pause the game
     /// </summary>
     public void PauseGame() {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
 
     /// <summary>
@@ -26,7 +32,7 @@ public class PauseManager : MonoBehaviour {
     /// Static method to un pause the game
     /// </summary>
     public static void UnPauseGame() {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
 
 }
