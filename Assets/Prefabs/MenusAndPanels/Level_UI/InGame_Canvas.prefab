@@ -18237,7 +18237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 38, y: -650}
+  m_AnchoredPosition: {x: -1282, y: -650}
   m_SizeDelta: {x: 950.44775, y: -255.70795}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6166127011765046586
@@ -31718,7 +31718,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '[INFINITE USES]
+  m_Text: '[UNLIMITED USES]
 
     Can be used to unlock and open doors.'
 --- !u!1 &8688206589709882147
