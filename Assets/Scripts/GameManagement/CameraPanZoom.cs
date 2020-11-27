@@ -25,7 +25,7 @@ public class CameraPanZoom : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // Game must not be paused
-        if (Time.timeScale > 0f) { 
+        if (!PauseManager.IsPaused()) { 
             PanCamera();
             Zoom(Input.GetAxis("Mouse ScrollWheel") * zoomSpeed);
             RotateCamera();

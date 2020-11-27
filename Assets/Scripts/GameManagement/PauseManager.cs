@@ -8,11 +8,12 @@ using UnityEngine;
 /// </summary>
 public class PauseManager : MonoBehaviour {
 
-    //public static PauseManager instance;
-
-    //private void Awake() {
-    //    instance = this;
-    //}
+    /// <summary>
+    /// Check if the game is paused or not
+    /// </summary>
+    public static bool IsPaused() { 
+        return !(Time.timeScale > 0f);
+    }
 
     /// <summary>
     /// Pause the game

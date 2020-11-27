@@ -67,7 +67,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Add tiles to the path when you click on them
     /// </summary>
     private void OnMouseDown() {
-        if ((Time.timeScale > 0f) && TurnManager.instance.CanClick) {
+        if (!PauseManager.IsPaused() && TurnManager.instance.CanClick) {
             AddToPath();
         }
     }
@@ -76,7 +76,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Remove tiles from the path when you click on them
     /// </summary>
     private void OnMouseOver() {
-        if ((Time.timeScale > 0f) && Input.GetMouseButtonDown(1) && TurnManager.instance.CanClick) { // Right click
+        if (!PauseManager.IsPaused() && Input.GetMouseButtonDown(1) && TurnManager.instance.CanClick) { // Right click
             RemoveFromPath();
         }
     }
