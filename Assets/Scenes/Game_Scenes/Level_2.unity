@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21728,11 +21728,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RiggedPirate2.0
-      objectReference: {fileID: 0}
-    - target: {fileID: 73642117485805345, guid: b069c9cc8efc46a4c838032198715558,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 225954200269946533, guid: b069c9cc8efc46a4c838032198715558,
         type: 3}
