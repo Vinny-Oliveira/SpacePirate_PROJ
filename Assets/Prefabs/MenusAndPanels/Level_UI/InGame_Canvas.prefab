@@ -273,7 +273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -612, y: 420}
+  m_AnchoredPosition: {x: -1280, y: 420}
   m_SizeDelta: {x: 950.44775, y: -153.43341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2440706851949171424
@@ -323,7 +323,7 @@ Animator:
   m_GameObject: {fileID: 271538925273230372}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 23eea420fa6a1494aa3f8ca4735685bc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6e3765ca48add2d4da34bbcf15454138, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -21000,7 +21000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -246}
+  m_AnchoredPosition: {x: -0.000030517578, y: -227}
   m_SizeDelta: {x: 1421.7386, y: 144.92879}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6437766771252088521
@@ -29103,8 +29103,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: -182}
-  m_SizeDelta: {x: 3028.0098, y: 573.8043}
+  m_AnchoredPosition: {x: 7, y: -198.99992}
+  m_SizeDelta: {x: 3602.6875, y: 675.96924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4499944928766969014
 CanvasRenderer:
@@ -29151,7 +29151,10 @@ MonoBehaviour:
     Click and Drag the Right
     Mouse Button to Pan.
 
-    Use A and D keys to rotate around the level.'
+    Use A and D keys to rotate around the level.
+
+    Press
+    Space Bar to reset the camera to its original position.'
 --- !u!1 &7853427831594391266
 GameObject:
   m_ObjectHideFlags: 0
@@ -29637,6 +29640,7 @@ GameObject:
   - component: {fileID: 3400691586343959696}
   - component: {fileID: 2005702187376986404}
   - component: {fileID: 7003231400120372496}
+  - component: {fileID: 9153919704351716998}
   m_Layer: 5
   m_Name: CameraInstructions_Panel
   m_TagString: Untagged
@@ -29663,8 +29667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 41, y: -429.8}
-  m_SizeDelta: {x: 1583.0815, y: -35.111572}
+  m_AnchoredPosition: {x: 38, y: -669}
+  m_SizeDelta: {x: 2175.025, y: 54.364014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2005702187376986404
 CanvasRenderer:
@@ -29703,6 +29707,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.16
+--- !u!95 &9153919704351716998
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106517397944054881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89d43fcf533a9a5498a1d777040e1762, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8147088556813209215
 GameObject:
   m_ObjectHideFlags: 0
