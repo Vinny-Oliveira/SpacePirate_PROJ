@@ -59,7 +59,7 @@ public class EMP_Device : Item {
         toggleEMP.interactable = false;
         toggleEMP.isOn = false;
         inventory_icon.gameObject.SetActive(false);
-        //TurnManager.instance.emp = null;
+        TurnManager.instance.thief.DropEmp();
     }
 
     /// <summary>
