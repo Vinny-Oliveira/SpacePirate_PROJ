@@ -25,6 +25,7 @@ public class TurnManager : MonoBehaviour {
     public GameObject thiefGamePanel;
     public GameObject thiefWinPanel;
     public GameObject thiefLosePanel;
+    public GameObject actionTrackerPanel;
     public GameObject needKeycardPanel;
     public GameObject needTreasurePanel;
 
@@ -314,6 +315,7 @@ public class TurnManager : MonoBehaviour {
         thief.ClearPath();
         Debug.Log("THIEF CAUGHT!");
         thief.PlayLossSfx();
+        actionTrackerPanel.SetActive(false);
         thiefGamePanel.SetActive(false);
         thiefLosePanel.SetActive(true);
         return true;
@@ -339,6 +341,7 @@ public class TurnManager : MonoBehaviour {
             thief.StopWalkAnimation();
             Debug.Log("THIEF ESCAPED");
             thief.PlayWinSfx();
+            actionTrackerPanel.SetActive(false);
             thiefGamePanel.SetActive(false);
             thief.thiefPaticles.PlayExitParticle();
             return true;
