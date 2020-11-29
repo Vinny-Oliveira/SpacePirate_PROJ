@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3622130719213130898
+--- !u!1 &2607380378288919452
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7882587022588279329}
-  - component: {fileID: 3569924489330354127}
-  - component: {fileID: 7797012840034617611}
+  - component: {fileID: 8867501025443773743}
+  - component: {fileID: 2873799562509050049}
+  - component: {fileID: 8817959900717698565}
   m_Layer: 5
   m_Name: Mouse_RightClick_Prefab
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7882587022588279329
+--- !u!224 &8867501025443773743
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3622130719213130898}
+  m_GameObject: {fileID: 2607380378288919452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,21 +37,21 @@ RectTransform:
   m_AnchoredPosition: {x: -362, y: -226}
   m_SizeDelta: {x: 319.7904, y: 506.1289}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3569924489330354127
+--- !u!222 &2873799562509050049
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3622130719213130898}
+  m_GameObject: {fileID: 2607380378288919452}
   m_CullTransparentMesh: 0
---- !u!114 &7797012840034617611
+--- !u!114 &8817959900717698565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3622130719213130898}
+  m_GameObject: {fileID: 2607380378288919452}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: e67cba213b285a348847602b037e0ca5, type: 3}
+  m_Texture: {fileID: 2800000, guid: d0b229c72821d544ebe928fe43548f36, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
