@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -37087,6 +37087,7 @@ MonoBehaviour:
   thiefGamePanel: {fileID: 0}
   thiefWinPanel: {fileID: 0}
   thiefLosePanel: {fileID: 0}
+  actionTrackerPanel: {fileID: 0}
   needKeycardPanel: {fileID: 0}
   needTreasurePanel: {fileID: 0}
   gridManager: {fileID: 0}
