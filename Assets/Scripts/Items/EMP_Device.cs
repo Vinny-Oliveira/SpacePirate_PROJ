@@ -12,6 +12,12 @@ public class EMP_Device : Item {
     public Toggle toggleEMP;
     public AudioClip clipActivateEmp;
 
+    [Header("Toggle Visuals")]
+    public Color colorNoninteractable = new Color(200f / 255f, 200f / 255f, 200f / 255f, 128f / 255f);
+    public Sprite spriteActive;
+    public Sprite spriteNotActive;
+    public Image imgToggle;
+
     List<Tile> listRangeTiles = new List<Tile>();
 
     /// <summary>
@@ -27,7 +33,7 @@ public class EMP_Device : Item {
     /// Called when the EMP is picked up. Setup all initial values
     /// </summary>
     public override void On_ItemPickedUp() {
-        toggleEMP.interactable = true;
+        Change_Interactability(true);
         base.On_ItemPickedUp();
     }
 
@@ -56,7 +62,7 @@ public class EMP_Device : Item {
         }
 
         // Disable the EMP and toss it
-        toggleEMP.interactable = false;
+        Change_Interactability(false);
         toggleEMP.isOn = false;
         inventory_icon.gameObject.SetActive(false);
         TurnManager.instance.thief.DropEmp();
@@ -74,8 +80,10 @@ public class EMP_Device : Item {
     /// </summary>
     void HandleTilesWithinRange() { 
         if (toggleEMP.isOn) {
+            imgToggle.sprite = spriteActive;
             FindTilesWithinRange();
         } else {
+            imgToggle.sprite = spriteNotActive;
             ClearEmpTiles();
             TurnManager.instance.thief.ToggleEmpOff();
         }
@@ -109,6 +117,20 @@ public class EMP_Device : Item {
                 tile.empQuad.ChangeColorToEmp();
                 tile.empQuad.TurnHighlighterOn();
             }
+        }
+    }
+
+    /// <summary>
+    /// Change interactability of the toggle and its visuals
+    /// </summary>
+    /// <param name="is_interactable"></param>
+    public void Change_Interactability(bool is_interactable) {
+        toggleEMP.interactable = is_interactable;
+
+        if (is_interactable) {
+            imgToggle.color = Color.white;
+        } else {
+            imgToggle.color = colorNoninteractable;
         }
     }
 

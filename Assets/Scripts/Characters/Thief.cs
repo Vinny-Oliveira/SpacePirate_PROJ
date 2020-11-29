@@ -328,7 +328,7 @@ public class Thief : Character {
 
         // Disable EMP if the path is full or if the EMP is already active
         if (emp != null && (!CanAddToPath() || listThiefStatus.Contains(EThiefStatus.EMP))) {
-            emp.toggleEMP.interactable = false;
+            emp.Change_Interactability(false);
         }
 
         // Enable the option to open doors if next to one
@@ -356,7 +356,7 @@ public class Thief : Character {
         // Handle EMP
         if (emp) {
             emp.toggleEMP.isOn = false;
-            emp.toggleEMP.interactable = true;
+            emp.Change_Interactability(true);
         }
 
         DisplayMoveCounter();
@@ -402,7 +402,7 @@ public class Thief : Character {
         // Re-enable the EMP if possible
         if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
             emp.toggleEMP.gameObject.SetActive(true);
-            emp.toggleEMP.interactable = true;
+            emp.Change_Interactability(true);
         }
     }
 
