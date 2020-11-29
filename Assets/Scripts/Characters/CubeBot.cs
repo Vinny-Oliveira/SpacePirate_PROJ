@@ -225,9 +225,13 @@ public class CubeBot : Enemy {
 
     #endregion
 
+    #region EDITOR_USE
+    
     //private void OnDrawGizmos() {
     //    Gizmos.color = Color.red;
     //    Gizmos.DrawLine(transform.position - 2 * transform.right, transform.position + 2*transform.right);
-    //}
+    //} 
+
+    #endregion
 
 }

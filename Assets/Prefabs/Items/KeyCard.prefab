@@ -150,7 +150,7 @@ MonoBehaviour:
   clipPickup: {fileID: 8300000, guid: 0f7f3672cb7d2ad448a23245462f4eb2, type: 3}
   audioSource: {fileID: 3686275344208106086}
   animatorPanel: {fileID: 0}
-  strAnimationState: 
+  strAnimationState: KeyCard_Instructions
   cardType: 0
 --- !u!82 &3686275344208106086
 AudioSource:

@@ -286,7 +286,7 @@ MonoBehaviour:
   clipPickup: {fileID: 8300000, guid: 0f7f3672cb7d2ad448a23245462f4eb2, type: 3}
   audioSource: {fileID: 2091438771799644322}
   animatorPanel: {fileID: 0}
-  strAnimationState: 
+  strAnimationState: EMP_Instructions
   fltRange: 10
   intTurnsAffected: 2
   particle: {fileID: 3820291495535698881}
