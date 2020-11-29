@@ -398,7 +398,7 @@
             <e p="Character.cs" t="Include" />
             <e p="CubeBot.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
-            <e p="LevelThiefData.cs" t="Include" />
+            <e p="PlayerLevelStats.cs" t="Include" />
             <e p="SecurityCamera.cs" t="Include" />
             <e p="Thief.cs" t="Include" />
           </e>
@@ -423,6 +423,7 @@
           </e>
           <e p="Multiplayer" t="Include">
             <e p="CharSelector.cs" t="Include" />
+            <e p="EndPlayerListItem.cs" t="Include" />
             <e p="NetworkManager.cs" t="Include" />
             <e p="NetworkPlayerIdentity.cs" t="Include" />
             <e p="NewNetworkManager.cs" t="Include" />

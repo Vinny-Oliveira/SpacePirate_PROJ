@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Characters;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -10,11 +12,13 @@ namespace Multiplayer
     {
         private string _playerName;
         private float _totalTime;
-        private LevelThiefData _currentLevelData;
+        private PlayerLevelStats _currentPlayerLevelData;
         private Thief _currentPlayer;
         private NewNetworkManager _networkManager;
-
-        private Dictionary<string, LevelThiefData> _levelThiefData = new Dictionary<string, LevelThiefData>();
+        private bool _hasFinishedRace;
+        private float _fallOffTime = 1f;
+        
+        private Dictionary<string, PlayerLevelStats> _playerLevelStatsDictionary = new Dictionary<string, PlayerLevelStats>();
         
         public string PlayerName
         {
@@ -23,6 +27,12 @@ namespace Multiplayer
         }
         
         public bool PlayerExists => _currentPlayer != null;
+
+        public bool HasFinishedRace
+        {
+            get => _hasFinishedRace;
+            set => _hasFinishedRace = value;
+        }
 
 
         private void Awake()
@@ -43,23 +53,30 @@ namespace Multiplayer
             SceneManager.sceneLoaded += OnSceneLoaded;
             _networkManager.createdRoomPanel.SetActive(false);
         }
+        
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
         {
-
-            if (!_levelThiefData.ContainsKey(scene.name))
+            if (scene.name == _networkManager.endSceneName)
             {
-                if (_currentLevelData != null)
+                DisplayResults();
+                SceneManager.sceneLoaded -= OnSceneLoaded;
+                return;
+            }
+            if (!_playerLevelStatsDictionary.ContainsKey(scene.name))
+            {
+                if (_currentPlayerLevelData != null)
                 {                
-                    _currentLevelData.TimeTaken = (int)_totalTime;
+                    _currentPlayerLevelData.TimeTaken = (int)_totalTime;
                 }
                 _totalTime = 0;
-                _currentLevelData = new LevelThiefData();
-                _levelThiefData.Add(scene.name, _currentLevelData);
+                _currentPlayerLevelData = new PlayerLevelStats();
+                _currentPlayerLevelData.LevelName = scene.name; 
+                _playerLevelStatsDictionary.Add(scene.name, _currentPlayerLevelData);
             }
             else
             {
-                _currentLevelData = _levelThiefData[scene.name];
+                _currentPlayerLevelData = _playerLevelStatsDictionary[scene.name];
             }
             _currentPlayer = FindObjectOfType<Thief>();
             if (_currentPlayer == null)
@@ -74,23 +91,51 @@ namespace Multiplayer
             _currentPlayer.ThiefDead += OnPlayerDied;
         }
 
+        private void DisplayResults()
+        {
+            StartCoroutine(StartScoreDisplay());
+
+        }
+        
         private void OnPlayerDied()
         {
-            _currentLevelData.Deaths++;
-            Debug.Log(_currentLevelData.Deaths);
+            _currentPlayerLevelData.Deaths++;
+            Debug.Log(_currentPlayerLevelData.Deaths);
 
         }
 
         private void OnMoveCompleted()
         {
-            _currentLevelData.MovesMade++;
-            Debug.Log(_currentLevelData.MovesMade);
+            _currentPlayerLevelData.MovesMade++;
+            Debug.Log(_currentPlayerLevelData.MovesMade);
         }
 
         private void Update()
         {
             if(!PlayerExists) return;
             _totalTime += Time.deltaTime;
+        }
+
+        private IEnumerator StartScoreDisplay()
+        {
+            var boop = _networkManager.GetPlayersIdentites();
+
+            for (int i = 0; i < boop.Count; i++)
+            {
+                // Populate List Item with this player
+                
+                //Wait for them to finish
+                while (!boop[i]._hasFinishedRace)
+                {
+                    yield return new WaitForSeconds(_fallOffTime);
+                    _fallOffTime += 2f;
+                }
+                
+                // Display Scores
+            }
+            // Declare winner
+            
+            //End game?
         }
     }
 }

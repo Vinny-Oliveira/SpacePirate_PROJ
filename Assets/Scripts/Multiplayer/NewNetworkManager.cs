@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using WebSocketSharp;
 using Random = UnityEngine.Random;
 
@@ -15,7 +13,7 @@ namespace Multiplayer
         private string _roomName;
         private string _roomCode;
         private string _playerName;
-        private Dictionary<int, GameObject> playerMenuItemDictionary = new Dictionary<int, GameObject>(); 
+        private Dictionary<int, GameObject> _playerMenuItemDictionary = new Dictionary<int, GameObject>();
         
         [Header("Game Panels and UI")]
         public GameObject namePanel; //where the player submits their name.
@@ -27,7 +25,7 @@ namespace Multiplayer
         public GameObject playerNetworkPrefab;
         public TextMeshProUGUI roomCodeText;
         public TextMeshProUGUI roomNameText;
-        
+        public string endSceneName;
 
         public string RoomName
         {
@@ -138,7 +136,7 @@ namespace Multiplayer
         {
             GameObject item = Instantiate(playerListItemPrefab, playerListHolder);
             item.GetComponent<PlayerListItem>().Init(newPlayer.NickName);
-            playerMenuItemDictionary.Add(newPlayer.ActorNumber, item);
+            _playerMenuItemDictionary.Add(newPlayer.ActorNumber, item);
         }
         
         //Start Race!
@@ -149,6 +147,8 @@ namespace Multiplayer
             {
                 GameObject go = PhotonNetwork.Instantiate(playerNetworkPrefab.name, Vector3.zero, Quaternion.identity);
                 go.GetComponent<NetworkPlayerIdentity>().Init(p);
+                Destroy(_playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber]);
+                _playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber] = go;
             }
             createdRoomPanel.SetActive(false);
         }
@@ -159,8 +159,8 @@ namespace Multiplayer
         {
             foreach (var player in PhotonNetwork.PlayerList)
             {
-                var objToDestroy = playerMenuItemDictionary[player.ActorNumber];
-                playerMenuItemDictionary.Remove(player.ActorNumber);
+                var objToDestroy = _playerMenuItemDictionary[player.ActorNumber];
+                _playerMenuItemDictionary.Remove(player.ActorNumber);
                 Destroy(objToDestroy);
             }
             PhotonNetwork.LeaveRoom();
@@ -169,12 +169,30 @@ namespace Multiplayer
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
             Debug.Log(otherPlayer.NickName + " Left the Room");
-            GameObject objectToKill = playerMenuItemDictionary[otherPlayer.ActorNumber];
-            playerMenuItemDictionary.Remove(otherPlayer.ActorNumber);
+            GameObject objectToKill = _playerMenuItemDictionary[otherPlayer.ActorNumber];
+            _playerMenuItemDictionary.Remove(otherPlayer.ActorNumber);
             Destroy(objectToKill);
         }
 
         //Close Room
-    
+
+
+        public List<NetworkPlayerIdentity> GetPlayersIdentites()
+        {
+            List<NetworkPlayerIdentity> boop = new List<NetworkPlayerIdentity>();
+            foreach (var kvp in _playerMenuItemDictionary)
+            {
+                boop.Add(kvp.Value.GetComponent<NetworkPlayerIdentity>());
+            }
+
+            return boop;
+        }
+
+        //Quit Multiplayer
+        public void QuitMultiplayerSession()
+        {
+            PhotonNetwork.Disconnect();
+            Destroy(gameObject);
+        }
     }
 }
