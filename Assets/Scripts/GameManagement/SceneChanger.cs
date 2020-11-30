@@ -15,6 +15,7 @@ public class SceneChanger : MonoBehaviour {
     /// </summary>
     public void LoadScene() {
         SceneManager.LoadScene(nextScene);
+        PauseManager.UnPauseGame();
     }
 
     /// <summary>
@@ -22,6 +23,7 @@ public class SceneChanger : MonoBehaviour {
     /// </summary>
     public void RestartScene() { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PauseManager.UnPauseGame();
     }
 
 }

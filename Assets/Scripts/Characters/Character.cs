@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour {
+public abstract class Character : MonoBehaviour {
 
     [Header("Grid Control")]
     public Tile currentTile;
-    public GridManager currentGrid;
+
+    [Header("Audio Source")]
+    public AudioSource audioSource;
 
     /// <summary>
     /// Is moving on the path
@@ -19,8 +21,8 @@ public class Character : MonoBehaviour {
     public bool CanStep { get; set; }
 
     /* Movement times */
-    public static float stepTime = 0.5f;
-    public static float waitOnTileTime = 0.2f;
+    protected const float stepTime = 0.5f;
+    protected const float waitOnTileTime = 0.2f;
 
     /// <summary>
     /// Move the player to given tile
@@ -37,20 +39,10 @@ public class Character : MonoBehaviour {
     /// </summary>
     protected void SetStartingTile() { 
 #if UNITY_EDITOR
-        if (currentGrid == null) {
-            Debug.Log("ERROR: Assign a Grid!");
+        if (!currentTile) {
+            Debug.Log("ERROR: Assign a Tile!");
             UnityEditor.EditorApplication.isPlaying = false;
             return;
-        }
-
-        if (currentTile == null) { 
-            if (currentGrid.GetTileList().Count < 1) {
-                Debug.Log("ERROR: Create a Tile Map!");
-                UnityEditor.EditorApplication.isPlaying = false;
-                return;
-            }
-
-            currentTile = currentGrid.GetTileList()[0].GetComponent<Tile>();
         }
 #endif
         //MoveToTile(ref currentTile);

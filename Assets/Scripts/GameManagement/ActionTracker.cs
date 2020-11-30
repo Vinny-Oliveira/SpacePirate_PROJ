@@ -8,10 +8,10 @@ public class ActionTracker : MonoBehaviour {
     public UnityEngine.UI.Image imgAction;
 
     static readonly Dictionary<EThiefStatus, Color> statusColorPairs = new Dictionary<EThiefStatus, Color> {
-        { EThiefStatus.WAIT, new Color(1f, 1f, 1f, 1f) },
-        { EThiefStatus.MOVE, new Color(1f, 0f, 0f, 1f) },
-        { EThiefStatus.EMP,  new Color(0f, 0f, 1f, 1f) },
-        { EThiefStatus.OPEN, new Color(0f, 1f, 0f, 1f) }
+        { EThiefStatus.WAIT, new Color(1f, 0.4575f, 0.4575f, 1f) },
+        { EThiefStatus.MOVE, new Color(0.4575f, 1f, 0.4575f, 1f) },
+        { EThiefStatus.EMP,  new Color(0.4575f, 0.9f, 1f, 1f) },
+        { EThiefStatus.OPEN, new Color(0.9f, 1f, 0.4575f, 1f) }
     };
 
     /// <summary>

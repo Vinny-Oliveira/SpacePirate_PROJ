@@ -17,7 +17,7 @@ public class CubeBot : Enemy {
 
     [Header("Path where the Cube rolls")]
     [SerializeField]
-    int intRollsPerTurn = 1;
+    //int intRollsPerTurn = 1;
     public List<EDirection> listPath = new List<EDirection>();
     Queue<EDirection> quePath = new Queue<EDirection>();
 
@@ -35,9 +35,9 @@ public class CubeBot : Enemy {
     /* Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates */
     Dictionary<EDirection, Tuple<GameObject, Vector3, Vector3>> dicDirections;
 
-    /* Initial setup */
-    float initPosY;
-    Quaternion initCenterRotation;
+    ///* Initial setup */
+    //float initPosY;
+    //Quaternion initCenterRotation;
 
     #region INITIAL_SETUP
 
@@ -45,41 +45,32 @@ public class CubeBot : Enemy {
     /// Setup all initial values for the cube
     /// </summary>
     public void SetupCubeStart(int rolls) {
-        intRollsPerTurn = rolls;
+        //intRollsPerTurn = rolls;
         IsMoving = false;
         CanStep = true;
         IsDisabled = false;
         SetStartingTile();
-        StoreStartingPosition();
+        //StoreStartingPosition();
         BuildDirectionDictionary();
-        EnqueueThePath();
+        GameUtilities.EnqueueList(ref listPath, ref quePath);
         SetFieldOfView();
     }
 
-    /// <summary>
-    /// Turn the list of path to a Queue
-    /// </summary>
-    void EnqueueThePath() { 
-        foreach (var direction in listPath) {
-            quePath.Enqueue(direction);
-        }
-    }
+    ///// <summary>
+    ///// Store the initial values of height (position.y) and rotation
+    ///// </summary>
+    //void StoreStartingPosition() {
+    //    initPosY = transform.position.y;
+    //    initCenterRotation = center.transform.rotation;
+    //}
 
-    /// <summary>
-    /// Store the initial values of height (position.y) and rotation
-    /// </summary>
-    void StoreStartingPosition() {
-        initPosY = transform.position.y;
-        initCenterRotation = center.transform.rotation;
-    }
-
-    /// <summary>
-    /// Reset the cube's rotation and Y position to the initial ones
-    /// </summary>
-    void ResetPositionToStart() {
-        transform.position = new Vector3(transform.position.x, initPosY, transform.position.z);
-        center.transform.rotation = initCenterRotation;
-    }
+    ///// <summary>
+    ///// Reset the cube's rotation and Y position to the initial ones
+    ///// </summary>
+    //void ResetPositionToStart() {
+    //    transform.position = new Vector3(transform.position.x, initPosY, transform.position.z);
+    //    center.transform.rotation = initCenterRotation;
+    //}
 
     /// <summary>
     /// Map each direction enum to a direction game object, an axis of rotation, and a set of coordinates
@@ -126,13 +117,7 @@ public class CubeBot : Enemy {
     /// Move on the path set to the Cube
     /// </summary>
     public override void MoveOnPath() {
-        // Check if the cube is not disabled
-        if (IsDisabled) {
-            ReduceOneWaitTurn();
-            TurnManager.instance.DecreaseMovementCount();
-        } else { 
-            StartCoroutine(MoveOnEachDirection());
-        }
+        PlayMovePattern(MoveOnEachDirection());
     }
 
     /// <summary>
@@ -143,46 +128,34 @@ public class CubeBot : Enemy {
         IsMoving = true;
         TurnManager turnManager = TurnManager.instance;
 
-        for (int i = 0; i < intRollsPerTurn; i++) {
-            // If the Thief activates the EMP mid-path, disable the cube
-            if (IsDisabled) {
-                DisableFieldOfView();
-                ReduceOneWaitTurn();
-                TurnManager.instance.DecreaseMovementCount();
-                yield break;
-            }
+        // Get the next coordinate
+        CanStep = false;
+        EDirection direction = quePath.Dequeue();
+        quePath.Enqueue(direction);
+        Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
+        Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
 
-            CanStep = false;
-            EDirection direction = quePath.Dequeue();
-            quePath.Enqueue(direction);
-            Vector3 nextCoordinates = currentTile.coordinates + dicDirections[direction].Item3;
-            Tile nextTile = currentTile.listNeighbors.Find(x => x.coordinates == nextCoordinates);
+        // Only roll to a tile that is within the grid
+        if (nextTile != null) {
+            DisableFieldOfView();
+            yield return StartCoroutine(Roll_Cube(direction));
+            GameUtilities.PlayAudioClip(ref audioSource);
 
-            // Only roll to a tile that is within the grid
-            if (nextTile != null) {
-                DisableFieldOfView();
-                yield return StartCoroutine(Roll_Cube(direction));
+            // Position cube on the tile and turn field of view on
+            MoveToTile(ref nextTile);
+            SetFieldOfView();
+        }
 
-                // Position cube on the tile and turn field of view on
-                MoveToTile(ref nextTile);
-                SetFieldOfView();
-            }
-
-            // Wait
-            CanStep = true;
-            yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
-            yield return StartCoroutine(WaitOnTile());
+        // Wait
+        yield return StartCoroutine(WaitOnTile());
             
-            // Check if the thief was caught
-            if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
-                yield break;
-            }
-
+        // Check if the thief was caught
+        if (turnManager.IsThiefCaught(ref currentTile, ref listFieldOfView)) {
+            yield break;
         }
         
         IsMoving = false;
-        ResetPositionToStart();
-        turnManager.DecreaseMovementCount();
+        CanStep = true;
     }
 
     #endregion
@@ -252,9 +225,13 @@ public class CubeBot : Enemy {
 
     #endregion
 
+    #region EDITOR_USE
+    
     //private void OnDrawGizmos() {
     //    Gizmos.color = Color.red;
     //    Gizmos.DrawLine(transform.position - 2 * transform.right, transform.position + 2*transform.right);
-    //}
+    //} 
+
+    #endregion
 
 }

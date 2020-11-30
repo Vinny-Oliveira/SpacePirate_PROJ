@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class EMP_Device : Item {
 
+    [Header("EMP Functionality")]
     public float fltRange;
     public int intTurnsAffected;
     public ParticleSystem particle;
     public Toggle toggleEMP;
-    public Color colorToggleOn;
-    public GameObject empBody;
+    public AudioClip clipActivateEmp;
 
-    Thief thief;
+    [Header("Toggle Visuals")]
+    public Color colorNoninteractable = new Color(200f / 255f, 200f / 255f, 200f / 255f, 128f / 255f);
+    public Sprite spriteActive;
+    public Sprite spriteNotActive;
+    public Image imgToggle;
+
     List<Tile> listRangeTiles = new List<Tile>();
 
     /// <summary>
@@ -27,12 +32,9 @@ public class EMP_Device : Item {
     /// <summary>
     /// Called when the EMP is picked up. Setup all initial values
     /// </summary>
-    public void OnDevicePickedUp(Thief newThief) {
-        thief = newThief;
-        toggleEMP.interactable = true;
-        toggleEMP.gameObject.SetActive(true);
-        empBody.SetActive(false);
-        PlayAnimationPanel();
+    public override void On_ItemPickedUp() {
+        Change_Interactability(true);
+        base.On_ItemPickedUp();
     }
 
     /// <summary>
@@ -44,9 +46,13 @@ public class EMP_Device : Item {
             particle.Play();
         }
 
+        // Play the sound
+        GameUtilities.PlayAudioClip(ref clipActivateEmp, ref audioSource);
+
         List<Enemy> listEnemies = new List<Enemy>();
         listEnemies.AddRange(TurnManager.instance.listCubes);
         listEnemies.AddRange(TurnManager.instance.listSecCams);
+        listEnemies.AddRange(TurnManager.instance.listLaserBeams);
 
         // Disable enemies
         foreach (var enemy in listEnemies) { 
@@ -56,10 +62,10 @@ public class EMP_Device : Item {
         }
 
         // Disable the EMP and toss it
-        toggleEMP.interactable = false;
+        Change_Interactability(false);
         toggleEMP.isOn = false;
-        toggleEMP.gameObject.SetActive(false);
-        TurnManager.instance.emp = null;
+        inventory_icon.gameObject.SetActive(false);
+        TurnManager.instance.thief.DropEmp();
     }
 
     /// <summary>
@@ -74,8 +80,10 @@ public class EMP_Device : Item {
     /// </summary>
     void HandleTilesWithinRange() { 
         if (toggleEMP.isOn) {
+            imgToggle.sprite = spriteActive;
             FindTilesWithinRange();
         } else {
+            imgToggle.sprite = spriteNotActive;
             ClearEmpTiles();
             TurnManager.instance.thief.ToggleEmpOff();
         }
@@ -100,29 +108,30 @@ public class EMP_Device : Item {
         turnManager.thief.ToggleEmpOn();
 
         // Find tiles in each grid and highlight them
-        foreach (var grid in turnManager.listGrids) {
-            foreach (var tile in grid.listGridTiles) {
-
-                // The last tile of the Thief's path is the origin of the EMP blast
-                Tile originTile = (turnManager.thief.LastPathTile) ? (turnManager.thief.LastPathTile) : (turnManager.thief.currentTile);
-                originTile.DisplayPathAndTargets();
-                if (Vector3.Magnitude(originTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
-                    listRangeTiles.Add(tile);
-                    tile.empQuad.ChangeColorToEmp();
-                    tile.empQuad.TurnHighlighterOn();
-                }
+        foreach (var tile in turnManager.gridManager.listGridTiles) {
+            // The last tile of the Thief's path is the origin of the EMP blast
+            Tile originTile = (turnManager.thief.LastPathTile) ? (turnManager.thief.LastPathTile) : (turnManager.thief.currentTile);
+            originTile.DisplayPathAndTargets();
+            if (Vector3.Magnitude(originTile.transform.position - tile.transform.position) < fltRange + 0.5f) {
+                listRangeTiles.Add(tile);
+                tile.empQuad.ChangeColorToEmp();
+                tile.empQuad.TurnHighlighterOn();
             }
         }
     }
 
-    ///// <summary>
-    ///// Highlight tiles that are in range of the EMP
-    ///// </summary>
-    //public void HighlightEmpTiles() { 
-    //    foreach (var tile in listRangeTiles) {
-    //        tile.empQuad.ChangeColorToEmp();
-    //        tile.empQuad.TurnHighlighterOn();
-    //    }
-    //}
+    /// <summary>
+    /// Change interactability of the toggle and its visuals
+    /// </summary>
+    /// <param name="is_interactable"></param>
+    public void Change_Interactability(bool is_interactable) {
+        toggleEMP.interactable = is_interactable;
+
+        if (is_interactable) {
+            imgToggle.color = Color.white;
+        } else {
+            imgToggle.color = colorNoninteractable;
+        }
+    }
 
 }

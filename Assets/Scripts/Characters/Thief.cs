@@ -27,14 +27,16 @@ public class Thief : Character {
     /* Maximum moves per turn */
     int intMaxMoves;
 
-    [Header("Path Control")]
+    /* Path Control */
     Tile targetTile;
     List<Tile> listTargetTiles = new List<Tile>();
     List<Tile> listPathTiles = new List<Tile>();
     EThiefStatus thiefStatus;
     List<EThiefStatus> listThiefStatus = new List<EThiefStatus>();
-    public GameObject ghostPrefab;
-    public List<GameObject> listGhosts = new List<GameObject>();
+    
+    [Header("Path Control")]
+    public GhostThief ghostPrefab;
+    public List<GhostThief> listGhosts = new List<GhostThief>();
     public List<ActionTracker> listActions = new List<ActionTracker>(); // CONSTRAINT: This list MUST have as many ActionTracker panels as the number of maximum moves for the Thief
 
     /// <summary>
@@ -45,7 +47,7 @@ public class Thief : Character {
             if (listPathTiles.Count > 0) {
                 return listPathTiles.Last();
             } else {
-                return null;
+                return currentTile;
             }
         }
     }
@@ -66,6 +68,14 @@ public class Thief : Character {
 
     [Header("Thief Animations")]
     public Animator animator;
+    const string WALK_ANIM_NAME = "IsWalking";
+
+    [Header("Audio Clips and Source")]
+    public AudioClip clipPlayerWins;
+    public AudioClip clipPlayerLoses;
+
+    [Header("Particle Effects")]
+    public ThiefPaticles thiefPaticles;
 
     #region STARTUP_FUNCTIONS
 
@@ -74,6 +84,7 @@ public class Thief : Character {
     /// </summary>
     public void SetupThief(int maxMoves) {
         SetMaxMoves(maxMoves);
+        thiefPaticles.PlayEnterParticle();
         IsMoving = false;
         CanStep = true;
         HasTreasure = false;
@@ -124,11 +135,10 @@ public class Thief : Character {
     /// </summary>
     /// <returns></returns>
     protected override IEnumerator WaitOnTile() {
-        CanStep = true;
-        yield return new WaitUntil(() => TurnManager.instance.CanCharactersStep());
-        yield return StartCoroutine(base.WaitOnTile());
-
         TurnManager turnManager = TurnManager.instance;
+
+        //yield return new WaitUntil(() => turnManager.CanCharactersStep());
+        yield return StartCoroutine(base.WaitOnTile());
 
         // Caught by a cube or ended the level
         if (turnManager.IsThiefCaught() || turnManager.HasThiefBeatenLevel()) {
@@ -140,25 +150,22 @@ public class Thief : Character {
         PickUpKeycard();
         PickUpEMP();
         turnManager.CheckForTreasure();
-        MoveOnPath();
+        //MoveOnPath();
+
+        CanStep = true;
+        
+        // Path is over
+        if (listThiefStatus.Count < 1) {
+            StopWalkAnimation();
+            IsMoving = false;
+            DisplayMoveCounter();
+        }
     }
 
     /// <summary>
     /// Move the player through the path of tiles and destroy the list of path tiles as they go
     /// </summary>
     public override void MoveOnPath() {
-        TurnManager turnManager = TurnManager.instance;
-        
-        // Path is over
-        if (listThiefStatus.Count < 1) {
-            animator.SetBool("IsWalking", false);
-            IsMoving = false;
-            turnManager.DecreaseMovementCount();
-            DisplayMoveCounter();
-            return;
-        }
-
-        // Continue the path
         IsMoving = true;
         CanStep = false;
         HandleCurrentStatus();
@@ -169,20 +176,25 @@ public class Thief : Character {
     /// Handle the Thief's behavior on the path depending on their status
     /// </summary>
     void HandleCurrentStatus() {
+        if (listThiefStatus.Count < 1) {
+            return;
+        }
+
         thiefStatus = listThiefStatus[0];
         RemoveFirstActiveStatus(); // Remove 1st item of the list
 
         switch (thiefStatus) {
             case EThiefStatus.WAIT: // Just wait on the tile
-                animator.SetBool("IsWalking", false);
+                StopWalkAnimation();
+                RemoveLastGhostFromTile(currentTile);
                 StartCoroutine(WaitOnTile());
                 break;
 
             case EThiefStatus.MOVE: // Move on the path
-                animator.SetBool("IsWalking", true);
+                PlayWalkAnimation();
                 Tile nextTile = listPathTiles[0];
                 MoveToTile(ref nextTile);
-                RemoveGhostFromPath(nextTile);
+                RemoveLastGhostFromTile(nextTile);
 
                 // Deactivate shaders and update counter
                 listPathTiles.RemoveAt(0);
@@ -193,13 +205,13 @@ public class Thief : Character {
                 break;
 
             case EThiefStatus.EMP: // Activate the EMP and wait on the tile
-                animator.SetBool("IsWalking", false);
+                StopWalkAnimation();
                 emp.TryToActivateEMP();
                 StartCoroutine(WaitOnTile());
                 break;
 
-            case EThiefStatus.OPEN: // Open the doors around and wait on the tile
-                animator.SetBool("IsWalking", false);
+            case EThiefStatus.OPEN: // Open a door and wait on the tile
+                StopWalkAnimation();
                 listOpenDoorTiles.Last().door.OpenDoor();
                 listOpenDoorTiles.RemoveAt(listOpenDoorTiles.Count - 1);
                 StartCoroutine(WaitOnTile());
@@ -259,11 +271,7 @@ public class Thief : Character {
     /// Display the current targets depending on the last tile of the path
     /// </summary>
     public void DisplayCurrentTargets() { 
-        if (LastPathTile) { 
-            LastPathTile.DisplayPathAndTargets();
-        } else {
-            currentTile.DisplayPathAndTargets();
-        }
+        LastPathTile.DisplayPathAndTargets();
     }
 
     #endregion
@@ -309,14 +317,18 @@ public class Thief : Character {
             AddGhostToPath(tile, currentTile);
         }
 
-        // Add to path
-        AddNewStatus(EThiefStatus.MOVE);
-        listPathTiles.Add(tile);
-        tile.moveQuad.TurnHighlighterOff();
+        // Add to path. If consecutive tiles repeat, use a WAIT status
+        if ( (listPathTiles.Count > 0 && tile == listPathTiles.Last()) || (listPathTiles.Count < 1 && tile == currentTile) ) {
+            AddNewStatus(EThiefStatus.WAIT);
+        } else { 
+            AddNewStatus(EThiefStatus.MOVE);
+            listPathTiles.Add(tile);
+            tile.moveQuad.TurnHighlighterOff();
+        }
 
         // Disable EMP if the path is full or if the EMP is already active
         if (emp != null && (!CanAddToPath() || listThiefStatus.Contains(EThiefStatus.EMP))) {
-            emp.toggleEMP.gameObject.SetActive(false);
+            emp.Change_Interactability(false);
         }
 
         // Enable the option to open doors if next to one
@@ -327,20 +339,26 @@ public class Thief : Character {
     /// Clear the path of tiles
     /// </summary>
     public void ClearPath() {
+        // Clear ghosts
         foreach (var tile in listPathTiles) {
             tile.moveQuad.TurnHighlighterOff();
-            RemoveGhostFromPath(tile);
+            RemoveEveryGhostFromTile(tile);
         }
+        RemoveEveryGhostFromTile(currentTile);
 
+        // Clear path, statuses, and actions
         listPathTiles.Clear();
         listThiefStatus.Clear();
         foreach (var action in listActions) {
             action.TurnActionOff();
         }
 
+        // Handle EMP
         if (emp) {
             emp.toggleEMP.isOn = false;
+            emp.Change_Interactability(true);
         }
+
         DisplayMoveCounter();
     }
 
@@ -359,19 +377,23 @@ public class Thief : Character {
     /// <param name="tile"></param>
     /// <returns></returns>
     public bool IsTileLastOfPath(Tile tile) {
-        return (listThiefStatus.Count > 0 && listThiefStatus.Last() == EThiefStatus.MOVE && tile.Equals(LastPathTile));
+        return (listThiefStatus.Count > 0 && 
+                (listThiefStatus.Last() == EThiefStatus.MOVE || listThiefStatus.Last() == EThiefStatus.WAIT) && 
+                tile.Equals(LastPathTile));
     }
 
     /// <summary>
     /// Remove the last tile of the path
     /// </summary>
     public void RemoveLastTileFromPath() {
-        RemoveGhostFromPath(listPathTiles.Last());
-        listPathTiles.RemoveAt(listPathTiles.Count - 1);
+        RemoveLastGhostFromTile(LastPathTile);
+        if (listThiefStatus.Last() == EThiefStatus.MOVE) { 
+            listPathTiles.RemoveAt(listPathTiles.Count - 1);
+        }
         RemoveLastActiveStatus();
 
         // Enable the option to open doors if next to one
-        EnableDoorToggles((LastPathTile) ? (LastPathTile) : (currentTile));
+        EnableDoorToggles(LastPathTile);
 
         if (listThiefStatus.Count < 1) {
             return;
@@ -380,6 +402,7 @@ public class Thief : Character {
         // Re-enable the EMP if possible
         if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
             emp.toggleEMP.gameObject.SetActive(true);
+            emp.Change_Interactability(true);
         }
     }
 
@@ -440,9 +463,7 @@ public class Thief : Character {
 
     public void PickUpKeycard(ref Keycard keycard) {
         listKeycards.Add(keycard);
-        keycard.gameObject.SetActive(false);
-        TurnManager.instance.keycard_Image.SetActive(true);
-        keycard.PlayAnimationPanel();
+        keycard.On_ItemPickedUp();
     }
 
     /// <summary>
@@ -450,11 +471,10 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void EnableDoorToggles(Tile tile) {
+        // Disable previous door toggles
+        DisableDoorToggles();
+
         if (listThiefStatus.Count < intMaxMoves) { 
-
-            // Disable door toggles from previous tile
-            DisableDoorToggles();
-
             // Enable toggles of closed doors if the Thief has their keycards
             List<Tile> doorTiles = tile.listNeighbors.FindAll(x => x.tileType == ETileType.DOOR && !x.door.IsOpen);
 
@@ -524,19 +544,18 @@ public class Thief : Character {
     public void PickUpEMP() { 
         if (emp == null && TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
-            emp.transform.parent = transform; // EMP becomes a child of the thief
-            emp.OnDevicePickedUp(this);
+            TurnManager.instance.emp = null;
+            //emp.transform.parent = transform; // EMP becomes a child of the thief
+            emp.On_ItemPickedUp();
         }
     }
 
     /// <summary>
-    /// Activate the EMP if the toggle is on
+    /// Make the emp variable null
     /// </summary>
     /// <param name="isOn"></param>
-    public void TryToActivateEMP() { 
-        if (emp && emp.toggleEMP.isOn) {
-            emp.Activate_EMP();
-        }
+    public void DropEmp() {
+        emp = null;
     }
 
     /// <summary>
@@ -565,13 +584,14 @@ public class Thief : Character {
     /// Get a Ghost game object from the object pool
     /// </summary>
     /// <returns></returns>
-    GameObject GhostPooling() { 
+    GhostThief GhostPooling() { 
         if (listGhosts.Count > 0) {
             return listGhosts[0];
         }
 
-        GameObject ghost = Instantiate(ghostPrefab);
-        ghost.SetActive(false);
+        GhostThief ghost = Instantiate(ghostPrefab);
+        listGhosts.Add(ghost);
+        ghost.gameObject.SetActive(false);
         return ghost;
     }
 
@@ -580,7 +600,7 @@ public class Thief : Character {
     /// </summary>
     /// <param name="newTile"></param>
     void AddGhostToPath(Tile newTile, Tile prevTile) {
-        GameObject ghost = GhostPooling();
+        GhostThief ghost = GhostPooling();
         listGhosts.RemoveAt(0);
         ghost.transform.position = new Vector3(newTile.transform.position.x, transform.position.y, newTile.transform.position.z);
 
@@ -588,17 +608,40 @@ public class Thief : Character {
         Vector3 direction = newTile.transform.position - prevTile.transform.position;
         ghost.transform.rotation = Quaternion.LookRotation(direction);
 
-        ghost.SetActive(true);
+        ghost.gameObject.SetActive(true);
         newTile.AddGhostToTile(ref ghost);
     }
 
     /// <summary>
-    /// Remove the ghost thief from a tile that is removed from the path
+    /// Remove the ghost thief from a tile and add it back to the list of ghosts
     /// </summary>
     /// <param name="tile"></param>
-    void RemoveGhostFromPath(Tile tile) {
-        GameObject ghost = tile.RemoveLastGhost();
-        ghost.SetActive(false);
+    void RemoveLastGhostFromTile(Tile tile) {
+        GhostThief ghost = tile.RemoveLastGhost();
+
+        if (ghost) {
+            AddGhostBackToList(ghost);
+        }
+    }
+
+    /// <summary>
+    /// Remove all the ghosts from a tile and add them back to the list of ghosts
+    /// </summary>
+    /// <param name="tile"></param>
+    void RemoveEveryGhostFromTile(Tile tile) {
+        List<GhostThief> ghosts = tile.RemoveEveryGhost();
+
+        foreach (var ghost in ghosts) {
+            AddGhostBackToList(ghost);
+        }
+    }
+
+    /// <summary>
+    /// Add a ghost back to the ghost list
+    /// </summary>
+    /// <param name="ghost"></param>
+    void AddGhostBackToList(GhostThief ghost) { 
+        ghost.gameObject.SetActive(false);
         listGhosts.Add(ghost);
     }
 
@@ -655,6 +698,42 @@ public class Thief : Character {
 
     protected virtual void OnThiefDead() {
         ThiefDead?.Invoke();
+    }
+
+    #endregion
+
+    #region WIN_LOSS_SFX
+
+    /// <summary>
+    /// Play the sound effect for when the player wins the level
+    /// </summary>
+    public void PlayWinSfx() {
+        GameUtilities.PlayAudioClip(ref clipPlayerWins, ref audioSource);
+    }
+    
+    /// <summary>
+    /// Play the sound effect for when the player loses the level
+    /// </summary>
+    public void PlayLossSfx() {
+        GameUtilities.PlayAudioClip(ref clipPlayerLoses, ref audioSource);
+    }
+
+    #endregion
+
+    #region ANIMATION_FUNCTIONS
+
+    /// <summary>
+    /// Start playing the walk animation
+    /// </summary>
+    public void PlayWalkAnimation() {
+        animator.SetBool(WALK_ANIM_NAME, true);
+    }
+    
+    /// <summary>
+    /// Stop playing the walk animation
+    /// </summary>
+    public void StopWalkAnimation() {
+        animator.SetBool(WALK_ANIM_NAME, false);
     }
 
     #endregion

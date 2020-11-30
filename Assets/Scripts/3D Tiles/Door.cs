@@ -10,6 +10,7 @@ public class Door : MonoBehaviour {
     public ECardType cardType;
     public Animator animator;
     public UnityEngine.UI.Toggle toggleDoor;
+    public AudioSource audioOpenDoor;
 
     /// <summary>
     /// Play the animation to open the door
@@ -17,12 +18,13 @@ public class Door : MonoBehaviour {
     public void OpenDoor() {
         IsOpen = true;
 
-        if (!animator) {
-            Debug.Log("Attach an Animator");
-            return;
+        if (animator) {
+            animator.SetBool(animator.parameters[0].name, true);
         }
 
-        animator.SetBool(animator.parameters[0].name, true);
+        if (audioOpenDoor) {
+            audioOpenDoor.Play();
+        }
     }
 
     /// <summary>

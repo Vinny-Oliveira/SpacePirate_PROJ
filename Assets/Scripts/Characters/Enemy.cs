@@ -2,14 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Character {
+public abstract class Enemy : Character {
 
+    /* Field of View */
     protected List<Tile> listFieldOfView = new List<Tile>();
 
-    /* Effects of the EMP */
+    /* EMP Effects */
     public bool IsDisabled { get; set; }
     protected int intWaitTurns;
+    [Header("EMP Effects")]
     public GameObject visionCones;
+
+    #region MOVEMENT
+
+    /// <summary>
+    /// Check if the enemy is not disabled
+    /// </summary>
+    /// <param name="moveCoroutine"></param>
+    public void PlayMovePattern(IEnumerator moveCoroutine) {
+        if (!IsDisabled) { 
+            StartCoroutine(moveCoroutine);
+        }
+    }
+
+    #endregion
 
     #region FIELD_OF_VIEW
 
@@ -46,7 +62,7 @@ public class Enemy : Character {
     /// </summary>
     /// <param name="newTileCoord"></param>
     protected void AddTileWithCoordinates(Vector3 newTileCoord) { 
-        Tile viewedTile = currentGrid.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
+        Tile viewedTile = currentTile.gridManager.listGridTiles.Find(tile => tile.coordinates == newTileCoord);
 
         if (viewedTile) { 
             listFieldOfView.Add(viewedTile);
@@ -96,4 +112,5 @@ public class Enemy : Character {
     }
 
     #endregion
+
 }

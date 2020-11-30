@@ -11,10 +11,10 @@ public class TileHighlighter : MonoBehaviour {
     bool canHighlight = false;
 
     /* Colors of Highlighters */
-    static readonly string materialColorTag = "_HighlightColour";
-    static readonly string colorMoveTag = "_HighlightColourGreen";
-    static readonly string colorEmpTag = "_HighlightColourBlue";
-    static readonly string colorEnemyVisionTag = "_HighlightColourRed";
+    const string materialColorTag = "_HighlightColour";
+    const string colorMoveTag = "_HighlightColourGreen";
+    const string colorEmpTag = "_HighlightColourBlue";
+    const string colorEnemyVisionTag = "_HighlightColourRed";
 
     /// <summary>
     /// Get the material from the Quad's MeshRenderer and assign it to the highlightMaterial
@@ -41,13 +41,6 @@ public class TileHighlighter : MonoBehaviour {
     public void ChangeColorToThiefMove() {
         ChangeColor(colorMoveTag);
     }
-
-    ///// <summary>
-    ///// Change the color of the shader to match the Thief path color
-    ///// </summary>
-    //public void ChangeColorToThiefPath() {
-    //    ChangeColor(colorThiefPathTag);
-    //}
     
     /// <summary>
     /// Change the color of the shader to the EMP range color

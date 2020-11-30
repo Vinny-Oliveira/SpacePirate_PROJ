@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameUtilities : MonoBehaviour {
+public class GameUtilities {
 
     /// <summary>
     /// Swap the values of two items of the same type
@@ -17,14 +17,34 @@ public class GameUtilities : MonoBehaviour {
     }
 
     /// <summary>
-    /// Change the style of the button depending on the toggle state
+    /// Turn a list into a Queue
     /// </summary>
-    public static void ChangeButtonStyle(UnityEngine.UI.Toggle toggle, Color colorToggleOn) {
-        // Change color
-        UnityEngine.UI.ColorBlock colorBlock = toggle.colors;
-        colorBlock.normalColor = (toggle.isOn) ? (colorToggleOn) : (Color.white);
-        colorBlock.selectedColor = colorBlock.normalColor;
-        toggle.colors = colorBlock;
+    public static void EnqueueList<T>(ref List<T> listT, ref Queue<T> queueT) { 
+        foreach (var elem in listT) {
+            queueT.Enqueue(elem);
+        }
+    }
+
+    /// <summary>
+    /// Play a given audio clip on a given audio source
+    /// </summary>
+    /// <param name="audioClip"></param>
+    /// <param name="audioSource"></param>
+    public static void PlayAudioClip(ref AudioClip audioClip, ref AudioSource audioSource) { 
+        if (audioSource && audioClip) {
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        }
+    }
+
+    /// <summary>
+    /// Play the audio clip from a given audio source
+    /// </summary>
+    /// <param name="audioSource"></param>
+    public static void PlayAudioClip(ref AudioSource audioSource) { 
+        if (audioSource && audioSource.clip) {
+            audioSource.Play();
+        }
     }
 
 }

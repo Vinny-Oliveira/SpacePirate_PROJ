@@ -11,13 +11,14 @@ public enum ECameraPosition {
 
 public class SecurityCamera : Enemy {
 
+    [Header("Camera Movement Control")]
     public ECameraPosition camPosition;
     public EDirection centerDirection;
     [SerializeField]
     bool isForward;
     public Animator animator;
 
-    /* Coordinates of fields of view */
+    [Header("Coordinates of Fields of View")]
     public List<Vector2> leftCoords = new List<Vector2>();
     public List<Vector2> centerCoords = new List<Vector2>();
     public List<Vector2> rightCoords = new List<Vector2>();
@@ -76,8 +77,9 @@ public class SecurityCamera : Enemy {
             camPosition = (isForward) ? (camPosition + 1) : (camPosition - 1);
         }
 
-        // Play animation
+        // Play animation and sound effect
         animator.SetTrigger(animator.parameters[0].name);
+        GameUtilities.PlayAudioClip(ref audioSource);
     }
 
     /// <summary>
@@ -101,6 +103,16 @@ public class SecurityCamera : Enemy {
     public override void EnableEnemy() { 
         base.EnableEnemy();
         SetFieldOfView();
+        CheckForThiefCaught();
+    }
+
+    /// <summary>
+    /// Check if the camera has caught the Thief
+    /// </summary>
+    public void CheckForThiefCaught() {
+        if (TurnManager.instance.IsEnemySeeingThief(listFieldOfView)) {
+            TurnManager.instance.HandleThiefCaught();
+        }
     }
 
 }

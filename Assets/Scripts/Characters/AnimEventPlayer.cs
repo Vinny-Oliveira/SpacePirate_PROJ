@@ -11,6 +11,7 @@ public class AnimEventPlayer : MonoBehaviour {
     /// </summary>
     public void OnCameraAnimEvent() {
         securityCamera.SetFieldOfView();
+        securityCamera.CheckForThiefCaught();
     }
 
 }

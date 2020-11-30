@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     [Header("Control Path")]
     public ETileType tileType;
     public List<Tile> listNeighbors;
-    List<GameObject> listGhosts = new List<GameObject>();
+    List<GhostThief> listGhosts = new List<GhostThief>();
 
     [Header("Highlight Quads")]
     public TileHighlighter moveQuad;
@@ -67,7 +67,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Add tiles to the path when you click on them
     /// </summary>
     private void OnMouseDown() {
-        if (TurnManager.instance.CanClick) {
+        if (!PauseManager.IsPaused() && TurnManager.instance.CanClick) {
             AddToPath();
         }
     }
@@ -76,10 +76,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Remove tiles from the path when you click on them
     /// </summary>
     private void OnMouseOver() {
-        if (Input.GetMouseButtonDown(1) && TurnManager.instance.CanClick) { // Right click
+        if (!PauseManager.IsPaused() && Input.GetMouseButtonDown(1) && TurnManager.instance.CanClick) { // Right click
             RemoveFromPath();
-        //} else if (Input.GetMouseButtonDown(2)) { // Middle click
-        //    TurnManager.instance.thief.ResetPath();
         }
     }
 
@@ -131,21 +129,17 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
         thief.TurnTargetTilesOff();
 
         // The current tile or the tile in the end of the path can be clicked again
-        //if (!thief.IsTileOnPath(this)) { 
-            moveQuad.ChangeColorToThiefMove();
-            moveQuad.TurnHighlighterOn();
-        //}
+        moveQuad.ChangeColorToThiefMove();
+        moveQuad.TurnHighlighterOn();
         thief.AddTileToTargets(this);
 
         // Highlight neighbors
         foreach (var tile in listNeighbors) {
             if (tile.IsWalkable()) { // Non-walkable tiles are not added
                 
-                //if (!thief.IsTileOnPath(tile)) { // Do not highlight tiles that are already on the path
-                    tile.moveQuad.ChangeColorToThiefMove();
-                    tile.moveQuad.TurnHighlighterOn();
-                //}
-
+                // Do not highlight tiles that are already on the path
+                tile.moveQuad.ChangeColorToThiefMove();
+                tile.moveQuad.TurnHighlighterOn();
                 thief.AddTileToTargets(tile);
             }
         }
@@ -159,17 +153,33 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Add a ghost thief to the list of ghosts
     /// </summary>
     /// <param name="ghost"></param>
-    public void AddGhostToTile(ref GameObject ghost) {
+    public void AddGhostToTile(ref GhostThief ghost) {
         listGhosts.Add(ghost);
     }
 
     /// <summary>
-    /// Remove the last ghost from the list of tiles
+    /// Remove the last ghost from the tiles
     /// </summary>
-    public GameObject RemoveLastGhost() {
-        GameObject lastGhost = listGhosts.Last();
-        listGhosts.RemoveAt(listGhosts.Count - 1);
+    /// <returns>Return the removed ghost</returns>
+    public GhostThief RemoveLastGhost() {
+        GhostThief lastGhost = null;
+        if (listGhosts.Count > 0) {
+            lastGhost = listGhosts.Last();
+            listGhosts.RemoveAt(listGhosts.Count - 1);
+        }
         return lastGhost;
+    }
+
+    /// <summary>
+    /// Remove all ghosts from the tile
+    /// </summary>
+    /// <returns>Return a list with all removed ghosts</returns>
+    public List<GhostThief> RemoveEveryGhost() {
+        List<GhostThief> removedGhosts = new List<GhostThief>();
+        while (listGhosts.Count > 0) {
+            removedGhosts.Add(RemoveLastGhost());
+        }
+        return removedGhosts;
     }
 
     #endregion

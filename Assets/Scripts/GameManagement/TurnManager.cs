@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
 
-    [Header("Characters and Items")]
+    [Header("Characters and their Steps")]
     public int intSteps = 5;
     public Thief thief;
     public Treasure treasure;
     public List<CubeBot> listCubes;
-    public List<Keycard> listKeycards = new List<Keycard>();
     public List<SecurityCamera> listSecCams = new List<SecurityCamera>();
+    public List<LaserBeam> listLaserBeams = new List<LaserBeam>();
+
+    [Header("Items")]
+    public List<Keycard> listKeycards = new List<Keycard>();
     public EMP_Device emp;
 
     [Header("Turn Control")]
@@ -19,19 +22,17 @@ public class TurnManager : MonoBehaviour {
     public UnityEngine.UI.Button btnEndTurn;
 
     [Header("UI Images and Panels")]
-    public GameObject keycard_Image;
-    public GameObject treasure_Image;
     public GameObject thiefGamePanel;
     public GameObject thiefWinPanel;
     public GameObject thiefLosePanel;
+    public GameObject actionTrackerPanel;
     public GameObject needKeycardPanel;
     public GameObject needTreasurePanel;
 
-    [Header("Grids")]
-    public List<GridManager> listGrids;
+    [Header("Grid Manager")]
+    public GridManager gridManager;
 
     public bool CanClick { get; set; }
-    int intMoveCount;
 
     public static TurnManager instance;
 
@@ -58,6 +59,10 @@ public class TurnManager : MonoBehaviour {
 
         foreach (var secCam in listSecCams) {
             secCam.SetFieldOfView();
+        }
+
+        foreach (var laser in listLaserBeams) {
+            laser.SetupLaserStart();
         }
     }
 
@@ -164,39 +169,41 @@ public class TurnManager : MonoBehaviour {
     /// Event for when the End Turn button is pressed
     /// </summary>
     public void OnEndTurnButtonPress() {
-        PlayEveryAction();
+        StartCoroutine(PlayEveryAction());
     }
 
     /// <summary>
     /// Play all the actions of the thief and the cubes
     /// </summary>
-    void PlayEveryAction() {
+    IEnumerator PlayEveryAction() {
         // Disable clicking while things move
         CanClick = false;
-        intMoveCount = listCubes.Count + 1; // Cubes plus 1 thief
         btnEndTurn.interactable = false;
         if (emp) { 
             emp.toggleEMP.interactable = false;
         }
         thief.DisableDoorToggles();
 
-        // Play actions
+        // Prepare the Thief and enemies to move
         thief.TurnTargetTilesOff();
         thief.CompleteStatusList();
-        thief.MoveOnPath();
-        foreach (var cube in listCubes) {
-            cube.MoveOnPath();
-        }
-    }
 
-    /// <summary>
-    /// Decrese the count of moving objects and enable move when the count is zero
-    /// </summary>
-    public void DecreaseMovementCount() {
-        intMoveCount--;
-        if (intMoveCount < 1) {
-            EnableNewTurn();
+        // Play the actions
+        for (int i = 0; i < intSteps; i++) {
+            thief.MoveOnPath();
+            
+            foreach (var cube in listCubes) {
+                cube.MoveOnPath();
+            }
+
+            foreach (var laser in listLaserBeams) {
+                laser.MoveOnPath();
+            }
+
+            yield return new WaitUntil(() => CanCharactersStep());
         }
+
+        EnableNewTurn();
     }
 
     /// <summary>
@@ -212,36 +219,51 @@ public class TurnManager : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     bool EnableEnemies() { 
-        // Re-enable the disabled cubes
-        foreach (var cube in listCubes.Where(x => x.IsDisabled && x.CanEnable())) {
-            cube.EnableEnemy();
-            if (IsEnemySeeingThief(cube.GetFieldOfView())) {
+        // Re-enable the disabled cubes or reduce their wait times
+        foreach (var cube in listCubes) {
+            TryToEnableEnemy(cube);
+
+            if (!cube.IsDisabled && IsEnemySeeingThief(cube.GetFieldOfView())) {
                 return HandleThiefCaught();
             }
         }
 
         // Move security cameras
-        foreach (var secCam in listSecCams) { 
-            // Enable cameras that can be enables, or reduce their wait turns
-            if (secCam.IsDisabled) {
-                secCam.ReduceOneWaitTurn();
+        foreach (var secCam in listSecCams) {
+            // Enable cameras that can be enabled, or reduce their wait turns
+            TryToEnableEnemy(secCam);
 
-                if (secCam.CanEnable()) { 
-                    secCam.EnableEnemy();
-                }
-            } 
-                
             // Go to next camera position
             if (!secCam.IsDisabled) {
                 secCam.DisableFieldOfView();
                 secCam.NextPosition();
-                if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
-                    return HandleThiefCaught();
-                }
+                //if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
+                //    return HandleThiefCaught();
+                //}
             }
         }
 
+        // Re-enable laser beams
+        foreach (var laser in listLaserBeams) {
+            TryToEnableEnemy(laser);
+        }
+
         return false;
+    }
+
+    /// <summary>
+    /// Reduce the wait turn of a disbled enemy and re-enable it is possible
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="enemy"></param>
+    void TryToEnableEnemy<T>(T enemy) where T : Enemy { 
+        if (enemy.IsDisabled) {
+            enemy.ReduceOneWaitTurn();
+
+            if (enemy.CanEnable()) {
+                enemy.EnableEnemy();
+            }
+        }
     }
 
     /// <summary>
@@ -279,7 +301,7 @@ public class TurnManager : MonoBehaviour {
     /// <returns></returns>
     public bool IsThiefCaught(ref Tile newTile, ref List<Tile> fieldOfView) {
         if (IsThiefTouchingCube(ref newTile) || IsEnemySeeingThief(fieldOfView)) {
-            return true; // HandleThiefCaught();
+            return HandleThiefCaught();
         }
         return false;
     }
@@ -288,10 +310,12 @@ public class TurnManager : MonoBehaviour {
     /// Clear Thief's path and turn lose panel on
     /// </summary>
     /// <returns></returns>
-    bool HandleThiefCaught() {
+    public bool HandleThiefCaught() {
         thief.DeathStart();
         thief.ClearPath();
         Debug.Log("THIEF CAUGHT!");
+        thief.PlayLossSfx();
+        actionTrackerPanel.SetActive(false);
         thiefGamePanel.SetActive(false);
         thiefLosePanel.SetActive(true);
         return true;
@@ -314,9 +338,12 @@ public class TurnManager : MonoBehaviour {
     public bool HasThiefBeatenLevel() { 
         if (CanThiefEscape()) {
             thief.ClearPath();
+            thief.StopWalkAnimation();
             Debug.Log("THIEF ESCAPED");
+            thief.PlayWinSfx();
+            actionTrackerPanel.SetActive(false);
             thiefGamePanel.SetActive(false);
-            thiefWinPanel.SetActive(true);
+            thief.thiefPaticles.PlayExitParticle();
             return true;
         }
         return false;
@@ -326,8 +353,7 @@ public class TurnManager : MonoBehaviour {
     /// Make the player grab the treasure
     /// </summary>
     public void PickUpTreasure() {
-        treasure.StealCoins();
-        treasure_Image.SetActive(true);
+        treasure.On_ItemPickedUp();
     }
 
     #endregion
@@ -356,8 +382,8 @@ public class TurnManager : MonoBehaviour {
     /// <param name="listEnemies"></param>
     /// <returns></returns>
     bool IsThiefSeenByEnemies<T>(List<T> listEnemies) where T : Enemy { 
-        foreach (var secCam in listEnemies.Where(x => !x.IsDisabled)) { 
-            if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
+        foreach (var enemy in listEnemies.Where(x => !x.IsDisabled)) { 
+            if (IsEnemySeeingThief(enemy.GetFieldOfView())) {
                 return true;
             }
         }
