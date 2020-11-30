@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   audioSource: {fileID: 2003425997349730232}
-  ghostPrefab: {fileID: 8177394420667090605, guid: c29fce3e9aef81647b863315f79d48b0,
+  ghostPrefab: {fileID: 5413181773457267198, guid: 23a7bbeeeacfc8a4e9f1cc9c4c4f9a1d,
     type: 3}
   listGhosts:
   - {fileID: 0}

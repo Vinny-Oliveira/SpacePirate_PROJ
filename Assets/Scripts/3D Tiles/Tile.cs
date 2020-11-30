@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     [Header("Control Path")]
     public ETileType tileType;
     public List<Tile> listNeighbors;
-    List<GameObject> listGhosts = new List<GameObject>();
+    List<GhostThief> listGhosts = new List<GhostThief>();
 
     [Header("Highlight Quads")]
     public TileHighlighter moveQuad;
@@ -153,7 +153,7 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Add a ghost thief to the list of ghosts
     /// </summary>
     /// <param name="ghost"></param>
-    public void AddGhostToTile(ref GameObject ghost) {
+    public void AddGhostToTile(ref GhostThief ghost) {
         listGhosts.Add(ghost);
     }
 
@@ -161,8 +161,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Remove the last ghost from the tiles
     /// </summary>
     /// <returns>Return the removed ghost</returns>
-    public GameObject RemoveLastGhost() {
-        GameObject lastGhost = null;
+    public GhostThief RemoveLastGhost() {
+        GhostThief lastGhost = null;
         if (listGhosts.Count > 0) {
             lastGhost = listGhosts.Last();
             listGhosts.RemoveAt(listGhosts.Count - 1);
@@ -174,8 +174,8 @@ public class Tile : MonoBehaviour, IEquatable<Tile> {
     /// Remove all ghosts from the tile
     /// </summary>
     /// <returns>Return a list with all removed ghosts</returns>
-    public List<GameObject> RemoveEveryGhost() {
-        List<GameObject> removedGhosts = new List<GameObject>();
+    public List<GhostThief> RemoveEveryGhost() {
+        List<GhostThief> removedGhosts = new List<GhostThief>();
         while (listGhosts.Count > 0) {
             removedGhosts.Add(RemoveLastGhost());
         }

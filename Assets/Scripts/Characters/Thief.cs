@@ -35,8 +35,8 @@ public class Thief : Character {
     List<EThiefStatus> listThiefStatus = new List<EThiefStatus>();
     
     [Header("Path Control")]
-    public GameObject ghostPrefab;
-    public List<GameObject> listGhosts = new List<GameObject>();
+    public GhostThief ghostPrefab;
+    public List<GhostThief> listGhosts = new List<GhostThief>();
     public List<ActionTracker> listActions = new List<ActionTracker>(); // CONSTRAINT: This list MUST have as many ActionTracker panels as the number of maximum moves for the Thief
 
     /// <summary>
@@ -584,14 +584,14 @@ public class Thief : Character {
     /// Get a Ghost game object from the object pool
     /// </summary>
     /// <returns></returns>
-    GameObject GhostPooling() { 
+    GhostThief GhostPooling() { 
         if (listGhosts.Count > 0) {
             return listGhosts[0];
         }
 
-        GameObject ghost = Instantiate(ghostPrefab);
+        GhostThief ghost = Instantiate(ghostPrefab);
         listGhosts.Add(ghost);
-        ghost.SetActive(false);
+        ghost.gameObject.SetActive(false);
         return ghost;
     }
 
@@ -600,7 +600,7 @@ public class Thief : Character {
     /// </summary>
     /// <param name="newTile"></param>
     void AddGhostToPath(Tile newTile, Tile prevTile) {
-        GameObject ghost = GhostPooling();
+        GhostThief ghost = GhostPooling();
         listGhosts.RemoveAt(0);
         ghost.transform.position = new Vector3(newTile.transform.position.x, transform.position.y, newTile.transform.position.z);
 
@@ -608,7 +608,7 @@ public class Thief : Character {
         Vector3 direction = newTile.transform.position - prevTile.transform.position;
         ghost.transform.rotation = Quaternion.LookRotation(direction);
 
-        ghost.SetActive(true);
+        ghost.gameObject.SetActive(true);
         newTile.AddGhostToTile(ref ghost);
     }
 
@@ -617,7 +617,7 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void RemoveLastGhostFromTile(Tile tile) {
-        GameObject ghost = tile.RemoveLastGhost();
+        GhostThief ghost = tile.RemoveLastGhost();
 
         if (ghost) {
             AddGhostBackToList(ghost);
@@ -629,7 +629,7 @@ public class Thief : Character {
     /// </summary>
     /// <param name="tile"></param>
     void RemoveEveryGhostFromTile(Tile tile) {
-        List<GameObject> ghosts = tile.RemoveEveryGhost();
+        List<GhostThief> ghosts = tile.RemoveEveryGhost();
 
         foreach (var ghost in ghosts) {
             AddGhostBackToList(ghost);
@@ -640,8 +640,8 @@ public class Thief : Character {
     /// Add a ghost back to the ghost list
     /// </summary>
     /// <param name="ghost"></param>
-    void AddGhostBackToList(GameObject ghost) { 
-        ghost.SetActive(false);
+    void AddGhostBackToList(GhostThief ghost) { 
+        ghost.gameObject.SetActive(false);
         listGhosts.Add(ghost);
     }
 

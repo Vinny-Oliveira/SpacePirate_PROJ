@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GhostThief : MonoBehaviour {
 
-    public GameObject ghost;
     public Animator animator;
     const string WALK_ANIM_NAME = "IsWalking";
     const string GRAB_ANIM_NAME = "Grab";
