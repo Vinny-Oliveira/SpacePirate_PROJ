@@ -213,8 +213,8 @@ MonoBehaviour:
   enterParticle: {fileID: 3570088880882464392}
   pirateGeo: {fileID: 8980865852380947568}
   audioSource: {fileID: 2671957332298840837}
-  clipEntrance: {fileID: 8300000, guid: 3b2759c025d955342b7e929cf8537f5b, type: 3}
-  clipExit: {fileID: 8300000, guid: 41713d62df32b2844900c1a42d24206d, type: 3}
+  clipEntrance: {fileID: 8300000, guid: 85bee1199dd83b64b96a94c9d57b9569, type: 3}
+  clipExit: {fileID: 8300000, guid: 1994c28dc3a73ed448b92e84cbfb24d0, type: 3}
 --- !u!1 &225954200269946533
 GameObject:
   m_ObjectHideFlags: 0
