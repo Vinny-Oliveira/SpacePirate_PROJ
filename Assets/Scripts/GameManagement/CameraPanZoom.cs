@@ -7,20 +7,23 @@ public class CameraPanZoom : MonoBehaviour {
 
     Vector3 clickStart;
     public Camera mainCam;
+
+    [Header("Pan and Zoom Values")]
     public float fltMaxRadius = 15f;
     public float fltZoomOutMin = 1f;
     public float fltZoomOutMax = 8f;
     public float zoomSpeed = 1f;
     public float fltRotationSpeed = 20f;
-    public Transform pivot;
+
+    [Header("Pivots and Door Toggles")]
+    public Transform thief;
     public List<Transform> listButtons = new List<Transform>();
-    Vector3 distToPivot;
-    Quaternion initRotation;
+
+    //Vector3 distToPivot;
+    //Quaternion initRotation;
 
     private void Start() {
-        // Set the vector that represents the distance to the pivot
-        distToPivot = transform.position - pivot.position;
-        initRotation = transform.rotation;
+        ResetCamera();
     }
 
     // Update is called once per frame
@@ -53,8 +56,8 @@ public class CameraPanZoom : MonoBehaviour {
             direction = new Vector3(direction.x, 0f, direction.z);
             
             // Set bounds to the pan
-            if ((mainCam.transform.position + direction).magnitude < fltMaxRadius) { 
-                mainCam.transform.position += direction;
+            if ((transform.position + direction).magnitude < fltMaxRadius) { 
+                transform.position += direction;
             }
 
         }
@@ -69,16 +72,21 @@ public class CameraPanZoom : MonoBehaviour {
     }
 
     /// <summary>
-    /// Rotate the camera to see the entire level
+    /// Use keys A and D to rotate the camera to see the entire level
     /// </summary>
     void RotateCamera() {
         RotateCamera(KeyCode.A, fltRotationSpeed);
         RotateCamera(KeyCode.D, -fltRotationSpeed);
     }
 
+    /// <summary>
+    /// Rotate the camera to see the entire level
+    /// </summary>
+    /// <param name="keyCode"></param>
+    /// <param name="speed"></param>
     void RotateCamera(KeyCode keyCode, float speed) { 
         if (Input.GetKey(keyCode)) {
-            transform.RotateAround(pivot.position, Vector3.up, speed * Time.deltaTime);
+            transform.RotateAround(transform.position, Vector3.up, speed * Time.deltaTime);
         }
     }
 
@@ -86,8 +94,7 @@ public class CameraPanZoom : MonoBehaviour {
     /// Reset the camera position
     /// </summary>
     void ResetCamera() { 
-        transform.position = pivot.position + distToPivot;
-        transform.rotation = initRotation;
+        transform.position = new Vector3(thief.position.x, transform.position.y, thief.position.z);
     }
 
     /// <summary>
@@ -101,4 +108,8 @@ public class CameraPanZoom : MonoBehaviour {
         }
     }
 
+    [ContextMenu("Rotate")]
+    public void RotateAroundPivot() {
+        mainCam.transform.RotateAround(transform.position, Vector3.up, -45f);
+    }
 }
