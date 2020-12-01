@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Key Cards
+  m_text: Keycards
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b274e5de195c50147a1c8ab0941696eb, type: 2}
   m_sharedMaterial: {fileID: 8536967585738745707, guid: b274e5de195c50147a1c8ab0941696eb,
@@ -26393,8 +26393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 38, y: -661}
-  m_SizeDelta: {x: 950.44775, y: -153.43341}
+  m_AnchoredPosition: {x: 38, y: -677.2}
+  m_SizeDelta: {x: 950.44775, y: -2.6542969}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3801785262484193395
 CanvasRenderer:
@@ -46398,7 +46398,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '[UNLIMITED USES]
 
-    Can be used to unlock and open doors.'
+    Used to unlock and open doors.'
 --- !u!1 &8655446823888236432
 GameObject:
   m_ObjectHideFlags: 0
@@ -48780,8 +48780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000049591064, y: -187}
-  m_SizeDelta: {x: 2546.1733, y: 471.62457}
+  m_AnchoredPosition: {x: 0.000049591064, y: -209.5}
+  m_SizeDelta: {x: 2546.1733, y: 658.2493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2551796838394681137
 CanvasRenderer:
@@ -48823,8 +48823,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "(ONE TIME USE) \nCan temporarily turn off patrolling robots and security
-    cameras for the current and next turns."
+  m_Text: "[ONE TIME USE] \nTemporarily turn off patrolling Cube Robots, Security
+    Cameras, and Laser Beams until the end of the next turn after it is activated."
 --- !u!1001 &560082543243820119
 PrefabInstance:
   m_ObjectHideFlags: 0
