@@ -25728,6 +25728,21 @@ PrefabInstance:
       propertyPath: thief
       value: 
       objectReference: {fileID: 1031414533}
+    - target: {fileID: 526738594994345954, guid: 5866af4f78d1e4a4e84a384108a3a0bb,
+        type: 3}
+      propertyPath: fltMaxRadius
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 526738594994345954, guid: 5866af4f78d1e4a4e84a384108a3a0bb,
+        type: 3}
+      propertyPath: zoomSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 526738594994345954, guid: 5866af4f78d1e4a4e84a384108a3a0bb,
+        type: 3}
+      propertyPath: fltRotationSpeed
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 526738594994345955, guid: 5866af4f78d1e4a4e84a384108a3a0bb,
         type: 3}
       propertyPath: m_LocalPosition.x
