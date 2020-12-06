@@ -17,7 +17,8 @@ namespace Multiplayer
         private NewNetworkManager _networkManager;
         private bool _hasFinishedRace;
         private float _fallOffTime = 1f;
-        
+        private EndGameStatPanel _endGamePanel;
+
         private Dictionary<string, PlayerLevelStats> _playerLevelStatsDictionary = new Dictionary<string, PlayerLevelStats>();
         
         public string PlayerName
@@ -79,6 +80,7 @@ namespace Multiplayer
                 _currentPlayerLevelData = _playerLevelStatsDictionary[scene.name];
             }
             _currentPlayer = FindObjectOfType<Thief>();
+            // _currentPlayer.GetComponent<MeshRenderer>().material.SetColor("_MainColor", _playerCustimizationSo.ColorPropertyList);
             if (_currentPlayer == null)
             {
                 SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -118,24 +120,37 @@ namespace Multiplayer
 
         private IEnumerator StartScoreDisplay()
         {
-            var boop = _networkManager.GetPlayersIdentites();
-
-            for (int i = 0; i < boop.Count; i++)
+            List<NetworkPlayerIdentity> playersIdentites = _networkManager.GetPlayersIdentites();
+            _endGamePanel = FindObjectOfType<EndGameStatPanel>();
+            
+            for (int i = 0; i < playersIdentites.Count; i++)
             {
+                List<PlayerLevelStats> playerStatsList = new List<PlayerLevelStats>();
+                foreach (var kvp in playersIdentites[i]._playerLevelStatsDictionary)
+                {
+                    playerStatsList.Add(kvp.Value);
+                }
                 // Populate List Item with this player
+                _endGamePanel.SpawnPlayerListItem(playersIdentites[i]._playerName, playerStatsList);
                 
                 //Wait for them to finish
-                while (!boop[i]._hasFinishedRace)
+                while (!playersIdentites[i]._hasFinishedRace)
                 {
                     yield return new WaitForSeconds(_fallOffTime);
                     _fallOffTime += 2f;
                 }
-                
-                // Display Scores
+                // Display Scores : Already done above?
             }
-            // Declare winner
+            _endGamePanel.EndWaiting();
             
+            yield return new WaitForSeconds(1f);
+            
+            // Declare winner
+            _endGamePanel.DeclareWinner(_playerName);
+
+            yield return new WaitForSeconds(3f);
             //End game?
+            _endGamePanel.AllowExit();
         }
     }
 }

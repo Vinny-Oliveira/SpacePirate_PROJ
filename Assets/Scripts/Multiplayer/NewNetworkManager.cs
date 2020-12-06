@@ -13,6 +13,7 @@ namespace Multiplayer
         private string _roomName;
         private string _roomCode;
         private string _playerName;
+        private PlayerCustimizationSO _playerCustimizationSo;
         private Dictionary<int, GameObject> _playerMenuItemDictionary = new Dictionary<int, GameObject>();
         
         [Header("Game Panels and UI")]
@@ -26,7 +27,8 @@ namespace Multiplayer
         public TextMeshProUGUI roomCodeText;
         public TextMeshProUGUI roomNameText;
         public string endSceneName;
-
+        public Material helmetMaterial;
+        
         public string RoomName
         {
             get => _roomName;
@@ -193,6 +195,15 @@ namespace Multiplayer
         {
             PhotonNetwork.Disconnect();
             Destroy(gameObject);
+        }
+
+        public void UpdateCustimizationSettings(PlayerCustimizationSO data)
+        {
+            _playerCustimizationSo = data;
+            foreach (var kvp in _playerCustimizationSo.ColorPropertyList)
+            {
+                helmetMaterial.SetColor(kvp.propertyTag, kvp.propertyValue);
+            }
         }
     }
 }
