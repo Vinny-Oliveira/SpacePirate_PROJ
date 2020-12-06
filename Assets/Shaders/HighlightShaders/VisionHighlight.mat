@@ -65,12 +65,12 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HighlightAlpha: 0.5
-    - _HighlightAlphaClip: 0
+    - _HighlightAlpha: 0
+    - _HighlightAlphaClip: 0.09
     - _HighlightColourBool: 0
     - _HighlightIsVisible: 0
     - _HighlightSineSpeed: 4
-    - _HighlightStripes: 7
+    - _HighlightStripes: 7.1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0

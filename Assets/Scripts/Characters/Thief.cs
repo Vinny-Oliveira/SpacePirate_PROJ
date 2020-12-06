@@ -545,7 +545,7 @@ public class Thief : Character {
         if (emp == null && TurnManager.instance.IsThiefTouchingEMP()) {
             emp = TurnManager.instance.emp;
             TurnManager.instance.emp = null;
-            //emp.transform.parent = transform; // EMP becomes a child of the thief
+            emp.transform.parent = transform; // EMP becomes a child of the thief
             emp.On_ItemPickedUp();
         }
     }
