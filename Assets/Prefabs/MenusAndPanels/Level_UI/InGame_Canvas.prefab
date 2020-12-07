@@ -24289,7 +24289,7 @@ GameObject:
   - component: {fileID: 8202490435221039691}
   - component: {fileID: 5928828608049862735}
   m_Layer: 5
-  m_Name: ThiefWinLvl03_Panel
+  m_Name: ThiefWinLASTLvl_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
