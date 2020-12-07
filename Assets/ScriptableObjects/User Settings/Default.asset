@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef318653a053a2429178e63680cde6a, type: 3}
-  m_Name: Lime
+  m_Name: Default
   m_EditorClassIdentifier: 
   colorPropertyList:
   - propertyTag: _HelmetColour1
-    propertyValue: {r: 0, g: 0.5019608, b: 0.11758124, a: 0}
+    propertyValue: {r: 0, g: 0.22352941, b: 0.5, a: 0}
   - propertyTag: _HelmetColour2
-    propertyValue: {r: 0.7490196, g: 0.74504054, b: 0.10588234, a: 0}
+    propertyValue: {r: 0.7490196, g: 0.105882354, b: 0.72156864, a: 0}
   - propertyTag: _HelmetColour3
-    propertyValue: {r: 0.05098039, g: 0.46666667, b: 0.22638223, a: 0}
+    propertyValue: {r: 0.20649806, g: 0.050660472, b: 0.46695733, a: 0}
   - propertyTag: _HelmetColour4
-    propertyValue: {r: 0.3706412, g: 1.0566038, b: 0.4471494, a: 0}
+    propertyValue: {r: 1.0566038, g: 0.36881453, b: 0.9698437, a: 0}
   - propertyTag: _HelmetColour5
-    propertyValue: {r: 141.34106, g: 766.9961, b: 0, a: 0}
+    propertyValue: {r: 0, g: 8.031373, b: 766.9961, a: 0}

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using WebSocketSharp;
 using Random = UnityEngine.Random;
+using Object = System.Object;
 
 namespace Multiplayer
 {
@@ -14,7 +15,7 @@ namespace Multiplayer
         private string _roomCode;
         private string _playerName;
         private PlayerCustimizationSO _playerCustimizationSo;
-        private Dictionary<int, GameObject> _playerMenuItemDictionary = new Dictionary<int, GameObject>();
+        public Dictionary<int, NetworkPlayerIdentity> _playerMenuItemDictionary = new Dictionary<int, NetworkPlayerIdentity>();
         
         [Header("Game Panels and UI")]
         public GameObject namePanel; //where the player submits their name.
@@ -27,7 +28,6 @@ namespace Multiplayer
         public TextMeshProUGUI roomCodeText;
         public TextMeshProUGUI roomNameText;
         public string endSceneName;
-        public Material helmetMaterial;
         
         public string RoomName
         {
@@ -138,20 +138,53 @@ namespace Multiplayer
         {
             GameObject item = Instantiate(playerListItemPrefab, playerListHolder);
             item.GetComponent<PlayerListItem>().Init(newPlayer.NickName);
-            _playerMenuItemDictionary.Add(newPlayer.ActorNumber, item);
+            // _playerMenuItemDictionary.Add(newPlayer.ActorNumber, item);
+            
+            // GameObject go = PhotonNetwork.Instantiate(playerNetworkPrefab.name, Vector3.zero, Quaternion.identity);
+            // go.GetComponent<NetworkPlayerIdentity>().Init(newPlayer);
+            // if (_playerMenuItemDictionary.ContainsKey(PhotonNetwork.LocalPlayer.ActorNumber))
+            // {
+            //     _playerMenuItemDictionary[newPlayer.ActorNumber] = go;
+            //
+            // }
+            // else
+            // {
+            //     _playerMenuItemDictionary.Add(newPlayer.ActorNumber, go);
+            // }
         }
         
         //Start Race!
         public void StartGame()
         {
+            if(!PhotonNetwork.IsMasterClient) return;
             if (PhotonNetwork.PlayerList.Length < 1) return;
+           
+            
             foreach(Player p in PhotonNetwork.PlayerList)
             {
                 GameObject go = PhotonNetwork.Instantiate(playerNetworkPrefab.name, Vector3.zero, Quaternion.identity);
-                go.GetComponent<NetworkPlayerIdentity>().Init(p);
-                Destroy(_playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber]);
-                _playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber] = go;
+                
+
+                if (_playerMenuItemDictionary.ContainsKey(PhotonNetwork.LocalPlayer.ActorNumber))
+                {
+                    _playerMenuItemDictionary[p.ActorNumber] = go.GetComponent<NetworkPlayerIdentity>();
+                }
+                else
+                {
+                    _playerMenuItemDictionary.Add(p.ActorNumber, go.GetComponent<NetworkPlayerIdentity>());
+                }
+
+                //
+                // Destroy(_playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber]);
+                // _playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber] = go;
             }
+
+            foreach (var kvp in _playerMenuItemDictionary)
+            {
+                kvp.Value.GetComponent<NetworkPlayerIdentity>().Init(PhotonNetwork.PlayerList[kvp.Key]);
+            }
+            
+            
             createdRoomPanel.SetActive(false);
         }
 
@@ -171,7 +204,7 @@ namespace Multiplayer
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
             Debug.Log(otherPlayer.NickName + " Left the Room");
-            GameObject objectToKill = _playerMenuItemDictionary[otherPlayer.ActorNumber];
+            GameObject objectToKill = _playerMenuItemDictionary[otherPlayer.ActorNumber].gameObject;
             _playerMenuItemDictionary.Remove(otherPlayer.ActorNumber);
             Destroy(objectToKill);
         }
@@ -197,13 +230,22 @@ namespace Multiplayer
             Destroy(gameObject);
         }
 
-        public void UpdateCustimizationSettings(PlayerCustimizationSO data)
+        [PunRPC]
+        public void RPC_UpdateDictionaries(Dictionary<Object,int> parameters)
         {
-            _playerCustimizationSo = data;
-            foreach (var kvp in _playerCustimizationSo.ColorPropertyList)
+            foreach (var kvp in parameters)
             {
-                helmetMaterial.SetColor(kvp.propertyTag, kvp.propertyValue);
+                if (_playerMenuItemDictionary.ContainsKey(PhotonNetwork.LocalPlayer.ActorNumber))
+                {
+                    _playerMenuItemDictionary[kvp.Value] =  (NetworkPlayerIdentity)kvp.Key;
+                }
+                else
+                {
+                    _playerMenuItemDictionary.Add(kvp.Value, (NetworkPlayerIdentity)kvp.Key);
+                }
             }
+            
+            // Debug.Log("Dictionary updated for player " + PhotonNetwork.LocalPlayer.ActorNumber);
         }
     }
 }

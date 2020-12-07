@@ -11,6 +11,7 @@ namespace Multiplayer
         [SerializeField] private GameObject contentPrefab;
         [SerializeField] private GameObject quitButton;
         [SerializeField] private GameObject winnerLabel;
+        [SerializeField] private GameObject tiedLabel;
         [SerializeField] private GameObject waitingForOtherPlayer;
         [SerializeField] private TextMeshProUGUI winningPlayerText;
         
@@ -24,6 +25,11 @@ namespace Multiplayer
         {
             winnerLabel.SetActive(true);
             winningPlayerText.text = playerName;
+        }
+
+        public void GameTied()
+        {
+            tiedLabel.SetActive(true);
         }
 
         public void AllowExit()

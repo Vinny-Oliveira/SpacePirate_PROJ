@@ -713,7 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNameText: {fileID: 1644354969571326291}
   totalTimeText: {fileID: 1644354969263478839}
-  totalMovesText: {fileID: 1644354968731949333}
+  totalTurnsText: {fileID: 1644354968731949333}
   totalDeathsText: {fileID: 1644354968029510853}
 --- !u!1 &1644354968731949335
 GameObject:
