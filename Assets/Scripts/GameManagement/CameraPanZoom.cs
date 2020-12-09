@@ -19,9 +19,6 @@ public class CameraPanZoom : MonoBehaviour {
     public Transform thief;
     public List<Transform> listButtons = new List<Transform>();
 
-    //Vector3 distToPivot;
-    //Quaternion initRotation;
-
     private void Start() {
         ResetCamera();
     }
@@ -108,8 +105,12 @@ public class CameraPanZoom : MonoBehaviour {
         }
     }
 
+    #region EDITOR_USE
+    
     [ContextMenu("Rotate")]
     public void RotateAroundPivot() {
         mainCam.transform.RotateAround(transform.position, Vector3.up, -45f);
     }
+
+    #endregion
 }
