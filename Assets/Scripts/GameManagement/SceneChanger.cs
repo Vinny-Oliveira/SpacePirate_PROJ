@@ -14,8 +14,10 @@ public class SceneChanger : MonoBehaviour {
     /// Load a scene
     /// </summary>
     public void LoadScene() {
-        SceneManager.LoadScene(nextScene);
-        PauseManager.UnPauseGame();
+        if (nextScene != null) { 
+            SceneManager.LoadScene(nextScene);
+            PauseManager.UnPauseGame();
+        }
     }
 
     /// <summary>
