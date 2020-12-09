@@ -5,15 +5,15 @@ using UnityEngine;
 public class GhostThief : MonoBehaviour {
 
     public Animator animator;
-    const string WALK_ANIM_NAME = "IsWalking";
-    const string GRAB_ANIM_NAME = "Grab";
+    const string WALK_ANIM_STATE_NAME = "Crouched Walking";
+    const string GRAB_ANIM_STATE_NAME = "Taking Item";
 
     /// <summary>
     /// Play the ghost's walk animation
     /// </summary>
     public void PlayWalkAnimation() { 
         if (animator) {
-            animator.SetBool(WALK_ANIM_NAME, true);
+            animator.Play(WALK_ANIM_STATE_NAME);
         }
     }
     
@@ -22,7 +22,7 @@ public class GhostThief : MonoBehaviour {
     /// </summary>
     public void PlayGrabAnimation() { 
         if (animator) {
-            animator.SetTrigger(GRAB_ANIM_NAME);
+            animator.Play(GRAB_ANIM_STATE_NAME);
         }
     }
 
