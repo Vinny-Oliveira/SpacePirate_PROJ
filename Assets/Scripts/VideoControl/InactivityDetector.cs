@@ -11,6 +11,7 @@ public class InactivityDetector : VideoController {
         fltTimeCounter = 0f;
         base.Start();
         StartCoroutine(CountTimeOnScreen());
+        StartCoroutine(Wait_For_Input());
     }
 
     /// <summary>
@@ -29,7 +30,6 @@ public class InactivityDetector : VideoController {
     /// </summary>
     /// <returns></returns>
     IEnumerator CountTimeOnScreen() {
-        StartCoroutine(Wait_For_Input());
         yield return new WaitForSeconds(1f);
         fltTimeCounter++;
         StartCoroutine(CountTimeOnScreen());
