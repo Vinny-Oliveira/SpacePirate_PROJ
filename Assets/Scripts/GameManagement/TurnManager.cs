@@ -281,7 +281,7 @@ public class TurnManager : MonoBehaviour {
     /// Countdown the EMP turns
     /// </summary>
     void CountdownEmpTurns() { 
-        if (empCounter.gameObject.activeInHierarchy) {
+        if (empCounter != null && empCounter.gameObject.activeInHierarchy) {
             empCounter.CountdownTurns();
         }
     }
