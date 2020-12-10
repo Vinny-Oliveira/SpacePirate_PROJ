@@ -1526,7 +1526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4192884961753084354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8257,7 +8257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2668302135734286121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8274,10 +8274,10 @@ RectTransform:
   m_Father: {fileID: 4468177818198427722}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 783.8479}
+  m_SizeDelta: {x: 640, y: 783.8479}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7975333365083812389
 CanvasRenderer:
@@ -26407,6 +26407,7 @@ GameObject:
   - component: {fileID: 1142075568688563547}
   - component: {fileID: 6721561635673218498}
   - component: {fileID: 4220569624808479970}
+  - component: {fileID: 2545964350881881296}
   m_Layer: 5
   m_Name: EMP_Counter
   m_TagString: Untagged
@@ -26471,6 +26472,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2545964350881881296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461345691329921091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d514dd287d4e3fb4080fce52e43c171c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPanel: {fileID: 2011289839758266359}
+  tmpCounter: {fileID: 7038833864585452103}
 --- !u!1 &5483905551600895517
 GameObject:
   m_ObjectHideFlags: 0

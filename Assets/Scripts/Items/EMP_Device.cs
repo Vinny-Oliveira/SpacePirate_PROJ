@@ -11,6 +11,7 @@ public class EMP_Device : Item {
     public ParticleSystem particle;
     public Toggle toggleEMP;
     public AudioClip clipActivateEmp;
+    public EMP_Counter empCounter;
 
     [Header("Toggle Visuals")]
     public Color colorNoninteractable = new Color(200f / 255f, 200f / 255f, 200f / 255f, 128f / 255f);
@@ -34,6 +35,7 @@ public class EMP_Device : Item {
     /// </summary>
     public override void On_ItemPickedUp() {
         Change_Interactability(true);
+        toggleEMP.gameObject.SetActive(true);
         base.On_ItemPickedUp();
     }
 
@@ -64,8 +66,9 @@ public class EMP_Device : Item {
         // Disable the EMP and toss it
         Change_Interactability(false);
         toggleEMP.isOn = false;
-        inventory_icon.gameObject.SetActive(false);
+        toggleEMP.gameObject.SetActive(false);
         TurnManager.instance.thief.DropEmp();
+        empCounter.EnableCounter(intTurnsAffected);
     }
 
     /// <summary>
