@@ -404,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -506.99994, y: -98}
+  m_AnchoredPosition: {x: -426, y: -98}
   m_SizeDelta: {x: 657.85046, y: 82.08493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &37547720
@@ -2233,7 +2233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 501, y: 217.5}
+  m_AnchoredPosition: {x: 476, y: 217.5}
   m_SizeDelta: {x: 624.46545, y: 71.154205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271441008
@@ -3559,7 +3559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -506.9997, y: 114}
+  m_AnchoredPosition: {x: -425.9997, y: 114}
   m_SizeDelta: {x: 657.85046, y: 131.98547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450145146
@@ -3581,7 +3581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Game/Level Designer and artist)
+  m_text: (Game/Level Designer and Technical artist)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b274e5de195c50147a1c8ab0941696eb, type: 2}
   m_sharedMaterial: {fileID: 8536967585738745707, guid: b274e5de195c50147a1c8ab0941696eb,
@@ -5160,7 +5160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 501, y: -93}
+  m_AnchoredPosition: {x: 476, y: -93}
   m_SizeDelta: {x: 624.46545, y: 71.154205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &562700883
@@ -8384,7 +8384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -507, y: 212}
+  m_AnchoredPosition: {x: -426, y: 212}
   m_SizeDelta: {x: 657.85046, y: 82.08493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984377696
@@ -14737,8 +14737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -506.99994, y: -196}
-  m_SizeDelta: {x: 657.85046, y: 131.98547}
+  m_AnchoredPosition: {x: -425.99994, y: -196}
+  m_SizeDelta: {x: 657.85034, y: 131.98547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737507155
 MonoBehaviour:
@@ -14759,7 +14759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Programmer and Unity Engineer)
+  m_text: "(Programmer and \nUnity Engineer)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b274e5de195c50147a1c8ab0941696eb, type: 2}
   m_sharedMaterial: {fileID: 8536967585738745707, guid: b274e5de195c50147a1c8ab0941696eb,
@@ -17395,7 +17395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 501, y: 114}
+  m_AnchoredPosition: {x: 476, y: 114}
   m_SizeDelta: {x: 624.46545, y: 135.8469}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025113890
@@ -17417,7 +17417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Project manager and UI Designer)
+  m_text: "(Project manager \nand UI Designer)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b274e5de195c50147a1c8ab0941696eb, type: 2}
   m_sharedMaterial: {fileID: 8536967585738745707, guid: b274e5de195c50147a1c8ab0941696eb,
@@ -17711,8 +17711,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 501, y: -196.5}
-  m_SizeDelta: {x: 624.46545, y: 135.8469}
+  m_AnchoredPosition: {x: 525.2, y: -205.3}
+  m_SizeDelta: {x: 722.8721, y: 153.50964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056763147
 MonoBehaviour:
@@ -17733,7 +17733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Game/Level Designer and Artist)
+  m_text: (Game/Level Designer, Artist, and Audio Designer)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b274e5de195c50147a1c8ab0941696eb, type: 2}
   m_sharedMaterial: {fileID: 8536967585738745707, guid: b274e5de195c50147a1c8ab0941696eb,
