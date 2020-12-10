@@ -16,6 +16,7 @@ public class TurnManager : MonoBehaviour {
     [Header("Items")]
     public List<Keycard> listKeycards = new List<Keycard>();
     public EMP_Device emp;
+    public EMP_Counter empCounter;
 
     [Header("Turn Control")]
     public Tile exitTile;
@@ -212,6 +213,7 @@ public class TurnManager : MonoBehaviour {
     void EnableNewTurn() { 
         if (EnableEnemies()) { return; }
         EnableThief();
+        CountdownEmpTurns();
     }
 
     /// <summary>
@@ -237,9 +239,6 @@ public class TurnManager : MonoBehaviour {
             if (!secCam.IsDisabled) {
                 secCam.DisableFieldOfView();
                 secCam.NextPosition();
-                //if (IsEnemySeeingThief(secCam.GetFieldOfView())) {
-                //    return HandleThiefCaught();
-                //}
             }
         }
 
@@ -276,6 +275,15 @@ public class TurnManager : MonoBehaviour {
             emp.toggleEMP.interactable = true;
         }
         thief.StartNewPath();
+    }
+
+    /// <summary>
+    /// Countdown the EMP turns
+    /// </summary>
+    void CountdownEmpTurns() { 
+        if (empCounter.gameObject.activeInHierarchy) {
+            empCounter.CountdownTurns();
+        }
     }
 
     #endregion
