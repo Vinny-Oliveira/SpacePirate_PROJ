@@ -188,6 +188,7 @@ public class TurnManager : MonoBehaviour {
         // Prepare the Thief and enemies to move
         thief.TurnTargetTilesOff();
         thief.CompleteStatusList();
+        thief.DisableDoorToggles();
 
         // Play the actions
         for (int i = 0; i < intSteps; i++) {

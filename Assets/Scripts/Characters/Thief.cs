@@ -52,9 +52,9 @@ public class Thief : Character {
         }
     }
 
-    ///* Door Control */
-    List<Door> listTempDoors = new List<Door>();
-    List<Tile> listOpenDoorTiles = new List<Tile>();
+    /* Door Control */
+    List<Door> listTempDoors = new List<Door>(); // Doors that will temporarily have their toggles enabled
+    List<Tile> listOpenDoorTiles = new List<Tile>(); // Tiles that had their doors open during the path
 
     /* Item Control */
     public bool HasTreasure { get; set; } = false;
@@ -392,18 +392,21 @@ public class Thief : Character {
         }
         RemoveLastActiveStatus();
 
+        if (listThiefStatus.Count > 0) {
+            // Re-enable a door toggle
+            if (listThiefStatus.Last() == EThiefStatus.OPEN) {
+                listOpenDoorTiles.Last().door.EnableToggle();
+            }
+
+            // Re-enable the EMP if possible
+            if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
+                emp.toggleEMP.gameObject.SetActive(true);
+                emp.Change_Interactability(true);
+            }
+        }
+
         // Enable the option to open doors if next to one
         EnableDoorToggles(LastPathTile);
-
-        if (listThiefStatus.Count < 1) {
-            return;
-        }
-
-        // Re-enable the EMP if possible
-        if (emp != null && (listThiefStatus.Last() == EThiefStatus.EMP || !listThiefStatus.Contains(EThiefStatus.EMP))) {
-            emp.toggleEMP.gameObject.SetActive(true);
-            emp.Change_Interactability(true);
-        }
     }
 
     /// <summary>
@@ -489,7 +492,7 @@ public class Thief : Character {
     }
 
     /// <summary>
-    /// Disable the door toggles of the door temporarily stored
+    /// Disable the door toggles of the doors temporarily stored
     /// </summary>
     public void DisableDoorToggles() {
         foreach (var door in listTempDoors) {
@@ -497,6 +500,12 @@ public class Thief : Character {
         }
 
         listTempDoors.Clear();
+
+        if (listThiefStatus.Count > 0 && listThiefStatus.Last() != EThiefStatus.OPEN) {
+            foreach (var doorTile in listOpenDoorTiles) {
+                doorTile.door.DisableToggle();
+            }
+        }
     }
 
     /// <summary>
