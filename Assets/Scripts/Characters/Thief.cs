@@ -492,15 +492,16 @@ public class Thief : Character {
     }
 
     /// <summary>
-    /// Disable the door toggles of the doors temporarily stored
+    /// Disable the door toggles of the doors temporarily stored and of the open doors
     /// </summary>
     public void DisableDoorToggles() {
+        // Disable temp doors
         foreach (var door in listTempDoors) {
             door.DisableToggle();
         }
-
         listTempDoors.Clear();
 
+        // Disable open doors
         if (listThiefStatus.Count > 0 && listThiefStatus.Last() != EThiefStatus.OPEN) {
             foreach (var doorTile in listOpenDoorTiles) {
                 doorTile.door.DisableToggle();
