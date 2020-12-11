@@ -25332,7 +25332,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8953110183945310152}
         m_MethodName: SetMasterVol
         m_Mode: 0
         m_Arguments:
@@ -41810,7 +41810,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8953110183945310152}
         m_MethodName: SetSfxLv
         m_Mode: 0
         m_Arguments:
@@ -43582,7 +43582,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8953110183945310152}
         m_MethodName: SetMusicLv
         m_Mode: 0
         m_Arguments:
@@ -43640,6 +43640,7 @@ GameObject:
   - component: {fileID: 2835510722119645792}
   - component: {fileID: 5625703804935923622}
   - component: {fileID: 106887191105967264}
+  - component: {fileID: 8953110183945310152}
   m_Layer: 5
   m_Name: Options_Panel
   m_TagString: Untagged
@@ -43706,6 +43707,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.67
+--- !u!114 &8953110183945310152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932124843780713764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb736aaf2b25d14ca3a2322915bf0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: f59bf0506f6afe445939a7c67a6d6493, type: 2}
 --- !u!1 &7940974346686068741
 GameObject:
   m_ObjectHideFlags: 0
