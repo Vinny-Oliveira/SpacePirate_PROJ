@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -16,6 +17,7 @@ namespace Multiplayer
         private string _playerName;
         private PlayerCustimizationSO _playerCustimizationSo;
         public Dictionary<int, NetworkPlayerIdentity> _playerMenuItemDictionary = new Dictionary<int, NetworkPlayerIdentity>();
+        public Hashtable playerCustomProperties = new Hashtable();
         
         [Header("Game Panels and UI")]
         public GameObject namePanel; //where the player submits their name.
@@ -57,6 +59,7 @@ namespace Multiplayer
             }
             Connect();
             namePanel.SetActive(false);
+            
         }
         
         public void Connect()
@@ -138,6 +141,22 @@ namespace Multiplayer
         {
             GameObject item = Instantiate(playerListItemPrefab, playerListHolder);
             item.GetComponent<PlayerListItem>().Init(newPlayer.NickName);
+
+            if (PhotonNetwork.LocalPlayer.Equals(newPlayer))
+            {
+                if (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Started"))
+                {
+                    PhotonNetwork.LocalPlayer.CustomProperties.Add("Started", false);
+                }
+                else
+                {
+                    PhotonNetwork.LocalPlayer.CustomProperties["Started"] = false;
+                }
+                GameObject go = Instantiate(playerNetworkPrefab, Vector3.zero, Quaternion.identity);
+                go.GetComponent<NetworkPlayerIdentity>().Init(PhotonNetwork.LocalPlayer);
+                PhotonNetwork.LocalPlayer.SetCustomProperties(PhotonNetwork.LocalPlayer.CustomProperties);
+            }
+
             // _playerMenuItemDictionary.Add(newPlayer.ActorNumber, item);
             
             // GameObject go = PhotonNetwork.Instantiate(playerNetworkPrefab.name, Vector3.zero, Quaternion.identity);
@@ -158,35 +177,42 @@ namespace Multiplayer
         {
             if(!PhotonNetwork.IsMasterClient) return;
             if (PhotonNetwork.PlayerList.Length < 1) return;
-           
-            
-            foreach(Player p in PhotonNetwork.PlayerList)
+
+            foreach (var player in PhotonNetwork.PlayerList)
             {
-                GameObject go = PhotonNetwork.Instantiate(playerNetworkPrefab.name, Vector3.zero, Quaternion.identity);
-                
-
-                if (_playerMenuItemDictionary.ContainsKey(PhotonNetwork.LocalPlayer.ActorNumber))
-                {
-                    _playerMenuItemDictionary[p.ActorNumber] = go.GetComponent<NetworkPlayerIdentity>();
-                }
-                else
-                {
-                    _playerMenuItemDictionary.Add(p.ActorNumber, go.GetComponent<NetworkPlayerIdentity>());
-                }
-
-                //
-                // Destroy(_playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber]);
-                // _playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber] = go;
+                player.CustomProperties["Started"] = true;
+                player.SetCustomProperties(player.CustomProperties);
             }
+            // foreach(Player p in PhotonNetwork.PlayerList)
+            // {
+            //     if (p.UserId != PhotonNetwork.LocalPlayer.UserId)
+            //     {
+            //         GameObject go = Instantiate(playerNetworkPrefab, Vector3.zero, Quaternion.identity);
+            //         go.GetComponent<NetworkPlayerIdentity>().Init(PhotonNetwork.LocalPlayer);
+            //         if (_playerMenuItemDictionary.ContainsKey(PhotonNetwork.LocalPlayer.ActorNumber))
+            //         {
+            //             _playerMenuItemDictionary[p.ActorNumber] = go.GetComponent<NetworkPlayerIdentity>();
+            //         }
+            //         else
+            //         {
+            //             _playerMenuItemDictionary.Add(p.ActorNumber, go.GetComponent<NetworkPlayerIdentity>());
+            //         }
+            //     }
+            //     //
+            //     // Destroy(_playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber]);
+            //     // _playerMenuItemDictionary[PhotonNetwork.LocalPlayer.ActorNumber] = go;
+            // }
 
-            foreach (var kvp in _playerMenuItemDictionary)
-            {
-                kvp.Value.GetComponent<NetworkPlayerIdentity>().Init(PhotonNetwork.PlayerList[kvp.Key]);
-            }
+            // foreach (var kvp in _playerMenuItemDictionary)
+            // {
+            //     if(PhotonNetwork.LocalPlayer.NickName == PhotonNetwork.PlayerList[kvp.Key].NickName)
+            //         kvp.Value.GetComponent<NetworkPlayerIdentity>().Init(PhotonNetwork.PlayerList[kvp.Key]);
+            // }
             
             
             createdRoomPanel.SetActive(false);
         }
+        
 
         //Leave Room
 
